@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Workshop C++</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,19 +21,74 @@
 
 class: center, middle
 
-# Title
+# Workshop C++
+### NIAEFEUP
 
 ---
 
-# Agenda
+# Overview
 
-1. Introduction
-2. Deep-dive
-3. ...
+1. Introdução
+2. Hello world!
+3. Tipos de dados
+4. Variáveis
+5. Constantes
+6. Condições
+7. Operações de IO
+8. Loops
+9. Vetores
+10. Funções
+11. Classes
 
 ---
 
-# Introduction
+# Introdução
+
+## Características do C++
+- Extensão da linguagem C - 99% retrocompatível;
+- Suporta programação orientada a objetos;
+- Usada para definir precisamente uma sequência de operações que o computador tem 
+que executar para realizar uma determinada tarefa;
+- Extremamente eficiente (quando bem utilizada...);
+- Versátil e muito poderosa;
+- Exige responsabilidade por parte do programador (alocação dinâmica de memória, 
+memory leaks, dangling pointers...).
+
+---
+
+# Hello world!
+```
+#include <iostream>
+
+int main() {
+  cout << "Hello world!" << endl;
+  return 0;
+}
+```
+---
+
+# Tipos de dados
+- char - caracteres alfanuméricos (ex: 'c', '8', '$');
+- int - números inteiros (ex: 103, -2)
+- float - números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
+- double - números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
+- bool - verdadeiro ou falso (ex: true, false)
+
+```
+int main() {
+  char x = 'r';
+  int i = 0;
+  float y = 1.3;
+  double z = 4.586
+  bool b = true;
+
+  return 0;
+}
+
+---
+# Variáveis
+## O que são?
+Nomes aos quais está associado um valor que pode ser alterado
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
