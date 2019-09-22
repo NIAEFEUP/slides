@@ -42,28 +42,37 @@ class: center, middle
 
 ---
 
-# Introdução
-
-## Características do C++
-- Extensão da linguagem C - 99% retrocompatível;
-- Suporta programação orientada a objetos;
+# O que é o C++?
+- Criado por Bjarne Stroustrup
+- Extensão da linguagem C - 99% retrocompatível
+- Disponível em praticamente todos os computadores
+- Suporta programação orientada a objetos
 - Usada para definir precisamente uma sequência de operações que o computador tem 
-que executar para realizar uma determinada tarefa;
-- Extremamente eficiente (quando bem utilizada...);
-- Versátil e muito poderosa;
-- Exige responsabilidade por parte do programador (alocação dinâmica de memória, 
-memory leaks, dangling pointers...).
+que executar para realizar uma determinada tarefa
+- Extremamente eficiente (quando bem utilizada...)
+- Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
+
+![Bjarne Stroustrup](../img/bjarne_stroustrup.jpg)
 
 ---
 
 # Hello world!
-```
+## Qual o código?
+```C++
+// helloworld.cpp
 #include <iostream>
+
+using namespace std;
 
 int main() {
   cout << "Hello world!" << endl;
   return 0;
 }
+```
+
+## Como compilar?
+```Bash
+g++ helloworld.cpp -o helloworld
 ```
 ---
 
@@ -74,7 +83,7 @@ int main() {
 - double - números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
 - bool - verdadeiro ou falso (ex: true, false)
 
-```
+```C++
 int main() {
   char x = 'r';
   int i = 0;
@@ -84,11 +93,55 @@ int main() {
 
   return 0;
 }
-
+```
 ---
 # Variáveis
 ## O que são?
-Nomes aos quais está associado um valor que pode ser alterado
+- Contentores capazes de armazenar valores de um determinado tipo
+
+## Como as declarar?
+```C++
+int myNumber = 15;
+bool myBoolean = true;
+```
+## Tipos de variáveis
+- Globais - declarar fora de qualquer função
+- Locais - declarar dentro de uma função específica (ex. main)
+
+### NOTAS:
+- Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
+desde que sejam locais e estejam dentro de funções diferentes cada uma 
+- Não têm que ser inicializadas ao mesmo tempo que são declaradas
+
+---
+
+# Constantes
+Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização
+
+```C++
+const int num = 3;
+```
+
+Podem também ser locais ou globais
+
+
+## Exemplo de utilização de variáveis e constantes
+```C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int x;
+  const char c = 'T';
+
+  x = 5;
+  cout << x << " " << c << endl;
+
+  return 0;
+}
+```
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
