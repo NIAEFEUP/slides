@@ -282,11 +282,52 @@ numbers.push_back(40);    // adição do valor 40 ao fim do vetor
 numbers.pop_back();   // remove o último valor do vetor (40)
 ```
 
----
+--- 
 
-## Notas importantes sobre Vetores
+### Notas importantes sobre vetores
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+retos ou o método .at(); 
+
+---
+
+## Funções
+Até agora, todo o código encontrava-se dentro da função main. Para programas mais simples é o suficiente, 
+mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se extremamente útil:
+
+--- 
+
+### Organização 
+Uma função é praticamente um mini-programa que é escrito fora da função main(), sem que se tenha que pensar sobre o resto 
+do programa que vamos escrever. Isto permite reduzir um programa complexo noutros mais pequenos e mais fáceis de lidar.
+
+---
+
+### Reusabilidade
+Após uma função ser escrita, pode ser chamada múltiplas vezes a partir do programa. Isto evita repetição de código e minimiza a 
+probabilidade de erros "copy-paste". Estas funções também podem ser partilhadas com outros programas, diminuindo a quantidade que tem 
+que ser escrita de raiz de cada vez.
+
+--- 
+
+### Testabilidade
+Como as funções reduzem a redundância de código, há menos código para ser testado. Também devido ao facto de que as funções são isoladas, 
+depois de as testarmos uma vez, não precisamos de as testar novamente (a não ser que eventualmente a modifiquemos). Isto reduz a quantidade 
+de código, o que torna muito mais fácil encontrar bugs (ou evita-los, preferencialmente).
+
+---
+
+### Extensibilidade
+Quando precisamos de extender o nosso programa para suportar um caso com o qual este não conseguia lidar anteriormente, 
+as funções permitem-nos fazer uma modificação num lugar e ver essas mudanças em ação todas as vezes que a função for chamada.
+
+--- 
+### Abstração 
+De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
+saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
+poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL))
+
 
 
     </textarea>
