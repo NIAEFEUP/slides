@@ -76,12 +76,29 @@ g++ helloworld.cpp -o helloworld
 ```
 ---
 
+
 # Tipos de dados
 - char - caracteres alfanuméricos (ex: 'c', '8', '$');
 - int - números inteiros (ex: 103, -2)
 - float - números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
 - double - números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
 - bool - verdadeiro ou falso (ex: true, false)
+- void - significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
+valor
+
+# Modificadores de tipos de dados
+- signed - para números com sinal
+- unsigned - para números sem sinal
+- short - valor otimizado para o espaço com comprimento de pelo menos 16 bits
+- long - valor otimizado para precisão com comprimento de pelo menos 32 bits
+- long long - valor otimizado para precisão com comprimento de pelo menos 64 bits
+
+```C++
+unsigned int i = 5;
+int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
+long float z = 9;
+long long double d = 37.2387193;
+```
 
 ```C++
 int main() {
@@ -96,8 +113,7 @@ int main() {
 ```
 ---
 # Variáveis
-## O que são?
-- Contentores capazes de armazenar valores de um determinado tipo
+São contentores capazes de armazenar valores de um determinado tipo
 
 ## Como as declarar?
 ```C++
@@ -107,6 +123,8 @@ bool myBoolean = true;
 ## Tipos de variáveis
 - Globais - declarar fora de qualquer função
 - Locais - declarar dentro de uma função específica (ex. main)
+
+---
 
 ### NOTAS:
 - Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
@@ -177,6 +195,57 @@ int main() {
 - **-=** operando da esquerda fica com o valor do da direita subtraído com o seu próprio valor
 - ***=** operando da esquerda fica com o valor do da direita multiplicado com o seu próprio valor
 - **/=** operando da esquerda fica com o valor do da direita dividido com o seu próprio valor
+
+---
+
+
+# Operadores de IO
+## Output
+De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
+mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
+anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
+transmitir informação para o ecrã do utilizador.
+
+Código
+```C++
+cout << "Bom dia " << nome_do_aluno << "!" << endl;
+cout << "Tudo bem contigo?" << endl;
+```
+
+Output 
+```Bash
+// Assuma-se que o conteúdo da variável nome_do_aluno é Inês.
+Bom dia Inês!
+Tudo bem?
+```
+---
+
+
+### NOTA:
+A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
+utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
+seguinte:
+```Bash
+Bom dia Inês!Tudo bem?
+```
+
+---
+
+### Input 
+De maneira similar, é possível transmitir informações do utilizador para o programa.
+Para isso usa-se o objeto **cin** e o operador **>>**. Após o operador, coloca-se 
+a variável aonde vai ser guardada a informação.
+
+```C++
+int numero_do_aluno = 5;
+cin >> numero_do_aluno;
+cout << numero_do_aluno << endl;
+```
+
+Output
+```Bash
+5
+```
 
 ---
 
@@ -326,7 +395,7 @@ as funções permitem-nos fazer uma modificação num lugar e ver essas mudança
 ### Abstração 
 De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
 saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
-poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL))
+poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL)).
 
 
 
