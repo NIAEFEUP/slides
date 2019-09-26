@@ -392,12 +392,42 @@ Quando precisamos de extender o nosso programa para suportar um caso com o qual 
 as funções permitem-nos fazer uma modificação num lugar e ver essas mudanças em ação todas as vezes que a função for chamada.
 
 --- 
-### Abstração 
+### Abstração
 De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
 saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
 poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL)).
 
+---
 
+#### Exemplo
+```C++
+#include <iostream>
+
+using namespace std;
+
+string getName() {
+
+  string name;
+
+  cout << "Insert your name: ";
+  getline(cin, name);
+  
+  return name;
+}
+
+int main() {
+  string name = getName();
+  cout << "Hello " << name << "! I hope you have a great day :D" << endl;
+  
+  return 0;
+}
+```
+
+#### Output
+```C++
+  > Insert your name: Sofia
+  > Hello Sofia! I hope you have a great day :D
+```
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
