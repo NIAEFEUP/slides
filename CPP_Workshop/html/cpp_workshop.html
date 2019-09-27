@@ -57,7 +57,6 @@ que executar para realizar uma determinada tarefa
 ---
 
 # Hello world!
-## Qual o código?
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -70,12 +69,7 @@ int main() {
 }
 ```
 
-## Como compilar?
-```Bash
-g++ helloworld.cpp -o helloworld
-```
 ---
-
 
 # Tipos de dados
 - char - caracteres alfanuméricos (ex: 'c', '8', '$');
@@ -134,27 +128,21 @@ desde que sejam locais e estejam dentro de funções diferentes cada uma
 ---
 
 # Constantes
-Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização
+Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização. 
+Podem ser locais ou globais.
 
-```C++
-const int num = 3;
-```
-
-Podem também ser locais ou globais
-
-
-## Exemplo de utilização de variáveis e constantes
 ```C++
 #include <iostream>
 
 using namespace std;
 
 int main() {
-  int x;
-  const char c = 'T';
+  int variable;
+  const char constant = 'T';
 
-  x = 5;
-  cout << x << " " << c << endl;
+  variable = 5;
+  constant = 3; // IMPOSSÍVEL: seria gerado um erro durante a compilação!
+  cout << variable << " " << constant << endl;
 
   return 0;
 }
@@ -179,8 +167,8 @@ int main() {
 - ***** multiplicação
 - **/** divisão
 - **%** módulo
-- **++** incremento
-- **--** decremento
+- **++** incremento de 1 unidade
+- **--** decremento de 1 unidade
 
 ## Operadores lógicos
 - **&&** E lógico
@@ -206,23 +194,20 @@ mensagens no ecrã do computador. Para isso, e como foi possível ver no slide
 anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
 transmitir informação para o ecrã do utilizador.
 
-Código
 ```C++
 cout << "Bom dia " << nome_do_aluno << "!" << endl;
 cout << "Tudo bem contigo?" << endl;
 ```
 
-Output 
+--- 
+
 ```Bash
 // Assuma-se que o conteúdo da variável nome_do_aluno é Inês.
 Bom dia Inês!
 Tudo bem?
 ```
----
 
-
-### NOTA:
-A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
+NOTA: A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
 utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
 seguinte:
 ```Bash
@@ -233,19 +218,60 @@ Bom dia Inês!Tudo bem?
 
 ### Input 
 De maneira similar, é possível transmitir informações do utilizador para o programa.
-Para isso usa-se o objeto **cin** e o operador **>>**. Após o operador, coloca-se 
+Para isso usa-se a stream **cin** e o operador **>>**. Após o operador, coloca-se 
 a variável aonde vai ser guardada a informação.
 
 ```C++
-int numero_do_aluno = 5;
+int numero_do_aluno;
 cin >> numero_do_aluno;
 cout << numero_do_aluno << endl;
 ```
 
-Output
+--- 
 ```Bash
 5
 ```
+
+A stream **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
+definidos pelo utilizador, a não ser que o operador >> tenha sido overloaded).
+
+Note-se que também existe a função getline(), que permite obter informação apenas 
+sob a forma de strings. A vantagem relativamente ao **cin** é que esta função permite 
+receber strings com o caracter espaço ' ' (a string *acaba* apenas quando o caracter '\n' 
+é encontrado). Por outro lado, o **cin** utiliza qualquer espaço em branco como 
+delimitador (o que inclui espaços, newlines, tabs, etc.).
+
+---
+
+```C++
+#include <iostream>
+  
+using namespace std;
+    
+// Um mau uso da stream cin
+
+int main() {
+    string name;
+    cout << "Insert your name here: ";
+    cin >> name;
+    cout << "Your name is " << name << endl;
+    
+    return 0;
+}     
+```
+
+--- 
+
+```Bash
+Insert your name here: Rui Alves
+Your name is Rui
+```
+
+--- 
+
+Repare-se que o nome inserido difere do recebido pelo programa!
+Mais à frente veremos o porquê de isto acontecer, e perceberemos melhor o 
+funcionamento da stream **cin**.
 
 ---
 
@@ -345,25 +371,87 @@ novo é inserido ou apagado
 - São alocados contíguamente na memória, podendo por isso ser acessados através de iteradores
 - Os dados são sempre inseridos no final do vetor
 
+## Notas importantes
+- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
+está na posição 0, o segundo elemento na posição 1, etc.
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+retos [] ou o método .at(); 
+
+---
+
 ```C++
-vector<int> numbers {10, 20, 30};   // inicialização do vetor com 3 elementos
-numbers.push_back(40);    // adição do valor 40 ao fim do vetor
-numbers.pop_back();   // remove o último valor do vetor (40)
+#include <iostream>
+#include <vector>
+    
+using namespace std;
+    
+int main() {
+    vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
+    int size;
+
+    numbers.push_back(40); // adição do valor 40 ao fim do vetor
+    numbers.pop_back(); // remove o último valor do vetor (40)
+
+    size = numbers.size();
+    
+    cout << "Vector size = " << size << endl;
+    cout << "Vector elements:";
+    for (unsigned int i = 0; i != numbers.size(); i++)
+        cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
+    
+    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor
+    
+    // EVITAR FAZER O SEGUINTE:
+    // Nas próximas linhas de código, estamos a repetir código de maneira a 
+    // podermos voltar a imprimir o tamanho e conteúdo do vetor!
+    cout << "Vector size = " << size << endl;
+    cout << "Vector elements:";
+    for (unsigned int i = 0; i != numbers.size(); i++)
+        cout << " " << numbers.at(i);
+    cout << endl;
+
+    return 0;
+}                                                                         
+```
+---
+
+```Bash
+Vector size = 3
+Vector elements: 10 20 30
+Vector size = 3
+Vector elements: 10 30
 ```
 
 --- 
 
-### Notas importantes sobre vetores
-- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
-está na posição 0, o segundo elemento na posição 1, etc.
-- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
-retos ou o método .at(); 
+Atente-se no uso da função erase() para eliminar um elemento de um vetor:
+```C++
+numbers.erase(numbers.begin() + 1);
+```
+A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
+do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
+10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
+à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
+
+--- 
+
+É também de realçar a repetição do código de impressão do tamanho e conteúdo do vetor!
+```C++
+cout << "Vector size = " << size << endl;
+cout << "Vector elements:";
+for (unsigned int i = 0; i != numbers.size(); i++)
+    cout << " " << numbers.at(i); // equivalente a numbers[i]
+cout << endl;
+```
+
+Haverá alguma maneira de evitar esta situação?
 
 ---
 
 ## Funções
 Até agora, todo o código encontrava-se dentro da função main. Para programas mais simples é o suficiente, 
-mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se extremamente útil:
+mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se extremamente útil.
 
 --- 
 
@@ -383,7 +471,7 @@ que ser escrita de raiz de cada vez.
 ### Testabilidade
 Como as funções reduzem a redundância de código, há menos código para ser testado. Também devido ao facto de que as funções são isoladas, 
 depois de as testarmos uma vez, não precisamos de as testar novamente (a não ser que eventualmente a modifiquemos). Isto reduz a quantidade 
-de código, o que torna muito mais fácil encontrar bugs (ou evita-los, preferencialmente).
+de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, preferencialmente).
 
 ---
 
@@ -396,37 +484,91 @@ as funções permitem-nos fazer uma modificação num lugar e ver essas mudança
 De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
 saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
 poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL)).
+ 
 
 ---
 
-#### Exemplo
 ```C++
 #include <iostream>
 
 using namespace std;
 
 string getName() {
-
   string name;
-
   cout << "Insert your name: ";
   getline(cin, name);
-  
   return name;
+}
+
+int getAge() {
+  int age;
+  cout << "Insert your age: ";
+  cin >> age;
+  cin.clear();
+  cin.ignore(9999, '\n');
 }
 
 int main() {
   string name = getName();
+  int age;
   cout << "Hello " << name << "! I hope you have a great day :D" << endl;
-  
+
   return 0;
 }
 ```
 
-#### Output
+
 ```C++
-  > Insert your name: Sofia
-  > Hello Sofia! I hope you have a great day :D
+Insert your name: Sofia
+Insert your age: 18
+Hello Sofia! You are 18 years old. Have a great day!
+```
+
+---
+
+```C++
+#include <iostream>
+
+using namespace std;
+
+void clear_stream() {
+    cin.clear();
+    cin.ignore(9999, '\n');
+}
+
+int multiply(int first_operand, int second_operand) { // dois argumentos!
+    return first_operand * second_operand;
+}
+
+int get_operand(int order) {
+  int operand;
+  cout << "Insert operand number " << order << ": ";
+  cin >> operand;
+
+  return operand;
+}
+
+int main() {
+    int n1, n2;
+
+    n1 = get_operand(1);
+    clear_stream();
+
+    n2 = get_operand(2);
+    clear_stream();
+
+    cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
+
+    return 0;
+}
+```
+
+---
+
+```Bash
+Insert operand number 1: 4
+Insert operand number 2: 7
+4x7=28
 ```
 
     </textarea>
