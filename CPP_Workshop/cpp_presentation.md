@@ -31,7 +31,7 @@ que executar para realizar uma determinada tarefa
 - Extremamente eficiente (quando bem utilizada...)
 - Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
 
-![Bjarne Stroustrup](img/bjarne_stroustrup.jpg)
+![Bjarne Stroustrup](img/bjarne.jpg)
 
 ---
 
@@ -61,8 +61,8 @@ valor
 
 ---
 
-
-# Modificadores de tipos de dados
+# Tipos de dados
+## Modificadores de tipos de dados
 - signed - para números com sinal
 - unsigned - para números sem sinal
 - short - valor otimizado para o espaço com comprimento de pelo menos 16 bits
@@ -138,7 +138,7 @@ int main() {
 - **<=** verdadeiro se operando da esquerda for menor ou igual que o da direita
 
 ---
-
+# Operadores
 ## Operadores Aritméticos
 - **+** adição
 - **-** subtração
@@ -155,6 +155,7 @@ int main() {
 
 ---
 
+# Operadores
 ## Alguns operadores de atribuição
 - **=** operando da esquerda fica com o valor do da direita
 - **+=** operando da esquerda fica com o valor do da direita somado com o seu próprio valor
@@ -165,8 +166,9 @@ int main() {
 ---
 
 
-# Operadores de IO
-## Output
+# Operadores
+## IO
+### Output
 De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
 mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
 anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
@@ -193,22 +195,11 @@ Bom dia Inês!Tudo bem?
 ```
 
 ---
-
+# Operadores
 ### Input 
 De maneira similar, é possível transmitir informações do utilizador para o programa.
 Para isso usa-se a stream **cin** e o operador **>>**. Após o operador, coloca-se 
 a variável aonde vai ser guardada a informação.
-
-```C++
-int numero_do_aluno;
-cin >> numero_do_aluno;
-cout << numero_do_aluno << endl;
-```
-
---- 
-```Bash
-5
-```
 
 --- 
 
@@ -222,7 +213,7 @@ receber strings com o caracter espaço ' ' (a string *acaba* apenas quando o car
 delimitador (o que inclui espaços, newlines, tabs, etc.).
 
 ---
-
+# Operadores
 ```C++
 #include <iostream>
   
@@ -277,7 +268,7 @@ if (smart && !lazy)
 ```
 
 ---
-
+# Condições
 ## Declarações *Switch-Case*
 Ideail para substituírem declarações *if* muito longas que 
 comparam uma variável com vários **valores inteiros** 
@@ -313,7 +304,7 @@ do {
 while (x < 5);
 ```
 ---
-
+# Ciclos
 ## For loop
 ```C++
 for (unsigned int i = 0; i < 10; i++) {
@@ -358,7 +349,6 @@ está na posição 0, o segundo elemento na posição 1, etc.
 retos [] ou o método .at(); 
 
 ---
-
 ```C++
 #include <iostream>
 #include <vector>
@@ -429,25 +419,25 @@ Haverá alguma maneira de evitar esta situação?
 
 ---
 
-## Funções
+# Funções
 Até agora, todo o código encontrava-se dentro da função main. Para programas mais simples é o suficiente, 
 mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se extremamente útil.
 
 --- 
 
-### Organização 
+## Organização 
 Uma função é praticamente um mini-programa que é escrito fora da função main(), sem que se tenha que pensar sobre o resto 
 do programa que vamos escrever. Isto permite reduzir um programa complexo noutros mais pequenos e mais fáceis de lidar.
 
 --- 
-### Reusabilidade
+## Reusabilidade
 Após uma função ser escrita, pode ser chamada múltiplas vezes a partir do programa. Isto evita repetição de código e minimiza a 
 probabilidade de erros "copy-paste". Estas funções também podem ser partilhadas com outros programas, diminuindo a quantidade que tem 
 que ser escrita de raiz de cada vez.
 
 ---
-
-### Testabilidade
+# Funções
+## Testabilidade
 Como as funções reduzem a redundância de código, há menos código para ser testado. Também devido ao facto de que as funções são isoladas, 
 depois de as testarmos uma vez, não precisamos de as testar novamente (a não ser que eventualmente a modifiquemos). Isto reduz a quantidade 
 de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, preferencialmente).
@@ -458,7 +448,9 @@ de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, prefere
 Quando precisamos de extender o nosso programa para suportar um caso com o qual este não conseguia lidar anteriormente, 
 as funções permitem-nos fazer uma modificação num lugar e ver essas mudanças em ação todas as vezes que a função for chamada.
 
---- 
+---
+
+# Funções
 ### Abstração
 De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
 saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
@@ -550,7 +542,7 @@ Insert operand number 2: 7
 ```
 --- 
 
-## Streams 
+# Streams 
 As streams de IO do C++ providenciam uma maneira incrívelmente flexível, mas ao mesmo tempo
 simples, de conceber as rotinas de input/output de qualquer aplicação.
 
@@ -567,6 +559,7 @@ ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
 
 ---
 
+# Streams
 ```C++
 /**
   * INPUT FROM TEXT TO FILE
@@ -597,7 +590,6 @@ Uma **ifstream** é um objeto da classe de input stream usado para operar em
 ficheiros. Uma **ofstream** trabalha, analogamente, com output.
 
 ---
-
 ```C++
 int main() {
     string filename;
@@ -622,7 +614,7 @@ int main() {
 --- 
 
 ```Bash
-cat aux.txt 
+Conteúdo do ficheiro aux.txt:
 1 5 4 2 3
 ```
 
@@ -657,6 +649,6 @@ int main() {
 --- 
 
 ```Bash
-cat example.txt 
+Conteúdo do ficheiro example.txt: 
 Writing this very difficult computation into a file
 ```
