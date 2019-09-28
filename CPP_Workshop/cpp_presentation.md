@@ -569,7 +569,7 @@ ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
 
 ```C++
 /**
-  * INPUT FROM TEXT TO file
+  * INPUT FROM TEXT TO FILE
   * Reads numbers from a file and finds the maximum value
   */
 #include <iostream>
