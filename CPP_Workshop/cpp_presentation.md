@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Workshop C++</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
-
 class: center, middle
 
 # Workshop C++
@@ -80,6 +59,9 @@ int main() {
 - void - significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
 valor
 
+---
+
+
 # Modificadores de tipos de dados
 - signed - para números com sinal
 - unsigned - para números sem sinal
@@ -88,14 +70,12 @@ valor
 - long long - valor otimizado para precisão com comprimento de pelo menos 64 bits
 
 ```C++
-unsigned int i = 5;
-int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
-long float z = 9;
-long long double d = 37.2387193;
-```
 
-```C++
 int main() {
+  unsigned int i = 5;
+  int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
+  long float z = 9;
+  long long double d = 37.2387193;
   char x = 'r';
   int i = 0;
   float y = 1.3;
@@ -117,8 +97,6 @@ bool myBoolean = true;
 ## Tipos de variáveis
 - Globais - declarar fora de qualquer função
 - Locais - declarar dentro de uma função específica (ex. main)
-
----
 
 ### NOTAS:
 - Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
@@ -231,6 +209,8 @@ cout << numero_do_aluno << endl;
 ```Bash
 5
 ```
+
+--- 
 
 A stream **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
 definidos pelo utilizador, a não ser que o operador >> tenha sido overloaded).
@@ -459,21 +439,20 @@ mas à medida que a complexidade (e número de linhas de código) da aplicação
 Uma função é praticamente um mini-programa que é escrito fora da função main(), sem que se tenha que pensar sobre o resto 
 do programa que vamos escrever. Isto permite reduzir um programa complexo noutros mais pequenos e mais fáceis de lidar.
 
----
-
+--- 
 ### Reusabilidade
 Após uma função ser escrita, pode ser chamada múltiplas vezes a partir do programa. Isto evita repetição de código e minimiza a 
 probabilidade de erros "copy-paste". Estas funções também podem ser partilhadas com outros programas, diminuindo a quantidade que tem 
 que ser escrita de raiz de cada vez.
 
---- 
+---
 
 ### Testabilidade
 Como as funções reduzem a redundância de código, há menos código para ser testado. Também devido ao facto de que as funções são isoladas, 
 depois de as testarmos uma vez, não precisamos de as testar novamente (a não ser que eventualmente a modifiquemos). Isto reduz a quantidade 
 de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, preferencialmente).
 
----
+--- 
 
 ### Extensibilidade
 Quando precisamos de extender o nosso programa para suportar um caso com o qual este não conseguia lidar anteriormente, 
@@ -511,8 +490,7 @@ int getAge() {
 int main() {
   string name = getName();
   int age;
-  cout << "Hello " << name << "! I hope you have a great day :D" << endl;
-
+  cout << "Hello " << name << "! You are " << age << " years old." << endl;
   return 0;
 }
 ```
@@ -521,7 +499,7 @@ int main() {
 ```C++
 Insert your name: Sofia
 Insert your age: 18
-Hello Sofia! You are 18 years old. Have a great day!
+Hello Sofia! You are 18 years old.
 ```
 
 ---
@@ -570,12 +548,87 @@ Insert operand number 1: 4
 Insert operand number 2: 7
 4x7=28
 ```
+--- 
 
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
-</html>
+## Streams 
+As streams de IO do C++ providenciam uma maneira incrívelmente flexível, mas ao mesmo tempo
+simples, de conceber as rotinas de input/output de qualquer aplicação.
+
+A informação pode ser vista como cadeias (streams) de caracteres. Isto faz sentido porque 
+qualquer coisa que escrevamos no teclado pode apenas ser um caracter. Suponha-se que o utilizador 
+insere o número 7479 - como é possível saber que foi inserido um número? O problema é que na verdade, 
+não se sabe ao certo. Tudo o que se tem é o conjunto de caracteres '7', '4', '7' e '9'. Cabe ao 
+programador decidir se quer que a string inserida seja um número, uma string, etc. Se os caracteres 
+são válidos para o tipo que o programador deseja que sejam? Depende se o tipo de dados consegue interpretar 
+os caracteres da input stream como uma descrição de um objeto desse tipo.
+
+Para além de enviar informação para o ecrã (**cout**), as streams podem também direcionar os dados para 
+ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
+
+---
+
+```C++
+/**
+  * INPUT FROM TEXT TO file
+  * Reads numbers from a file and finds the maximum value
+  */
+#include <iostream>
+#include <string>
+#include <fstream> 
+
+using namespace std;
+
+double max_value(ifstream &in)
+{
+    double highest, next;
+    if (in >> next) // if file contains at least 1 element
+        highest = next;
+    else return 0;
+    while (in >> next)
+      if (next > highest)
+        highest = next;
+    return highest
+}
+```
+
+Note-se a inclusão das bibliotecas string e fstream! 
+
+Uma **ifstream** é um objeto da classe de input stream usado para operar em 
+ficheiros. Uma **ofstream** trabalha, analogamente, com output.
+
+---
+
+```C++
+int main() {
+    string filename;
+    cout << "Please enter the data file name: ";
+    cin >> filename;
+
+    ifstream infile;
+    infile.open(filename);
+
+    if (infile.fail()) { // or if(!infile.is_open()) or if (!infile)
+        cerr << "Error opening " << filename << "\n";
+        return 1;
+    }
+
+    double max = max_value(infile);
+    cout << "The maximum value is " << max << "\n";
+
+    infile.close();
+    return 0;
+}
+```
+--- 
+
+```Bash
+cat aux.txt 
+1 5 4 2 3
+```
+
+--- 
+
+```Bash
+Please enter the data file name: aux.txt
+The maximum value is 5
+```
