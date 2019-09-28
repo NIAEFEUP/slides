@@ -632,3 +632,31 @@ cat aux.txt
 Please enter the data file name: aux.txt
 The maximum value is 5
 ```
+
+---
+
+```C++
+/**
+  * OUTPUT TO FILE
+  * Writes a simple string into a file
+  */
+#include <iostream>
+using namespace std;
+
+int main() {
+    ofstream outfile;
+    outfile.open("example.txt");
+
+    outfile << "Writing this very difficult computation into a file  << endl;
+
+    outfile.close()
+
+    return 0;
+}
+```
+--- 
+
+```Bash
+cat example.txt 
+Writing this very difficult computation into a file
+```
