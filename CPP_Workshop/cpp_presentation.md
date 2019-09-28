@@ -31,7 +31,7 @@ que executar para realizar uma determinada tarefa
 - Extremamente eficiente (quando bem utilizada...)
 - Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
 
-![Bjarne Stroustrup](../img/bjarne_stroustrup.jpg)
+![Bjarne Stroustrup](img/bjarne_stroustrup.jpg)
 
 ---
 
