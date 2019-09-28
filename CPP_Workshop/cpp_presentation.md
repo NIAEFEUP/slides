@@ -444,14 +444,14 @@ de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, prefere
 
 --- 
 
-### Extensibilidade
+## Extensibilidade
 Quando precisamos de extender o nosso programa para suportar um caso com o qual este não conseguia lidar anteriormente, 
 as funções permitem-nos fazer uma modificação num lugar e ver essas mudanças em ação todas as vezes que a função for chamada.
 
 ---
 
 # Funções
-### Abstração
+## Abstração
 De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
 saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
 poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL)).
@@ -540,7 +540,7 @@ Insert operand number 1: 4
 Insert operand number 2: 7
 4x7=28
 ```
---- 
+---
 
 # Streams 
 As streams de IO do C++ providenciam uma maneira incrívelmente flexível, mas ao mesmo tempo
