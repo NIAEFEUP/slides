@@ -7,17 +7,17 @@ class: center, middle
 
 # Overview
 
-1. Introdução
+1. O que é o C++?
 2. Hello world!
 3. Tipos de dados
 4. Variáveis
 5. Constantes
-6. Condições
-7. Operações de IO
-8. Loops
+6. Operadores
+7. Condições
+8. Ciclos
 9. Vetores
 10. Funções
-11. Classes
+11. Streams
 
 ---
 
