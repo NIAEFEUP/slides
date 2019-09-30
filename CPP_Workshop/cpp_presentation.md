@@ -7,7 +7,7 @@ class: center, middle
 
 # Links importantes
 
-- Apresentação: https://netlify.com
+- Apresentação: https://niaefeup-workshop-cpp.netlify.com/
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/)
 - [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler)
 
