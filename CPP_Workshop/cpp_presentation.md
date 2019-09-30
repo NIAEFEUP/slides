@@ -613,8 +613,8 @@ int main() {
 ```
 --- 
 
-```Bash
 Conteúdo do ficheiro aux.txt:
+```Bash
 1 5 4 2 3
 ```
 
@@ -648,7 +648,7 @@ int main() {
 ```
 --- 
 
-```Bash
 Conteúdo do ficheiro example.txt: 
+```Bash
 Writing this very difficult computation into a file
 ```
