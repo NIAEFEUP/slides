@@ -1015,18 +1015,14 @@ ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
 
 # Streams
 ```C++
-/**
-  * INPUT FROM TEXT TO FILE
-  * Reads numbers from a file and finds the maximum value
-  */
+// Reads numbers from a file and finds the maximum value
 #include <iostream>
 #include <string>
 #include <fstream> 
 
 using namespace std;
 
-double max_value(ifstream &in)
-{
+double max_value(ifstream &in){
     double highest, next;
     if (in >> next) // if file contains at least 1 element
         highest = next;
@@ -1034,7 +1030,7 @@ double max_value(ifstream &in)
     while (in >> next)
       if (next > highest)
         highest = next;
-    return highest
+    return highest;
 }
 ```
 
@@ -1184,8 +1180,9 @@ int main()
 
 ## Ferramenta de Desenvolvimento
 
-- Visual Studio Code & Extensão C/C++ & g++ (Linux/Mac)
-- Visual Studio (Windows)
+- [Visual Studio Code](https://code.visualstudio.com/) & Extensão C/C++ & g++ (Linux/Mac)
+- [Visual Studio](https://visualstudio.microsoft.com/) (Windows)
+- [CLion](https://www.jetbrains.com/clion/) (Windows/Linux/Mac)
 
 ## Referência
 
