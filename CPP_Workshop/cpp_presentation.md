@@ -1053,15 +1053,16 @@ The maximum value is 5
   * Writes a simple string into a file
   */
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main() {
     ofstream outfile;
     outfile.open("example.txt");
 
-    outfile << "Writing this very difficult computation into a file  << endl;
+    outfile << "Writing this very difficult computation into a file" << endl;
 
-    outfile.close()
+    outfile.close();
 
     return 0;
 }
