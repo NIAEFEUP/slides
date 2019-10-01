@@ -51,8 +51,8 @@ que executar para realizar uma determinada tarefa
 using namespace std;
 
 int main() {
-  cout << "Hello world!" << endl;
-  return 0;
+    cout << "Hello world!" << endl;
+    return 0;
 }
 ```
 
@@ -73,8 +73,7 @@ Exemplo do programa em execução:
 
 
 ```cpp
-int main()
-{
+int main() {
     // ...
      
     vector<double> prices;
@@ -100,26 +99,24 @@ valor
 
 # Tipos de dados
 ## Modificadores de tipos de dados
-- signed - para números com sinal
-- unsigned - para números sem sinal
+- signed/unsigned - para números com/sem sinal
 - short - valor otimizado para o espaço com comprimento de pelo menos 16 bits
-- long - valor otimizado para precisão com comprimento de pelo menos 32 bits
-- long long - valor otimizado para precisão com comprimento de pelo menos 64 bits
+- long/long long - valor otimizado para precisão com comprimento de pelo menos 32/64 bits
 
 ```C++
 
 int main() {
-  unsigned int i = 5;
-  int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
-  long float z = 9;
-  long long double d = 37.2387193;
-  char x = 'r';
-  int i = 0;
-  float y = 1.3;
-  double z = 4.586
-  bool b = true;
+    unsigned int i = 5;
+    int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
+    long float z = 9;
+    long long double d = 37.2387193;
+    char x = 'r';
+    int i = 0;
+    float y = 1.3;
+    double z = 4.586
+    bool b = true;
 
-  return 0;
+    return 0;
 }
 ```
 ---
@@ -152,14 +149,14 @@ Podem ser locais ou globais.
 using namespace std;
 
 int main() {
-  int variable;
-  const char constant = 'T';
+    int variable;
+    const char constant = 'T';
 
-  variable = 5;
-  constant = 3; // IMPOSSÍVEL: seria gerado um erro durante a compilação!
-  cout << variable << " " << constant << endl;
+    variable = 5;
+    constant = 3; // IMPOSSÍVEL: seria gerado um erro durante a compilação!
+    cout << variable << " " << constant << endl;
 
-  return 0;
+    return 0;
 }
 ```
 
@@ -204,8 +201,7 @@ int main() {
 
 
 # Operadores
-## IO
-### Output
+## IO - Output
 De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
 mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
 anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
@@ -301,8 +297,7 @@ Exemplo do programa em execução:
 
 
 ```cpp
-int main()
-{
+int main() {
     // ...
     vector<double> prices;
     string name;
@@ -322,21 +317,21 @@ int main()
 ## Declarações *If*
 ```C++
 if (price < 0)
-  return -1;
+    return -1;
 else if (price == 0)
-  return 0;
+    return 0;
 else
-  return 1;
+    return 1;
 ```
 
 ```C++
 if (cond_variable == true)    // equivalente a if (cond_variable)
-  return 0;
+    return 0;
 ```
 
 ```C++
 if (smart && !lazy)
-  return true;
+    return true;
 ```
 
 ---
@@ -346,15 +341,15 @@ Ideail para substituírem declarações *if* muito longas que
 comparam uma variável com vários **valores inteiros** 
 ```C++
 switch (choice) {
-  case 1: 
-    cout << "First item selected!" << endl;
-    break;
-  case 2:
-    cout << "Second item selected!" << endl;
-    break;
-  default:
-    cout << "Invalid selection :(" << endl;
-    break;
+    case 1: 
+        cout << "First item selected!" << endl;
+        break;
+    case 2:
+        cout << "Second item selected!" << endl;
+        break;
+    default:
+        cout << "Invalid selection :(" << endl;
+        break;
 }
 ```
 Na ausência do *break*, as outras condições *case* serão executadas 
@@ -377,8 +372,7 @@ Exemplo do programa em execução:
 
 
 ```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices)
-{
+void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
     // ...
     
     switch (option)
@@ -399,13 +393,13 @@ void printAndChooseOption(int &option, vector<string> &cartItems, vector<double>
 ## While loop 
 ```C++
 while (x < 5)
-  cout << x << " is less than 5" << endl;
+    cout << x << " is less than 5" << endl;
 ```
 
 ## Do-while loop
 ```C++
 do {
-  cout << x << " is less than 5" << endl;
+    cout << x << " is less than 5" << endl;
 }
 while (x < 5);
 ```
@@ -428,14 +422,12 @@ for (unsigned int i = 0; i < 10; i++) {
 using namespace std;
 
 int main() {
-
-  for (unsigned int i = 0; i < 5; i++) {
-   for (unsigned int j = 0; j < 5; j++) {
-     cout << "Linha " << i << " Coluna " << j << endl;
-   }
-  }
-  
-  return 0;
+    for (unsigned int i = 0; i < 5; i++) {
+        for (unsigned int j = 0; j < 5; j++) {
+            cout << "Linha " << i << " Coluna " << j << endl;
+        }
+    }
+    return 0;
 }
 ```
 
@@ -454,8 +446,7 @@ Exemplo do programa em execução:
 # Solução
 
 ```cpp
-int main()
-{
+int main() {
     // ...
     
     cout << "Olá " << name << "!" << endl;
@@ -505,7 +496,6 @@ int main() {
     cout << endl;
     
     numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor
-    
     // EVITAR FAZER O SEGUINTE:
     // Nas próximas linhas de código, estamos a repetir código de maneira a 
     // podermos voltar a imprimir o tamanho e conteúdo do vetor!
@@ -577,8 +567,7 @@ Exemplo do programa em execução:
 
 
 ```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices)
-{
+void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
     vector<string> options{"Sair do programa", "Ver itens", "Adicionar item", 
     "Atualizar item", "Remover item"};
     string newItem;
@@ -611,8 +600,7 @@ void printAndChooseOption(int &option, vector<string> &cartItems, vector<double>
 
 
 ```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices)
-{
+void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
     vector<string> options{"Sair do programa", "Ver itens", "Adicionar item", 
     "Atualizar item", "Remover item"};
     string newItem;
@@ -644,8 +632,7 @@ void printAndChooseOption(int &option, vector<string> &cartItems, vector<double>
 
 
 ```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices)
-{
+void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
     // ...
     int size = cartItems.size();
     int id;
@@ -718,37 +705,36 @@ poder usar o código de outra pessoa (incluído todo o código presente na stand
 using namespace std;
 
 string getName() {
-  string name;
-  cout << "Insert your name: ";
-  getline(cin, name);
-  return name;
+    string name;
+    cout << "Insert your name: ";
+    getline(cin, name);
+    return name;
 }
 
 int getAge() {
-  int age;
-  cout << "Insert your age: ";
-  cin >> age;
-  cin.clear();
-  cin.ignore(9999, '\n');
+    int age;
+    cout << "Insert your age: ";
+    cin >> age;
+    cin.clear();
+    cin.ignore(9999, '\n');
 }
 
 int main() {
-  string name = getName();
-  int age;
-  cout << "Hello " << name << "! You are " << age << " years old." << endl;
-  return 0;
+    string name = getName();
+    int age;
+    cout << "Hello " << name << "! You are " << age << " years old." << endl;
+    return 0;
 }
 ```
 
 
-```C++
+```Bash
 Insert your name: Sofia
 Insert your age: 18
 Hello Sofia! You are 18 years old.
 ```
 
 ---
-
 ```C++
 #include <iostream>
 
@@ -764,11 +750,10 @@ int multiply(int first_operand, int second_operand) { // dois argumentos!
 }
 
 int get_operand(int order) {
-  int operand;
-  cout << "Insert operand number " << order << ": ";
-  cin >> operand;
-
-  return operand;
+    int operand;
+    cout << "Insert operand number " << order << ": ";
+    cin >> operand;
+    return operand;
 }
 
 int main() {
@@ -776,18 +761,16 @@ int main() {
 
     n1 = get_operand(1);
     clear_stream();
-
+    
     n2 = get_operand(2);
     clear_stream();
-
+    
     cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
-
     return 0;
 }
 ```
-
 ---
-
+Execução do programa:
 ```Bash
 Insert operand number 1: 4
 Insert operand number 2: 7
@@ -820,9 +803,8 @@ Exemplo do programa em execução:
 # Soluções
 
 ```cpp
-void printItems(vector<string> cartItems, vector<double> prices){
+void printItems(vector<string> cartItems, vector<double> prices) {
     int size = cartItems.size();
-
     cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
 
     if (size == 0) {
@@ -834,7 +816,7 @@ void printItems(vector<string> cartItems, vector<double> prices){
     }
 }
 
-void addItem(vector<string> &cartItems, vector<double> &prices){
+void addItem(vector<string> &cartItems, vector<double> &prices) {
     string newItem;
     double price;
 
@@ -845,7 +827,6 @@ void addItem(vector<string> &cartItems, vector<double> &prices){
 
     cartItems.push_back(newItem);
     prices.push_back(price);
-
     cout << "Adicionado item: " << newItem << endl;
 }
 ```
@@ -855,8 +836,7 @@ void addItem(vector<string> &cartItems, vector<double> &prices){
 # Soluções
 
 ```cpp
-void removeItem(vector<string> &cartItems, vector<double> &prices)
-{
+void removeItem(vector<string> &cartItems, vector<double> &prices) {
     int id;
     string item;
 
@@ -876,27 +856,22 @@ void removeItem(vector<string> &cartItems, vector<double> &prices)
 # Soluções
 
 ```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices){
+void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
     // ...
     switch (option){
-    case 0:
-        // TERMINAR O PROGRAMA
+    case 0: // TERMINAR O PROGRAMA
         cout << "Saindo do programa. Obrigado por escolher a nossa aplicação!" << endl;
         break;
-    case 1:
-        // VER ITENS
+    case 1: // VER ITENS
         printItems(cartItems, prices);
         break;
-    case 2:
-        // ADICIONAR ITEM
+    case 2: // ADICIONAR ITEM
         addItem(cartItems, prices);
         break;
-    case 3:
-        // ATUALIZAR ITEMS
+    case 3: // ATUALIZAR ITEMS
         cout << "Funcionalidade ainda não implementada!" << endl;
         break;
-    case 4:
-        // REMOVER ITEMS
+    case 4: // REMOVER ITEMS
         removeItem(cartItems, prices);
         break;
     default:
@@ -911,8 +886,7 @@ void printAndChooseOption(int &option, vector<string> &cartItems, vector<double>
 # Soluções
 
 ```cpp
-void removeItem(vector<string> &cartItems, vector<double> &prices)
-{
+void removeItem(vector<string> &cartItems, vector<double> &prices) {
     int id;
     string item;
 
@@ -934,8 +908,7 @@ void removeItem(vector<string> &cartItems, vector<double> &prices)
 # Soluções
 
 ```cpp
-double sumPrices(vector<double> prices)
-{
+double sumPrices(vector<double> prices) {
     double sum = 0;
     int size = prices.size();
 
@@ -947,8 +920,7 @@ double sumPrices(vector<double> prices)
     return sum;
 }
 
-void printItems(vector<string> cartItems, vector<double> prices)
-{
+void printItems(vector<string> cartItems, vector<double> prices) {
     int size = cartItems.size();
     double total = sumPrices(prices);
 
@@ -963,7 +935,7 @@ void printItems(vector<string> cartItems, vector<double> prices)
 # Soluções
 
 ```cpp
-void updateItem(vector<string> &cartItems, vector<double> &prices){
+void updateItem(vector<string> &cartItems, vector<double> &prices) {
     int id;
     double newPrice;
     string newItem;
@@ -977,7 +949,6 @@ void updateItem(vector<string> &cartItems, vector<double> &prices){
         cout << "Esse item não existe!" << endl;
         return;
     }
-
     oldItem = cartItems.at(id - 1);
 
     cout << "Novo item: ";
@@ -987,7 +958,6 @@ void updateItem(vector<string> &cartItems, vector<double> &prices){
     cout << "Novo preço (€): ";
     cin >> newPrice;
     prices.at(id - 1) = newPrice;
-
     cout << "Atualizado item " << oldItem << " para " << newItem << endl;
 }
 ```
@@ -1022,7 +992,7 @@ ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
 
 using namespace std;
 
-double max_value(ifstream &in){
+double max_value(ifstream &in) {
     double highest, next;
     if (in >> next) // if file contains at least 1 element
         highest = next;
@@ -1120,8 +1090,7 @@ Exemplo de um ficheiro de texto seguindo este formato:
 
 
 ```cpp
-void writeItems(vector<string> cartItems, vector<double> prices)
-{
+void writeItems(vector<string> cartItems, vector<double> prices) {
     ofstream out("shoppingcart.txt");
 
     for (int i = 0; i < cartItems.size(); i++)
@@ -1130,8 +1099,7 @@ void writeItems(vector<string> cartItems, vector<double> prices)
     }
 }
 
-int main()
-{
+int main() {
     // ...
 
     writeItems(cartItems, prices);
@@ -1146,8 +1114,7 @@ int main()
 
 
 ```cpp
-void readItems(vector<string> &cartItems, vector<double> &prices)
-{
+void readItems(vector<string> &cartItems, vector<double> &prices) {
     ifstream in("shoppingcart.txt");
     string cartItem;
     double price;
@@ -1159,8 +1126,7 @@ void readItems(vector<string> &cartItems, vector<double> &prices)
     }
 }
 
-int main()
-{
+int main() {
     // ...
     
     cout << "Olá " << name << "!" << endl;
