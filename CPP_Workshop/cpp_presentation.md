@@ -439,7 +439,10 @@ int main() {
 
 **SC4.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
 Exemplo do programa em execução:
-![sc4](https://i.imgur.com/s7oiTrF.png)
+
+Primeiro Input             |  Segundo Input
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/tsuIpln.png)  |  ![](https://i.imgur.com/jNhPLPR.png)
 
 ---
 
