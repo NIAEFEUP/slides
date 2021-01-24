@@ -7,30 +7,30 @@ class: center, middle, inverse, small-images
 ---
 class: inverse
 
-# Vai ser um workshop cansado?
+# Will this be a boring workshop?
 
-Oh pá decidam vocês. Isto é o que vai acontecer:
-1. Introdução a programção em **Flutter** (e **Dart**)
-2. Overview da codebase da **uni**
+Well that's your call. This is what's going to happen:
+1. Introduction to programming in **Flutter** (e **Dart**)
+2. Overview of the codebase of **uni**
 3. Getting jiggy with it
 
-    - Correr a app no vosso emulador/telemóvel
-    - Criar uma UI ao vosso gosto para representar um exame
-    - Ver e criar exames fictícios para entenderem como funciona a app
-    - Ver os vossos exames através da vossa UI
+    - Running the app in your phone/emulator
+    - Creating the UI to represent an exam
+    - Viewing and creating fictional exams to understand how the app works
+    - Seeing your exams through your UI
 
 ---
 
 # Requisitos para a parte prática
-SDK de Flutter instalado e na versão 1.12.13.
-(Se ainda não instalaram provavelmente não vão ter tempo de o fazer agora 👀)
+Flutter SDK must be installed in the version 1.12.13.
+(If you don't havbe it installed now, you probably won't have the time to do it now 👀)
 ![](./flutter-install.png)
 
 ---
 class: image-spaced
 
 # Dart
-Para qualquer dúvida de syntax que tenham, podem consultar este guia: https://dart.dev/guides/language/language-tour
+For any syntax related doubt, you may consult this guide: https://dart.dev/guides/language/language-tour
 
 ![](./print-dart-syntax.png)
 
@@ -40,6 +40,47 @@ Para qualquer dúvida de syntax que tenham, podem consultar este guia: https://d
 
 ![https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro](./widgets.gif)
 
+---
+
+class: center, middle
+# UNI
+## Como está organizada a nossa codebase?
+
+---
+# Practical Part 1
+
+Let's get our hands dirty and try to write a Widget that will receive an Exam and present that information to the User.
+Clone our Github repo: https://github.com/NIAEFEUP/project-schrodinger and checkout the tag `WS-PT-1`
+
+In `lib/model/entities/exam.dart`, you will find the data model of what an Exam has:
+```dart
+class Exam {
+  String subject;
+  String begin;
+  String end;
+  List<String> rooms;
+  String day;
+  String examType;
+  String weekDay;
+  String month;
+  String year;
+  DateTime date;
+  (...)
+}
+```
+
+This has all of the information an exam has and that must be shown to the user.
+
+---
+# Practical Part 2
+
+Now that we've got a working UI, let's save our work by committing it. Make sure to keep track of the commit hash, by using `git log` and seeing what it is.
+
+Now, let's connect it to actual exam data!
+
+This will require the interaction with Redux, a pattern for keeping the state of the application globally. 
+
+But what exactly is Redux?
 ---
 
 # Redux
@@ -52,9 +93,12 @@ Para qualquer dúvida de syntax que tenham, podem consultar este guia: https://d
 ![https://blog.codecentric.de/en/2017/12/developing-modern-offline-apps-reactjs-redux-electron-part-3-reactjs-redux-basics/](./redux-2.png)
 
 ---
-class: center, middle
-# UNI
-## Como está organizada a nossa codebase?
+# Pratical Part 2
+
+Now that you've got a small idea of how redux works, let's see it in action!
+
+Checkout the tag `WS-PT-2` and cherry-pick the commit you made in the other part with `git cherry-pick <COMMIT_HASH>`.
+
 
 ---
  
