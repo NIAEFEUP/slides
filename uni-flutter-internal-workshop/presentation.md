@@ -1,7 +1,7 @@
 class: center, middle, inverse, small-images
 
 # uni
-## Deixemos Flutter e Dart lidar com o Sigarra
+## Let Flutter and Dart deal with Sigarra
 ![](./pic1.png)
 
 ---
@@ -21,7 +21,7 @@ Well that's your call. This is what's going to happen:
 
 ---
 
-# Requisitos para a parte prática
+# Requirements for this workshop
 Flutter SDK must be installed in the version 1.12.13.
 (If you don't havbe it installed now, you probably won't have the time to do it now 👀)
 ![](./flutter-install.png)
@@ -42,9 +42,119 @@ For any syntax related doubt, you may consult this guide: https://dart.dev/guide
 
 ---
 
+# Common Widgets
+
+```dart
+Container(
+  constraints: BoxConstraints.expand(
+      height: Theme.of(context).textTheme.headline4.fontSize * 1.1 + 200.0,),
+  padding: const EdgeInsets.all(8.0),color: Colors.blue[600],alignment: Alignment.center,
+  child: Text('Hello World',
+    style: Theme.of(context)
+        .textTheme
+        .headline4
+        .copyWith(color: Colors.white)),
+  transform: Matrix4.rotationZ(0.1),
+)
+```
+![container](./container.png)
+
+
+
+---
+
+# Box Model
+
+![Box Model](./box-model.png)
+
+---
+
+# Common Widgets
+
+```dart
+Text(
+  'Hello, $_name! How are you?',
+  textAlign: TextAlign.center,
+  style: TextStyle(fontWeight: FontWeight.bold),
+)
+```
+![text](./text.png)
+
+---
+
+# Common Widgets
+
+```dart
+Text(
+  'Hello, $_name! How are you?',
+  textAlign: TextAlign.center,
+  overflow: TextOverflow.ellipsis,
+  style: TextStyle(fontWeight: FontWeight.bold),
+)
+```
+![text](./text_ellipsis.png)
+
+---
+# Common Widgets
+
+```dart
+Column(
+  children: <Widget>[
+    Text('Deliver features faster'),
+    Text('Craft beautiful UIs'),
+    Expanded(
+      child: FittedBox(
+        fit: BoxFit.contain, // otherwise the logo will be tiny
+        child: const FlutterLogo(),
+      ),
+    ),
+  ],
+)
+```
+![Column](./column.png)
+
+---
+# Common Widgets
+
+```dart
+Row(
+  children: <Widget>[
+    Expanded(
+      child: Text('Deliver features faster', textAlign: TextAlign.center),
+    ),
+    Expanded(
+      child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
+    ),
+    Expanded(
+      child: FittedBox(
+        fit: BoxFit.contain, // otherwise the logo will be tiny
+        child: const FlutterLogo(),
+      ),
+    ),
+  ],
+)
+```
+![Row](./row.png)
+
+---
+# Common Widgets
+
+Flutter offers an overwhelming amount of widgets and and we definitely cannot cover them all in this workshop.
+
+However, there's a very broad catalog of widgets on [their website](https://flutter.dev/docs/development/ui/widgets). 
+
+For this workshop, we recommend the usage of Material Components, Layout, Text and perhaps Styling widgets.  
+---
+
 class: center, middle
 # UNI
-## Como está organizada a nossa codebase?
+## How is our codebase organized?
+
+---
+# Model-View-Controller (MVC)
+
+![MVC](./mvc.png)
+
 
 ---
 # Practical Part 1
@@ -67,10 +177,34 @@ class Exam {
   DateTime date;
   (...)
 }
+
 ```
 
-This has all of the information an exam has and that must be shown to the user.
+In the file `exam_view.dart` you will find the template to write how your exam should be displayed. Good luck!
 
+---
+# Practical Part 1
+
+Rarely it is the case that you only wan to see a single exam. Now we need to use this widget you built to display a more than one exam.
+
+There's a file called `homepage_view.dart` where you will be able to write your code now. Don't forget to reuse the widget you just built!
+
+```dart
+class HomePageView extends StatelessWidget {
+  final List<Exam> exams;
+
+  const HomePageView(this.exams, {Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      ListView(children: this.buildExams(context));
+
+  List<Widget> buildExams(BuildContext context) {
+    //TODO: Your code should be here
+    return [];
+  }
+}
+```
 ---
 # Practical Part 2
 
@@ -93,6 +227,73 @@ But what exactly is Redux?
 ![https://blog.codecentric.de/en/2017/12/developing-modern-offline-apps-reactjs-redux-electron-part-3-reactjs-redux-basics/](./redux-2.png)
 
 ---
+
+# Redux
+```dart
+    @override
+    Widget build(BuildContext context) {
+    return StoreConnector<AppState, List<Lecture>>(
+        converter: (store) => store.state.content['schedule'],
+        builder: (context, lectures) {
+        return  SchedulePageView(
+            tabController: tabController,
+            scrollViewController: scrollViewController,
+            daysOfTheWeek: daysOfTheWeek,
+            aggLectures: _groupLecturesByDay(lectures));
+        },
+    );
+    }
+```
+---
+
+# Redux
+```dart
+class AppState {
+  Map content = Map<String, dynamic>();
+
+  Map getInitialContent() {
+    return {
+      'schedule':  List<Lecture>(),
+      'exams':  List<Exam>(),
+      'scheduleStatus': RequestStatus.none,
+      'loginStatus': RequestStatus.none,
+      'examsStatus': RequestStatus.none,
+      'selected_page': 'Área Pessoal',
+      'session':  Session(authenticated: false),
+      'configuredBusStops':  Map<String, BusStopData>(),
+      'currentBusTrips':  Map<String, List<Trip>>(),
+      'busstopStatus' : RequestStatus.none,
+      'timeStamp' :  DateTime.now(),
+      'currentTime' :  DateTime.now(),
+      'profileStatus': RequestStatus.none,
+      'printBalanceStatus': RequestStatus.none,
+      'feesStatus': RequestStatus.none,
+      'coursesStateStatus': RequestStatus.none,
+      'session':  Session(authenticated: false),
+      'lastUserInfoUpdateTime': null
+    };
+  }
+}
+```
+---
+
+# Redux
+```dart
+ThunkAction<AppState> updateStateBasedOnLocalUserLectures() {
+  return (Store<AppState> store) async {
+    final AppLecturesDatabase db = AppLecturesDatabase();
+    final List<Lecture> lecs = await db.lectures();
+    store.dispatch( SetScheduleAction(lecs));
+  };
+}
+
+AppState setSchedule(AppState state, SetScheduleAction action) {
+  Logger().i('setting schedule: ' + action.lectures.length.toString());
+  return state.cloneAndUpdateValue('schedule', action.lectures);
+}
+```
+---
+
 # Pratical Part 2
 
 Now that you've got a small idea of how redux works, let's see it in action!
