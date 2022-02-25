@@ -9,7 +9,7 @@ class: center, middle
 
 - Apresentação: https://niaefeup-workshop-cpp.netlify.com/
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/)
-- [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler)
+- [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler), [Visual Studio](https://visualstudio.microsoft.com), [CLion](https://www.jetbrains.com/clion/) (escolher um)
 
 ---
 
@@ -23,9 +23,10 @@ class: center, middle
 6. Operadores
 7. Condições
 8. Ciclos
-9. Vetores
-10. Funções
-11. Streams
+9. Funções
+10. Apontadores
+11. Vetores
+12. Classes
 
 ---
 
@@ -86,22 +87,22 @@ int main() {
 
 ---
 
-# Tipos de dados
-- char - caracteres alfanuméricos (ex: 'c', '8', '$');
-- int - números inteiros (ex: 103, -2)
-- float - números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
-- double - números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
-- bool - verdadeiro ou falso (ex: true, false)
-- void - significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
+# Tipos de dados primitivos
+- **char:** caracteres alfanuméricos (ex: 'c', '8', '$');
+- **int:** números inteiros (ex: 10**3, -2)
+- **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
+- **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
+- **bool:** verdadeiro ou falso (ex: true, false)
+- **void:** significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
 valor
 
 ---
 
 # Tipos de dados
 ## Modificadores de tipos de dados
-- signed/unsigned - para números com/sem sinal
-- short - valor otimizado para o espaço com comprimento de pelo menos 16 bits
-- long/long long - valor otimizado para precisão com comprimento de pelo menos 32/64 bits
+- **signed/unsigned:** para números com/sem sinal
+- **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
+- **long/long long:** valor otimizado para precisão com comprimento de pelo menos 32/64 bits
 
 ```C++
 
@@ -121,7 +122,7 @@ int main() {
 ```
 ---
 # Variáveis
-São contentores capazes de armazenar valores de um determinado tipo
+São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
 ## Como as declarar?
 ```C++
@@ -134,7 +135,7 @@ bool myBoolean = true;
 
 ### NOTAS:
 - Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
-desde que sejam locais e estejam dentro de funções diferentes cada uma 
+desde que sejam locais e estejam em diferentes blocos de código (entre {})
 - Não têm que ser inicializadas ao mesmo tempo que são declaradas
 
 ---
@@ -198,10 +199,24 @@ int main() {
 - **/=** operando da esquerda fica com o valor do da direita dividido com o seu próprio valor
 
 ---
+# Input/Output
+## Requisitos
+Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linhas no topo do ficheiro de código:
+
+```C++
+#include <iostream>
+using namespace std;
+```
+
+`iostream` é a biblioteca *standard* que fornece operadores e funções de I/O.
+
+Se o *namespace* `std` não for declarado, é necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`).
+
+---
 
 
-# Operadores
-## IO - Output
+# Input/Output
+## Escrever Informação
 De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
 mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
 anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
@@ -215,7 +230,7 @@ cout << "Tudo bem contigo?" << endl;
 --- 
 
 ```Bash
-// Assuma-se que o conteúdo da variável nome_do_aluno é Inês.
+// Assuma-se que o conteudo da variável nome_do_aluno é Inês.
 Bom dia Inês!
 Tudo bem?
 ```
@@ -228,25 +243,19 @@ Bom dia Inês!Tudo bem?
 ```
 
 ---
-# Operadores
-### Input 
-De maneira similar, é possível transmitir informações do utilizador para o programa.
-Para isso usa-se a stream **cin** e o operador **>>**. Após o operador, coloca-se 
-a variável aonde vai ser guardada a informação.
+# Input/Output
+### Ler Informação
+De forma semelhante, é possível ler informações do utilizador, usando o objeto **cin** e o operador **>>** seguido da variável onde vai ser guardada a informação.
 
 --- 
 
-A stream **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
-definidos pelo utilizador, a não ser que o operador >> tenha sido overloaded).
+O objeto **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
+definidos pelo utilizador, a não ser que o operador >> tenha sido *overloaded*).
 
-Note-se que também existe a função getline(), que permite obter informação apenas 
-sob a forma de strings. A vantagem relativamente ao **cin** é que esta função permite 
-receber strings com o caracter espaço ' ' (a string *acaba* apenas quando o caracter '\n' 
-é encontrado). Por outro lado, o **cin** utiliza qualquer espaço em branco como 
-delimitador (o que inclui espaços, newlines, tabs, etc.).
+Para ler *strings*, **cin** utiliza qualquer espaço em branco como delimitador (o que inclui espaços, newlines, tabs, etc.). Para ler strings com o caracter espaço ' ', pode user usada a função *getline()* (a string *acaba* apenas quando o caracter '\n' é encontrado).
 
 ---
-# Operadores
+# Input/Output
 ```C++
 #include <iostream>
   
@@ -267,8 +276,8 @@ int main() {
 --- 
 
 ```Bash
-Insert your name here: Rui Alves
-Your name is Rui
+Insert your name here: André Moreira
+Your name is André
 ```
 
 --- 
@@ -337,8 +346,8 @@ if (smart && !lazy)
 ---
 # Condições
 ## Declarações *Switch-Case*
-Ideail para substituírem declarações *if* muito longas que 
-comparam uma variável com vários **valores inteiros** 
+Ideal para substituir declarações *if* muito longas que 
+comparam uma variável com vários **valores inteiros** (incluíndo *char*)
 ```C++
 switch (choice) {
     case 1: 
@@ -352,7 +361,7 @@ switch (choice) {
         break;
 }
 ```
-Na ausência do *break*, as outras condições *case* serão executadas 
+Na ausência do *break*, as condições *case* seguintes seriam executadas 
 
 ---
 
@@ -407,7 +416,7 @@ while (x < 5);
 # Ciclos
 ## For loop
 ```C++
-for (unsigned int i = 0; i < 10; i++) {
+for (int i = 0; i < 10; i++) {
     int y = i*2;
     cout << y << endl;
 }
@@ -422,8 +431,8 @@ for (unsigned int i = 0; i < 10; i++) {
 using namespace std;
 
 int main() {
-    for (unsigned int i = 0; i < 5; i++) {
-        for (unsigned int j = 0; j < 5; j++) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
             cout << "Linha " << i << " Coluna " << j << endl;
         }
     }
@@ -467,16 +476,33 @@ int main() {
 - Estrutura de dados linear com a capacidade de armazenar vários valores de um
 determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
 novo é inserido ou apagado
-- São alocados contíguamente na memória, podendo por isso ser acessados através de iteradores
-- Os dados são sempre inseridos no final do vetor
+- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
+- Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
 
 ## Notas importantes
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
 - é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
-retos [] ou o método .at(); 
+retos [] ou o método .at();
 
 ---
+
+# Vetores
+## Métodos Fundamentais
+
+- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
+- **push_back(*elem*):** Adiciona um elemento ao vetor
+- **pop_back()**: Remove o último elemento do vetor
+- **size()**: Tamanho do vetor
+- **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
+- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
+- **erase(*pos*):** Remove um elemento do vetor na posição dada
+
+
+Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
+
+---
+
 ```C++
 #include <iostream>
 #include <vector>
@@ -490,24 +516,17 @@ int main() {
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
     numbers.pop_back(); // remove o último valor do vetor (40)
 
+    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor (20)
+    numbers.insert(numbers.begin(), 0); // adição do valor 0 ao início do vetor
+
     size = numbers.size();
-    
     cout << "Vector size = " << size << endl;
+
     cout << "Vector elements:";
-    for (unsigned int i = 0; i != numbers.size(); i++)
+    for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
     
-    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor
-    // EVITAR FAZER O SEGUINTE:
-    // Nas próximas linhas de código, estamos a repetir código de maneira a 
-    // podermos voltar a imprimir o tamanho e conteúdo do vetor!
-    cout << "Vector size = " << size << endl;
-    cout << "Vector elements:";
-    for (unsigned int i = 0; i != numbers.size(); i++)
-        cout << " " << numbers.at(i);
-    cout << endl;
-
     return 0;
 }                                                                         
 ```
@@ -515,9 +534,7 @@ int main() {
 
 ```Bash
 Vector size = 3
-Vector elements: 10 20 30
-Vector size = 3
-Vector elements: 10 30
+Vector elements: 0 10 30
 ```
 
 --- 
@@ -531,18 +548,11 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
 à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
 
---- 
-
-É também de realçar a repetição do código de impressão do tamanho e conteúdo do vetor!
+A função *insert()* funciona de uma forma semelhante:
 ```C++
-cout << "Vector size = " << size << endl;
-cout << "Vector elements:";
-for (unsigned int i = 0; i != numbers.size(); i++)
-    cout << " " << numbers.at(i); // equivalente a numbers[i]
-cout << endl;
+numbers.insert(numbers.begin(), 0);
 ```
-
-Haverá alguma maneira de evitar esta situação?
+Aqui, insere-se o elemento 0 no início do vetor.
 
 ---
 
@@ -664,119 +674,115 @@ void printAndChooseOption(int &option, vector<string> &cartItems, vector<double>
 
 # Funções
 Até agora, todo o código encontrava-se dentro da função main. Para programas mais simples é o suficiente, 
-mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se extremamente útil.
+mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se indispensável.
 
---- 
-
-## Organização 
-Uma função é praticamente um mini-programa que é escrito fora da função main(), sem que se tenha que pensar sobre o resto 
-do programa que vamos escrever. Isto permite reduzir um programa complexo noutros mais pequenos e mais fáceis de lidar.
-
---- 
-## Reusabilidade
-Após uma função ser escrita, pode ser chamada múltiplas vezes a partir do programa. Isto evita repetição de código e minimiza a 
-probabilidade de erros "copy-paste". Estas funções também podem ser partilhadas com outros programas, diminuindo a quantidade que tem 
-que ser escrita de raiz de cada vez.
-
----
-# Funções
-## Testabilidade
-Como as funções reduzem a redundância de código, há menos código para ser testado. Também devido ao facto de que as funções são isoladas, 
-depois de as testarmos uma vez, não precisamos de as testar novamente (a não ser que eventualmente a modifiquemos). Isto reduz a quantidade 
-de código, o que torna muito mais fácil encontrar bugs (ou evitá-los, preferencialmente).
-
---- 
-
-## Extensibilidade
-Quando precisamos de extender o nosso programa para suportar um caso com o qual este não conseguia lidar anteriormente, 
-as funções permitem-nos fazer uma modificação num lugar e ver essas mudanças em ação todas as vezes que a função for chamada.
+- **Organização**: Reduzem um programa complexo em módulos mais pequenos e fáceis de lidar.
+- **Reusabilidade**: A função pode ser chamada múltiplas vezes, evitando repetição de código e minimizando a probabilidade de erros.
+- **Testabilidade**: Como as funções são isoladas, isto torna mais fácil testar as várias partes do programa e reduz o número de testes necessários. Reduz também a quantidade código, facilitando a correção e prevenção de bugs.
+- **Extensibilidade**: Permitem-nos fazer uma modificação num lugar e vê-la ao longo de todo o programa.
+- **Abstração**: Não é necessário saber sobre o funcionamento da função, apenas como chamá-la.
 
 ---
 
 # Funções
-## Abstração
-De maneira a usar uma função, apenas é necessário saber o seu nome, inputs, outputs e onde ela se localiza. Não é preciso 
-saber como funciona, ou se esta é dependente de outras funções. Isto diminui a quantidade de conhecimento requirido para alguém 
-poder usar o código de outra pessoa (incluído todo o código presente na standard library (STL)).
- 
+## Como Declarar e Invocar uma Função
+
+![](https://cdn.programiz.com/sites/tutorial2program/files/cpp-function-return-statement.png)
+
+(Imagem retirada de [*Programiz*](https://www.programiz.com/cpp-programming/function))
+
+---
+
+# Funções
+## Argumentos
+Os argumentos nas funções podem ser passados de diferentes formas.
+- **Cópia**: O objeto e a sua memória associada são copiados para um novo objeto. Quaisquer alterações à variável passada no argumento não terão efeito no objeto original.
+- **Referência**: O objeto passado por argumento poderá ser manipulado e terá efeito no objeto original (tipo do argumento marcado com **&**).
+- **Apontador**: Funciona de forma semelhante a ser passado por referência. No entanto, tem uma utilização diferente (tipo do argumento marcado com **\***). Representa o endereço do objeto em memória.
+
 
 ---
 
 ```C++
 #include <iostream>
-
 using namespace std;
-
-string getName() {
-    string name;
-    cout << "Insert your name: ";
-    getline(cin, name);
-    return name;
-}
 
 int getAge() {
     int age;
-    cout << "Insert your age: ";
+    cout << "Insert your age (years): ";
     cin >> age;
-    cin.clear();
-    cin.ignore(9999, '\n');
+
+    cin.clear(); // Caso o utilizador insira dados inválidos
+    cin.ignore(9999, '\n'); // Ignora tudo até fim de linha
+
+    return age;
+}
+
+/*
+    Não funciona corretamente
+    Com funções, podemos corrigi-la e aplicar a mudança a todo o código
+*/
+void convertToMonths(int& age) {
+    age = age * 12;
 }
 
 int main() {
-    string name = getName();
-    int age;
-    cout << "Hello " << name << "! You are " << age << " years old." << endl;
+    int age = getAge();
+    convertToMonths(age);
+    cout << "Hello! You are " << age << " months old." << endl;
     return 0;
 }
 ```
 
 
 ```Bash
-Insert your name: Sofia
-Insert your age: 18
-Hello Sofia! You are 18 years old.
+Insert your age (years): 18
+Hello! You are 216 months old.
 ```
 
 ---
 ```C++
 #include <iostream>
-
 using namespace std;
 
-void clear_stream() {
+void clearInput() {
     cin.clear();
     cin.ignore(9999, '\n');
 }
 
-int multiply(int first_operand, int second_operand) { // dois argumentos!
-    return first_operand * second_operand;
+int multiply(int first, int second) {
+    return first * second;
 }
 
-int get_operand(int order) {
+int getOperand(int* order) {
     int operand;
-    cout << "Insert operand number " << order << ": ";
+    cout << "Insert operand no. " << *order << ": ";
     cin >> operand;
+
+    *order += 1; // É necessário desreferenciar o apontador
     return operand;
 }
 
 int main() {
     int n1, n2;
+    int order = 1;
 
-    n1 = get_operand(1);
-    clear_stream();
-    
-    n2 = get_operand(2);
-    clear_stream();
+    n1 = getOperand(&order); // passar apontador para order
+    clearInput();
+    n2 = getOperand(&order);
+    clearInput();
     
     cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
     return 0;
 }
 ```
 ---
+
+# Funções
 Execução do programa:
 ```Bash
-Insert operand number 1: 4
-Insert operand number 2: 7
+Insert operand no. 1: 4
+Insert operand no. 2: 7
 4x7=28
 ```
 ---
@@ -965,118 +971,6 @@ void updateItem(vector<string> &cartItems, vector<double> &prices) {
 }
 ```
 
-
----
-
-
-# Streams 
-As streams de IO do C++ providenciam uma maneira incrívelmente flexível, mas ao mesmo tempo
-simples, de conceber as rotinas de input/output de qualquer aplicação.
-
-A informação pode ser vista como cadeias (streams) de caracteres. Isto faz sentido porque 
-qualquer coisa que escrevamos no teclado pode apenas ser um caracter. Suponha-se que o utilizador 
-insere o número 7479 - como é possível saber que foi inserido um número? O problema é que na verdade, 
-não se sabe ao certo. Tudo o que se tem é o conjunto de caracteres '7', '4', '7' e '9'. Cabe ao 
-programador decidir se quer que a string inserida seja um número, uma string, etc. Se os caracteres 
-são válidos para o tipo que o programador deseja que sejam? Depende se o tipo de dados consegue interpretar 
-os caracteres da input stream como uma descrição de um objeto desse tipo.
-
-Para além de enviar informação para o ecrã (**cout**), as streams podem também direcionar os dados para 
-ficheiros, o que permite, por exemplo, gravar o progresso de um jogo.
-
----
-
-# Streams
-```C++
-// Reads numbers from a file and finds the maximum value
-#include <iostream>
-#include <string>
-#include <fstream> 
-
-using namespace std;
-
-double max_value(ifstream &in) {
-    double highest, next;
-    if (in >> next) // if file contains at least 1 element
-        highest = next;
-    else return 0;
-    while (in >> next)
-      if (next > highest)
-        highest = next;
-    return highest;
-}
-```
-
-Note-se a inclusão das bibliotecas string e fstream! 
-
-Uma **ifstream** é um objeto da classe de input stream usado para operar em 
-ficheiros. Uma **ofstream** trabalha, analogamente, com output.
-
----
-```C++
-int main() {
-    string filename;
-    cout << "Please enter the data file name: ";
-    cin >> filename;
-
-    ifstream infile;
-    infile.open(filename);
-
-    if (infile.fail()) { // or if(!infile.is_open()) or if (!infile)
-        cerr << "Error opening " << filename << "\n";
-        return 1;
-    }
-
-    double max = max_value(infile);
-    cout << "The maximum value is " << max << "\n";
-
-    infile.close();
-    return 0;
-}
-```
---- 
-
-Conteúdo do ficheiro aux.txt:
-```Bash
-1 5 4 2 3
-```
-
---- 
-
-```Bash
-Please enter the data file name: aux.txt
-The maximum value is 5
-```
-
----
-
-```C++
-/**
-  * OUTPUT TO FILE
-  * Writes a simple string into a file
-  */
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-int main() {
-    ofstream outfile;
-    outfile.open("example.txt");
-
-    outfile << "Writing this very difficult computation into a file" << endl;
-
-    outfile.close();
-
-    return 0;
-}
-```
---- 
-
-Conteúdo do ficheiro example.txt: 
-```Bash
-Writing this very difficult computation into a file
-```
-
 ---
 
 # Exercícios
@@ -1162,3 +1056,4 @@ int main() {
 
 - The C++ Programming Language, 4ª Edição, de Bjarne Stroustrup
 - Effective C++, 3ª Edição, de Scott Meyers
+class: center, middle
