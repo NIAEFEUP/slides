@@ -61,12 +61,12 @@ int main() {
 
 # Exercícios
 
-**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no onlinegdb.
+**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no onlinegdb ou IDE.
 
 **SC1.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/MyShoppingCart.cpp) e cola-o no onlinegdb. Trabalharás com este ficheiro até ao final do workshop!
 
 Exemplo do programa em execução:
-![sc1](https://i.imgur.com/dBVjJKl.png)
+![Soluçao SC1](img/sc1.png)
 
 ---
 
@@ -298,7 +298,7 @@ funcionamento da stream **cin**.
 **SC2.** Melhora a mensagem de boas vindas de forma a pedir o nome do utilizador e cumprimentá-lo. Atenção aos nomes que contêm espaços. Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
 
 Exemplo do programa em execução:
-![sc2](https://i.imgur.com/GRj1w07.png)
+![Soluçao sc2](img/sc2.png)
 
 ---
 
@@ -373,7 +373,7 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas
 
 Exemplo do programa em execução:
 
-![sc3](https://i.imgur.com/Yo9oOsI.png)
+![Soluçao sc3](img/sc3.png)
 
 ---
 
@@ -451,7 +451,7 @@ Exemplo do programa em execução:
 
 Primeiro Input             |  Segundo Input
 :-------------------------:|:-------------------------:
-![](https://i.imgur.com/tsuIpln.png)  |  ![](https://i.imgur.com/jNhPLPR.png)
+![Solucao sc4-1](img/sc4.png)  |  ![Solucao sc4-2](img/sc4_2.png)
 
 ---
 
@@ -560,7 +560,7 @@ Aqui, insere-se o elemento 0 no início do vetor.
 
 **SC5.** Implementa a funcionalidade de adicionar um item, juntamente com o seu preço, ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço, e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício. Recorda-te que as variáveis devem ser declaradas no início da função.
 Exemplo do programa em execução:
-![sc5](https://i.imgur.com/3pcErd8.png)
+![Soluçao sc5](img/sc5.png)
 
 ---
 
@@ -568,11 +568,11 @@ Exemplo do programa em execução:
 
 **SC6.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir para o ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
 Exemplo do programa em execução:
-![sc6](https://i.imgur.com/QZuCbUG.png)
+![Soluçao sc6](img/sc6.png)
 
 **SC7.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. No final, para verificar que a função funciona, corre a opção de ver os itens do carrinho e certifica-te que o item escolhido não aparece.
 Exemplo do programa em execução:
-![sc7](https://i.imgur.com/aB2Ht13.png)
+![Soluçao sc7](img/sc7.png)
 
 ---
 
@@ -687,7 +687,7 @@ mas à medida que a complexidade (e número de linhas de código) da aplicação
 # Funções
 ## Como Declarar e Invocar uma Função
 
-![](https://cdn.programiz.com/sites/tutorial2program/files/cpp-function-return-statement.png)
+![Function Syntax](img/function.png)
 
 (Imagem retirada de [*Programiz*](https://www.programiz.com/cpp-programming/function))
 
@@ -787,13 +787,35 @@ Insert operand no. 2: 7
 ```
 ---
 
+# Apontadores
+
+A execução de processos tem muito por base a manipulação da memória física do computador. Assim sendo, o C++ permite-nos aceder-lhes com o uso de apontadores.
+
+Os apontadores guardam o endereço da localização de uma variável especifica ou simplesmente uma porção de memória.
+
+![](https://i.imgur.com/HI45fGm.png)
+
+---
+
+# Apontadores
+
+Existem situações em que temos de usar estes apontadores:
+- Usar apontadores em argumentos de funções é uma prática muito frequente para os seguintes casos:
+    - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
+    - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
+
+Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem. Por vezes é possível fazer leituras em endereços que o programador não planeou e dessa forma comprometer o bom funcionamento do programa. Pode também ser possível escrever em endereços inválidos, podendo por vezes *crashar* o programa. Tudo isto define vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
+
+---
+
+
 # Exercícios
 
 **SC8.** Melhora o programa de forma a que o código que elaboraste para cada um dos últimos 3 exercícios passe para dentro de uma função. Tem atenção aos parâmetros das funções, aonde as deves declarar, e como as deves chamar. Assegura-te que nada no funcionamento do programa se alterou. A partir de agora, sempre que te pedirmos uma nova funcionalidade, deves usar funções para a implementar.
 
 **SC9.** Melhora a função de remover itens para que, caso o utilizador escolha um item não existente, seja imprimida uma mensagem a assinalar o erro, e assegura-te que o código responsável por remover o item não é executado.
 Exemplo do programa em execução:
-![sc9](https://i.imgur.com/n2rKs5K.png)
+![Soluçao sc9](img/sc9.png)
 
 ---
 
@@ -801,11 +823,11 @@ Exemplo do programa em execução:
 
 **SC10.** Melhora a funcionalidade de mostrar os itens do carrinho de forma a ser possível ver o preço total dos produtos. Para isso, deves escrever uma função que calcule a soma dos preços, chamá-la no local apropriado, e imprimir o valor retornado pela mesma após mostrares os itens presentes no carrinho.
 Exemplo do programa em execução:
-![sc10](https://i.imgur.com/8LcSoYh.png)
+![Soluçao sc10](img/sc10.png)
 
 **SC11.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício SC9, certifica-te que o utilizador não escolhe um item não existente.
 Exemplo do programa em execução:
-![sc11](https://i.imgur.com/S20wEuI.png)
+![Soluçao sc11](img/sc11.png)
 
 ---
 
@@ -972,71 +994,217 @@ void updateItem(vector<string> &cartItems, vector<double> &prices) {
 ```
 
 ---
+# Classes
 
-# Exercícios
+C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado a classes e a objetos, junto com os seus métodos e atributos.
 
-**SC12.** Neste momento, os itens no carrinho perdem-se quando o programa é terminado. Corrige este problema, começando primeiro por escrever os produtos num ficheiro de texto (.txt), linha a linha, no formato “&lt;NOME&gt; &lt;PREÇO&gt;”:
+Uma classe é um tipo definido pelo programador que pode ser usado ao longo do programa. Um objeto é uma instância dessa classe.
 
-Exemplo de um ficheiro de texto seguindo este formato:
-![sc12](https://i.imgur.com/LtUSpZ6.png)
+Atributos e métodos são basicamente as variáveis e funções duma dada classe (ambos chamados de membros da classe).
 
-**SC13.** A funcionalidade anterior é inútil se o programa não fizer uso do ficheiro criado. Complementa-a com a leitura do mesmo ficheiro, inicializando os respetivos vetores no início do programa. Verifica que a função está correta correndo a opção “Ver itens”.
+É definido um construtor que dita a forma como um objeto é criado, incluindo dados a serem passados.
+
+## Access Specifiers
+
+- **public**: membros são acessíveis fora da classe
+- **private**: membros são acessíveis apenas dentro da classe (*default*)
+- **protected**: membros são acessíveis dentro da classe e em classes derivadas (mais à frente)
 
 ---
-
-# Soluções
-
-
-```cpp
-void writeItems(vector<string> cartItems, vector<double> prices) {
-    ofstream out("shoppingcart.txt");
-
-    for (int i = 0; i < cartItems.size(); i++)
-    {
-        out << cartItems.at(i) << " " << prices.at(i) << endl;
+# Classes
+## Criar uma classe
+```C++
+class Printer {       // Nome da classe
+  private:            // Access specifier
+    string myString;  // Atributo (variável string)
+  public:
+    Printer(string myString) { // Construtor
+      this->myString = myString; // this é um apontador para o próprio objeto
     }
+
+    void printString() { // Método (função que retorna void)
+      cout << "Hi! Your string is " << myString << endl;
+    }
+};
+```
+## Criar um objeto
+```C++
+int main() {
+  Printer impressora("very cool!");  // cria um objeto da classe Printer
+  impressora.printString(); // Hi! Your string is very cool!
+  // Se o construtor não tivesse argumentos,
+  // o objeto era criado apenas com Printer impressora;
+  return 0;
 }
+```
+---
+# Classes
+## Modificar Atributos - Usando *public*
+
+```C++
+class Printer {
+  public:
+    string myString;
+    Printer(string myString) {
+      this->myString = myString;
+    }
+
+    void printString() {
+      cout << "Hi! Your string is " << myString << endl;
+    }
+};
+```
+
+```C++
+int main() {
+  Printer impressora("very cool!");
+  impressora.myString = "even cooler!";
+  impressora.printString(); // Hi! Your string is even cooler!
+  return 0;
+}
+```
+
+---
+# Classes
+## Modificar Atributos - Usando *public*
+
+Esta abordagem tem alguns problemas:
+- Qualquer programador pode aceder e modificar o atributo, sem qualquer controlo
+- É impossível adicionar qualquer tipo de validação ao accesso
+- É impossível permitir a leitura e não a escrita
+- Podemos querer "esconder" a representação interna da classe
+- Entre outros (ler mais sobre [encapsulamento](https://www.geeksforgeeks.org/encapsulation-in-c/))
+
+Para corrigir estes problemas, podem ser usados *getters* e *setters*
+
+---
+## Modificar Atributos - *Getters* e *Setters*
+```C++
+class Printer {
+  private:
+    string myString;
+  public:
+    Printer(string myString) {
+      this->myString = myString;
+    }
+
+    void printString() {
+      cout << "Hi! Your string is " << myString << endl;
+    }
+    
+    void setMyString(string newString) {
+      this->myString = newString;
+    }
+    
+    string getMyString() {
+      return this->myString;
+    }
+};
+```
+
+```C++
+int main() {
+  Printer impressora("very cool!");
+  cout << impressora.getMyString() << endl; // very cool!
+  impressora.setMyString("even cooler!");
+  impressora.printString(); // Hi! Your string is even cooler!
+  return 0;
+}
+```
+
+---
+# Classes
+## Hierarquia
+
+Por vezes, é útil ter classes que derivam de outras, especificando o seu papel no programa. Por exemplo, as classes *Cat* e *Dog* podem derivar de uma classe comum *Animal*. Estas podem possuir membros próprios mas também conseguem aceder aos membros comuns da classe *Animal* (exceto *private*).
+
+![Animals Diagram](img/animals.png)
+
+---
+# Classes
+## Hierarquia - Sintaxe e Access Specifiers
+```C++
+class A { // classe base
+    ..............
+};
+class B : access_specifier A { // classe derivada de A
+    ...........
+};
+```
+
+![Access Specifiers](img/table-class.png)
+
+(Imagem retirada de [*Geeks for geeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
+
+---
+## Hierarquia - Exemplo
+```C++
+#include <iostream>
+using namespace std;
+
+class Animal {
+  protected:
+    string name;
+  public:
+    Animal(string name) { this->name = name; }
+
+    string getName() {
+      return this->name;
+    }
+
+    void printInfo() {
+      cout << name << " is some kind of animal" << endl;
+    }
+};
+
+class Cat : public Animal {
+  public:
+    // Apenas invoca construtor de Animal
+    Cat(string name) : Animal(name) {}
+  
+    void meow() {
+      cout << name << " says meooww" << endl;
+    }
+
+    void printInfo() { // Isto chama-se overload de funções
+      cout << name << " is a cat" << endl;
+    }
+};
+```
+
+---
+## Hierarquia - Exemplo
+
+```C++
+class Dog : public Animal {
+  public:
+    Dog(string name) : Animal(name) {}
+
+    void bark() {
+      cout << name << " says bark bark" << endl;
+    }
+
+    void printInfo() {
+      cout << name << " is a dog" << endl;
+    }
+};
 
 int main() {
-    // ...
+    Animal cat("Yuri"); // Hmm
+    cat.printInfo(); // Yuri is some kind of animal
+    cout << cat.getName() << endl; // Yuri
 
-    writeItems(cartItems, prices);
+    Dog max("Max");
+    max.bark(); // Max says bark bark
+    cout << max.getName() << endl; // Max
+
+    Cat fluffy("Fluffy");
+    fluffy.printInfo(); // Fluffy is a cat
 
     return 0;
 }
 ```
 
----
-
-# Soluções
-
-
-```cpp
-void readItems(vector<string> &cartItems, vector<double> &prices) {
-    ifstream in("shoppingcart.txt");
-    string cartItem;
-    double price;
-
-    while (in >> cartItem >> price)
-    {
-        cartItems.push_back(cartItem);
-        prices.push_back(price);
-    }
-}
-
-int main() {
-    // ...
-    
-    cout << "Olá " << name << "!" << endl;
-
-    readItems(cartItems, prices);
-
-    while (option != 0)
-        printAndChooseOption(option, cartItems, prices);
-
-    // ...
-}
-```
 
 ---
 
