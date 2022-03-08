@@ -537,7 +537,7 @@ int main() {
 
 
 
---- 
+---
 
 # Funções
 Na função *main* do programa que estão a desenvolver, existe uma chamada a uma função que processa o input de utilizador e altera o ShoppingCart em conformidade.
@@ -747,6 +747,10 @@ Existem situações em que temos de usar estes apontadores:
 - Usar apontadores em argumentos de funções é uma prática muito frequente para os seguintes casos:
     - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
     - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
+
+---
+
+# Apontadores
 
 Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
 -    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
