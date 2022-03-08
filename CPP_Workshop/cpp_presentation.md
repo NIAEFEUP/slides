@@ -1,7 +1,6 @@
 class: center, middle
 
 # Workshop C++
-
 ### NIAEFEUP
 
 ---
@@ -32,7 +31,6 @@ class: center, middle
 ---
 
 # O que é o C++?
-
 - Criado por Bjarne Stroustrup
 - Extensão da linguagem C - 99% retrocompatível
 - Linguagem compilável
@@ -47,7 +45,6 @@ class: center, middle
 ---
 
 # Hello world!
-
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -66,24 +63,22 @@ int main() {
 
 **E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
 
+
 ---
 
 # Tipos de dados primitivos
-
 - **char:** caracteres alfanuméricos (ex: 'c', '8', '$');
-- **int:** números inteiros (ex: 10\*\*3, -2)
+- **int:** números inteiros (ex: 10**3, -2)
 - **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
-- **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)
+- **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
 - **bool:** verdadeiro ou falso (ex: true, false)
-- **void:** significa "sem qualquer valor". É usado quando uma função não retorna nenhum
-  valor
+- **void:** significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
+valor
 
 ---
 
 # Tipos de dados
-
 ## Modificadores de tipos de dados
-
 - **signed/unsigned:** para números com/sem sinal
 - **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
 - **long/long long:** valor otimizado para precisão com comprimento de pelo menos 32/64 bits
@@ -104,36 +99,28 @@ int main() {
     return 0;
 }
 ```
-
 ---
-
 # Variáveis
-
 São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
 ## Como as declarar?
-
 ```C++
 int myNumber = 15;
 bool myBoolean = true;
 ```
-
 ## Tipos de variáveis
-
 - Globais - declarar fora de qualquer função
 - Locais - declarar dentro de uma função específica (ex. main)
 
 ### NOTAS:
-
-- Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo,
-  desde que sejam locais e estejam em diferentes blocos de código (entre {})
+- Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
+desde que sejam locais e estejam em diferentes blocos de código (entre {})
 - Não têm que ser inicializadas ao mesmo tempo que são declaradas
 
 ---
 
 # Constantes
-
-Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização.
+Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização. 
 Podem ser locais ou globais.
 
 ```C++
@@ -156,9 +143,7 @@ int main() {
 ---
 
 # Operadores
-
 ## Operadores de igualdade
-
 - **==** verdadeiro se ambos os operandos forem iguais
 - **!=** verdadeiro se ambos os operandos forem diferentes
 - **>** verdadeiro se operando da esquerda for maior que o da direita
@@ -167,43 +152,34 @@ int main() {
 - **<=** verdadeiro se operando da esquerda for menor ou igual que o da direita
 
 ---
-
 # Operadores
-
 ## Operadores Aritméticos
-
 - **+** adição
 - **-** subtração
-- **\*** multiplicação
+- ***** multiplicação
 - **/** divisão
 - **%** módulo
 - **++** incremento de 1 unidade
 - **--** decremento de 1 unidade
 
 ## Operadores lógicos
-
 - **&&** E lógico
-- **||** OU lógico
+- **||** OU lógico 
 - **!** NÃO lógico (negação)
 
 ---
 
 # Operadores
-
 ## Alguns operadores de atribuição
-
 - **=** operando da esquerda fica com o valor do da direita
 - **+=** operando da esquerda fica com o valor do da direita somado com o seu próprio valor
 - **-=** operando da esquerda fica com o valor do da direita subtraído com o seu próprio valor
-- **\*=** operando da esquerda fica com o valor do da direita multiplicado com o seu próprio valor
+- ***=** operando da esquerda fica com o valor do da direita multiplicado com o seu próprio valor
 - **/=** operando da esquerda fica com o valor do da direita dividido com o seu próprio valor
 
 ---
-
 # Input/Output
-
 ## Requisitos
-
 Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linhas no topo do ficheiro de código:
 
 ```C++
@@ -211,19 +187,18 @@ Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linh
 using namespace std;
 ```
 
-`iostream` é a biblioteca _standard_ que fornece operadores e funções de I/O.
+`iostream` é a biblioteca *standard* que fornece operadores e funções de I/O.
 
-Se o _namespace_ `std` não for declarado, é necessário pré-anexar `std::` aos métodos _standard_ (e.g. `std::cout`).
+Se o *namespace* `std` não for declarado, é necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`).
 
 ---
 
+
 # Input/Output
-
 ## Escrever Informação
-
-De maneira a ser possível enviar informação para o utilizador, é comum imprimir
-mensagens no ecrã do computador. Para isso, e como foi possível ver no slide
-anterior, utiliza-se o objeto **cout** seguido do operador **<<** para
+De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
+mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
+anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
 transmitir informação para o ecrã do utilizador.
 
 ```C++
@@ -231,7 +206,7 @@ cout << "Bom dia " << nome_do_aluno << "!" << endl;
 cout << "Tudo bem contigo?" << endl;
 ```
 
----
+--- 
 
 ```Bash
 // Assuma-se que o conteudo da variável nome_do_aluno é Inês.
@@ -239,38 +214,32 @@ Bom dia Inês!
 Tudo bem?
 ```
 
-NOTA: A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes
-utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o
+NOTA: A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
+utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
 seguinte:
-
 ```Bash
 Bom dia Inês!Tudo bem?
 ```
 
 ---
-
 # Input/Output
-
 ### Ler Informação
-
 De forma semelhante, é possível ler informações do utilizador, usando o objeto **cin** e o operador **>>** seguido da variável onde vai ser guardada a informação.
 
+--- 
+
+O objeto **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
+definidos pelo utilizador, a não ser que o operador >> tenha sido *overloaded*).
+
+Para ler *strings*, **cin** utiliza qualquer espaço em branco como delimitador (o que inclui espaços, newlines, tabs, etc.). Para ler strings com o caracter espaço ' ', pode user usada a função *getline()* (a string *acaba* apenas quando o caracter '\n' é encontrado).
+
 ---
-
-O objeto **cin** permite obter informação de qualquer tipo de dados (exceto tipos
-definidos pelo utilizador, a não ser que o operador >> tenha sido _overloaded_).
-
-Para ler _strings_, **cin** utiliza qualquer espaço em branco como delimitador (o que inclui espaços, newlines, tabs, etc.). Para ler strings com o caracter espaço ' ', pode user usada a função _getline()_ (a string _acaba_ apenas quando o caracter '\n' é encontrado).
-
----
-
 # Input/Output
-
 ```C++
 #include <iostream>
-
+  
 using namespace std;
-
+    
 // Um mau uso da stream cin
 
 int main() {
@@ -278,27 +247,28 @@ int main() {
     cout << "Insert your name here: ";
     cin >> name;
     cout << "Your name is " << name << endl;
-
+    
     return 0;
-}
+}     
 ```
 
----
+--- 
 
 ```Bash
 Insert your name here: André Moreira
 Your name is André
 ```
 
----
+--- 
 
 Repare-se que o nome inserido difere do recebido pelo programa!
-Mais à frente veremos o porquê de isto acontecer, e perceberemos melhor o
+Mais à frente veremos o porquê de isto acontecer, e perceberemos melhor o 
 funcionamento da stream **cin**.
 
 ---
 
 # Exercícios
+
 
 **E2.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
 
@@ -307,6 +277,7 @@ funcionamento da stream **cin**.
 ---
 
 # Solução
+
 
 ```cpp
 int main() {
@@ -327,9 +298,7 @@ int main() {
 ---
 
 # Condições
-
-## Declarações _If_
-
+## Declarações *If*
 ```C++
 if (price < 0)
     return -1;
@@ -350,17 +319,13 @@ if (smart && !lazy)
 ```
 
 ---
-
 # Condições
-
-## Declarações _Switch-Case_
-
-Ideal para substituir declarações _if_ muito longas que
-comparam uma variável com vários **valores inteiros** (incluíndo _char_)
-
+## Declarações *Switch-Case*
+Ideal para substituir declarações *if* muito longas que 
+comparam uma variável com vários **valores inteiros** (incluíndo *char*)
 ```C++
 switch (choice) {
-    case 1:
+    case 1: 
         cout << "First item selected!" << endl;
         break;
     case 2:
@@ -371,8 +336,7 @@ switch (choice) {
         break;
 }
 ```
-
-Na ausência do _break_, as condições _case_ seguintes seriam executadas
+Na ausência do *break*, as condições *case* seguintes seriam executadas 
 
 ---
 
@@ -383,29 +347,22 @@ Na ausência do _break_, as condições _case_ seguintes seriam executadas
 ---
 
 # Ciclos
-
-## While loop
-
+## While loop 
 ```C++
 while (x < 5)
     cout << x << " is less than 5" << endl;
 ```
 
 ## Do-while loop
-
 ```C++
 do {
     cout << x << " is less than 5" << endl;
 }
 while (x < 5);
 ```
-
 ---
-
 # Ciclos
-
 ## For loop
-
 ```C++
 for (int i = 0; i < 10; i++) {
     int y = i*2;
@@ -440,44 +397,42 @@ int main() {
 ---
 
 # Vetores
-
 - Estrutura de dados linear com a capacidade de armazenar vários valores de um
-  determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento
-  novo é inserido ou apagado
-- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de _arrays_ de C
+determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
+novo é inserido ou apagado
+- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
 - Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
 
 ## Notas importantes
-
-- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor
-  está na posição 0, o segundo elemento na posição 1, etc.
-- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis
-  retos [] ou o método .at();
+- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
+está na posição 0, o segundo elemento na posição 1, etc.
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+retos [] ou o método .at();
 
 ---
 
 # Vetores
-
 ## Métodos Fundamentais
 
-- **[*idx*]/at(_idx_)**: Retorna um elemento no índice dado
-- **push_back(_elem_):** Adiciona um elemento ao vetor
+- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
+- **push_back(*elem*):** Adiciona um elemento ao vetor
 - **pop_back()**: Remove o último elemento do vetor
 - **size()**: Tamanho do vetor
 - **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
-- **insert(_pos_, _elem_)**: Inserte um elemento ao vetor na posição dada
-- **erase(_pos_):** Remove um elemento do vetor na posição dada
+- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
+- **erase(*pos*):** Remove um elemento do vetor na posição dada
 
-Para mais informação, consultar [**_Cpp Reference_**](https://www.cplusplus.com/reference/vector/vector/).
+
+Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
 
 ---
 
 ```C++
 #include <iostream>
 #include <vector>
-
+    
 using namespace std;
-
+    
 int main() {
     vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
     int size;
@@ -495,11 +450,10 @@ int main() {
     for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
-
+    
     return 0;
-}
+}                                                                         
 ```
-
 ---
 
 ```Bash
@@ -507,52 +461,51 @@ Vector size = 3
 Vector elements: 0 10 30
 ```
 
----
+--- 
 
 Atente-se no uso da função erase() para eliminar um elemento de um vetor:
-
 ```C++
 numbers.erase(numbers.begin() + 1);
 ```
-
-A função elimina o elemento que se encontrar na posição que estiver a 1 unidade
-do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número
-10, e que este se encontra na posição 0, a posição a elminar será a que estiver
+A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
+do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
+10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
 à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
 
-A função _insert()_ funciona de uma forma semelhante:
-
+A função *insert()* funciona de uma forma semelhante:
 ```C++
 numbers.insert(numbers.begin(), 0);
 ```
-
 Aqui, insere-se o elemento 0 no início do vetor.
 
+
 ---
+
 
 # Strings
 
 - STL Strings
-
-  - Semelhante a `vector<char>` e strings de python
-  - Operações semelhantes às dos vetores
-  - Suporta também métodos específicos
-    - **str += 'Outra string'**
-    - **str.length()**
-    - **str = to_string(124)**
-    - **str = string('andre').substr(0,2)** // Gera a substring 'an'
-    - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
-  - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
+    - Semelhante a `vector<char>` e strings de python
+    - Operações semelhantes às dos vetores
+    - Suporta também métodos específicos
+        - **str += 'Outra string'**
+        - **str.length()**
+        - **str = to_string(124)**
+        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
+        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
+    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
 
 - C Strings
-  - Arrays _(raw)_ de caracteres
-  - Pouco úteis para C++
+    - Arrays *(raw)* de caracteres
+    - Pouco úteis para C++
+
 
 ---
 
 # Exercícios
 
 **E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+
 
 ---
 
@@ -582,11 +535,12 @@ int main() {
 }
 ```
 
----
+
+
+--- 
 
 # Funções
-
-Na função _main_ do programa que estão a desenvolver, existe uma chamada a uma função que processa o input de utilizador e altera o ShoppingCart em conformidade.
+Na função *main* do programa que estão a desenvolver, existe uma chamada a uma função que processa o input de utilizador e altera o ShoppingCart em conformidade.
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
 
 - **Organização**: Reduzem um programa complexo em módulos mais pequenos e fáceis de lidar.
@@ -598,24 +552,21 @@ A divisão do código em funções curtas com objetivos claros é uma boa práti
 ---
 
 # Funções
-
 ## Como Declarar e Invocar uma Função
 
 ![Function Syntax](img/function.png)
 
-(Imagem retirada de [_Programiz_](https://www.programiz.com/cpp-programming/function))
+(Imagem retirada de [*Programiz*](https://www.programiz.com/cpp-programming/function))
 
 ---
 
 # Funções
-
 ## Argumentos
-
 Os argumentos nas funções podem ser passados de diferentes formas.
-
 - **Cópia**: O objeto e a sua memória associada são copiados para um novo objeto. Quaisquer alterações à variável passada no argumento não terão efeito no objeto original.
 - **Referência**: O objeto passado por argumento poderá ser manipulado e terá efeito no objeto original (tipo do argumento marcado com **&**).
 - **Apontador**: Funciona de forma semelhante a ser passado por referência. No entanto, tem uma utilização diferente (tipo do argumento marcado com **\***). Representa o endereço do objeto em memória.
+
 
 ---
 
@@ -650,13 +601,13 @@ int main() {
 }
 ```
 
+
 ```Bash
 Insert your age (years): 18
 Hello! You are 216 months old.
 ```
 
 ---
-
 ```C++
 #include <iostream>
 using namespace std;
@@ -687,18 +638,15 @@ int main() {
     clearInput();
     n2 = getOperand(&order);
     clearInput();
-
+    
     cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
     return 0;
 }
 ```
-
 ---
 
 # Funções
-
 Execução do programa:
-
 ```Bash
 Insert operand no. 1: 4
 Insert operand no. 2: 7
@@ -796,26 +744,22 @@ Os apontadores guardam o endereço da localização de uma variável especifica 
 # Apontadores
 
 Existem situações em que temos de usar estes apontadores:
-
 - Usar apontadores em argumentos de funções é uma prática muito frequente para os seguintes casos:
-  - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
-  - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
-
----
-
-# Apontadores
+    - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
+    - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
 
 Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
-
-- Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
-- Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
-  Tudo isto pode introduzir vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
+-    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
+-    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
+Tudo isto pode introduzir vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
 
 ---
+
 
 # Exercícios
 
 **E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
+
 
 ---
 
@@ -848,7 +792,6 @@ void function3(int* variable) {
 ```
 
 ---
-
 # Classes
 
 C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado a classes e a objetos, junto com os seus métodos e atributos.
@@ -864,13 +807,11 @@ Se necessário, pode ser explicitamente definido um destrutor para despoletar um
 ## Access Specifiers
 
 - **public**: membros são acessíveis fora da classe
-- **private**: membros são acessíveis apenas dentro da classe (_default_)
+- **private**: membros são acessíveis apenas dentro da classe (*default*)
 - **protected**: membros são acessíveis dentro da classe e em classes derivadas (mais à frente)
 
 ---
-
 ## Criar uma classe
-
 ```C++
 class Printer {       // Nome da classe
   private:            // Access specifier
@@ -885,9 +826,7 @@ class Printer {       // Nome da classe
     }
 };
 ```
-
 ## Criar um objeto
-
 ```C++
 int main() {
   Printer impressora("very cool!");  // cria um objeto da classe Printer
@@ -897,12 +836,9 @@ int main() {
   return 0;
 }
 ```
-
 ---
-
 # Classes
-
-## Modificar Atributos - Usando _public_
+## Modificar Atributos - Usando *public*
 
 ```C++
 class Printer {
@@ -928,25 +864,20 @@ int main() {
 ```
 
 ---
-
 # Classes
-
-## Modificar Atributos - Usando _public_
+## Modificar Atributos - Usando *public*
 
 Esta abordagem tem alguns problemas:
-
 - Qualquer programador pode aceder e modificar o atributo, sem qualquer controlo
 - É impossível adicionar qualquer tipo de validação ao accesso
 - É impossível permitir a leitura e não a escrita
 - Podemos querer "esconder" a representação interna da classe
 - Entre outros (ler mais sobre [encapsulamento](https://www.geeksforgeeks.org/encapsulation-in-c/))
 
-Para corrigir estes problemas, podem ser usados _getters_ e _setters_
+Para corrigir estes problemas, podem ser usados *getters* e *setters*
 
 ---
-
-## Modificar Atributos - _Getters_ e _Setters_
-
+## Modificar Atributos - *Getters* e *Setters*
 ```C++
 class Printer {
   private:
@@ -959,11 +890,11 @@ class Printer {
     void printString() {
       cout << "Hi! Your string is " << myString << endl;
     }
-
+    
     void setMyString(string newString) {
       this->myString = newString;
     }
-
+    
     string getMyString() {
       return this->myString;
     }
@@ -981,21 +912,16 @@ int main() {
 ```
 
 ---
-
 # Classes
-
 ## Hierarquia
 
-Por vezes, é útil ter classes que derivam de outras, especificando o seu papel no programa. Por exemplo, as classes _Cat_ e _Dog_ podem derivar de uma classe comum _Animal_. Estas podem possuir membros próprios mas também conseguem aceder aos membros comuns da classe _Animal_ (exceto _private_).
+Por vezes, é útil ter classes que derivam de outras, especificando o seu papel no programa. Por exemplo, as classes *Cat* e *Dog* podem derivar de uma classe comum *Animal*. Estas podem possuir membros próprios mas também conseguem aceder aos membros comuns da classe *Animal* (exceto *private*).
 
 ![Animals Diagram](img/animals.png)
 
 ---
-
 # Classes
-
 ## Hierarquia - Sintaxe e Access Specifiers
-
 ```C++
 class A { // classe base
     ..............
@@ -1007,12 +933,10 @@ class B : access_specifier A { // classe derivada de A
 
 ![Access Specifiers](img/table-class.png)
 
-(Imagem retirada de [_Geeks for geeks_](https://www.geeksforgeeks.org/inheritance-in-c/))
+(Imagem retirada de [*Geeks for geeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
 
 ---
-
 ## Hierarquia - Exemplo
-
 ```C++
 #include <iostream>
 using namespace std;
@@ -1034,7 +958,7 @@ class Cat : public Animal {
   public:
     // Apenas invoca construtor de Animal
     Cat(string name) : Animal(name) {}
-
+  
     void meow() {
       cout << name << " says meooww" << endl;
     }
@@ -1046,7 +970,6 @@ class Cat : public Animal {
 ```
 
 ---
-
 ## Hierarquia - Exemplo
 
 ```C++
@@ -1092,12 +1015,13 @@ Exemplo do programa em execução:
 
 # Solução
 
+
 ```cpp
 int main() {
     // ...
 
     cout << "Bem-vindo ao MyShoppingCart!" << endl;
-
+    
     // ...
 }
 ```
@@ -1110,12 +1034,14 @@ int main() {
 
 Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
 
+
 Exemplo do programa em execução:
 ![Exemplo sc1](img/sc1.png)
 
 ---
 
 # Solução
+
 
 ```cpp
 int main() {
@@ -1127,7 +1053,7 @@ int main() {
     cout << "Qual é o teu nome? ";
     getline(cin, name);
     cout << "Olá " << name << "!" << endl;
-
+    
     // ...
 }
 ```
@@ -1136,7 +1062,7 @@ int main() {
 
 # Exercícios - Shopping Cart
 
-**SC2.** Completa o método `printAndChooseOption(option)` da classe **ShoppingCart**, usando a variável _option_ e a técnica do _switch case_.
+**SC2.** Completa o método `printAndChooseOption(option)` da classe **ShoppingCart**, usando a variável *option* e a técnica do *switch case*.
 
 Se correres o método, reparas que aparece uma lista das opções disponíveis, sendo que o objetivo é pedir ao utilizador para escolher uma delas.
 
@@ -1147,6 +1073,7 @@ Exemplo do programa em execução:
 ![Exemplo sc2](img/sc2.png)
 
 ---
+
 
 ```cpp
 void printAndChooseOption(int &option) {
@@ -1185,18 +1112,19 @@ void printAndChooseOption(int &option) {
 
 # Exercícios - Shopping Cart
 
-**SC3.** Completa o _main_, criando um objeto **ShoppingCart** e chamando o método _printAndChooseOption_, de forma a que seja possível continuar a fazer operações enquanto o utilizador assim desejar.
+**SC3.** Completa o *main*, criando um objeto **ShoppingCart** e chamando o método *printAndChooseOption*, de forma a que seja possível continuar a fazer operações enquanto o utilizador assim desejar.
 
 Ou seja, como, na lista de opções, opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
 Exemplo do programa em execução:
 
-|        Primeiro Input         |          Segundo Input          |
-| :---------------------------: | :-----------------------------: |
-| ![Exemplo sc3-1](img/sc3.png) | ![Exemplo sc3-2](img/sc3_2.png) |
+Primeiro Input             |  Segundo Input
+:-------------------------:|:-------------------------:
+![Exemplo sc3-1](img/sc3.png)  |  ![Exemplo sc3-2](img/sc3_2.png)
 
 ---
 
 # Solução
+
 
 ```cpp
 int main() {
@@ -1207,7 +1135,7 @@ int main() {
 
     while (option != 0)
         shoppingCart.printAndChooseOption(option);
-
+    
     // ...
 }
 ```
@@ -1245,13 +1173,15 @@ No final, para verificar que a função funciona, corre a opção de ver os iten
 
 No código, está indicado com “REMOVER ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
 
-|       Primeiro Input        |          Segundo Input          |
-| :-------------------------: | :-----------------------------: |
-| ![Exemplo sc6](img/sc6.png) | ![Exemplo sc6-2](img/sc6_2.png) |
+Primeiro Input             |  Segundo Input
+:-------------------------:|:-------------------------:
+![Exemplo sc6](img/sc6.png)  |  ![Exemplo sc6-2](img/sc6_2.png)
+
 
 ---
 
 # Soluções
+
 
 ```cpp
 class ShoppingCart {
@@ -1281,6 +1211,7 @@ public:
 
 # Soluções
 
+
 ```cpp
 public:
     // ...
@@ -1307,6 +1238,7 @@ public:
 ---
 
 # Soluções
+
 
 ```cpp
 public:
@@ -1434,7 +1366,7 @@ public:
 
         return sum;
     }
-
+    
     void printItems() {
         int size = cart.size();
         double total = sumPrices();
@@ -1458,7 +1390,6 @@ public:
 ```
 
 ---
-
 # Tópicos avançados
 
 - Macros
@@ -1468,7 +1399,7 @@ public:
 - Alocação dinâmica de memória
   - Tamanhos variáveis e permanência em memória
 - Lambda functions, unions, enums, operator overloading
-  - _Syntatic sugar_
+  - *Syntatic sugar*
 - Bitwise operations
   - Low level fun
 - Leitura e escrita de ficheiros
@@ -1496,4 +1427,4 @@ public:
 
 - The C++ Programming Language, 4ª Edição, de Bjarne Stroustrup
 - Effective C++, 3ª Edição, de Scott Meyers
-  class: center, middle
+class: center, middle
