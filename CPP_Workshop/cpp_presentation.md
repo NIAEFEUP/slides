@@ -9,7 +9,7 @@ class: center, middle
 
 - Apresentação: https://niaefeup-workshop-cpp.netlify.com/
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/)
-- [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler), [Visual Studio](https://visualstudio.microsoft.com), [CLion](https://www.jetbrains.com/clion/) (escolher um)
+- [Visual Studio](https://visualstudio.microsoft.com), [VSCode](https://code.visualstudio.com), [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
 
 ---
 
@@ -61,29 +61,8 @@ int main() {
 
 # Exercícios
 
-**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no onlinegdb ou IDE.
+**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
 
-**SC1.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/MyShoppingCart.cpp) e cola-o no onlinegdb. Trabalharás com este ficheiro até ao final do workshop!
-
-Exemplo do programa em execução:
-![Soluçao SC1](img/sc1.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-     
-    vector<double> prices;
-
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    
-    // ...
-}
-```
 
 ---
 
@@ -291,14 +270,9 @@ funcionamento da stream **cin**.
 # Exercícios
 
 
-**E2.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu onlinegdb!
+**E2.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
 
 **E3.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
-
-**SC2.** Melhora a mensagem de boas vindas de forma a pedir o nome do utilizador e cumprimentá-lo. Atenção aos nomes que contêm espaços. Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
-
-Exemplo do programa em execução:
-![Soluçao sc2](img/sc2.png)
 
 ---
 
@@ -308,14 +282,15 @@ Exemplo do programa em execução:
 ```cpp
 int main() {
     // ...
-    vector<double> prices;
     string name;
+    cout << "Hey there, what's your name?" << endl;
+    cin >> name;
 
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    cout << "Qual é o teu nome? ";
-    getline(cin, name);
-    cout << "Olá " << name << "!" << endl;
-    
+    cout << "Hello " << name << ", what's your age?" << endl;
+
+    int age;
+    cin >> age;
+    cout << "Your age is " << age << endl;
     // ...
 }
 ```
@@ -367,34 +342,7 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas
 
 # Exercícios
 
-**E4.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/ControlFlow.cpp) e corre-o no onlinegdb.
-
-**SC3.** Descomenta (removendo as barras) a linha com o conteúdo `printAndChooseOption(option, listItems, prices);`. Se correres o programa, reparas que aparece uma lista das opções disponíveis, e é pedido ao utilizador para escolher uma delas. Melhora o programa de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
-
-Exemplo do programa em execução:
-
-![Soluçao sc3](img/sc3.png)
-
----
-
-# Solução
-
-
-```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
-    // ...
-    
-    switch (option)
-    {
-        // ...
-        default:
-           cout << "Opção não existente!" << endl;
-           break;
-    }
-    
-    // ...
-}
-```
+**E4.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
 
 ---
 
@@ -444,31 +392,7 @@ int main() {
 
 # Exercícios
 
-**E5.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no onlinegdb.
-
-**SC4.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
-Exemplo do programa em execução:
-
-Primeiro Input             |  Segundo Input
-:-------------------------:|:-------------------------:
-![Solucao sc4-1](img/sc4.png)  |  ![Solucao sc4-2](img/sc4_2.png)
-
----
-
-# Solução
-
-```cpp
-int main() {
-    // ...
-    
-    cout << "Olá " << name << "!" << endl;
-
-    while (option != 0)
-        printAndChooseOption(option, cartItems, prices);
-
-    return 0;
-}
-```
+**E5.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
 
 ---
 
@@ -558,117 +482,9 @@ Aqui, insere-se o elemento 0 no início do vetor.
 
 # Exercícios
 
-**SC5.** Implementa a funcionalidade de adicionar um item, juntamente com o seu preço, ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço, e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício. Recorda-te que as variáveis devem ser declaradas no início da função.
-Exemplo do programa em execução:
-![Soluçao sc5](img/sc5.png)
-
----
-
-# Exercícios
-
-**SC6.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir para o ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
-Exemplo do programa em execução:
-![Soluçao sc6](img/sc6.png)
-
-**SC7.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. No final, para verificar que a função funciona, corre a opção de ver os itens do carrinho e certifica-te que o item escolhido não aparece.
-Exemplo do programa em execução:
-![Soluçao sc7](img/sc7.png)
-
 ---
 
 # Soluções
-
-
-```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
-    vector<string> options{"Sair do programa", "Ver itens", "Adicionar item", 
-    "Atualizar item", "Remover item"};
-    string newItem;
-    double price;
-    
-    // ...
-
-    switch (option)
-    {
-    // ...
-    case 2:
-        // ADICIONAR ITEM
-        cout << "Novo Item: ";
-        getline(cin, newItem);
-        cout << "Preço (€): ";
-        cin >> price;
-        cartItems.push_back(newItem);
-        prices.push_back(price);
-        cout << "Adicionado item: " << newItem << endl;
-        break;
-        
-        // ...
-    }
-}
-```
-
----
-
-# Soluções
-
-
-```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
-    vector<string> options{"Sair do programa", "Ver itens", "Adicionar item", 
-    "Atualizar item", "Remover item"};
-    string newItem;
-    double price;
-    int size = cartItems.size();
-    // ...
-    switch (option)
-    {
-    // ...
-    case 1:
-        // VER ITENS
-        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-        if (size == 0){
-            cout << "O carrinho de compras está vazio!" << endl;
-        }
-        for (int i = 0; i < size; i++){
-            cout << i + 1 << " - " << cartItems.at(i) << " - " 
-            << prices.at(i) << "€" << endl;
-        }
-        break;
-        // ...
-    }
-}
-```
-
----
-
-# Soluções 
-
-
-```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
-    // ...
-    int size = cartItems.size();
-    int id;
-    string item;
-    // ...
-    switch (option)
-    {
-    // ...
-    case 4:
-        // REMOVER ITEMS
-        cout << "ID do item a remover: ";
-        cin >> id;
-
-        item = cartItems.at(id - 1);
-        cartItems.erase(cartItems.begin() + id - 1);
-        prices.erase(prices.begin() + id - 1);
-
-        cout << "Removido item: " << item << endl;
-        break;
-    // ...
-    }
-}
-```
 
 ---
 
@@ -811,187 +627,9 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 # Exercícios
 
-**SC8.** Melhora o programa de forma a que o código que elaboraste para cada um dos últimos 3 exercícios passe para dentro de uma função. Tem atenção aos parâmetros das funções, aonde as deves declarar, e como as deves chamar. Assegura-te que nada no funcionamento do programa se alterou. A partir de agora, sempre que te pedirmos uma nova funcionalidade, deves usar funções para a implementar.
-
-**SC9.** Melhora a função de remover itens para que, caso o utilizador escolha um item não existente, seja imprimida uma mensagem a assinalar o erro, e assegura-te que o código responsável por remover o item não é executado.
-Exemplo do programa em execução:
-![Soluçao sc9](img/sc9.png)
-
----
-
-# Exercícios
-
-**SC10.** Melhora a funcionalidade de mostrar os itens do carrinho de forma a ser possível ver o preço total dos produtos. Para isso, deves escrever uma função que calcule a soma dos preços, chamá-la no local apropriado, e imprimir o valor retornado pela mesma após mostrares os itens presentes no carrinho.
-Exemplo do programa em execução:
-![Soluçao sc10](img/sc10.png)
-
-**SC11.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício SC9, certifica-te que o utilizador não escolhe um item não existente.
-Exemplo do programa em execução:
-![Soluçao sc11](img/sc11.png)
-
 ---
 
 # Soluções
-
-```cpp
-void printItems(vector<string> cartItems, vector<double> prices) {
-    int size = cartItems.size();
-    cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-
-    if (size == 0) {
-        cout << "O carrinho de compras está vazio!" << endl;
-    }
-
-    for (int i = 0; i < size; i++) {
-        cout << i + 1 << " - " << cartItems.at(i) << " - " << prices.at(i) << "€" << endl;
-    }
-}
-
-void addItem(vector<string> &cartItems, vector<double> &prices) {
-    string newItem;
-    double price;
-
-    cout << "Novo Item: ";
-    getline(cin, newItem);
-    cout << "Preço (€): ";
-    cin >> price;
-
-    cartItems.push_back(newItem);
-    prices.push_back(price);
-    cout << "Adicionado item: " << newItem << endl;
-}
-```
-
----
-
-# Soluções
-
-```cpp
-void removeItem(vector<string> &cartItems, vector<double> &prices) {
-    int id;
-    string item;
-
-    cout << "ID do item a remover: ";
-    cin >> id;
-
-    item = cartItems.at(id - 1);
-    cartItems.erase(cartItems.begin() + id - 1);
-    prices.erase(prices.begin() + id - 1);
-
-    cout << "Removido item: " << item << endl;
-}
-```
-
----
-
-# Soluções
-
-```cpp
-void printAndChooseOption(int &option, vector<string> &cartItems, vector<double> &prices) {
-    // ...
-    switch (option){
-    case 0: // TERMINAR O PROGRAMA
-        cout << "Saindo do programa. Obrigado por escolher a nossa aplicação!" << endl;
-        break;
-    case 1: // VER ITENS
-        printItems(cartItems, prices);
-        break;
-    case 2: // ADICIONAR ITEM
-        addItem(cartItems, prices);
-        break;
-    case 3: // ATUALIZAR ITEMS
-        cout << "Funcionalidade ainda não implementada!" << endl;
-        break;
-    case 4: // REMOVER ITEMS
-        removeItem(cartItems, prices);
-        break;
-    default:
-        cout << "Opção não existente!" << endl;
-        break;
-    }
-}
-```
-
----
-
-# Soluções
-
-```cpp
-void removeItem(vector<string> &cartItems, vector<double> &prices) {
-    int id;
-    string item;
-
-    cout << "ID do item a remover: ";
-    cin >> id;
-
-    if (id < 0 || id > cartItems.size())
-    {
-        cout << "Esse item não existe!" << endl;
-        return;
-    }
-
-    // ...
-}
-```
-
----
-
-# Soluções
-
-```cpp
-double sumPrices(vector<double> prices) {
-    double sum = 0;
-    int size = prices.size();
-
-    for (int i = 0; i < size; i++)
-    {
-        sum += prices.at(i);
-    }
-
-    return sum;
-}
-
-void printItems(vector<string> cartItems, vector<double> prices) {
-    int size = cartItems.size();
-    double total = sumPrices(prices);
-
-    // ...
-
-    cout << "Total: " << total << "€" << endl;
-}
-```
-
----
-
-# Soluções
-
-```cpp
-void updateItem(vector<string> &cartItems, vector<double> &prices) {
-    int id;
-    double newPrice;
-    string newItem;
-    string oldItem;
-
-    cout << "ID do item a atualizar: ";
-    cin >> id;
-    cin.ignore(10000, '\n');
-
-    if (id < 0 || id > cartItems.size()){
-        cout << "Esse item não existe!" << endl;
-        return;
-    }
-    oldItem = cartItems.at(id - 1);
-
-    cout << "Novo item: ";
-    getline(cin, newItem);
-    cartItems.at(id - 1) = newItem;
-
-    cout << "Novo preço (€): ";
-    cin >> newPrice;
-    prices.at(id - 1) = newPrice;
-    cout << "Atualizado item " << oldItem << " para " << newItem << endl;
-}
-```
 
 ---
 # Classes
@@ -1011,7 +649,6 @@ Atributos e métodos são basicamente as variáveis e funções duma dada classe
 - **protected**: membros são acessíveis dentro da classe e em classes derivadas (mais à frente)
 
 ---
-# Classes
 ## Criar uma classe
 ```C++
 class Printer {       // Nome da classe
@@ -1148,9 +785,7 @@ class Animal {
   public:
     Animal(string name) { this->name = name; }
 
-    string getName() {
-      return this->name;
-    }
+    string getName() { return this->name; }
 
     void printInfo() {
       cout << name << " is some kind of animal" << endl;
@@ -1205,6 +840,392 @@ int main() {
 }
 ```
 
+---
+
+# Exercícios - Shopping Cart
+
+**SC0.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/MyShoppingCart.cpp) e cola-o no teu IDE. Trabalharás com este ficheiro até ao final do workshop!
+
+Exemplo do programa em execução:
+![Exemplo SC0](img/sc0.png)
+
+---
+
+# Solução
+
+
+```cpp
+int main() {
+    // ...
+
+    cout << "Bem-vindo ao MyShoppingCart!" << endl;
+    
+    // ...
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC1.** Melhora a mensagem de boas vindas de forma a pedir o nome do utilizador e cumprimentá-lo. Atenção aos nomes que contêm espaços.
+
+Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
+
+
+Exemplo do programa em execução:
+![Exemplo sc1](img/sc1.png)
+
+---
+
+# Solução
+
+
+```cpp
+int main() {
+    // ...
+
+    string name;
+
+    cout << "Bem-vindo ao MyShoppingCart!" << endl;
+    cout << "Qual é o teu nome? ";
+    getline(cin, name);
+    cout << "Olá " << name << "!" << endl;
+    
+    // ...
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC2.** Completa o método `printAndChooseOption(option)` da classe **ShoppingCart**, usando a variável *option* e a técnica do *switch case*.
+
+Se correres o método, reparas que aparece uma lista das opções disponíveis, sendo que o objetivo é pedir ao utilizador para escolher uma delas.
+
+Constrói o método de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
+
+Exemplo do programa em execução:
+
+![Exemplo sc2](img/sc2.png)
+
+---
+
+
+```cpp
+void printAndChooseOption(int &option) {
+    // ...
+    cin >> option;
+    cin.ignore(10000, '\n');
+    cout << endl << endl;
+
+    switch (option)
+    {
+        case 0:
+            // TERMINAR O PROGRAMA
+            cout << "Obrigado por escolher a nossa aplicação!" << endl;
+            break;
+        case 1:
+            // VER ITENS
+            break;
+        case 2:
+            // ADICIONAR ITEM
+            break;
+        case 3:
+            // ATUALIZAR ITEMS
+            break;
+        case 4:
+            // REMOVER ITEMS
+            break;
+        default:
+           cout << "Opção não existente!" << endl;
+           break;
+    }
+    // ...
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC3.** Completa o *main*, criando um objeto **ShoppingCart** e chamando o método *printAndChooseOption*, de forma a que seja possível continuar a fazer operações enquanto o utilizador assim desejar.
+
+Ou seja, como, na lista de opções, opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
+Exemplo do programa em execução:
+
+Primeiro Input             |  Segundo Input
+:-------------------------:|:-------------------------:
+![Exemplo sc3-1](img/sc3.png)  |  ![Exemplo sc3-2](img/sc3_2.png)
+
+---
+
+# Solução
+
+
+```cpp
+int main() {
+    // ...
+
+    int option = -1;
+    ShoppingCart shoppingCart;
+
+    while (option != 0)
+        shoppingCart.printAndChooseOption(option);
+    
+    // ...
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC4.** Implementa a funcionalidade de adicionar um item ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço, e adicionar um novo item a um vetor definido previamente na classe **ShoppingCart**.
+
+No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
+
+Exemplo do programa em execução:
+![Exemplo sc4](img/sc4.png)
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC5.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer o vetor de itens e imprimir no ecrã o nome e preço respetivos.
+Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicá-lo.
+
+No código, está indicado com “VER ITENS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
+
+Exemplo do programa em execução:
+![Exemplo sc5](img/sc5.png)
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC6.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do carrinho. Certifica-te que o utilizador não escolhe um item não existente.
+
+No final, para verificar que a função funciona, corre a opção de ver os itens do carrinho e certifica-te que o item escolhido não aparece.
+
+No código, está indicado com “REMOVER ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
+
+Primeiro Input             |  Segundo Input
+:-------------------------:|:-------------------------:
+![Exemplo sc6](img/sc6.png)  |  ![Exemplo sc6-2](img/sc6_2.png)
+
+
+---
+
+# Soluções
+
+
+```cpp
+class ShoppingCart {
+private:
+    vector <Item> cart;
+public:
+    void addItem() {
+        string newName;
+        double price;
+
+        cout << "Novo Item: ";
+        getline(cin, newName);
+
+        cout << "Preço (€): ";
+        cin >> price;
+
+        Item item(newName, price);
+
+        cart.push_back(item);
+
+        cout << "Adicionado item: " << newName << endl;
+    }
+    // ...
+```
+
+---
+
+# Soluções
+
+
+```cpp
+public:
+    // ...
+    void printItems() {
+        int size = cart.size();
+
+        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
+
+        if (size == 0) {
+            cout << "O carrinho de compras está vazio!" << endl;
+        }
+
+        for (int i = 0; i < size; i++) {
+            Item item = cart.at(i);
+            string name = item.getName();
+            double price = item.getPrice();
+
+            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
+        }
+    }
+    // ...
+```
+
+---
+
+# Soluções
+
+
+```cpp
+public:
+    // ...
+    void removeItem() {
+        int id;
+
+        cout << "ID do item a remover: ";
+        cin >> id;
+
+        if (id < 0 || id > cart.size()) {
+            cout << "Esse item não existe!" << endl;
+            return;
+        }
+
+        Item item = cart.at(id - 1);
+        cart.erase(cart.begin() + id - 1);
+
+        cout << "Removido item: " << item.getName() << endl;
+    }
+    // ...
+```
+
+---
+
+# Soluções
+
+```cpp
+void printAndChooseOption(int &option) {
+    // ...
+    switch (option)
+    {
+        case 0:
+            // TERMINAR O PROGRAMA
+            cout << "Obrigado por escolher a nossa aplicação!" << endl;
+            break;
+        case 1:
+            printItems();
+            break;
+        case 2:
+            addItem();
+            break;
+        case 3:
+            // ATUALIZAR ITEMS
+            break;
+        case 4:
+            removeItem();
+            break;
+        default:
+           cout << "Opção não existente!" << endl;
+           break;
+    }
+    // ...
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC7.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar o respetivo item no carrinho. Certifica-te que o utilizador não escolhe um item não existente.
+
+No código, está indicado com “ATUALIZAR ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
+
+Exemplo do programa em execução:
+![Exemplo sc7](img/sc7.png)
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC8.** Melhora a funcionalidade de mostrar os itens do carrinho de forma a ser possível ver o preço total dos produtos. Para isso, deves escrever uma função que calcule a soma dos preços, chamá-la no local apropriado, e imprimir o valor retornado pela mesma após mostrares os itens presentes no carrinho.
+
+Exemplo do programa em execução:
+![Soluçao sc8](img/sc8.png)
+
+---
+
+```cpp
+public:
+    // ...
+    void updateItem() {
+        int id;
+
+        cout << "ID do item a atualizar: ";
+        cin >> id;
+        cin.ignore(10000, '\n');
+
+        if (id < 0 || id > cart.size()) {
+            cout << "Esse item não existe!" << endl;
+            return;
+        }
+
+        string oldName = cart.at(id - 1).getName();
+
+        string newName;
+        cout << "Novo item: ";
+        getline(cin, newName);
+
+        double newPrice;
+        cout << "Novo preço (€): ";
+        cin >> newPrice;
+
+        Item newItem(newName, newPrice);
+
+        cart.at(id - 1) = newItem;
+
+        cout << "Atualizado item " << oldName << " para " << newName << endl;
+    }
+    // ...
+```
+
+---
+
+```cpp
+public:
+    // ...
+    double sumPrices() {
+        double sum = 0;
+
+        for (int i = 0; i < cart.size(); i++) {
+            Item item = cart.at(i);
+            sum += item.getPrice();
+        }
+
+        return sum;
+    }
+    
+    void printItems() {
+        int size = cart.size();
+        double total = sumPrices();
+
+        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
+
+        if (size == 0) {
+            cout << "O carrinho de compras está vazio!" << endl;
+        }
+
+        for (int i = 0; i < size; i++) {
+            Item item = cart.at(i);
+            string name = item.getName();
+            double price = item.getPrice();
+
+            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
+        }
+        cout << "Total: " << total << "€" << endl;
+    }
+    // ...
+```
 
 ---
 
