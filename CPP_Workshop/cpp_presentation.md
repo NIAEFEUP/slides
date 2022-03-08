@@ -1228,6 +1228,25 @@ public:
 ```
 
 ---
+# Tópicos avançados
+
+- Macros
+  - Substituição de texto em compile time
+- Casts
+  - Conversão de tipos
+- Alocação dinâmica de memória
+  - Tamanhos variáveis e permanência em memória
+- Lambda functions, unions, enums, operator overloading
+  - *Syntatic sugar*
+- Bitwise operations
+  - Low level fun
+- Leitura e escrita de ficheiros
+  - Persistência de informação
+- Computação paralela
+  - Threads e concorrência
+- Organização em ficheiros
+  - Escalabilidade e modularidade
+---
 
 # Recursos Recomendados
 
