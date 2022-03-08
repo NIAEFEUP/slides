@@ -33,10 +33,10 @@ class: center, middle
 # O que é o C++?
 - Criado por Bjarne Stroustrup
 - Extensão da linguagem C - 99% retrocompatível
+- Linguagem compilável
 - Disponível em praticamente todos os computadores
 - Suporta programação orientada a objetos
-- Usada para definir precisamente uma sequência de operações que o computador tem 
-que executar para realizar uma determinada tarefa
+- Usada para definir precisamente uma sequência de operações que o computador tem que executar para realizar uma determinada tarefa
 - Extremamente eficiente (quando bem utilizada...)
 - Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
 
@@ -478,19 +478,81 @@ numbers.insert(numbers.begin(), 0);
 ```
 Aqui, insere-se o elemento 0 no início do vetor.
 
+
+---
+
+
+# Strings
+
+- STL Strings
+    - Semelhante a `vector<char>` e strings de python
+    - Operações semelhantes às dos vetores
+    - Suporta também métodos específicos
+        - **str += 'Outra string'**
+        - **str.length()**
+        - **str = to_string(124)**
+        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
+        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
+    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
+
+- C Strings
+    - Arrays *(raw)* de caracteres
+    - Pouco úteis para C++
+
+
 ---
 
 # Exercícios
 
+**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+
+
 ---
 
-# Soluções
+# Solução
 
----
+```cpp
+
+/**
+* Escolher dois nomes diferentes atrav�s de substring, para duas vari�veis diferentes
+* Concatenar os nomes numa �nica vari�vel
+* Mostrar essa vari�vel no ecr�
+* Descobrir o tamanho dessa nova string e mostrar tamb�m no ecr�
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char name1[256];
+	cout << "Hey there, what's your full name?\n";
+	cin.getline(name1, 256);
+	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
+	cout << name;
+
+	string a = name.substr(0, 6);
+	string b = name.substr(12, 17);
+
+	string c = a + b;
+	cout << endl << c << endl;
+
+	cout << c.length() << endl;
+
+	return 0;
+}
+
+
+```
+
+
+
+--- 
 
 # Funções
-Até agora, todo o código encontrava-se dentro da função main. Para programas mais simples é o suficiente, 
-mas à medida que a complexidade (e número de linhas de código) da aplicação aumenta, o uso de funções torna-se indispensável.
+Na função *main* do programa que estão a desenvolver, existe uma chamada a uma função que processa o input de utilizador e altera o ShoppingCart em conformidade.
+A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
 
 - **Organização**: Reduzem um programa complexo em módulos mais pequenos e fáceis de lidar.
 - **Reusabilidade**: A função pode ser chamada múltiplas vezes, evitando repetição de código e minimizando a probabilidade de erros.
@@ -601,6 +663,83 @@ Insert operand no. 1: 4
 Insert operand no. 2: 7
 4x7=28
 ```
+
+---
+
+# Exercícios
+
+**E7.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa-o no teu IDE. O objetivo é chamar uma função com diferentes tipos de argumentos e testar a sua eficiência!
+
+---
+
+```C++
+// ...
+int function1(vector<int> values) {
+    int total = 0;
+
+    for (int i = 0; i < values.size(); ++i) {
+        total += values.at(i);
+    }
+
+    return total;
+}
+
+int function2(vector<int> &values) {
+    int total = 0;
+
+    for (int i = 0; i < values.size(); ++i) {
+        total += values.at(i);
+    }
+
+    return total;
+}
+
+int function3(vector<int> *values) {
+    int total = 0;
+
+    for (int i = 0; i < values->size(); ++i) {
+        total += values->at(i);
+    }
+
+    return total;
+}
+// ...
+```
+
+---
+
+```C++
+// ...
+int main() {
+    vector<int> values(100000000);
+    auto f = []() -> int { return rand() % 10000; };
+
+    generate(values.begin(), values.end(), f);
+
+
+    auto start = chrono::high_resolution_clock::now();
+    function1(values);
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+    cout << "Time taken by function 1: "
+         << duration.count() << " milliseconds" << endl;
+
+    start = chrono::high_resolution_clock::now();
+    function2(values);
+    stop = chrono::high_resolution_clock::now();
+    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+    cout << "Time taken by function 2: "
+         << duration.count() << " milliseconds" << endl;
+
+    start = chrono::high_resolution_clock::now();
+    function3(&values);
+    stop = chrono::high_resolution_clock::now();
+    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+    cout << "Time taken by function 3: "
+         << duration.count() << " milliseconds" << endl;
+}
+```
+
 ---
 
 # Apontadores
@@ -609,7 +748,7 @@ A execução de processos tem muito por base a manipulação da memória física
 
 Os apontadores guardam o endereço da localização de uma variável especifica ou simplesmente uma porção de memória.
 
-![](https://i.imgur.com/HI45fGm.png)
+![](img/pointers.png)
 
 ---
 
@@ -620,16 +759,48 @@ Existem situações em que temos de usar estes apontadores:
     - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
     - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
 
-Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem. Por vezes é possível fazer leituras em endereços que o programador não planeou e dessa forma comprometer o bom funcionamento do programa. Pode também ser possível escrever em endereços inválidos, podendo por vezes *crashar* o programa. Tudo isto define vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
+Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
+-    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
+-    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
+Tudo isto pode introduzir vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
 
 ---
 
 
 # Exercícios
 
+**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
+
+
 ---
 
 # Soluções
+
+```cpp
+
+int function1() {
+    int variable;
+    cout << "Hey there, what's your age?" << endl;
+    cin >> variable;
+    cout << "You are " << variable << " years old" << endl;
+    return variable;
+}
+
+void function2(int &variable) {
+    cout << "Hey there, what's your age?" << endl;
+    cin >> variable;
+    cout << "You are " << variable << " years old" << endl;
+
+}
+
+void function3(int* variable) {
+    int temp;
+    cout << "Hey there, what's your age?" << endl;
+    cin >> temp;
+    *variable = temp;
+    cout << "You are " << *variable << " years old" << endl;
+}
+```
 
 ---
 # Classes
@@ -638,9 +809,11 @@ C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado
 
 Uma classe é um tipo definido pelo programador que pode ser usado ao longo do programa. Um objeto é uma instância dessa classe.
 
-Atributos e métodos são basicamente as variáveis e funções duma dada classe (ambos chamados de membros da classe).
+Atributos e métodos são as variáveis e funções duma dada classe (ambos chamados de membros da classe).
 
 É definido um construtor que dita a forma como um objeto é criado, incluindo dados a serem passados.
+
+Se necessário, pode ser explicitamente definido um destrutor para despoletar uma ação aquando da libertação de um objeto da memória.
 
 ## Access Specifiers
 
@@ -844,7 +1017,7 @@ int main() {
 
 # Exercícios - Shopping Cart
 
-**SC0.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/MyShoppingCart.cpp) e cola-o no teu IDE. Trabalharás com este ficheiro até ao final do workshop!
+**SC0.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/classes/Initial.cpp) e cola-o no teu IDE. Trabalharás com este ficheiro até ao final do workshop!
 
 Exemplo do programa em execução:
 ![Exemplo SC0](img/sc0.png)
