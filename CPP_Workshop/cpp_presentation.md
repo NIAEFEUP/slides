@@ -535,10 +535,7 @@ int main() {
 }
 ```
 
-
-
---- 
-
+---
 # Funções
 
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
@@ -751,7 +748,6 @@ Existem situações em que temos de usar estes apontadores:
 Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
 -    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
 -    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
-Tudo isto pode introduzir vulnerabilidades no nosso programa e por isso existem algumas proteções embutidas nos compiladores.
 
 ---
 
