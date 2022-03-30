@@ -1,0 +1,7 @@
+:root {
+    --color-main: rgb(192,55,54);
+    --color-background: #272822;
+    --color-inverse-text: rgb(193,210,214);
+    --color-inverse-header: #f3f3f3;
+    --color-highlighted-code: #373832;
+}
