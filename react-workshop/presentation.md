@@ -4,10 +4,10 @@ class: center, middle, inverse, small-images
 ## Declaring UI instead of handling every state change manually
 ![](./img/ni_logo.png)
 
-##### 17 Feb 2021
+##### ?? November 2022
 
 ---
-class: inverse
+class: inverse, middle
 
 # Will this be a boring workshop?
 
@@ -22,7 +22,7 @@ What we have on menu today:
 1. React in practice
 
 ---
-class: inverse
+class: inverse, middle
 
 # Your Host
 
@@ -49,7 +49,7 @@ Follow along if you want to check the slides:
 https://ws-react-niaefeup.netlify.app/
 
 ---
-class: inverse
+class: inverse, middle
 
 # Disclaimer
 
@@ -57,9 +57,11 @@ class: inverse
 .justify[
 I purposefully left some (somewhat relevant) parts out because I'm about to give a lot of information at once, which can be counter-productive.
 
-It was only recently that I started to feel confident about my React skills (about 2 years in). 
+<!-- It was only recently that I started to feel confident about my React skills (about 2 years in).  -->
 
-It is normal if you feel lost in the beginning. If you like this are of development, don't give up and eventually it will start to make sense. 
+<!-- It is normal if you feel lost in the beginning. If you like this are of development, don't give up and eventually it will start to make sense.  -->
+
+It is normal if you feel lost in the beginning, don't give up and eventually all will start to make sense.
 ]
 <br>
 <br>
@@ -73,10 +75,10 @@ class: center, middle, inverse
 ## What is it, really?
 
 ---
-
+class: middle
 # React
 
-.highlight[React] is a .highlight[JavaScript] library that automatically renders and handles component updates on a `<div>` of your website 
+.highlight[React] is a .highlight[JavaScript] library that automatically renders and handles component updates on a `<div>` of your website. 
 
 .center[
 ```javascript
@@ -88,12 +90,16 @@ ReactDOM.render(
 ]
 
 ---
+class: middle
 
 # React
 
-This allows it to run .highlight[wherever] inside an existing website. You can even migrate progressively from old UIs to React-powered UI components. 
+This allows it to run .highlight[__wherever__] inside an existing website. You can even migrate progressively from old UIs to React-powered UI components. 
 
-React is just glorified JavaScript. Always keep this in mind! To use it, you just need to load it in a `script` tag in your HTML, then you can use all of its functionalities.
+React is just glorified JavaScript. .highlight[__Always keep this in mind!__] Most of the problems you'll face are just JavaScript problems.
+
+To use React, you just need to load it in a `script` tag in your HTML.
+<!-- , then you can use all of its functionalities. -->
 
 ---
 
@@ -120,13 +126,13 @@ React is just glorified JavaScript. Always keep this in mind! To use it, you jus
 ```
 ]
 
----
+<!-- ---
 
 # React vs JavaScript
 
 React .highlight[**is**] JavaScript. Most of the problems you'll face are just JavaScript problems.
 
-In fact, React was really good in the sense that it made me learn a lot of JavaScript theory.
+In fact, React was really good in the sense that it made me learn a lot of JavaScript theory. -->
 
 ---
 
@@ -134,9 +140,9 @@ In fact, React was really good in the sense that it made me learn a lot of JavaS
 
 <!-- In a typical web application, you have 3 layers: -->
 
-* .highlight[**Data Layer**] - Stores the data of the application (Users, posts, comments, etc...)
-* .highlight[**Logical Layer**] - Manages the interactions between the View Layer and the Data Layer (An HTTP API for example)
-* .highlight[**View Layer**] - The page that is visible to users and with which they can interact
+* .highlight[**Data Layer**] - Stores the data of the application (Users, posts, comments, etc...).
+* .highlight[**Logical Layer**] - Manages the interactions between the View Layer and the Data Layer (An HTTP API for example).
+* .highlight[**View Layer**] - The page that is visible to users and with which they can interact.
 
 ###### React is designed to only be used in the .highlight[**View Layer**].
 
@@ -145,15 +151,15 @@ In fact, React was really good in the sense that it made me learn a lot of JavaS
 ---
 class: middle
 
-# Declaratve vs Imperative Paradigms
+# Declarative vs Imperative Paradigms
 
 
-In .highlight[Imperative] programming, you define exactly what will be done and .highlight[how].
+In .highlight[**Imperative**] programming, you define exactly what will be done and .highlight[**how**].
 
-In .highlight[Declarative] programming, you define what happens depending on some state.
+In .highlight[**Declarative**] programming, you define what happens depending on some .highlight[**state**].
 
 ---
-
+class: middle
 # Imperative Programming
 
 .center[
@@ -198,25 +204,33 @@ items.map((item, i) => (
 ]
 
 ---
+class: middle
 
 # Comparison
 
-Declarative has a big advantage since it releases you from needing to think how things interact with each other every time.
+### Example: Add .highlight['how many are selected'] counter
+.highlight[**Imperative**] - add a new listener or change the current one.
 
-If you ever wanted to add a "how many are selected" counter in the previous example, in the imperative version, you needed to add a new listener or change the current one. In the declarative version, you just need a new component that counts the items which have `isSelected: true`, since that is already done in the onClick definition of the item.
-
-Think about the state and how it changes, not how the components change. The components will change according to the current state automatically*.
-
-##### * Of course you still need to link the state to the component in some way for it to know about it, like we do by using the `isSelected` variable
+.highlight[**Declarative**] - add new component that counts each item with `isSelected: true`, since that is already done in the onClick definition of the item.
 
 ---
+class: middle
+# Comparison
+.highlight[**Declarative**] has a big advantage since it releases you from needing to think how things interact with each other every time.
 
+## .centered[.highlight[Think about the state and how it changes]]
+The components will change according to the current state automatically.
+
+<!-- ##### * Of course you still need to link the state to the component in some way for it to know about it, like we do by using the `isSelected` variable -->
+
+---
+class: middle
 # Context Sum up
 
-* React is not a website maker.
-* There are no "React websites". There are websites that *use* React.
+* React is .highlight[**NOT**] a website maker.
+* There are no "React websites". There are websites that .highlight[**USE**] React.
 * This is why React is a library and not a framework.
-* React uses declarative programming to design the interface components, making them rely on a state, instead of requiring you to specify exactly how they should modify themselves. React handles the DOM changes for you :)
+* React uses .highlight[**declarative programming**] to design the interface components, making them rely on a .highlight[**state**], instead of requiring you to specify exactly how they should modify themselves. React handles the DOM changes for you :)
 
 ---
 
@@ -230,7 +244,7 @@ class: center, middle, inverse
 
 # JSX
 
-React uses an HTML-in-JS language (JSX) that lets you specify the components similarly to how you would do it in regular HTML. There are some differences like using `className` instead of `class`, and allowing you to have JavaScript sections to generate some parts of it
+React uses an .highlight[**HTML-in-JS language (JSX)**] that lets you specify the components similarly to how you would do it in regular HTML.
 
 .center[
 ```html
@@ -245,13 +259,13 @@ React uses an HTML-in-JS language (JSX) that lets you specify the components sim
 ```
 ]
 
+There are some differences like using `className` instead of `class`, and allowing you to have JavaScript sections to generate some parts of it.
+
 ---
 
 # Components
 
-React is based on a tree of components it will recursively render. A component can render none or multiple children, which will be other components, which will be rendered themselves, and so on.
-
-It is generally a good practice to create small and simple components and leave each component responsible for the minimum logic possible.
+React is based on a .highlight[**tree of components**], recursively rendered: a component can render none or multiple children, which will be other components, which will be rendered themselves, and so on.
 
 .center[
 ```javascript
@@ -264,11 +278,13 @@ const NewsWebpage = ({news, ads}) => (
 ```
 ]
 
----
+### .center[.highlight[Good Practice:] Create .highlight[small] and .highlight[simple] components, responsible for the minimum possible logic]
 
+---
+class: middle
 # Components - Props
 
-In order to change dynamically, Components can receive a `props` object to use when creating the rendering logic.
+Components can receive a `props` object to use when creating the rendering logic, in order to change dynamically.
 
 Components always have a `children` prop representing their children components.
 
@@ -307,8 +323,8 @@ const MyPage = () => (
 
 # DOM and VDOM
 
-DOM (Document Object Model) is the browser's representation of a web page.
-
+.highlight[**DOM (Document Object Model)**] is the browser's representation of a web page.
+.center[
 ```html
 <html>
     <head>
@@ -319,26 +335,32 @@ DOM (Document Object Model) is the browser's representation of a web page.
     </body>
 </html>
 ```
+]
 
-React has the concept of the .highlight[Virtual DOM], which it stores internally to manage the components' state.
+React has the concept of the .highlight[**Virtual DOM**], which it stores internally to manage the components' state.
 
 ---
+class: middle
 
 # VDOM
 
-Virtual DOM enables some optimizations when rendering the components in the browser (reconciliation phase), as it only updates the relevant components instead of the whole page.
+Virtual DOM  as it only updates the relevant components instead of the whole page when rendering components in the browser.
 
-#### Reconciliation Phase
+<br>
 
-When the VDOM changes are mapped to instructions to update the real DOM (append, delete and update operations). These instructions are generated by comparing the new version of the VDOM with the older one, and generating the minimum set of operations required to change it on the DOM.
+### .highlight[**Reconciliation Phase**]
 
-This is a known problem for which state-of-the-art algorithms have a complexity in the order of O(n^3), n being the number of tree elements.
+When the VDOM changes, those are mapped to instructions to update the real DOM (.highlight[**append**], .highlight[**delete**] and .highlight[**update**] operations). These instructions are generated by comparing the new version of the VDOM with the older one, and generating the minimum set of operations required to change it on the DOM*.
+
+<br>
+
+###### * This is a known problem for which state-of-the-art algorithms have a complexity in the order of O(n^3), n being the number of tree elements.
 
 ---
-
+class: middle
 # Reconciliation Optimizations
 
-If we used this in React, displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
+If we used this in React, displaying .highlight[**1000 elements**] would require in the order of .highlight[**one billion comparisons**]. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
 
 * Two elements of different types will produce different trees.
 * The developer can hint at which child elements may be stable across different renders with a key prop.
@@ -351,7 +373,7 @@ By default, when recursing on the children of a DOM node, React just iterates ov
 
 For example, when adding an element at the end of the children, converting between these two trees works well:
 
-.dense[
+.center[.dense[
 ```html
 <ul> <!-- before -->
   <li>first</li>
@@ -363,7 +385,7 @@ For example, when adding an element at the end of the children, converting betwe
   <li>third</li>
 </ul>
 ```
-]
+]]
 React will match the two `<li>first</li>` trees, match the two `<li>second</li>` trees, and then insert the `<li>third</li>` tree.
 
 ---
@@ -372,7 +394,7 @@ React will match the two `<li>first</li>` trees, match the two `<li>second</li>`
 
 If you implement it naively, inserting an element at the beginning has worse performance. For example, converting between these two trees works poorly:
 
-.dense[
+.center[.dense[
 ```html
 <ul> <!-- before -->
   <li>Duke</li>
@@ -384,7 +406,7 @@ If you implement it naively, inserting an element at the beginning has worse per
   <li>Villanova</li>
 </ul>
 ```
-]
+]]
 
 React will mutate every child instead of realizing it can keep the `<li>Duke</li>` and `<li>Villanova</li>` subtrees intact. This inefficiency can be a problem.
 
@@ -392,9 +414,9 @@ React will mutate every child instead of realizing it can keep the `<li>Duke</li
 
 # Keys
 
-In order to solve this issue, React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key to our inefficient example above can make the tree conversion efficient:
+In order to solve this issue, React supports a .highlight[**key**] attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key to our inefficient example above can make the tree conversion efficient:
 
-.dense[
+.center[.dense[
 ```html
 <ul>
   <li key="2015">Duke</li>
@@ -406,11 +428,12 @@ In order to solve this issue, React supports a key attribute. When children have
   <li key="2016">Villanova</li>
 </ul>
 ```
-]
+]]
 
 Now React knows that the element with key '2014' is the new one, and the elements with the keys '2015' and '2016' have just moved.
 
 ---
+class: middle
 
 # Keys
 
@@ -418,16 +441,16 @@ Usually, React will let you know when you have some list of mutating children an
 
 But there are some things to consider before choosing your keys:
 
-* They must be unique among the elements of the same list
-* They must be constant during the life of the element on the list
+* They must be .highlight[**unique**] among the elements of the same list.
+* They must be .highlight[**constant**] during the life of the element on the list.
 
 ---
-
+class: middle
 # Keys
 
-A first instinct is to use array indexes as keys, since they are obviously unique among elements.
+A first instinct is to use .highlight[**array indexes as keys**], since they are obviously unique among elements.
 
-However, they don't respect the second rule if the list changes with some reorder, for example.
+However, they .highlight[**DON'T**] respect the .highlight[**second rule**] if the list changes with some reorder, for example.
 
 <br>
 <br>
@@ -437,22 +460,22 @@ Let's check an example...
 https://jsbin.com/gotihihihi/edit?js,output
 
 ---
-
+class:middle                                                                                                        
 # Component Lifecycle
 
-In order to interact with the Virtual DOM, React lets you use React Components, which can be classes or functions (we’ll use functions) that represent a part of the website and can contain more components inside them.
+In order to interact with the Virtual DOM, React lets you use .highlight[**React Components**], which can be .highlight[**classes**] or .highlight[**functions**] (we’ll use functions) that represent a part of the website and can contain more components inside them.
 
-These React Components are bound by a Lifecycle that manages their existence and interactions, which reflect on the actual DOM after the .highlight[Reconciliation Phase].
+These React Components are .highlight[**bound**] by a .highlight[**Lifecycle**] that manages their existence and interactions, which reflect on the actual DOM after the .highlight[**Reconciliation Phase**].
 
 ---
 
 # Component Lifecycle
 
-There are 4 steps:
+There are 4 steps:  
 
-* .highlight[**Mounting**] (When the component is first added to the DOM): 
+* .highlight[**Mounting**] **(When the component is first added to the DOM)**: 
     * The methods and events that take place here happen as the component is mounted in the DOM.
-* .highlight[**Updating**] (When the state or one of the props change, or if parent re-renders*): 
+* .highlight[**Updating**] **(When the state or one of the props change, or if parent re-renders*)**: 
     * Here the methods and events take place after the React component has entered the DOM.
 * .highlight[**Un-mounting**]: 
     * Here the methods and events take place as they React component leaves the DOM or is unmounted from the DOM.
@@ -460,21 +483,22 @@ There are 4 steps:
     * This is a special category that deals with handling or gracefully catching errors in order not to totally break your React application render.
 
 
-###### * Might not happen if the child component is memoized with React.memo(), for example
+###### * Might not happen if the child component is memoized with React.memo(), for example.
 
 ---
 
 # React Hooks
 
-React .highlight[Hooks] are JavaScript .highlight[functions] that can interact with the component, by executing specific actions during the component lifecycle.
+React .highlight[**Hooks**] are JavaScript .highlight[**functions**] that can interact with the component, by executing specific actions during the component lifecycle.
 
 React exposes some default hooks, but you can create custom hooks which call React's ones for more complex scenarios.
 
 There are two rules when using React Hooks:
 
-* Only Call Hooks at the Top Level. 
+* ### .highlight[Only Call Hooks at the Top Level] 
     * Don’t call Hooks inside loops, conditions, or nested functions. Instead, always use Hooks at the top level of your React function.
-* Only Call Hooks from React Functions. Don’t call Hooks from regular JavaScript functions. Instead, you can:
+* ### .highlight[Only Call Hooks from React Functions]
+Don’t call Hooks from regular JavaScript functions. Instead, you can:
     * Call Hooks from React function components.
     * Call Hooks from custom Hooks
 
@@ -482,14 +506,14 @@ There are two rules when using React Hooks:
 
 # Common React Hooks
 
-### useState(initialState)
+### .highlight[useState(initialState)]
 Let's you store some state in-between re-renders. If you pass a function as the initial value, it will only run it on the first render.
 
 Returns an array where the first value is the state value and the second is a setter function for that value.
 
 It's recommended you have a separate state for every variable you want to store, instead of a giant object with a field for each.
 
-.dense[
+.center[.dense[
 ```javascript
 const [count, setCount] = useState(0);
 
@@ -501,56 +525,59 @@ const decrementCounter = () => {
     setCount(currentCount => currentCount - 1)
 }
 ```
-]
+]]
 
 ---
-
+class: middle
 # Common React Hooks
 
-### useState(initialState)
+### .highlight[useState(initialState):] `setState(val)` vs `setState(fn)`
 
-##### `setState(val)` vs `setState(fn)`
-
-Using functional version is better due to async updates. If you call `incrementCounter` in rapid succession, React will batch the updates and race conditions may prevent the counter from updating multiple times, i.e. the `count` variable will not update in between calls.
+Using the .highlight[**function version**] is .highlight[**better**] due to async updates. If you call `incrementCounter` in rapid succession, React will batch the updates and race conditions may prevent the counter from updating multiple times, i.e. the `count` variable will not update in between calls.
 
 Using an updater function, the "current state" variable is always correct.
 
 ---
-
+class: middle
 # Common React Hooks
 
-### useEffect(fn, [...dependencies])
+### .highlight[useEffect(fn, [...dependencies])]
 
-Lets you execute code at different stages of the lifecycle. It is called at every render, but it might do nothing, depending on the dependencies.
+Lets you execute code at different stages of the lifecycle. It is .highlight[**called at every render**], but it might do nothing, depending on the dependencies.
 
+.center[
 ```javascript
 useEffect(() => {
     // This will run on every render
 })
 ```
+]
 
-Notice the .highlight[undefined] dependency array. This is the same as not calling `useEffect`, and writing the code directly on the component.
+Notice the .highlight[**undefined**] dependency array. This is the same as not calling `useEffect`, and writing the code directly on the component.
 
 ---
-
+class: middle
 # Common React Hooks
 
-### useEffect(fn, [...dependencies])
+### .highlight[useEffect(fn, [...dependencies])]
 
+.center[
 ```javascript
 useEffect(() => {
     // This will run on mount only
 }, [])
 ```
+]
 
-Notice the .highlight[empty] dependency array.
+Notice the .highlight[**empty**] dependency array, indicating that the code will run .highlight[**at mount only**].
 
 ---
 
 # Common React Hooks
 
-### useEffect(fn, [...dependencies])
+### .highlight[useEffect(fn, [...dependencies])]
 
+.center[
 ```javascript
 useEffect(() => {
     // This will run every time the dependencies change
@@ -558,27 +585,27 @@ useEffect(() => {
 }, [foo, bar])
 
 ```
+]
 `foo` and `bar` might be some component props or variables created inside the component that depend on props. If the props change, making `foo` or `bar` change, the `useEffect` function will be executed.
 
-Does not execute if the .highlight[references] to the dependencies don’t change
+Does .highlight[**NOT**] execute if the .highlight[**references**] to the dependencies don’t change.
 
 ---
 
 # Common React Hooks
 
-### useRef(initialValue)
+### .highlight[useRef(initialValue)]
 
-`useRef` is similar to `useState`, however it does not trigger anything on change. It's just a mutable JavaScript object with a current field which stores whatever.
+`useRef` is similar to `useState`, however it does .highlight[**NOT trigger**] anything .highlight[**on change**]. It's just a mutable JavaScript object with a current field which stores whatever.
 
-It's also used to store references to DOM elements, so that you can program something .highlight[imperatively], if needed.
+It's also used to store references to DOM elements, so that you can program something .highlight[**imperatively**], if needed.
 
-.dense[
+.center[.dense[
 ```javascript
 function TextInputWithFocusButton() {
     const inputEl = useRef(null);
     const onButtonClick = () => {
-        // `current` points to the mounted text input element
-        inputEl.current.focus();
+        inputEl.current.focus();  // `current` points to the mounted text input
     };
     return (
         <>
@@ -588,7 +615,7 @@ function TextInputWithFocusButton() {
     );
 }
 ```
-]
+]]
 
 ---
 
@@ -626,18 +653,13 @@ class: center, middle, inverse
 
 A component that handles all the state and only renders stateless components to handle the visual part.
 
----
-
-# Controller Component
-
-.dense[
+.center[.dense[
 ```html
 const FormHandler = () => {
     const [name, setName] = useState("")
     const [age, setAge] = useState(0)
 
     const handleSubmit = () => //call something using `name` and `age`
-
     return (
         <form onSubmit={handleSubmit}>
             <input 
@@ -654,15 +676,15 @@ const FormHandler = () => {
     )
 }
 ```
-]
+]]
 
 ---
 
 # Higher-order Component (HoC)
 
-A function that wraps components to inject some props
+A function that wraps components to inject some props.
 
-.dense[
+.center[.dense[
 ```html
 // Utils file
 const withMath = (WrappedComponent) => {
@@ -688,7 +710,7 @@ export default withMath(MyCalculator);
 
 ```
 
-]
+]]
 
 ---
 class: center, middle, inverse
@@ -699,9 +721,9 @@ class: center, middle, inverse
 
 # PropTypes
 
-Since React is programmed in JavaScript, props don't have types by default. This can lead to some errors if you're not careful.
+Since React is programmed in JavaScript, props .highlight[**DON'T**] have types by default. This can lead to some errors if you're not careful.
 
-.highlight[PropTypes] lets you define the types for you component props, and even if they are required or not.
+.highlight[**PropTypes**] lets you define the types for you component props, and even if they are required or not.
 
 .center[
 ```javascript
@@ -719,7 +741,7 @@ SomeComponent.propTypes = {
 
 # Calling APIs - Fetch
 
-In order to make requests to an HTTP API, you can use the built-in JS library `fetch`, or some external package such as `axios`
+In order to make requests to an HTTP API, you can use the built-in JS library .highlight[**fetch**], or some external package such as .highlight[**Axios**].
 
 .center[
 ```javascript
@@ -745,7 +767,7 @@ try {
 
 # React Router
 
-React Router allows you to **simulate** different pages in your application.
+React Router allows you to .highlight[**simulate**] different pages in your application.
 
 .center[
 ```html
@@ -768,37 +790,37 @@ React Router allows you to **simulate** different pages in your application.
 ]
 
 ---
-
+class: middle
 # React Router
 
-When you define different Routes, technically it will not create different pages. The user will still access "/", which will then load the application code and then the rest of the path will be parsed and a different component will be rendered, depending on the route.
+When you .highlight[**define different Routes**], technically, it will .highlight[**NOT create different pages**]. The user will still access "/", which will then load the application code and then the rest of the path will be parsed and a different component will be rendered, depending on the route.
 
-This is why when you have an "only React with React Router" web application, you need to re-route all pages to "/", so that they are resolved by React, instead of the web server itself.
+This is why when you have an .highlight[**"only React with React Router"**] web application, you need to re-route all pages to "/", so that they are resolved by React, instead of the web server itself.
 
 ---
-
+class: middle
 # Redux
 
-.highlight[Redux] allows you to centralize your application's state and logic enables powerful capabilities like undo/redo and state persistence.
+.highlight[**Redux**] allows you to .highlight[**centralize your application's state and logic**] enables powerful capabilities like .highlight[**undo/redo**] and .highlight[**state persistence**].
 
 Redux is made for JavaScript in general, but it has specific bindings for React, which are really useful.
 
 ---
 
-# Redux --- The Problem
+# Redux -- The Problem
 
 Imagine you want to store cart information (for example in an e-commerce app). However, you want it in the navbar, and you need to edit it in some other places of the page.
 
 .height-limit-250[![Prop Drilling](./img/cart-prop-drilling.png)]
 
 
-You would need to store it in a common ancestor for all, and pass it down via props (called prop-drilling)
+You would need to store it in a common ancestor for all, and pass it down via props (called .highlight[**prop-drilling**]).
 
 ---
 
-# Redux --- (One of) The solution(s)
+# Redux -- (One of) The solution(s)
 
-Redux lets you create a `store` which will hold common state. Then, you make components subscribe to it (via HoC pattern or Hooks), which will then react to changes in the store and have access to ways of changing it.
+Redux lets you create a `store` which will hold .highlight[**common state**]. Then, you make components .highlight[**subscribe**] to it (via HoC pattern or Hooks), which will then react to changes in the store and have access to ways of changing it.
 
 .center[
 ```javascript
@@ -845,18 +867,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(SearchArea);
 This will make sure that `SearchArea` receives those props from the Redux Store automatically, and re-renders if they change!
 
 ---
-
+class: middle 
 # Redux --- How does state change
 
-#### Actions
+### .highlight[Actions]
 
 State is read-only, it should only change by emitting an action. Actions are the representation of what will change in the store.
 
-#### Reducers
+### .highlight[Reducers]
 
 Reducers will receive actions and generate the change in the state.
 
-Reducers must be .highlight[pure]. This means they just receive the current state, and return a new version. They DO NOT change the state directly.
+Reducers must be .highlight[**pure**]. This means they just receive the current state, and return a new version. They DO NOT change the state directly.
 
 ---
 
@@ -886,7 +908,7 @@ export default (state = initialState, action) => {
 ]
 
 ---
-
+class: middle
 # Actions --- Example
 
 .center[
@@ -899,19 +921,23 @@ export const setSearchOffers = (offers) => ({
 ]
 
 ---
-
+class: middle
 # Redux --- Back to the example
 
+.center[
 ```javascript
 export default connect(mapStateToProps, mapDispatchToProps)(SearchArea);
 ```
+]
 
+.center[
 ```javascript
 const mapDispatchToProps = (dispatch) => ({
     setSearchOffers: (value) => dispatch(setSearchOffers(value)),
     // ....
 });
 ```
+]
 
 This makes the function available to the component, which can call an API, and when it returns, call the `setSearchOffers` with the offers value.
 
@@ -932,14 +958,14 @@ https://material-ui.com/
 .height-limit-400[![MVC Pattern](./img/mui-docs-demo.gif)]
 
 ---
-
+class: middle
 # Material UI --- Theme
 
-You can specify the application theme with some UI defaults such as colors palette, the font type, spacing settings, etc...
+You can specify the .highlight[**application theme**] with some UI defaults such as colors palette, the font type, spacing settings, etc...
 
 This way, every time you are creating a UI, you don't have to worry about making everything consistent.
 
-Usually, it's placed at the top of the Component Tree.
+Usually, it's placed at the .highlight[**top of the Component Tree**].
 
 ---
 
@@ -990,9 +1016,11 @@ For this, it will use the Github API.
 
 Clone the repository, install the dependencies, and let's begin!
 
+.center[
 ```bash
 git clone https://github.com/imnotteixeira/react-workshop-exercise.git
 cd react-workshop-exercise
 npm install
 npm start
 ```
+]
