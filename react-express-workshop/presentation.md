@@ -1189,3 +1189,135 @@ const theme = responsiveFontSizes(createMuiTheme({
 ```
 ]
 
+---
+
+class: center, middle, inverse
+
+# Express
+## How to make React actually useful
+
+<img height=250 src="./img/express_banner.png"/>
+
+#### I hope the Backend guy isn't sleeping yet
+
+---
+
+# Express
+
+.highlight[Express] is a .highlight[web framework] that abstracts some of the work involved in creating a web server in Node.js. It offers us neat feature like .highlight[**routing**] and .highlight[**middleware**], which we'll see later on.
+
+.center[
+```javascript
+const express = require('express');
+const app = express();
+const port = 80;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+})
+```
+]
+
+---
+
+# Why don't we just use Node.js?
+
+Here's how a simple server would look like in Node.js:
+
+.center[
+```javascript
+const server = http.createServer(function (req, res) {
+    const endpoint = req.url;
+
+    if(endpoint == '/') {
+        res.write('hello world');
+    } else if(endpoint == '/bruno'){
+        res.write('hello Bruno')
+    } else if(endpoint == '/joao'){
+        res.write('hello João')
+    } else {
+        res.write('hello stranger');
+    }
+
+    res.end();
+});
+```
+]
+
+---
+
+Let's now try to use parameters...
+
+.center[
+```javascript
+const server = http.createServer(function (req, res) {
+    const endpoint = req.url;
+    const params = getQueryParams(endpoint); // this function is code YOU have to write
+
+    if(endpoint == '/') {
+        res.write('hello world');
+    } else if(endpoint == '/bruno'){
+        res.write('hello Bruno')
+    } else if(endpoint == '/joao'){
+        res.write('hello João')
+    } else {
+        if (params.name != null) { // something like /?name=bruno
+            res.write(`hello ${params.name}`);
+        } else {
+            res.write('hello stranger');
+        }
+    }
+
+    res.end();
+});
+```
+]
+
+---
+
+What about error handling? I think you're starting to see the problem.
+
+.center[
+```javascript
+const server = http.createServer(function (req, res) {
+    const endpoint = req.url;
+    const params = getQueryParams(endpoint); // this function is code YOU have to write
+    if(endpoint == '/') {
+        res.write('hello world');
+    } else if(endpoint == '/bruno'){
+        res.write('hello Bruno')
+    } else if(endpoint == '/joao'){
+        res.write('hello João')
+    } else {
+        if (params.name != null) { // something like /?name=bruno
+            if (typeof params.name == 'string') {
+                res.write(`hello ${params.name}`);
+            } else {
+                res.writeHead(StatusCodes.BAD_REQUEST);
+                res.write('Invalid name!');
+            }
+        } else {
+            res.writeHead(StatusCodes.NOT_FOUND);
+            res.write("The opereration is not supported");
+        }
+    }
+    res.end();
+});
+```
+]
+
+---
+
+# Node.js + Express.js = 🤍
+
+.center[
+```javascript
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+```
+]
