@@ -1202,6 +1202,75 @@ class: center, middle, inverse
 
 ---
 
+# REST to the RESCue
+
+REST (Representational State Transfer) uses HTTP Status and URI rules to give meaning to calls and represent resources and operations.
+
+Instead of .dense[`GET /getStock?beverageType=water`]
+
+we have .dense[`GET /beverages/water/stock`]
+
+<hr>
+
+<div class="flex-columns">
+<div>
+Instead of 
+.sparse[
+```bash
+POST /buy
+{
+    beverageType: water,
+    quantity: 2,
+    paymentMethod: {
+        type: "credit-card",
+        id: "1111-1111-1111-1111"
+        ...
+    }
+}
+```
+]
+</div>
+
+<div>
+we have
+.sparse[
+```bash
+POST /water/buy
+{
+    quantity: 2,
+    paymentMethod: {
+        type: "credit-card",
+        id: "1111-1111-1111-1111"
+        ...
+    }
+}
+```
+]
+</div>
+</div>
+
+---
+
+# REST
+
+REST focuses on **Resources** and **Operations**, instead of behaviors. You don't call functions. You don't even know which functions exist. Only need to know about resources, and what you can do with those.
+
+Often, the same URL is used but, by changing the HTTP Method, it gives a completely different meaning:
+
+.dense[
+```bash
+POST /posts/new # Creates a new post
+```
+]
+
+.dense[
+```bash
+GET /posts/new # Fetches the latest posts
+```
+]
+
+---
+
 # Express
 
 .highlight[Express] is a .highlight[web framework] that abstracts some of the work involved in creating a web server in Node.js. It offers us neat feature like .highlight[**routing**] and .highlight[**middleware**], which we'll see later on.
@@ -1250,61 +1319,81 @@ const server = http.createServer(function (req, res) {
 
 ---
 
-Let's now try to use parameters...
+Let's now try to use "parameters"
 
 .center[
 ```javascript
 const server = http.createServer(function (req, res) {
     const endpoint = req.url;
-    const params = getQueryParams(endpoint); // this function is code YOU have to write
+    const params = endpoint.split('/'); // Are these really parameters?
 
-    if(endpoint == '/') {
-        res.write('hello world');
-    } else if(endpoint == '/bruno'){
-        res.write('hello Bruno')
-    } else if(endpoint == '/joao'){
-        res.write('hello João')
+    // What if we have something like /bruno/goodbye?
+    if (params.length > 1) {
+        const name = params[1];
+        res.write(`hello ${name}`);
     } else {
-        if (params.name != null) { // something like /?name=bruno
+        res.write('hello world');
+    }
+
+    res.end();
+});
+```
+]
+
+---
+
+We're expecting `/:name`, we need to make sure we don't affect other endpoints!
+
+.center[
+```javascript
+const server = http.createServer(function (req, res) {
+    const endpoint = req.url;
+    const params = endpoint.split('/'); // Are these really parameters?
+
+    if (params.length > 2) { // Can you actually scale this?
+        res.writeHead(StatusCodes.NOT_FOUND);
+        res.write("The opereration is not supported");
+    } else if (params.length == 1) {
+        const name = params[1];
+        res.write(`hello ${name}`);
+    } else {
+        res.write('hello world');
+    }
+
+    res.end();
+});
+```
+]
+
+---
+
+What about error handling? I think you're starting to see the problem...
+
+.center[
+```javascript
+const server = http.createServer(function (req, res) {
+    const endpoint = req.url;
+    const params = endpoint.split('/'); // Are these really parameters?
+
+    if (params.length > 2) { // Can you actually scale this?
+        res.writeHead(StatusCodes.NOT_FOUND);
+        res.write("The opereration is not supported");
+    } else if (params.length == 1) {
+        const name = params[1];
+        if (typeof name == 'string') {
+            if (name == "andre") {
+                res.writeHead(StatusCodes.FORBIDDEN);
+                res.write('You were banned from our website!');
+            }
             res.write(`hello ${params.name}`);
         } else {
-            res.write('hello stranger');
+            res.writeHead(StatusCodes.BAD_REQUEST);
+            res.write('Invalid name!');
         }
-    }
-
-    res.end();
-});
-```
-]
-
----
-
-What about error handling? I think you're starting to see the problem.
-
-.center[
-```javascript
-const server = http.createServer(function (req, res) {
-    const endpoint = req.url;
-    const params = getQueryParams(endpoint); // this function is code YOU have to write
-    if(endpoint == '/') {
-        res.write('hello world');
-    } else if(endpoint == '/bruno'){
-        res.write('hello Bruno')
-    } else if(endpoint == '/joao'){
-        res.write('hello João')
     } else {
-        if (params.name != null) { // something like /?name=bruno
-            if (typeof params.name == 'string') {
-                res.write(`hello ${params.name}`);
-            } else {
-                res.writeHead(StatusCodes.BAD_REQUEST);
-                res.write('Invalid name!');
-            }
-        } else {
-            res.writeHead(StatusCodes.NOT_FOUND);
-            res.write("The opereration is not supported");
-        }
+        res.write('hello world');
     }
+
     res.end();
 });
 ```
@@ -1312,12 +1401,30 @@ const server = http.createServer(function (req, res) {
 
 ---
 
-# Node.js + Express.js = 🤍
+## Node.js + Express.js = ❤️
 
 .center[
 ```javascript
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+function validName(req, res, next) {
+    if (typeof req.params.name != 'string') {
+        res.status(StatusCodes.BAD_REQUEST).send('Invalid name!');
+        return;
+    }
+    next();
+}
+
+function isNameForbidden(req, res, next) {
+    if (req.params.name == 'andre') {
+        res.status(StatusCodes.FORBIDDEN).send('You were banned from our website!');
+        return;
+    }
+    next();
+}
+
+app.get('/:name', validName, isNameForbidden, (req, res) => {
+    res.send(`Hello ${req.params.name}!`);
 })
+
+app.get('/', (req, res) => res.send('Hello World!'))
 ```
 ]
