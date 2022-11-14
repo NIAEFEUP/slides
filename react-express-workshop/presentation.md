@@ -148,6 +148,20 @@ Some common public APIs:
 
 ---
 
+# HTTP web server applications
+
+> The server will receive the request and handle it
+
+Web applications are simply programs that listen for requests and send responses, using the HTTP protocol.
+
+Almost any language has its version of an http server module.
+
+The most common are Java, Python, C# and Node.js.
+
+Today, we'll look specifically into .highlight[Node.js]
+
+---
+
 class: center, middle, inverse
 
 # Node.js
