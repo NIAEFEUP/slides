@@ -4,7 +4,7 @@ class: center, middle, inverse, small-images
 ## How you can build the website you've always dreamed of
 ![](./img/ni_logo.png)
 
-##### 14 November 2022
+##### 15 November 2022
 
 ---
 class: inverse
