@@ -1065,9 +1065,9 @@ const server = http.createServer(function (req, res) {
     if(endpoint == '/') {
         res.write('hello world');
     } else if(endpoint == '/bruno'){
-        res.write('hello Bruno')
+        res.write('hello Bruno');
     } else if(endpoint == '/joao'){
-        res.write('hello João')
+        res.write('hello João');
     } else {
         res.write('hello stranger');
     }
@@ -1186,5 +1186,109 @@ app.get('/:name', validName, isNameForbidden, (req, res) => {
 })
 
 app.get('/', (req, res) => res.send('Hello World!'))
+```
+]
+
+---
+
+# Routing
+
+*Routing* is how an application responds to a client request to a particular .highlight[endpoint] (URI) and request .highlight[method] (GET, POST, etc.).
+
+.center[
+```javascript
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.post('/', (req, res) => {
+  res.send('Got a POST request')
+})
+
+app.put('/user', (req, res) => {
+  res.send('Got a PUT request at /user')
+})
+
+app.delete('/user', (req, res) => {
+  res.send('Got a DELETE request at /user')
+})
+```
+]
+
+---
+
+# Route Parameters
+
+You can think about Route Parameters as .highlight[variables] lying in the URL itself. The values are stored in the .highlight[req.params] object, with the name specified in the path as the key.
+
+.center[
+```javascript
+app.get('/:name', (req, res) => {
+    res.send(`Hello ${req.params.name}!`);
+})
+```
+]
+
+There are more ways of handling route paths, like regex and wildcards. You can read about them [here](https://expressjs.com/en/guide/routing.html).
+
+Query parameters, such as `/?name=bob`, are also common and stored in the .highlight[req.query] object.
+
+---
+
+# Multiple Routers
+
+In order to have a modular application, we can use multiple routers. You can think of a router as a .highlight[mini-app].
+You have two ways of doing this:
+
+<div class="flex-columns">
+
+.center[
+```javascript
+app.route('/book')
+  .get((req, res) => {
+    res.send('Get a random book');
+  })
+  .post((req, res) => {
+    res.send('Add a book');
+  })
+  .put((req, res) => {
+    res.send('Update the book');
+  })
+```
+]
+
+.center[
+```javascript
+const router = express.Router();
+app.use("/book", router);
+
+// Translates to /book/buy
+router.post("/buy", (req, res) => {
+    res.send("Buy a book");
+});
+```
+]
+
+---
+
+# Middleware
+
+Middleware functions run between the request arrival and the route handler, so it's useful for validation or or some logic you want to run every time you receive a request.
+
+They have access to the .highlight[request] object (req), the .highlight[response] object (res), and the .highlight[next] function. .highlight[next] is a special function in the Express router which, when invoked, executes the middleware succeeding the current one.
+
+.center[
+```javascript
+function isNameForbidden(req, res, next) {
+    if (req.params.name == 'andre') {
+        res.status(StatusCodes.FORBIDDEN).send('You were banned!');
+        return;
+    }
+    next();
+}
+
+app.get('/:name', validName, isNameForbidden, (req, res) => {
+    res.send(`Hello ${req.params.name}!`);
+})
 ```
 ]
