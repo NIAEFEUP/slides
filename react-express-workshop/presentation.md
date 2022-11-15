@@ -1292,3 +1292,127 @@ app.get('/:name', validName, isNameForbidden, (req, res) => {
 })
 ```
 ]
+
+---
+
+# Error Handling
+
+You can define error-handling functions the same way as other middleware functions, except with four arguments instead of three: .highlight[err], .highlight[req], .highlight[res], and .highlight[next].
+
+You can use .highlight[app.use()] to define a global middleware, including an error handler.
+
+.center[
+```javascript
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Something broke!')
+})
+```
+]
+
+---
+
+# Response Methods
+
+The .highlight[res] object has a lot of methods for sending responses to the client. Here are some of the most common ones:
+
+* .highlight[res.send()] - Sends a response of any type.
+* .highlight[res.json()] - Sends a JSON response.
+* .highlight[res.status()] - Sets the status code of the response.
+* .highlight[res.redirect()] - Redirects the request to another URL.
+* .highlight[res.sendFile()] - Sends a file.
+
+You can read more about them [here](https://expressjs.com/en/guide/routing.html). 
+
+---
+
+# Express Validators
+
+Express has a package called .highlight[express-validator] that can be used to validate the request body, params, query, headers, and cookies.
+
+.center[
+```javascript
+const { body, validationResult } = require('express-validator');
+
+app.post('/user',
+  body('email').isEmail(), // must be an email
+  body('password').isLength({ min: 5 }), // must be at least 5 chars long
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(StatusCodes.BAD_REQUEST).json({ errors: errors.array() });
+    }
+
+    const user = await User.create(
+        {email: req.body.email, password: req.body.password});
+    res.json(user);
+  },
+);
+```
+]
+
+---
+
+# Express Validators
+
+There are a lot of available validators, you can check them [here](https://express-validator.github.io/docs/).
+
+* .highlight[isString()] - Checks if the value is a string.
+* .highlight[notEmpty()] - Checks if the value is not empty.
+* .highlight[custom(validator)] - Checks if the value passes a custom function.
+* .highlight[withMessage(message)] - Adds a custom error message.
+* .highlight[bail()] - Stops the validation chain if the current validator fails.
+* .highlight[optional()] - Marks the current validation chain as optional.
+
+.center[
+```json
+{
+  "errors": [
+    {
+      "location": "body",
+      "msg": "Invalid value",
+      "param": "email"
+    }
+  ]
+}
+```
+]
+
+---
+
+# Body Parser
+
+You'll often want to develop an API that accepts .highlight[JSON] data (or another format). In order to do that, you need to parse the request body.
+
+Before Express 4.16.0, you needed to install a package called .highlight[body-parser] to parse the request body as JSON. Now, you can simply use the .highlight[express.json()] method.
+
+.center[
+```javascript
+app.use(express.json());
+```
+]
+
+---
+
+class: center, middle, inverse,
+
+# CORS
+## Currently Out of Rad Subtitles
+
+--
+
+### No, but really
+### .highlight[Cross-Origin Resource Sharing]
+
+---
+
+# CORS
+
+CORS (Cross-Origin Resource Sharing) is a mechanism that uses additional HTTP headers to tell a browser to let a web application running at one origin (domain) have permission to access selected resources from a server at a different origin.
+
+Due to this, you **cannot** make requests to services in different locations by default. This is the most common error for beginner web developers.
+
+![](./img/cors-error.png)
+![](./img/cors-req-headers.png)
+![](./img/cors-res-headers.png)
+
