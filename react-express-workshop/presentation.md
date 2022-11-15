@@ -1416,3 +1416,22 @@ Due to this, you **cannot** make requests to services in different locations by 
 ![](./img/cors-req-headers.png)
 ![](./img/cors-res-headers.png)
 
+---
+
+class: center, middle, inverse
+
+# Putting the hands on the pasta
+### Direct translations from Portuguese never work...
+
+---
+
+# The Iconic To-Do List App
+
+.dense[`git clone https://github.com/NIAEFEUP/react-express-ws-2022.git/`]
+
+Let's build a simple to-do list app using React and Express. We already started the project but we need your help to finish it!
+
+You'll find many TODOs in the code, and you'll need to complete them to make the app work. They are ordered by priority but you can do them in any order you want.
+
+The `frontend` folder contains the React app and the `backend` folder contains the Express app. Read the READMEs in each folder for more information.
+
