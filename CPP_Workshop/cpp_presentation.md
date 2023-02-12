@@ -410,75 +410,6 @@ está na posição 0, o segundo elemento na posição 1, etc.
 retos [] ou o método .at();
 
 ---
-
-# Vetores
-## Métodos Fundamentais
-
-- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
-- **push_back(*elem*):** Adiciona um elemento ao vetor
-- **pop_back()**: Remove o último elemento do vetor
-- **size()**: Tamanho do vetor
-- **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
-- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
-- **erase(*pos*):** Remove um elemento do vetor na posição dada
-
-
-Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
-
----
-
-```C++
-#include <iostream>
-#include <vector>
-    
-using namespace std;
-    
-int main() {
-    vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
-    int size;
-
-    numbers.push_back(40); // adição do valor 40 ao fim do vetor
-    numbers.pop_back(); // remove o último valor do vetor (40)
-
-    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor (20)
-    numbers.insert(numbers.begin(), 0); // adição do valor 0 ao início do vetor
-
-    size = numbers.size();
-    cout << "Vector size = " << size << endl;
-
-    cout << "Vector elements:";
-    for (int i = 0; i < numbers.size(); i++)
-        cout << " " << numbers.at(i); // equivalente a numbers[i]
-    cout << endl;
-    
-    return 0;
-}                                                                         
-```
----
-
-```Bash
-Vector size = 3
-Vector elements: 0 10 30
-```
-
---- 
-
-Atente-se no uso da função erase() para eliminar um elemento de um vetor:
-```C++
-numbers.erase(numbers.begin() + 1);
-```
-A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
-do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
-10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
-à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
-
-A função *insert()* funciona de uma forma semelhante:
-```C++
-numbers.insert(numbers.begin(), 0);
-```
-Aqui, insere-se o elemento 0 no início do vetor.
-
----
 # Funções
 
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
@@ -669,63 +600,6 @@ int main() {
 }
 ```
 
-
----
-
-
-# Strings
-
-- STL Strings
-    - Semelhante a `vector<char>` e strings de python
-    - Operações semelhantes às dos vetores
-    - Suporta também métodos específicos
-        - **str += 'Outra string'**
-        - **str.length()**
-        - **str = to_string(124)**
-        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
-        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
-    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
-
-- C Strings
-    - Arrays *(raw)* de caracteres
-    - Pouco úteis para C++
-
-
----
-
-# Exercícios
-
-**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
-
-
----
-
-# Solução
-
-```cpp
-
-#include <iostream>
-using namespace std;
-
-int main() {
-	char name1[256];
-	cout << "Hey there, what's your full name?\n";
-	cin.getline(name1, 256);
-	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
-	cout << name;
-
-	string a = name.substr(0, 6);
-	string b = name.substr(12, 17);
-
-	string c = a + b;
-	cout << endl << c << endl;
-
-	cout << c.length() << endl;
-
-	return 0;
-}
-```
-
 ---
 
 # Apontadores
@@ -784,6 +658,131 @@ void function3(int* variable) {
     cin >> temp;
     *variable = temp;
     cout << "You are " << *variable << " years old" << endl;
+}
+```
+
+---
+
+# Vetores
+## Métodos Fundamentais
+
+- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
+- **push_back(*elem*):** Adiciona um elemento ao vetor
+- **pop_back()**: Remove o último elemento do vetor
+- **size()**: Tamanho do vetor
+- **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
+- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
+- **erase(*pos*):** Remove um elemento do vetor na posição dada
+
+
+Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
+
+---
+
+```C++
+#include <iostream>
+#include <vector>
+    
+using namespace std;
+    
+int main() {
+    vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
+    int size;
+
+    numbers.push_back(40); // adição do valor 40 ao fim do vetor
+    numbers.pop_back(); // remove o último valor do vetor (40)
+
+    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor (20)
+    numbers.insert(numbers.begin(), 0); // adição do valor 0 ao início do vetor
+
+    size = numbers.size();
+    cout << "Vector size = " << size << endl;
+
+    cout << "Vector elements:";
+    for (int i = 0; i < numbers.size(); i++)
+        cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
+    
+    return 0;
+}                                                                         
+```
+---
+
+```Bash
+Vector size = 3
+Vector elements: 0 10 30
+```
+
+--- 
+
+Atente-se no uso da função erase() para eliminar um elemento de um vetor:
+```C++
+numbers.erase(numbers.begin() + 1);
+```
+A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
+do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
+10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
+à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
+
+A função *insert()* funciona de uma forma semelhante:
+```C++
+numbers.insert(numbers.begin(), 0);
+```
+Aqui, insere-se o elemento 0 no início do vetor.
+
+---
+
+
+# Strings
+
+- STL Strings
+    - Semelhante a `vector<char>` e strings de python
+    - Operações semelhantes às dos vetores
+    - Suporta também métodos específicos
+        - **str += 'Outra string'**
+        - **str.length()**
+        - **str = to_string(124)**
+        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
+        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
+    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
+
+- C Strings
+    - Arrays *(raw)* de caracteres
+    - Pouco úteis para C++
+
+
+---
+
+# Exercícios
+
+**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+
+
+---
+
+# Solução
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	char name1[256];
+	cout << "Hey there, what's your full name?\n";
+	cin.getline(name1, 256);
+	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
+	cout << name;
+
+	string a = name.substr(0, 6);
+	string b = name.substr(12, 17);
+
+	string c = a + b;
+	cout << endl << c << endl;
+
+	cout << c.length() << endl;
+
+	return 0;
 }
 ```
 
