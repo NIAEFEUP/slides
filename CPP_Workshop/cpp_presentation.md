@@ -478,63 +478,6 @@ numbers.insert(numbers.begin(), 0);
 ```
 Aqui, insere-se o elemento 0 no início do vetor.
 
-
----
-
-
-# Strings
-
-- STL Strings
-    - Semelhante a `vector<char>` e strings de python
-    - Operações semelhantes às dos vetores
-    - Suporta também métodos específicos
-        - **str += 'Outra string'**
-        - **str.length()**
-        - **str = to_string(124)**
-        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
-        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
-    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
-
-- C Strings
-    - Arrays *(raw)* de caracteres
-    - Pouco úteis para C++
-
-
----
-
-# Exercícios
-
-**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
-
-
----
-
-# Solução
-
-```cpp
-
-#include <iostream>
-using namespace std;
-
-int main() {
-	char name1[256];
-	cout << "Hey there, what's your full name?\n";
-	cin.getline(name1, 256);
-	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
-	cout << name;
-
-	string a = name.substr(0, 6);
-	string b = name.substr(12, 17);
-
-	string c = a + b;
-	cout << endl << c << endl;
-
-	cout << c.length() << endl;
-
-	return 0;
-}
-```
-
 ---
 # Funções
 
@@ -723,6 +666,63 @@ int main() {
     duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
     cout << "Time taken by function 3: "
          << duration.count() << " milliseconds" << endl;
+}
+```
+
+
+---
+
+
+# Strings
+
+- STL Strings
+    - Semelhante a `vector<char>` e strings de python
+    - Operações semelhantes às dos vetores
+    - Suporta também métodos específicos
+        - **str += 'Outra string'**
+        - **str.length()**
+        - **str = to_string(124)**
+        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
+        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
+    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
+
+- C Strings
+    - Arrays *(raw)* de caracteres
+    - Pouco úteis para C++
+
+
+---
+
+# Exercícios
+
+**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+
+
+---
+
+# Solução
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	char name1[256];
+	cout << "Hey there, what's your full name?\n";
+	cin.getline(name1, 256);
+	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
+	cout << name;
+
+	string a = name.substr(0, 6);
+	string b = name.substr(12, 17);
+
+	string c = a + b;
+	cout << endl << c << endl;
+
+	cout << c.length() << endl;
+
+	return 0;
 }
 ```
 
