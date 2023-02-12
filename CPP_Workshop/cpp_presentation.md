@@ -63,7 +63,6 @@ int main() {
 
 **E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
 
-
 ---
 
 # Tipos de dados primitivos
@@ -99,7 +98,9 @@ int main() {
     return 0;
 }
 ```
+
 ---
+
 # Variáveis
 São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
@@ -178,6 +179,13 @@ int main() {
 - **/=** operando da esquerda fica com o valor do da direita dividido com o seu próprio valor
 
 ---
+
+# Exercícios
+
+**E2.** Vamos observar o comportamento de alguns dos tipos de dados. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/dataTypes.cpp) e corre o programa.
+
+---
+
 # Input/Output
 ## Requisitos
 Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linhas no topo do ficheiro de código:
@@ -270,9 +278,9 @@ funcionamento da stream **cin**.
 # Exercícios
 
 
-**E2.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
+**E3.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
 
-**E3.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
+**E4.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
 
 ---
 
@@ -342,7 +350,9 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas
 
 # Exercícios
 
-**E4.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
+**E5.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
+
+**E6.** Vamos tentar perceber o funcionamento de um programa com `switch-case` e um `break` statement em falta. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/badSwitchCase.cpp) e corre-o no teu IDE.
 
 ---
 
@@ -392,7 +402,7 @@ int main() {
 
 # Exercícios
 
-**E5.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
+**E7.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
 
 ---
 # Funções
@@ -513,7 +523,7 @@ Insert operand no. 2: 7
 
 # Exercícios
 
-**E7.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa-o no teu IDE. O objetivo é chamar uma função com diferentes tipos de argumentos e testar a sua eficiência!
+**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa-o no teu IDE. O objetivo é chamar uma função com diferentes tipos de argumentos e testar a sua eficiência!
 
 ---
 
@@ -613,7 +623,7 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 # Exercícios
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
+**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
 
 
 ---
@@ -755,7 +765,7 @@ Aqui, insere-se o elemento 0 no início do vetor.
 
 # Exercícios
 
-**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+**E10.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
 
 
 ---
