@@ -395,21 +395,6 @@ int main() {
 **E5.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
 
 ---
-
-# Vetores
-- Estrutura de dados linear com a capacidade de armazenar vários valores de um
-determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
-novo é inserido ou apagado
-- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
-- Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
-
-## Notas importantes
-- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
-está na posição 0, o segundo elemento na posição 1, etc.
-- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
-retos [] ou o método .at();
-
----
 # Funções
 
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
@@ -660,6 +645,21 @@ void function3(int* variable) {
     cout << "You are " << *variable << " years old" << endl;
 }
 ```
+
+---
+
+# Vetores
+- Estrutura de dados linear com a capacidade de armazenar vários valores de um
+determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
+novo é inserido ou apagado
+- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
+- Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
+
+## Notas importantes
+- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
+está na posição 0, o segundo elemento na posição 1, etc.
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+retos [] ou o método .at();
 
 ---
 
