@@ -470,7 +470,9 @@ Hello! You are 216 months old.
 
 # Exercícios
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp).
+**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa as partes em falta para construir um pequeno programa interativo que recebe como input dois operandos e um operador (pode ser '+', '-', '*', '/') e imprime o resultado da operação especificada.
+
+Quando acabares (não vale fazer batota) vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/solutions/FunctionsSolved.cpp).
 
 ---
 
