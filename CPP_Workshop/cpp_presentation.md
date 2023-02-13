@@ -371,6 +371,7 @@ do {
 while (x < 5);
 ```
 ---
+
 # Ciclos
 ## For loop
 ```C++
@@ -405,6 +406,7 @@ int main() {
 **E7.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
 
 ---
+
 # Funções
 
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
@@ -445,16 +447,9 @@ int getAge() {
     cout << "Insert your age (years): ";
     cin >> age;
 
-    cin.clear(); // Caso o utilizador insira dados inválidos
-    cin.ignore(9999, '\n'); // Ignora tudo até fim de linha
-
     return age;
 }
 
-/*
-    Não funciona corretamente
-    Com funções, podemos corrigi-la e aplicar a mudança a todo o código
-*/
 void convertToMonths(int& age) {
     age = age * 12;
 }
@@ -467,133 +462,16 @@ int main() {
 }
 ```
 
-
 ```Bash
 Insert your age (years): 18
 Hello! You are 216 months old.
 ```
 
 ---
-```C++
-#include <iostream>
-using namespace std;
-
-void clearInput() {
-    cin.clear();
-    cin.ignore(9999, '\n');
-}
-
-int multiply(int first, int second) {
-    return first * second;
-}
-
-int getOperand(int* order) {
-    int operand;
-    cout << "Insert operand no. " << *order << ": ";
-    cin >> operand;
-
-    *order += 1; // É necessário desreferenciar o apontador
-    return operand;
-}
-
-int main() {
-    int n1, n2;
-    int order = 1;
-
-    n1 = getOperand(&order); // passar apontador para order
-    clearInput();
-    n2 = getOperand(&order);
-    clearInput();
-    
-    cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
-    return 0;
-}
-```
----
-
-# Funções
-Execução do programa:
-```Bash
-Insert operand no. 1: 4
-Insert operand no. 2: 7
-4x7=28
-```
-
----
 
 # Exercícios
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa-o no teu IDE. O objetivo é chamar uma função com diferentes tipos de argumentos e testar a sua eficiência!
-
----
-
-```C++
-// ...
-int function1(vector<int> values) {
-    int total = 0;
-
-    for (int i = 0; i < values.size(); ++i) {
-        total += values.at(i);
-    }
-
-    return total;
-}
-
-int function2(vector<int> &values) {
-    int total = 0;
-
-    for (int i = 0; i < values.size(); ++i) {
-        total += values.at(i);
-    }
-
-    return total;
-}
-
-int function3(vector<int> *values) {
-    int total = 0;
-
-    for (int i = 0; i < values->size(); ++i) {
-        total += values->at(i);
-    }
-
-    return total;
-}
-// ...
-```
-
----
-
-```C++
-// ...
-int main() {
-    vector<int> values(100000000);
-    auto f = []() -> int { return rand() % 10000; };
-
-    generate(values.begin(), values.end(), f);
-
-
-    auto start = chrono::high_resolution_clock::now();
-    function1(values);
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 1: "
-         << duration.count() << " milliseconds" << endl;
-
-    start = chrono::high_resolution_clock::now();
-    function2(values);
-    stop = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 2: "
-         << duration.count() << " milliseconds" << endl;
-
-    start = chrono::high_resolution_clock::now();
-    function3(&values);
-    stop = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 3: "
-         << duration.count() << " milliseconds" << endl;
-}
-```
+**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp).
 
 ---
 
