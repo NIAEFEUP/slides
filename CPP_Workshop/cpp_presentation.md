@@ -613,6 +613,52 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 ---
 
+# Arrays
+
+Tal comos os vetores, arrays são uma estrutura de daods linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
+
+Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
+
+Tal como os vetores, os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
+
+Ex:
+
+Se tivermos definirmos um array de 5 inteiros int numbers[5],
+- numbers é o apontador que aponta para o início do array
+- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
+
+---
+
+```C++
+#include <iostream>
+    
+using namespace std;
+    
+int main() {
+    const int SIZE = 5;
+    int numbers[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+        numbers[i] = i * 10;
+
+    cout << "Array elements: ";
+    for (int i = 0; i < SIZE; i++)
+        cout << numbers[i] << " ";
+    cout << endl;
+
+    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
+    
+    return 0;
+}         
+```
+
+```bash
+Array elements: 0 10 20 30 40
+Last element: 40
+```
+
+---
+
 # Strings
 
 - STL Strings
