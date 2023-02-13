@@ -554,16 +554,18 @@ retos [] ou o método .at();
 # Vetores
 ## Métodos Fundamentais
 
+Os vetores são uma classe da STL (Standard Template Library, contém templates de estruturas de dados e funções úteis que já estão definidas no c++).
+
+Para utilizar esta biblioteca é necessário incluir a instrução `#include <vector>`.
+
+A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
+
 - **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
 - **push_back(*elem*):** Adiciona um elemento ao vetor
-- **pop_back()**: Remove o último elemento do vetor
 - **size()**: Tamanho do vetor
 - **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
-- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
 - **erase(*pos*):** Remove um elemento do vetor na posição dada
-
-
-Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
+- **erase(*first*, *last*):** Remove todos os elementos do vetor entre as posições dadas
 
 ---
 
