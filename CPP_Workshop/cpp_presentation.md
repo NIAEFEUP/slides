@@ -286,7 +286,6 @@ funcionamento da stream **cin**.
 
 # Solução
 
-
 ```cpp
 int main() {
     // ...
@@ -503,7 +502,6 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 **E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
 
-
 ---
 
 # Soluções
@@ -577,16 +575,13 @@ using namespace std;
     
 int main() {
     vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
-    int size;
+
+    cout << "Vector elements:";
+    for (int i = 0; i < numbers.size(); i++)
+        cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
 
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
-    numbers.pop_back(); // remove o último valor do vetor (40)
-
-    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor (20)
-    numbers.insert(numbers.begin(), 0); // adição do valor 0 ao início do vetor
-
-    size = numbers.size();
-    cout << "Vector size = " << size << endl;
 
     cout << "Vector elements:";
     for (int i = 0; i < numbers.size(); i++)
@@ -594,16 +589,14 @@ int main() {
     cout << endl;
     
     return 0;
-}                                                                         
+}                                                                        
 ```
----
-
 ```Bash
-Vector size = 3
-Vector elements: 0 10 30
+Vector elements: 10 20 30
+Vector elements: 10 20 30 40
 ```
 
---- 
+---
 
 Atente-se no uso da função erase() para eliminar um elemento de um vetor:
 ```C++
@@ -614,14 +607,11 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
 à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
 
-A função *insert()* funciona de uma forma semelhante:
-```C++
-numbers.insert(numbers.begin(), 0);
-```
-Aqui, insere-se o elemento 0 no início do vetor.
+# Exercícios
+
+**E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/iterators.cpp) e corre o programa.
 
 ---
-
 
 # Strings
 
@@ -645,7 +635,7 @@ Aqui, insere-se o elemento 0 no início do vetor.
 
 # Exercícios
 
-**E10.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+**E11.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
 
 
 ---
