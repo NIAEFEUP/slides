@@ -724,6 +724,87 @@ int main() {
 
 ---
 
+# Exercícios - Shopping Cart
+
+Temos agora um deafio para ti! Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCart.cpp) para o teu IDE e segue as instruções das várias alíneas.
+
+No fim de todas as alíneas, vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCartSolved.cpp).
+
+**SC1.** Se correres o programa, reparas que aparece uma lista das opções disponíveis e é pedido ao utilizador para escolher uma delas. Melhora o programa de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC2.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC3.** Implementa a funcionalidade de adicionar um item e o seu preço ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício.
+
+Ex:
+
+```bash
+Novo item: Leite
+Preco: 0.56
+Adicionado item: Leite
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC4.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir no ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
+
+Ex:
+
+```bash
+ITENS NO CARRINHO DE COMPRAS
+1 - Leite - 0.56
+```
+
+```bash
+ITENS NO CARRINHO DE COMPRAS
+O carrinho encontra-se vazio :(
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC5.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. Caso o utilizador escolha um item não existente, deve ser imprimida uma mensagem a assinalar o erro e assegura-te que o código responsável por remover o item não é executado.
+
+Ex:
+
+```bash
+ID do item a remover: 1
+Removido item: Leite
+```
+
+```bash
+ID do item a remover: 1000
+O item nao existe! :(
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC6.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício anterior, certifica-te que o utilizador não escolhe um item não existente.
+
+Ex:
+
+```bash
+ID do item a atualizar: 1
+Novo item: Arroz
+Novo preco: 0.5
+Atualizado item Leite para Arroz
+```
+
+---
+
 # Classes
 
 C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado a classes e a objetos, junto com os seus métodos e atributos.
