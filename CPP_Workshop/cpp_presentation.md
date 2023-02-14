@@ -823,6 +823,14 @@ Atualizado item Leite para Arroz
 
 ---
 
+class: center, middle
+
+# Tópicos Avançados
+
+Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes
+
+---
+
 # Classes
 
 C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado a classes e a objetos, junto com os seus métodos e atributos.
@@ -1421,7 +1429,7 @@ public:
 ```
 
 ---
-# Tópicos avançados
+# Outros Tópicos Avançados
 
 - Macros
   - Substituição de texto em compile time
