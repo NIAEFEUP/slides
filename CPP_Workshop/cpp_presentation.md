@@ -16,8 +16,8 @@ class: center, middle
 # Overview
 
 1. O que é o C++?
-2. Hello world!
-3. Tipos de dados
+2. Hello World!
+3. Tipos de Dados
 4. Variáveis
 5. Constantes
 6. Operadores
@@ -44,7 +44,7 @@ class: center, middle
 
 ---
 
-# Hello world!
+# Hello World!
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -65,7 +65,7 @@ int main() {
 
 ---
 
-# Tipos de dados primitivos
+# Tipos de Dados Primitivos
 - **char:** caracteres alfanuméricos (ex: 'c', '8', '$');
 - **int:** números inteiros (ex: 10**3, -2)
 - **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
@@ -76,7 +76,7 @@ valor
 
 ---
 
-# Tipos de dados
+# Tipos de Dados
 ## Modificadores de tipos de dados
 - **signed/unsigned:** para números com/sem sinal
 - **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
@@ -109,7 +109,7 @@ São contentores capazes de armazenar, em memória, valores de um determinado ti
 int myNumber = 15;
 bool myBoolean = true;
 ```
-## Tipos de variáveis
+## Tipos de Variáveis
 - Globais - declarar fora de qualquer função
 - Locais - declarar dentro de uma função específica (ex. main)
 
@@ -613,6 +613,12 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 **E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/iterators.cpp) e corre o programa.
 
+**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/tree/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vector v.
+
+Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/blob/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
+
+**E12.**
+
 ---
 
 # Arrays
@@ -683,7 +689,7 @@ Last element: 40
 
 # Exercícios
 
-**E11.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+**E13.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
 
 
 ---
