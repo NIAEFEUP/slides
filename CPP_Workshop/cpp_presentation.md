@@ -589,9 +589,11 @@ int main() {
     
     vector<int>::iterator ptr;
     
+    cout << "Vector elements:";
     for (ptr = numbers.begin(); ptr != numbers.end(); ptr++) 
-        cout << *ptr << " ";
-
+        cout << *ptr << " ";	
+    cout << endl;
+    
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
 
     cout << "Vector elements:";
@@ -599,8 +601,10 @@ int main() {
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
     
+    cout << "Vector elements:";
     for (auto itr = numbers.begin(); itr != numbers.end(); itr++) 
         cout << *itr << " ";
+    cout << endl;
     
     return 0;
 }                                                                        
