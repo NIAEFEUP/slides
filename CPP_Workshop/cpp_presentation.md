@@ -490,19 +490,21 @@ Os apontadores guardam o endereço da localização de uma variável especifica 
 
 Existem situações em que temos de usar estes apontadores:
 - Usar apontadores em argumentos de funções é uma prática muito frequente para os seguintes casos:
-    - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
+    - Aumentar eficiência de um programa. Podemos simplesmente passar o argumento como apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
     - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
 
 Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
 -    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
 -    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
 
+**Buffer Overflow -** Essencialmente, um buffer overflow ocorre quando um programa tenta utilizar mais memória do que a que foi alocada (i.e. para um array ou uma string).
+
 ---
 
 
 # Exercícios
 
-**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
+**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é definires 3 funções de modo a que os valores sejam retornados de 3 formas diferentes, pedindo ao utilizador um valor.
 
 ---
 
@@ -564,30 +566,46 @@ A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para 
 - **push_back(*elem*):** Adiciona um elemento ao vetor
 - **size()**: Tamanho do vetor
 - **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
+- **end()**: Referência para a posição após o último elemento do vetor (a ser usado noutros métodos)
 - **erase(*pos*):** Remove um elemento do vetor na posição dada
 - **erase(*first*, *last*):** Remove todos os elementos do vetor entre as posições dadas
+
+***NOTA:*** Também é possível consultar o conteúdo de um vetor numa determinada posição utilizando **iteradores**.
 
 ---
 
 ```C++
 #include <iostream>
 #include <vector>
+#include <iterator> 
     
 using namespace std;
     
 int main() {
     vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
-
+      
     cout << "Vector elements:";
     for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
-
+    
+    vector<int>::iterator ptr;
+    
+    cout << "Vector elements:";
+    for (ptr = numbers.begin(); ptr != numbers.end(); ptr++) 
+        cout << " " << *ptr;	
+    cout << endl;
+    
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
 
     cout << "Vector elements:";
     for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
+    
+    cout << "Vector elements:";
+    for (auto itr = numbers.begin(); itr != numbers.end(); itr++) 
+        cout << " " << *itr;
     cout << endl;
     
     return 0;
@@ -613,11 +631,11 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 **E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/iterators.cpp) e corre o programa.
 
-**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/search.cpp) e completa a função dada de modo a que esta retorne a posição (_index_) de _key_ no vector v ou -1 caso _key_ não exista no vector - se quiseres, como desafio, tenta resolver este problema utilizando apenas **um** loop!
+**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/search.cpp) e completa a função dada de modo a que esta retorne a posição (_index_) de _key_ no vetor v ou -1 caso _key_ não exista no vetor - se quiseres, como desafio, tenta resolver este problema utilizando apenas **um** loop!
 
 Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/search_sol.cpp)
 
-**E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vector v.
+**E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vetor v.
 
 Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
 
