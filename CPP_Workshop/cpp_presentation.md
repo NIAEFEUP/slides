@@ -633,7 +633,7 @@ Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.g
 
 # Arrays
 
-Tal comos os vetores, arrays são uma estrutura de daods linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
+Tal comos os vetores, arrays são uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
 
 Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
 
@@ -641,7 +641,7 @@ Tal como os vetores, os elementos de um array também podem ser acedidos com o o
 
 Ex:
 
-Se tivermos definirmos um array de 5 inteiros int numbers[5],
+Se tivermos definirmos um array de 5 inteiros, int numbers[5],
 - numbers é o apontador que aponta para o início do array
 - numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
 
