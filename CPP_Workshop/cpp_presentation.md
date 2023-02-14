@@ -591,7 +591,7 @@ int main() {
     
     cout << "Vector elements:";
     for (ptr = numbers.begin(); ptr != numbers.end(); ptr++) 
-        cout << *ptr << " ";	
+        cout << " " << *ptr;	
     cout << endl;
     
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
@@ -603,7 +603,7 @@ int main() {
     
     cout << "Vector elements:";
     for (auto itr = numbers.begin(); itr != numbers.end(); itr++) 
-        cout << *itr << " ";
+        cout << " " << *itr;
     cout << endl;
     
     return 0;
