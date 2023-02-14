@@ -502,7 +502,7 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 # Exercícios
 
-**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
+**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é definires 3 funções de modo a que os valores sejam retornados de 3 formas diferentes, pedindo ao utilizador um valor.
 
 ---
 
