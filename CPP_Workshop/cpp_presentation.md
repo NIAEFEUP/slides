@@ -564,24 +564,33 @@ A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para 
 - **push_back(*elem*):** Adiciona um elemento ao vetor
 - **size()**: Tamanho do vetor
 - **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
+- **end()**: Referência para a posição após o último elemento do vetor (a ser usado noutros métodos)
 - **erase(*pos*):** Remove um elemento do vetor na posição dada
 - **erase(*first*, *last*):** Remove todos os elementos do vetor entre as posições dadas
+
+***NOTA:*** Também é possível consultar o conteúdo de um vetor numa determinada posição utilizando **iteradores**.
 
 ---
 
 ```C++
 #include <iostream>
 #include <vector>
+#include <iterator> 
     
 using namespace std;
     
 int main() {
     vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
-
+      
     cout << "Vector elements:";
     for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
+    
+    vector<int>::iterator ptr;
+    
+    for (ptr = numbers.begin(); ptr != numbers.end(); ptr++) 
+        cout << *ptr << " ";
 
     numbers.push_back(40); // adição do valor 40 ao fim do vetor
 
@@ -589,6 +598,9 @@ int main() {
     for (int i = 0; i < numbers.size(); i++)
         cout << " " << numbers.at(i); // equivalente a numbers[i]
     cout << endl;
+    
+    for (auto itr = numbers.begin(); itr != numbers.end(); itr++) 
+        cout << *itr << " ";
     
     return 0;
 }                                                                        
