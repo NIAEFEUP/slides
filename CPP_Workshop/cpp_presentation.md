@@ -497,6 +497,8 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 -    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
 -    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
 
+**Buffer Overflow -** Essencialmente, um buffer overflow ocorre quando um programa tenta utilizar mais memória do que a que foi alocada(i.e. para um array ou uma string).
+
 ---
 
 
