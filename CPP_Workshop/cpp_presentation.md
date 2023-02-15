@@ -7,7 +7,7 @@ class: center, middle
 
 # Links importantes
 
-- Apresentação: https://niaefeup-workshop-cpp.netlify.com/
+- Apresentação: https://niaefeup-cpp-workshop.netlify.app
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
 - [Visual Studio](https://visualstudio.microsoft.com), [VSCode](https://code.visualstudio.com), [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
 
