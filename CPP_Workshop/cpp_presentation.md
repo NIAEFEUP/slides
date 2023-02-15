@@ -8,7 +8,7 @@ class: center, middle
 # Links importantes
 
 - Apresentação: https://niaefeup-workshop-cpp.netlify.com/
-- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/)
+- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
 - [Visual Studio](https://visualstudio.microsoft.com), [VSCode](https://code.visualstudio.com), [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
 
 ---
@@ -16,8 +16,8 @@ class: center, middle
 # Overview
 
 1. O que é o C++?
-2. Hello world!
-3. Tipos de dados
+2. Hello World!
+3. Tipos de Dados
 4. Variáveis
 5. Constantes
 6. Operadores
@@ -44,7 +44,7 @@ class: center, middle
 
 ---
 
-# Hello world!
+# Hello World!
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -63,10 +63,9 @@ int main() {
 
 **E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
 
-
 ---
 
-# Tipos de dados primitivos
+# Tipos de Dados Primitivos
 - **char:** caracteres alfanuméricos (ex: 'c', '8', '$');
 - **int:** números inteiros (ex: 10**3, -2)
 - **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
@@ -77,7 +76,7 @@ valor
 
 ---
 
-# Tipos de dados
+# Tipos de Dados
 ## Modificadores de tipos de dados
 - **signed/unsigned:** para números com/sem sinal
 - **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
@@ -99,7 +98,9 @@ int main() {
     return 0;
 }
 ```
+
 ---
+
 # Variáveis
 São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
@@ -108,7 +109,7 @@ São contentores capazes de armazenar, em memória, valores de um determinado ti
 int myNumber = 15;
 bool myBoolean = true;
 ```
-## Tipos de variáveis
+## Tipos de Variáveis
 - Globais - declarar fora de qualquer função
 - Locais - declarar dentro de uma função específica (ex. main)
 
@@ -178,6 +179,13 @@ int main() {
 - **/=** operando da esquerda fica com o valor do da direita dividido com o seu próprio valor
 
 ---
+
+# Exercícios
+
+**E2.** Vamos observar o comportamento de alguns dos tipos de dados. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/dataTypes.cpp) e corre o programa.
+
+---
+
 # Input/Output
 ## Requisitos
 Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linhas no topo do ficheiro de código:
@@ -270,14 +278,13 @@ funcionamento da stream **cin**.
 # Exercícios
 
 
-**E2.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
+**E3.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
 
-**E3.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
+**E4.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
 
 ---
 
 # Solução
-
 
 ```cpp
 int main() {
@@ -342,7 +349,9 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas
 
 # Exercícios
 
-**E4.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
+**E5.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
+
+**E6.** Vamos tentar perceber o funcionamento de um programa com `switch-case` e um `break` statement em falta. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/badSwitchCase.cpp) e corre-o no teu IDE.
 
 ---
 
@@ -361,6 +370,7 @@ do {
 while (x < 5);
 ```
 ---
+
 # Ciclos
 ## For loop
 ```C++
@@ -392,150 +402,10 @@ int main() {
 
 # Exercícios
 
-**E5.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
+**E7.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
 
 ---
 
-# Vetores
-- Estrutura de dados linear com a capacidade de armazenar vários valores de um
-determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
-novo é inserido ou apagado
-- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
-- Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
-
-## Notas importantes
-- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
-está na posição 0, o segundo elemento na posição 1, etc.
-- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
-retos [] ou o método .at();
-
----
-
-# Vetores
-## Métodos Fundamentais
-
-- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
-- **push_back(*elem*):** Adiciona um elemento ao vetor
-- **pop_back()**: Remove o último elemento do vetor
-- **size()**: Tamanho do vetor
-- **begin()**: Referência para o início do vetor (a ser usado noutros métodos)
-- **insert(*pos*, *elem*)**: Inserte um elemento ao vetor na posição dada
-- **erase(*pos*):** Remove um elemento do vetor na posição dada
-
-
-Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
-
----
-
-```C++
-#include <iostream>
-#include <vector>
-    
-using namespace std;
-    
-int main() {
-    vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
-    int size;
-
-    numbers.push_back(40); // adição do valor 40 ao fim do vetor
-    numbers.pop_back(); // remove o último valor do vetor (40)
-
-    numbers.erase(numbers.begin() + 1); // elimina o segundo elemento do vetor (20)
-    numbers.insert(numbers.begin(), 0); // adição do valor 0 ao início do vetor
-
-    size = numbers.size();
-    cout << "Vector size = " << size << endl;
-
-    cout << "Vector elements:";
-    for (int i = 0; i < numbers.size(); i++)
-        cout << " " << numbers.at(i); // equivalente a numbers[i]
-    cout << endl;
-    
-    return 0;
-}                                                                         
-```
----
-
-```Bash
-Vector size = 3
-Vector elements: 0 10 30
-```
-
---- 
-
-Atente-se no uso da função erase() para eliminar um elemento de um vetor:
-```C++
-numbers.erase(numbers.begin() + 1);
-```
-A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
-do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
-10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
-à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
-
-A função *insert()* funciona de uma forma semelhante:
-```C++
-numbers.insert(numbers.begin(), 0);
-```
-Aqui, insere-se o elemento 0 no início do vetor.
-
-
----
-
-
-# Strings
-
-- STL Strings
-    - Semelhante a `vector<char>` e strings de python
-    - Operações semelhantes às dos vetores
-    - Suporta também métodos específicos
-        - **str += 'Outra string'**
-        - **str.length()**
-        - **str = to_string(124)**
-        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
-        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
-    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
-
-- C Strings
-    - Arrays *(raw)* de caracteres
-    - Pouco úteis para C++
-
-
----
-
-# Exercícios
-
-**E6.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
-
-
----
-
-# Solução
-
-```cpp
-
-#include <iostream>
-using namespace std;
-
-int main() {
-	char name1[256];
-	cout << "Hey there, what's your full name?\n";
-	cin.getline(name1, 256);
-	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
-	cout << name;
-
-	string a = name.substr(0, 6);
-	string b = name.substr(12, 17);
-
-	string c = a + b;
-	cout << endl << c << endl;
-
-	cout << c.length() << endl;
-
-	return 0;
-}
-```
-
----
 # Funções
 
 A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
@@ -576,16 +446,9 @@ int getAge() {
     cout << "Insert your age (years): ";
     cin >> age;
 
-    cin.clear(); // Caso o utilizador insira dados inválidos
-    cin.ignore(9999, '\n'); // Ignora tudo até fim de linha
-
     return age;
 }
 
-/*
-    Não funciona corretamente
-    Com funções, podemos corrigi-la e aplicar a mudança a todo o código
-*/
 void convertToMonths(int& age) {
     age = age * 12;
 }
@@ -598,133 +461,18 @@ int main() {
 }
 ```
 
-
 ```Bash
 Insert your age (years): 18
 Hello! You are 216 months old.
 ```
 
 ---
-```C++
-#include <iostream>
-using namespace std;
-
-void clearInput() {
-    cin.clear();
-    cin.ignore(9999, '\n');
-}
-
-int multiply(int first, int second) {
-    return first * second;
-}
-
-int getOperand(int* order) {
-    int operand;
-    cout << "Insert operand no. " << *order << ": ";
-    cin >> operand;
-
-    *order += 1; // É necessário desreferenciar o apontador
-    return operand;
-}
-
-int main() {
-    int n1, n2;
-    int order = 1;
-
-    n1 = getOperand(&order); // passar apontador para order
-    clearInput();
-    n2 = getOperand(&order);
-    clearInput();
-    
-    cout << n1 << "x" << n2 << "=" << multiply(n1, n2) << endl;
-    return 0;
-}
-```
----
-
-# Funções
-Execução do programa:
-```Bash
-Insert operand no. 1: 4
-Insert operand no. 2: 7
-4x7=28
-```
-
----
 
 # Exercícios
 
-**E7.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Functions.cpp) e completa-o no teu IDE. O objetivo é chamar uma função com diferentes tipos de argumentos e testar a sua eficiência!
+**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/Functions.cpp) e completa as partes em falta para construir um pequeno programa interativo que recebe como input dois operandos e um operador (pode ser '+', '-', '*', '/') e imprime o resultado da operação especificada.
 
----
-
-```C++
-// ...
-int function1(vector<int> values) {
-    int total = 0;
-
-    for (int i = 0; i < values.size(); ++i) {
-        total += values.at(i);
-    }
-
-    return total;
-}
-
-int function2(vector<int> &values) {
-    int total = 0;
-
-    for (int i = 0; i < values.size(); ++i) {
-        total += values.at(i);
-    }
-
-    return total;
-}
-
-int function3(vector<int> *values) {
-    int total = 0;
-
-    for (int i = 0; i < values->size(); ++i) {
-        total += values->at(i);
-    }
-
-    return total;
-}
-// ...
-```
-
----
-
-```C++
-// ...
-int main() {
-    vector<int> values(100000000);
-    auto f = []() -> int { return rand() % 10000; };
-
-    generate(values.begin(), values.end(), f);
-
-
-    auto start = chrono::high_resolution_clock::now();
-    function1(values);
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 1: "
-         << duration.count() << " milliseconds" << endl;
-
-    start = chrono::high_resolution_clock::now();
-    function2(values);
-    stop = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 2: "
-         << duration.count() << " milliseconds" << endl;
-
-    start = chrono::high_resolution_clock::now();
-    function3(&values);
-    stop = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    cout << "Time taken by function 3: "
-         << duration.count() << " milliseconds" << endl;
-}
-```
+Quando acabares (não vale fazer batota) vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/FunctionsSolved.cpp).
 
 ---
 
@@ -742,20 +490,21 @@ Os apontadores guardam o endereço da localização de uma variável especifica 
 
 Existem situações em que temos de usar estes apontadores:
 - Usar apontadores em argumentos de funções é uma prática muito frequente para os seguintes casos:
-    - Aumentar eficiência de um programa. Podemos simplesmente passar por argumento o apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
+    - Aumentar eficiência de um programa. Podemos simplesmente passar o argumento como apontador (endereço da variável), evitando assim ter de copiar o objeto. Para alguns casos não é muito relevante, como por exemplo `ints`, mas para, por exemplo, vetores e objetos de classe, poderá ser custoso copiar.
     - Alteração do conteúdo do argumento. Um use case particular é usar objetos passados por apontador como retorno da função. Pode ser útil quando necessitamos de retornar duas coisas diferentes.
 
 Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, devido à liberdade que estes nos oferecem:
 -    Possível leitura de endereços inválidas (não alocados ao programa pelo sistema operativo)
 -    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
 
+**Buffer Overflow -** Essencialmente, um buffer overflow ocorre quando um programa tenta utilizar mais memória do que a que foi alocada (i.e. para um array ou uma string).
+
 ---
 
 
 # Exercícios
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é retornar valores de uma função das 3 formas diferentes, pedindo ao utilizador um valor.
-
+**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é definires 3 funções de modo a que os valores sejam retornados de 3 formas diferentes, pedindo ao utilizador um valor.
 
 ---
 
@@ -788,6 +537,290 @@ void function3(int* variable) {
 ```
 
 ---
+
+# Vetores
+- Estrutura de dados linear com a capacidade de armazenar vários valores de um
+determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
+novo é inserido ou apagado
+- São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
+- Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
+
+## Notas importantes
+- Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
+está na posição 0, o segundo elemento na posição 1, etc.
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+retos [] ou o método .at();
+
+---
+
+# Vetores
+## Métodos Fundamentais
+
+Os vetores são uma classe da STL (Standard Template Library, contém templates de estruturas de dados e funções úteis que já estão definidas no c++).
+
+Para utilizar esta biblioteca é necessário incluir a instrução `#include <vector>`.
+
+A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para mais informação, consultar [***Cpp Reference***](https://www.cplusplus.com/reference/vector/vector/).
+
+- **[*idx*]/at(*idx*)**: Retorna um elemento no índice dado
+- **push_back(*elem*):** Adiciona um elemento ao vetor
+- **size()**: Tamanho do vetor
+- **begin()**: Referência para o início do vetor
+- **end()**: Referência para a posição após o último elemento do vetor
+- **erase(*pos*):** Remove um elemento do vetor na posição dada
+- **erase(*first*, *last*):** Remove todos os elementos entre as posições dadas
+
+***NOTA:*** Também é possível consultar o conteúdo de um vetor numa determinada posição utilizando **iteradores**.
+
+---
+
+```C++
+#include <iostream>
+#include <vector>
+#include <iterator> 
+    
+using namespace std;
+    
+int main() {
+    vector<int> numbers {10, 20, 30}; // inicialização do vetor com 3 elementos
+      
+    cout << "Vector elements:";
+    for (int i = 0; i < numbers.size(); i++)
+        cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
+    
+    numbers.push_back(40); // adição do valor 40 ao fim do vetor
+
+    cout << "Vector elements:";
+    for (int i = 0; i < numbers.size(); i++)
+        cout << " " << numbers.at(i); // equivalente a numbers[i]
+    cout << endl;
+    
+    return 0;
+}                                                                           
+```
+```Bash
+Vector elements: 10 20 30
+Vector elements: 10 20 30 40
+```
+
+---
+
+Atente-se no uso da função erase() para eliminar um elemento de um vetor:
+```C++
+numbers.erase(numbers.begin() + 1);
+```
+A função elimina o elemento que se encontrar na posição que estiver a 1 unidade 
+do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o número 
+10, e que este se encontra na posição 0, a posição a elminar será a que estiver 
+à distância 0 + 1 = 1 do início do vetor, ou seja, o elemento 20.
+
+---
+
+# Exercícios
+
+**E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/iterators.cpp) e corre o programa.
+
+**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/search.cpp) e completa a função dada de modo a que esta retorne a posição (_index_) de _key_ no vetor v ou -1 caso _key_ não exista no vetor - se quiseres, como desafio, tenta resolver este problema utilizando apenas **um** loop!
+
+Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/search_sol.cpp)
+
+**E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vetor v.
+
+Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
+
+---
+
+# Arrays
+
+Tal comos os vetores, arrays são uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
+
+Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
+
+Tal como os vetores, os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
+
+Ex:
+
+Se tivermos definirmos um array de 5 inteiros, int numbers[5],
+- numbers é o apontador que aponta para o início do array
+- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
+
+---
+
+```C++
+#include <iostream>
+    
+using namespace std;
+    
+int main() {
+    const int SIZE = 5;
+    int numbers[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+        numbers[i] = i * 10;
+
+    cout << "Array elements: ";
+    for (int i = 0; i < SIZE; i++)
+        cout << numbers[i] << " ";
+    cout << endl;
+
+    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
+    
+    return 0;
+}         
+```
+
+```bash
+Array elements: 0 10 20 30 40
+Last element: 40
+```
+
+---
+
+# Strings
+
+- STL Strings
+    - Semelhante a `vector<char>` e strings de python
+    - Operações semelhantes às dos vetores
+    - Suporta também métodos específicos
+        - **str += 'Outra string'**
+        - **str.length()**
+        - **str = to_string(124)**
+        - **str = string('andre').substr(0,2)** // Gera a substring 'an'
+        - **pos = str.find(substr)** // Posição da 1ª ocorrência da substring
+    - Para outras operações, ver [cppreference](https://www.cplusplus.com/reference/string/string/)
+
+- C Strings
+    - Arrays *(raw)* de caracteres
+    - Pouco úteis para C++
+
+
+---
+
+# Exercícios
+
+**E13.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
+
+
+---
+
+# Solução
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	char name1[256];
+	cout << "Hey there, what's your full name?\n";
+	cin.getline(name1, 256);
+	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
+	cout << name;
+
+	string a = name.substr(0, 6);
+	string b = name.substr(12, 17);
+
+	string c = a + b;
+	cout << endl << c << endl;
+
+	cout << c.length() << endl;
+
+	return 0;
+}
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+Temos agora um deafio para ti! Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCart.cpp) para o teu IDE e segue as instruções das várias alíneas.
+
+No fim de todas as alíneas, vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCartSolved.cpp).
+
+**SC1.** Se correres o programa, reparas que aparece uma lista das opções disponíveis e é pedido ao utilizador para escolher uma delas. Melhora o programa de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC2.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC3.** Implementa a funcionalidade de adicionar um item e o seu preço ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício.
+
+Ex:
+
+```bash
+Novo item: Leite
+Preco: 0.56
+Adicionado item: Leite
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC4.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir no ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
+
+Ex:
+
+```bash
+ITENS NO CARRINHO DE COMPRAS
+1 - Leite - 0.56
+```
+
+```bash
+ITENS NO CARRINHO DE COMPRAS
+O carrinho encontra-se vazio :(
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC5.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. Caso o utilizador escolha um item não existente, deve ser imprimida uma mensagem a assinalar o erro e assegura-te que o código responsável por remover o item não é executado.
+
+Ex:
+
+```bash
+ID do item a remover: 1
+Removido item: Leite
+```
+
+```bash
+ID do item a remover: 1000
+O item nao existe! :(
+```
+
+---
+
+# Exercícios - Shopping Cart
+
+**SC6.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício anterior, certifica-te que o utilizador não escolhe um item não existente.
+
+Ex:
+
+```bash
+ID do item a atualizar: 1
+Novo item: Arroz
+Novo preco: 0.5
+Atualizado item Leite para Arroz
+```
+
+---
+
+class: center, middle
+
+# Tópicos Avançados
+
+Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes
+
+---
+
 # Classes
 
 C++ é uma linguagem orientada a objectos. Neste paradigma, tudo está associado a classes e a objetos, junto com os seus métodos e atributos.
@@ -1386,7 +1419,7 @@ public:
 ```
 
 ---
-# Tópicos avançados
+# Outros Tópicos Avançados
 
 - Macros
   - Substituição de texto em compile time
