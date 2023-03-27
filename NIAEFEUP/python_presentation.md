@@ -1,22 +1,26 @@
+
 class: center, middle, inverse, small-images
+
+.image-50[![NIAEFEUP](./pic1.png)]
 
 # NIAEFEUP
 
-### Núcleo de Informática da Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto
-
-![](./pic1.png)
+### Núcleo de Informática 
+### da Associação de Estudantes 
+### da Faculdade de Engenharia da Universidade do Porto
 
 ---
 
-# L.EIC
+# L.EIC, antes M.IEIC
+
+Antigamente o curso tinha um mestrado integrado.
+Em 2021, o M.IEIC e outro curso da fcup....
 
 A Licenciatura em Engenharia Informática e Computação oferece uma formação base nas principais áreas de informática:
 
-- Engenharia de Software
-- Redes e Sistemas Operativos
-- Computação Gráfica
-- Inteligência Artificial
-- Segurança Informática
+- evolução das vagas e médias de entrada
+
+- exames de entrada
 
 Além disto, o ensino de física e matemática aparece no contexto do perfil essencial do engenheiro.
 
@@ -24,19 +28,22 @@ Além disto, o ensino de física e matemática aparece no contexto do perfil ess
 
 ---
 
-# Quem é o NIAEFEUP?
+# Mestrados disponíveis
 
-O Núcleo de Informática da Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto (NIAEFEUP) é constituído inteiramente por alunos do curso de Engenharia Informática e Computação (L.EIC+M.EIC). A nossa principal motivação é ganhar experiência e competências essenciais para o mundo do trabalho assim como cultivar nos nossos colegas a vontade de aprender linguagens e novas tecnologias.
-
-![](./FEUP.jpg)
+- Engenharia de Software
+- Redes e Sistemas Operativos
+- Computação Gráfica
+- Inteligência Artificial
+- Segurança Informática
 
 ---
 
-class: image-spaced
+# Quem é o NIAEFEUP?
 
-# Valores
+O NIAEFEUP, frequentemente abreviado como NI, é constituído inteiramente por alunos do curso de Engenharia Informática e Computação (L.EIC+M.EIC). 
+A principal motivação é ganhar experiência e competências essenciais para o mundo do trabalho assim como cultivar nos nossos colegas a vontade de aprender linguagens e novas tecnologias.
 
-![](./valores.png)
+![](./FEUP.jpg)
 
 ---
 
@@ -52,15 +59,24 @@ class: image-spaced
 
 ![](./uni.jpg)
 
+Guiar os estudantes com os horários, exames e cadeiras.
+Definitamente uma aplicação necessária para qualquer estudante da FEUP.
+
 ---
 
+# NIJOBS
+
 ![](./nijobs.png)
+
+- Encontrar empresas
 
 ---
 
 # TTS
 
 ![](./tts.png)
+
+- 
 
 ---
 
@@ -82,17 +98,41 @@ class: center, middle, inverse
 
 ---
 
-# Eventos
+# SINF: Semana de Informática
 
-- SINF: Semana de Informática
-- Jantares de curso
-- Workshops externos
-- Eventos internos
-  - Teambuildings
-  - Convívios
-  - Workshops internos
+Uma semana cheia de atividades temáticamente relacionadas com a área da informática
 
-![](./sinf.png)
+- Palestras
+- Workshops
+- Competições
+
+![](./sinf2.jpg)
+
+---
+
+# Workshops
+
+Workshop de diversas linguagens e ferramentas úteis na área da informática.
+
+![](./workshop.jpg)
+
+---
+
+# Jantares de curso
+
+Apenas comida e bebida
+
+![](./jantarcurso.jpg)
+
+---
+
+# Eventos internos
+
+- Teambuildings
+- Convívios
+- Workshops internos
+
+![](./teambuilding.jpg)
 
 ---
 
