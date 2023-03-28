@@ -45,8 +45,6 @@ Além disto, o ensino de física e matemática aparece no contexto do perfil ess
 
 ---
 
-class: middle
-
 # Mestrados disponíveis
 
 - Engenharia Informática
@@ -60,7 +58,6 @@ class: middle
 
 ---
 
-class: center, middle
 
 # Saída do curso
 
