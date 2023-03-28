@@ -11,24 +11,29 @@ class: center, middle, inverse, small-images
 
 ---
 
-# L.EIC, antes M.IEIC
+# L.EIC + M.EIC, antes MIEIC
 
-Antigamente o curso tinha um mestrado integrado.
-Em 2021, o M.IEIC e outro curso da fcup....
-
-A Licenciatura em Engenharia Informática e Computação oferece uma formação base nas principais áreas de informática:
+Antigamente o curso tinha um mestrado integrado, o Mestrado Integrado em Engenharia Informática e Computação. Existia também o mestrado integrado em redes na fcup e extingiu-se/juntou-se com o de infromatica da feup. Isso aumentou as vagas, (que diminui um pouco a média) e possibilitou aos estudantes terem mais opções no mestrado. Isto gerou:
 
 - evolução das vagas e médias de entrada
 
-- exames de entrada
+- novos exames de admissão
 
-Além disto, o ensino de física e matemática aparece no contexto do perfil essencial do engenheiro.
+- O curso dividiu-se em dois cursos diferentes: L.EIC e M.EIC
 
-![](./engenharia_informatica.jpeg)
+- Todos os alunos da L.EIC são agora alunos da FEUP e da FCUP simultaneamente
 
 ---
 
-# Mestrados disponíveis
+# Médias
+
+![](./media.png)
+
+---
+
+# Áreas abrangidas
+
+A Licenciatura em Engenharia Informática e Computação oferece uma formação base nas principais áreas de informática:
 
 - Engenharia de Software
 - Redes e Sistemas Operativos
@@ -36,14 +41,48 @@ Além disto, o ensino de física e matemática aparece no contexto do perfil ess
 - Inteligência Artificial
 - Segurança Informática
 
+Além disto, o ensino de física e matemática aparece no contexto do perfil essencial do engenheiro.
+
+---
+
+class: middle
+
+# Mestrados disponíveis
+
+- Engenharia Informática
+- Engenharia de Software
+- Redes e Sistemas Operativos
+- Computação Gráfica
+- Inteligência Artificial
+- Segurança Informática
+
+![](.png)
+
+---
+
+class: center, middle
+
+# Saída do curso
+
+As saídas profissionais passam pelo desempenho de funções profissionais indicadas nos European ICT Professional Role Profiles que requerem competências de nível e-4 (mestrado) do European e-Competence Framework (e.g., Devops Expert, Data Scientist, Cyber Security Specialist, Solution Designer), incluindo funções de grande responsabilidade em contextos complexos e com foco na inovação e funções de liderança em projetos multidisciplinares no domínio das TIC.
+
 ---
 
 # Quem é o NIAEFEUP?
 
-O NIAEFEUP, frequentemente abreviado como NI, é constituído inteiramente por alunos do curso de Engenharia Informática e Computação (L.EIC+M.EIC). 
-A principal motivação é ganhar experiência e competências essenciais para o mundo do trabalho assim como cultivar nos nossos colegas a vontade de aprender linguagens e novas tecnologias.
+O NIAEFEUP, frequentemente abreviado como NI, é constituído inteiramente por alunos do curso de Engenharia Informática e Computação (L.EIC+M.EIC).
+
+A nossa principal motivação é ganhar experiência e competências essenciais para o mundo do trabalho, assim como cultivar nos nossos colegas a vontade de aprender novas linguagens e tecnologias.
 
 ![](./FEUP.jpg)
+
+---
+
+class: image-spaced
+
+# Valores
+
+![](./valores.png)
 
 ---
 
@@ -68,7 +107,7 @@ Definitamente uma aplicação necessária para qualquer estudante da FEUP.
 
 ![](./nijobs.png)
 
-- Encontrar empresas
+Ajudar os estudantes a encontrar oportunidades de emprego e de estágios
 
 ---
 
@@ -76,19 +115,17 @@ Definitamente uma aplicação necessária para qualquer estudante da FEUP.
 
 ![](./tts.png)
 
-- 
+
+Forma simples dos alunos contruirem os seus horários e de se organizarem antes de cada novo semestre começar  
 
 ---
 
-# FEUP EXCHANGE
+# Novo Website
 
-- Otimizar troca de turmas
-- Processo atual permite trocar apenas duas turmas
-- Inteligência Artificial
-- Criar combinação com mais alunos satisfeitos
-- Permite escolher colegas de grupo
 
-## ![](./ai.jpg)
+![](./site.png)
+
+Reformulação do nosso site atual que se encontra outdated, usando tecnologias recentes para aprendizagem dos membros do núcleo
 
 ---
 
@@ -112,15 +149,15 @@ Uma semana cheia de atividades temáticamente relacionadas com a área da inform
 
 # Workshops
 
-Workshop de diversas linguagens e ferramentas úteis na área da informática.
+Workshop de diversas linguagens e ferramentas úteis na área da informática
 
-![](./workshop.jpg)
+![](./workshops.JPG)
 
 ---
 
 # Jantares de curso
 
-Apenas comida e bebida
+Os "famosos" jantares de curso
 
 ![](./jantarcurso.jpg)
 
@@ -132,7 +169,7 @@ Apenas comida e bebida
 - Convívios
 - Workshops internos
 
-![](./teambuilding.jpg)
+![](./teambuilding.JPG)
 
 ---
 
@@ -142,9 +179,61 @@ class: center, middle, inverse
 
 ---
 
-# Imagem
+class: image-spaced
 
-## ![](./camisolas.png)
+# Divulgação
+
+<div class="row">
+    <img class="column" src="/image-1.jpg" />
+    <img class="column" src="/image-2.jpg" />
+</div>
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+width: 45%;
+padding: 5px;
+}
+</style>
+
+---
+
+class: image-spaced
+
+# Design de Website
+
+<div class="row">
+    <img class="column design" src="/design.png" />
+    <img class="column mobile" src="/design-mobile.png" />
+</div>
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+    padding: 5px 0px;
+}
+
+.design {
+    width: 70%;
+}
+
+.mobile {
+    width: 20%;
+}
+
+</style>
+
+---
+
+# Merch
+
+![](./merch.jpg)
 
 ---
 
