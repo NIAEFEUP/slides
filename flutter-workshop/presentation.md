@@ -338,7 +338,43 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 - Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
 - `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
 
-<img src="./assets/layout.png" style="width: 75%;">
+<img src="./assets/schedule_card_1.png" style="width: 45%;">
+
+---
+
+### Flutter essentials: Layout
+
+To be able to build complex UIs, you need to be able to arrange widgets in a layout, much like you would use CSS's Flexbox or Grid:
+
+- `Row` and `Column` widgets allow you to arrange widgets horizontally and vertically, respectively.
+- Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
+- `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
+
+<img src="./assets/schedule_card_2.png" style="width: 45%;">
+
+---
+
+### Flutter essentials: Layout
+
+To be able to build complex UIs, you need to be able to arrange widgets in a layout, much like you would use CSS's Flexbox or Grid:
+
+- `Row` and `Column` widgets allow you to arrange widgets horizontally and vertically, respectively.
+- Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
+- `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
+
+<img src="./assets/schedule_card_3.png" style="width: 45%;">
+
+---
+
+### Flutter essentials: Layout
+
+To be able to build complex UIs, you need to be able to arrange widgets in a layout, much like you would use CSS's Flexbox or Grid:
+
+- `Row` and `Column` widgets allow you to arrange widgets horizontally and vertically, respectively.
+- Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
+- `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
+
+<img src="./assets/schedule_card_4.png" style="width: 45%;">
 
 ---
 
