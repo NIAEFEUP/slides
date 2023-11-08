@@ -6,7 +6,7 @@ class: center, middle, inverse, small-images
 
 <div style="display: flex; justify-content: center; margin-top: 3em; align-items: center; gap: 1em;">
 <img src="./assets/ni_logo.png">
-<div style="font-size: 3em;"><3</div>
+<div style="font-size: 2.5em; padding-inline: 0.5em;">❤️</div>
 <img src="./assets/flutter-logo.png">
 </div>
 
