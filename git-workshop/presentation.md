@@ -4,6 +4,9 @@ class: center, middle, inverse, small-images
 
 ---
 
+
+
+
 class: inverse
 
 # Num projeto...
@@ -13,13 +16,21 @@ Vocês escrevem código e querem partilhar esse código com os restantes membros
 Podem _zippar_ o vosso código e mandar para os vossos colegas, ou então criam várias pastas no vosso computador, cada uma delas com uma versão diferente do vosso código.
 
 ![Meme funny 1](assets/versoes_trabalho_funny.png)
+
 ---
+
+
+
+
 
 class: center, middle, inverse
 
 # O problema
 
 ---
+
+
+
 
 class: inverse
 
@@ -31,29 +42,49 @@ A solução é...
 
 ---
 
+
+
+
+
 class: center, middle, inverse
 
 # _Version Control_
 
 ---
 
+
+
+
 class: inverse
 
 # O que é _Version Control_?
 
-Um _Version Control System_ é um sistema que dá track a mudanças no código ou em ficheiros de maneira organizada e o mais automatizada possível. Normalmente existe um servidor centralizado que contêm todas as mudanças no código mas não é necessário.
+Um _Version Control System_ (VCS) é um sistema que permite registar mudanças no código ou em ficheiros de um projeto de maneira organizada e o mais automatizada possível.
+
 Existem vários programas que tentam resolver este problema: 
-- Git (o que vamos usar)
-- Subversion
+- Git (o que vamos explorar)
+- Subversion (ou SVN)
 - Mercurial
+
+Apesar de não ser estritamente necessário, normalmente existe um servidor central que guarda o código de todos os membros do projeto, e que serve como ponto de sincronização entre todos os membros do projeto.
+
 ---
+
+
+
+
+
 
 class: inverse
 
 # O que é Git?
 
-Git é um _Version Control System_, feito pelo Linus Torvalds originalmente para auxiliar no desenvolvimento do kernel do Linux, e foi lançado no dia 7 de abril de 2005. É o sistema de _version control_ mais usado no mundo, e é o que vamos usar neste workshop.
+Git é um _Version Control System_, feito por Linus Torvalds originalmente para auxiliar no desenvolvimento do kernel do Linux, e foi lançado no dia 7 de abril de 2005. É o sistema de _version control_ mais usado no mundo, e é o que vamos usar neste workshop.
+
 ---
+
+
+
 
 class: inverse
 
@@ -61,19 +92,26 @@ class: inverse
 
 Se estiverem a usar Linux, muito provavelmente vai estar diretamente no vosso package manager: 
 ```bash
-   sudo apt install git
-   sudo pacman -S git
-   sudo dnf install git
+sudo apt install git
+sudo pacman -S git
+sudo dnf install git
 ```
 Se estiverem no Windows (😢), podem fazer download de um instalador em [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 ---
+
+
+
 
 class: inverse, center, middle
 
 # Como é que o Git funciona? 
 
 ---
+
+
+
+
 
 class: inverse
 
@@ -83,17 +121,32 @@ A base de trabalho do Git é o **repositório**. Um repositório é uma pasta qu
 
 Para o fazer, devem executar o comando
 ```bash
-   git init
+git init
 ```
-Este comando cria uma pasta `.git` dentro da pasta onde o comando foi executado. Esta pasta contêm todos os ficheiros necessários para o Git funcionar.
 
-Se quiserem criar uma pasta em particular para o vosso repositorio, podem executar o comando
+Se quiserem criar o vosso respositório numa pasta que não aquela onde estão, podem executar o comando
 ```bash
-   git init <nome da pasta>
+git init <nome da pasta>
 ```
 e o resultado vai ser semelhante.
 
 ---
+
+class: inverse
+
+### Repositórios - Hands-on 1/2
+
+Numa pasta à vossa escolha, executem o comando
+```bash
+git init
+```
+
+Este comando cria uma pasta `.git` dentro da pasta onde o comando foi executado. Esta pasta contém todos os ficheiros necessários para o Git funcionar.
+
+---
+
+
+
 class: inverse
 
 ### *Stages*
@@ -110,12 +163,33 @@ Por fim mencionar a **stash**.
 
 ---
 
+
+
+
+
+
 class: inverse
 
-### *Stages* - Hands-on
+### *Stages* - Working Directory
 
-Depois de termos o repositório criado com `git init`, criamos um ficheiro `hello_world.txt`.
-Ao fazer-mos `git status` devemos obter o seguinte resultado:
+A primeira ***stage*** da qual se deve falar é a **working directory**.
+
+É aqui que todas as mudanças que vocês efetuam ao vosso código existem. Basicamente contém todas as alterações **novas** que vocês fizeram no repositório, sejam estas mudanças num ficheiro, a criação de um ficheiro novo ou até mesmo a remoção de um ficheiro.
+
+Quaisquer alterações que vocês façam ao vosso código, vão aparecer aqui. Contudo, estas ainda não vão ser guardadas no repositório.
+
+---
+
+
+
+
+
+class: inverse
+
+### *Stages* - Working Directory (Hands-on)
+
+Depois de termos o repositório criado com `git init` (relembrar slides anteriores), criamos um ficheiro `hello_world.txt`.
+Ao fazermos `git status` devemos obter o seguinte resultado:
 
 ```bash
 On branch main
@@ -129,26 +203,61 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
+Aqui temos indicação do branch em que estamos atualmente (a ser falado mais à frente) e que existe um ficheiro que é considerado "desconhecido" para o `git` - normal visto que acabámos de o criar.
+
+Como referido anteriormente, uma vez que o `git` desconhece o ficheiro `hello_world.txt`, este existe na **working directory**. Para o podermos incluir no repositorio, temos de o adicionar à **staging area**.
+
 ---
+
+
+
+
 
 class: inverse
 
-### *Stages* - Hands-on
+### *Stages* - Staging Area
 
-Se quisermos adicionar o ficheiro à `staging area` podemos fazer:
+A **staging area** é uma área onde o Git guarda todas as alterações que vocês fizeram ao vosso código, e que vocês querem que sejam guardadas no repositório.
+
+Podem pensar nisto como uma "área de preparação" para o repositório: aqui vocês escolhem quais as alterações que querem que sejam guardadas no repositório, e quais as alterações que não querem que sejam guardadas.
+
+---
+
+
+
+
+
+
+class: inverse
+
+### *Stages* - Staging Area (Hands-on 1/2)
+
+Para adicionar ficheiros à **staging area** deve-se usar o comando:
 ```bash
-    git add hello_world.txt
+git add <path para o ficheiro> [<path para o ficheiro> ...]
 ```
 
 Se quisermos adicionar todos os ficheiros modificados ou untracked na pasta atual e nos seus filhos podemos fazer:
 ```bash
-    git add .
+git add .
 ```
 
 Se quisermos adicionar todos os ficheiros modificados ou untracked no repositorio podemos fazer:
 ```bash
-    git add -A
+git add -A
 ```
+
+---
+
+class: inverse
+
+### *Stages* - Staging Area (Hands-on 2/2)
+
+Vamos então adicionar o ficheiro `hello_world.txt` à **staging area**:
+```bash
+git add hello_world.txt
+```
+
 Ao fazer `git status` obtemos:
 ```bash
 On branch main
@@ -159,4 +268,5 @@ Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
         new file:   hello_world.txt
 ```
-Ou seja podemos concluir que o `hello_world.txt` está na `staging area`.
+Ou seja podemos concluir que o `hello_world.txt` está na **staging area** e pronto para ser adicionado ao repositório num *commit*.
+
