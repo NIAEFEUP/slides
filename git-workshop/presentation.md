@@ -270,3 +270,92 @@ Changes to be committed:
 ```
 Ou seja podemos concluir que o `hello_world.txt` está na **staging area** e pronto para ser adicionado ao repositório num *commit*.
 
+---
+
+
+
+
+
+
+
+class: inverse
+
+### *Stages* - Repository
+
+Podem pensar no repositório em si como uma coleção de _commits_.
+
+Um _commit_ é essencialmente um _snapshot_, uma versão do vosso respositório num dado instante. Cada _commit_ contém todas as alterações que foram feitas ao vosso repositório desde o _commit_ que o precede.
+
+Depois do repositório, este é o conceito mais importante a ter em conta. 
+
+---
+
+
+
+
+class: inverse
+
+### *Stages* - Repository (Hands-on)
+
+Para adicionar as alterações que estão na **staging area** ao repositório, devem executar o comando:
+```bash
+git commit -m "<mensagem>"
+```
+
+A mensagem deve ser uma descrição curta do que foi feito neste _commit_. Todos os commits **têm** que ter uma mensagem. Se não passarem uma mensagem ao comando, este abre o vosso editor de texto preferido para escreverem a mensagem.
+
+Se voltarem a executar o comando `git status` vão ver que a **working directory** está limpa, e que não existem alterações na **staging area**:
+```bash
+On branch main
+...
+
+nothing to commit, working tree clean
+```
+
+---
+
+
+
+
+class: inverse
+
+### *Stages* - Repository (Hands-on - Extra 1/2)
+
+#### Menos um comando
+
+Se todos as alterações que vocês quiserem adicionar num *commit* fizerem parte de ficheiros que o `git` já conhece, podem criar um _commit_ a partir da **working directory** com o comando:
+```bash
+git commit -a -m "<mensagem>"
+```
+Assim, têm que escrever menos um comando. Uma vez mais, isto só funciona com ficheiros que o `git` já conhece.
+
+#### Assinar commits
+
+Se tiverem configurado uma par de chaves GPG, podem assinar os vossos _commits_ com o comando:
+```bash
+git commit -S -m "<mensagem>"
+```
+
+Qualquer serviço ou pessoa que tente verificar a autenticidade do vosso _commit_ vai conseguir ver que foram vocês que o fizeram, dado que partilhem a chave pública associada à chave privada usada para assinar o commit.
+
+---
+
+
+
+
+class: inverse
+
+### *Stages* - Repository (Hands-on - Extra 2/2)
+
+Se quiserem ver o histórico de _commits_ do vosso repositório, podem executar o comando:
+```bash
+git log
+```
+
+Isto vai mostrar-vos uma lista de todos os _commits_ que foram feitos ao vosso repositório, com a mensagem de o(s) autor(es) de cada _commit_, entre outras informações.
+
+Uma vez que este comando gera muito texto, existe uma opção que permite ver o histórico de _commits_ de uma forma mais compacta:
+```bash
+git log --oneline
+```
+
