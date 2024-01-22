@@ -458,3 +458,23 @@ class: inverse
 
 ### Remotes - SSH _vs_ HTTPS
 
+Enquanto que, usar ou SSH ou HTTPS no Github é possível (o Github ao longo do tempo mudou a sua recomendação), um método pode ser mais prático que outro dependendo da situação:
+
+HTTPS:
+ - Não necessita configuração para certas ações simples (clonar um repositório público);
+ - Firewalls restritas não conseguem bloquear o trafego;
+ - O Github requer um _PAT_ (Personal Access Token) como autenticação, que não é prático de utilizar.
+
+---
+
+class: inverse
+
+### Remotes - SSH _vs_ HTTPS
+
+SSH:
+ - Necessita sempre de configuração (mas é um **one-time** effort);
+ - Recomendado para interações que necessitam de autenticação (ex: um **push**);
+ - É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
+ - Facilita o processo de assinar commits visto que o processo é quase idêntico 
+
+**TLDR:** Usem HTTPS se quiserem ter acesso read-only a um repositório público, SSH para todas as outras ações.
