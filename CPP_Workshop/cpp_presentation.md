@@ -378,9 +378,19 @@ while (x < 5);
 ## For loop
 ```C++
 for (int i = 0; i < 10; i++) {
-    int y = i*2;
+    int y = i * 2;
     cout << y << endl;
 }
+```
+
+```C++
+int x = 0;
+for (int i = 0; i < 10; i++, x--) {
+    int y = i * 2;
+    cout << y << endl;
+}
+
+cout << x << endl;
 ```
 
 É possível encadear ciclos. Útil para percorrer elementos de matrizes, por exemplo
@@ -579,8 +589,7 @@ A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para 
 
 ```C++
 #include <iostream>
-#include <vector>
-#include <iterator> 
+#include <vector> 
     
 using namespace std;
     
@@ -1424,6 +1433,8 @@ public:
 ---
 # Outros Tópicos Avançados
 
+- Alguns conceitos de classes
+  - Classes abstratas, polimorfismo...
 - Macros
   - Substituição de texto em compile time
 - Casts
@@ -1447,7 +1458,7 @@ public:
 
 ## Ferramenta de Desenvolvimento
 
-- [Visual Studio Code](https://code.visualstudio.com/) & Extensão C/C++ & g++ (Linux/Mac)
+- [Visual Studio Code](https://code.visualstudio.com/) & Extensão C/C++ & g++ (WSL/Linux/Mac)
 - [Visual Studio](https://visualstudio.microsoft.com/) (Windows)
 - [CLion](https://www.jetbrains.com/clion/) (Windows/Linux/Mac)
 
