@@ -66,7 +66,7 @@ int main() {
 ---
 
 # Tipos de Dados Primitivos
-- **char:** caracteres alfanuméricos (ex: 'c', '8', '$'); alternativamente, podemos utilizar valores ASCII para mostrar caracteres específicos
+- **char:** caracteres (ex: 'c', '8', '$') correspondentes a valores ASCII
 - **int:** números inteiros (ex: 10**3, -2)
 - **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
 - **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
@@ -1434,7 +1434,7 @@ public:
 # Outros Tópicos Avançados
 
 - Alguns conceitos de classes
-  - Classes abstratas, polimorfismo...
+  - Funções virtuais, classes abstratas...
 - Macros
   - Substituição de texto em compile time
 - Casts
