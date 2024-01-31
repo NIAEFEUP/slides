@@ -66,7 +66,7 @@ int main() {
 ---
 
 # Tipos de Dados Primitivos
-- **char:** caracteres alfanuméricos (ex: 'c', '8', '$');
+- **char:** caracteres alfanuméricos (ex: 'c', '8', '$'); alternativamente, podemos utilizar valores ASCII para mostrar caracteres específicos
 - **int:** números inteiros (ex: 10**3, -2)
 - **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
 - **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
@@ -188,16 +188,19 @@ int main() {
 
 # Input/Output
 ## Requisitos
-Para utilizar os operadores I/O de C++, é necessário incluir as seguintes linhas no topo do ficheiro de código:
+Para utilizar os operadores I/O de C++, é necessário incluir a seguinte linha no topo do ficheiro de código:
 
 ```C++
 #include <iostream>
-using namespace std;
 ```
 
 `iostream` é a biblioteca *standard* que fornece operadores e funções de I/O.
 
-Se o *namespace* `std` não for declarado, é necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`).
+É também necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`) ou simplesmente declarar o *namespace* `std`.
+
+```C++
+using namespace std;
+```
 
 ---
 
