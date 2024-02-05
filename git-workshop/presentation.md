@@ -379,7 +379,7 @@ Contudo, o nosso repositório ainda só existe localmente nos nossos computadore
 
 É para isto que serve um *Git server*: este serviço atua como localização central para armazenarem o vosso código de forma rápida, eficaz e, acima de tudo, **colaborativa**.
 
-Vamos ver como a seguir
+Vamos ver como a seguir.
 
 ---
 
@@ -453,28 +453,176 @@ No Github, para terem acesso ao URL de um *remote*, devem aceder à pagina de um
 <img width="750" src="assets/remote_clone.png" alt="Clonar um repo no Github" />
 
 ---
-
 class: inverse
 
-### Remotes - SSH _vs_ HTTPS
+### *Remotes* - SSH _vs_ HTTPS
 
-Enquanto que, usar ou SSH ou HTTPS no Github é possível (o Github ao longo do tempo mudou a sua recomendação), um método pode ser mais prático que outro dependendo da situação:
+Como referido anteriormente, existem 2 métodos para se usar um servidor de *git* remoto: **SSH** (*Secure Shell*) e **HTTPS**.
 
-HTTPS:
- - Não necessita configuração para certas ações simples (clonar um repositório público);
- - Firewalls restritas não conseguem bloquear o trafego;
- - O Github requer um _PAT_ (Personal Access Token) como autenticação, que não é prático de utilizar.
+Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras, os quais vão ser explorados de seguida.
+
+<div style="display: inline-flex; gap: 1em; width: 100%; justify-content: center; padding-top: 3em;">
+  <img width="750" src="assets/remote_https.png" alt="HTTPS" />
+  <img width="750" src="assets/remote_ssh.png" alt="SSH" />
+</div>
 
 ---
 
 class: inverse
 
-### Remotes - SSH _vs_ HTTPS
+### *Remotes* - HTTPS
 
-SSH:
- - Necessita sempre de configuração (mas é um **one-time** effort);
- - Recomendado para interações que necessitam de autenticação (ex: um **push**);
- - É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
- - Facilita o processo de assinar commits visto que o processo é quase idêntico 
+- Não necessita configuração, sendo mais simples para certas ações simples (clonar um repositório público);
+- Firewalls restritas não conseguem bloquear o trafego;
 
-**TLDR:** Usem HTTPS se quiserem ter acesso read-only a um repositório público, SSH para todas as outras ações.
+> Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
+
+---
+
+class: inverse
+
+### *Remotes* - SSH
+
+- Necessita sempre de configuração (mas é um **one-time** effort);
+- Recomendado para interações que necessitam de autenticação (ex: um **push**);
+- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
+- Facilita o processo de assinar commits visto este ser quase idêntico (chaves GPG, usadas para assinar os *commits*, não diferem muito das chaves SSH, usadas para establecer ligações a servidores remotos de *git*).
+- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
+
+---
+
+class: inverse
+
+### *Remotes* - SSH _vs_ HTTPS - *Wrap Up*
+
+Para sumariar:
+
+- HTTPS não necessita de configurações adicionais mas é menos seguro que SSH, algo que o GitHub teve em conta e por isso é-vos requerido que apresente um _Personal Access Token_ em todos os acessos por HTTPS.
+- SSH necessita da partilha prévia de uma chave pública mas esse processo apenas precisa de ser feito uma única vez, após o qual todos os acessos que fizerem pelo _git_ estarão seguros através de SSH. Tem o bónus de não ser necessário autenticarem-se todas as vezes que acedem ao GitHub.
+
+A nossa recomendação é configurarem o acesso por SSH visto ser um processo que apenas têm que efetuar uma única vez e salva-vos dores de cabeça no futuro.
+
+---
+
+class: inverse, center, middle
+
+## E agora?
+
+![KKKKKKK](./assets/kkkkk.jpg)
+
+---
+
+class: inverse
+
+### E agora
+
+Agora vocês estão não só prontos para user o git nos vossos computadores como também para guardar as vossas alterações num servidor remoto.
+
+Contudo, raramente na vossa vida vão estar sozinhos a trabalhar num projeto. Como é que garantem que o vosso trabalho não interfere com o trabalho dos vossos colegas?
+
+É aqui que entram...
+
+---
+
+class: inverse, middle, center
+
+## *Branches*
+
+---
+
+class: inverse
+
+### *Branches*
+
+Um *branch* é, na sua essência, apenas um nome que vocês dão a um conjunto de *commits* que logicamente fazem sentido estar agrupados.
+
+Na prática, o uso que se dá a *branches* é a possibilidade de ter um ambiente próprio para se trabalhar numa funcionalidade sem impactar quer outras possíveis linhas de trabalho que vocês possam ter nas vossas máqinas quer o trabalho dos vossos colegas.
+
+Na realidade, o próprio *git* requer que vocês estejam sempre num *branch* para poderem trabalhar. Por *default* vocês começam no *branch* ***master*** ou ***main***.
+> Isto nem sempre é verdade, podem estar a ver um commit *detached*, mas estes são *read-only* apenas e não são assim tão frequentes quanto isso. Convém só ter em conta que existe essa possibilidade.
+
+---
+
+class: inverse
+
+### *Branches* - *Hands On* (1/3)
+
+Para verem o branch em que se encontram atualmente, basta executarem o comando:
+```bash
+git branch
+```
+
+cujo *output* deverá ser algo do género:
+```bash
+git-internal-workshop
+master
+```
+
+Este output inclui todos os *branches* que vocês visitaram (não necessariamente todos os branches)
+
+> O *branch* em que estiverem no momento da execução do comando vai aparecer com uma cor diferente no terminal se este o suportar.
+
+Se quiserem ver todos os branches que existem no repositório, usem a flag `a`:
+```bash
+git branch -a
+```
+
+---
+
+class: inverse
+
+### *Branches* - *Hands On* (2/3)
+
+Para criar um *branch* novo, usa-se o comando:
+```bash
+git branch <nome do novo branch>
+```
+
+Isto vai criar um *branch* novo com o nome que lhe derem **a partir do *branch* atual em que estão**. Isto significa que os *branches* todos que existem num repositório foram todos criados a partir de outros *branches*, fazendo uma espécie de árvore.
+> Não é bem assim, como veremos mais à frente, apenas se fez a analogia para ajudar a formar uma imagem mental.
+
+Para apagarem um *branch*:
+```bash
+# para apagar um branch apenas após ter sido merged (a falar depois)
+git branch -d <nome do branch> 
+
+# para apagar um branch mesmo que este não tenha sido ainda merged
+git branch -D <nome do branch> 
+```
+
+---
+
+class: inverse
+
+### *Branches* - *Hands On* (3/3)
+
+Para mudarem de *branch*, existem vários comandos disponíveis.
+
+O comando original era o `git checkout`:
+```bash
+git checkout <nome do branch>
+```
+
+Contudo, este comando incluia demasiadas funcionalidades, pelo que se criou o comando mais especializado `git switch`:
+```bash
+git switch <nome do branch>
+```
+
+Ambos os comandos pressupõem que o *branch* para onde se quer mudar já existe. Contudo, podem criar um branch e mudar para ele num só comando:
+```bash
+git checkout -b <nome do novo branch>
+
+git switch -c <nome do branch>
+```
+
+---
+
+class: inverse
+
+### *Branches* - *Wrap Up*
+
+Vimos como criar, apagar e mover para outros *branches*, mas o que fazer com isto?
+
+Quando estão num *branch*, os *commits* que fizerem ficam nesse *branch*. Isto pode ser verificado se fizerem um *commit* num *branch*, mudarem de *branch* e executarem `git log`: o *commit* que acabaram de fazer não aparece. 😱
+
+Isto é uma das ferramentas mais importantes que têm ao vosso dispor quando trabalham num projeto colaborativo. É desta maneira que garantem que o vosso trabalho está isolado do trabalho dos vossos colegas, contribuindo para a **paralelização do trabalho** de um projeto.
