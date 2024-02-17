@@ -551,6 +551,52 @@ void function3(int* variable) {
 
 ---
 
+# Arrays
+
+Tal comos os vetores, arrays são uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
+
+Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
+
+Tal como os vetores, os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
+
+Ex:
+
+Se tivermos definirmos um array de 5 inteiros, int numbers[5],
+- numbers é o apontador que aponta para o início do array
+- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
+
+---
+
+```C++
+#include <iostream>
+    
+using namespace std;
+    
+int main() {
+    const int SIZE = 5;
+    int numbers[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+        numbers[i] = i * 10;
+
+    cout << "Array elements: ";
+    for (int i = 0; i < SIZE; i++)
+        cout << numbers[i] << " ";
+    cout << endl;
+
+    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
+    
+    return 0;
+}         
+```
+
+```bash
+Array elements: 0 10 20 30 40
+Last element: 40
+```
+
+---
+
 # Vetores
 - Estrutura de dados linear com a capacidade de armazenar vários valores de um
 determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
@@ -558,15 +604,12 @@ novo é inserido ou apagado
 - São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
 - Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
 
-## Notas importantes
+## Notas Importantes
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
 - é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
 retos [] ou o método .at();
 
----
-
-# Vetores
 ## Métodos Fundamentais
 
 Os vetores são uma classe da STL (Standard Template Library, contém templates de estruturas de dados e funções úteis que já estão definidas no c++).
@@ -640,52 +683,6 @@ Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.g
 **E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vetor v.
 
 Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
-
----
-
-# Arrays
-
-Tal comos os vetores, arrays são uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
-
-Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
-
-Tal como os vetores, os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
-
-Ex:
-
-Se tivermos definirmos um array de 5 inteiros, int numbers[5],
-- numbers é o apontador que aponta para o início do array
-- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
-
----
-
-```C++
-#include <iostream>
-    
-using namespace std;
-    
-int main() {
-    const int SIZE = 5;
-    int numbers[SIZE];
-
-    for (int i = 0; i < SIZE; i++)
-        numbers[i] = i * 10;
-
-    cout << "Array elements: ";
-    for (int i = 0; i < SIZE; i++)
-        cout << numbers[i] << " ";
-    cout << endl;
-
-    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
-    
-    return 0;
-}         
-```
-
-```bash
-Array elements: 0 10 20 30 40
-Last element: 40
-```
 
 ---
 
