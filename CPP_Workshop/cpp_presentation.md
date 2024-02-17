@@ -883,7 +883,7 @@ class: center, middle
 
 # Tópicos Avançados
 
-Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes
+Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes!
 
 ---
 
@@ -1028,7 +1028,7 @@ class B : access_specifier A { // classe derivada de A
 
 ![Access Specifiers](img/table-class.png)
 
-(Imagem retirada de [*Geeks for geeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
+(Imagem retirada de [*GeeksforGeeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
 
 ---
 ## Hierarquia - Exemplo
@@ -1094,6 +1094,45 @@ int main() {
     fluffy.printInfo(); // Fluffy is a cat
 
     return 0;
+}
+```
+
+---
+
+## Operator Overloading
+
+C++ permite-nos atribuir um significado especial a operadores para tipos de dados específicos - conhecido como **operator overloading**. Operator overloading permite-nos realizar operações que não seriam possíveis de outra forma.
+
+O exemplo abaixo demonstra como podemos utilizar *f* e *g* como funções (apesar de serem objetos) utilizando operator overloading.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct Linear
+{
+    double a, b;
+    
+    /* Operator Overloading */
+    double operator()(double x) const
+    {
+        return a * x + b;
+    }
+};
+ 
+int main()
+{
+    Linear f{2, 1};  // f = 2x + 1
+    Linear g{-1, 0}; // g = -x
+ 
+    double f_0 = f(0);
+    double f_1 = f(1);
+    double g_0 = g(0);
+
+    cout << f_0 << endl;
+    cout << f_1 << endl;
+    cout << g_0 << endl;
 }
 ```
 
