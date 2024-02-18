@@ -381,6 +381,10 @@ Contudo, o nosso repositório ainda só existe localmente nos nossos computadore
 
 Vamos ver como a seguir.
 
+???
+
+se calhar meter branches locais primeiro e depois explicar remotes?
+
 ---
 
 class: inverse
@@ -516,7 +520,7 @@ class: inverse
 
 ### E agora
 
-Agora vocês estão não só prontos para user o git nos vossos computadores como também para guardar as vossas alterações num servidor remoto.
+Agora vocês estão não só prontos para usar o *git* nos vossos computadores como também para guardar as vossas alterações num servidor remoto.
 
 Contudo, raramente na vossa vida vão estar sozinhos a trabalhar num projeto. Como é que garantem que o vosso trabalho não interfere com o trabalho dos vossos colegas?
 
@@ -534,7 +538,7 @@ class: inverse
 
 ### *Branches*
 
-Um *branch* é, na sua essência, apenas um nome que vocês dão a um conjunto de *commits* que logicamente fazem sentido estar agrupados.
+Um *branch* é, na sua essência, apenas um nome que vocês dão a um conjunto de *commits* que logicamente fazem sentido estar agrupados e a um apontador para o *commit* mais recente neste conjunto. Este apontador é chamado a "*HEAD* do branch".
 
 Na prática, o uso que se dá a *branches* é a possibilidade de ter um ambiente próprio para se trabalhar numa funcionalidade sem impactar quer outras possíveis linhas de trabalho que vocês possam ter nas vossas máqinas quer o trabalho dos vossos colegas.
 
@@ -578,7 +582,7 @@ Para criar um *branch* novo, usa-se o comando:
 git branch <nome do novo branch>
 ```
 
-Isto vai criar um *branch* novo com o nome que lhe derem **a partir do *branch* atual em que estão**. Isto significa que os *branches* todos que existem num repositório foram todos criados a partir de outros *branches*, fazendo uma espécie de árvore.
+Isto vai criar um *branch* novo com o nome que lhe derem **a partir do *branch* atual em que estão**. Isto significa que os *branches* todos que existem num repositório foram todos criados a partir de outros *branches*, fazendo uma espécie de "árvore".
 > Não é bem assim, como veremos mais à frente, apenas se fez a analogia para ajudar a formar uma imagem mental.
 
 Para apagarem um *branch*:
@@ -626,3 +630,121 @@ Vimos como criar, apagar e mover para outros *branches*, mas o que fazer com ist
 Quando estão num *branch*, os *commits* que fizerem ficam nesse *branch*. Isto pode ser verificado se fizerem um *commit* num *branch*, mudarem de *branch* e executarem `git log`: o *commit* que acabaram de fazer não aparece. 😱
 
 Isto é uma das ferramentas mais importantes que têm ao vosso dispor quando trabalham num projeto colaborativo. É desta maneira que garantem que o vosso trabalho está isolado do trabalho dos vossos colegas, contribuindo para a **paralelização do trabalho** de um projeto.
+
+Mas eventualmente vocês querem que o código no qual vocês trabalharam faça parte do código "a sério" do projeto.
+
+Isto é conseguido com um processo chamado...
+
+---
+
+class: inverse, middle, center
+
+## *Merge*
+
+---
+
+class: inverse
+
+### *Merge*
+
+Um *merge* é o processo de juntar dois *branches* diferentes de modo a que os *commits* de um façam também parte do outro.
+
+Anteriormente vimos que criar branches cria uma espécie de "árvore" como forma de ajudar a visualizar a organização de um repositório, deixando no entanto a nota de que havia mais a falar sobre o assunto: é o *merge*.
+
+Se criar um *branch* causa uma "divergência" no repositório, o *merge* é o inverso, isto é, provoca uma "convergência".
+
+Existem vários tipos diferentes de *merges* que se podem efetuar mas os principais são:
+- *Fast-forward*
+- *Three-way merge* (o *merge* normal)
+- *Squash & merge*
+- *Rebase & merge*
+
+---
+
+class: inverse
+
+### *Merge* - *Fast-forward*
+
+Um *fast-forward* é o tipo mais simples de *merge* que acontece quando, após criarmos um branch, trabalharmos nele e quisermos dar *merge*, não houve nenhuma alteração efetuada ao *branch* base.
+
+Relembrar que um *branch* é identificado por um apontador para o *commit* mais recente. Se não houver nenhumas alterações no *branch* base diz-se que temos uma "história linear", como demonstrado pela figura abaixo.
+
+<div style="display: inline-flex; width: 100%; justify-content: center;">
+  <img height="350px" src="./assets/ff.png" alt="Fast Forward" />
+</div>
+
+---
+
+class: inverse
+
+### *Merge* - "Three-Way Merge"
+
+O *git* executa um *three-way merge* quando houve alterações ao *branch* base desde que um *branch* filho foi criado. É um nome complicado que raramente vão ter que saber mas convém perceber o funcionamente doeste método.
+
+Chama-se *three-way merge* porque o git internamente usa 3 commits diferentes para efetuar o *merge*:
+- a *HEAD* do *branch* base
+- a *HEAD* do *branch* filho
+- o *commit* onde o *branch* filho se separou do *branch* base
+
+No final do processo, é criado um *commit* novo, chamado *merge commit*, que sinaliza na história do *git* que ocorrou um *merge* entre dois branches naquele ponto.
+
+Convém notar que este processo, ao contrário do que acontece com um *fast-forward*, pode levar a conflitos, que vão ser explorados mais à frente.
+
+---
+
+class: inverse
+
+### *Merge* - "Three-Way Merge"
+
+<div style="display: inline-flex; width: 100%; justify-content: center;">
+  <img height="500px" src="./assets/twm.png" alt="Fast Forward" />
+</div>
+
+---
+
+class: inverse
+
+### *Merge* - "Rebase and merge"
+
+Um `rebase` serve para alterar a base de um *branch*, efetivamente "modificando" o momento na história do vosso repositório onde o branch foi criado.
+
+Isto leva a uma perda de informação contextual sobre o *branch*. Contudo, ao linearizarmos a história do *branch* permitimos ao *git* efetar um *fast-forward*, pelo que esta opção é bastantes vezes utilizada.
+
+Fica ao vosso encargo perceber e aplicar o que é que a vossa equipa decidiu ser a opção mais adequada ao projeto em que estão inseridos.
+
+---
+
+class: inverse
+
+### *Merge* - "Rebase and merge"
+
+<div style="display: inline-flex; width: 100%; justify-content: center;">
+  <img height="500px" src="./assets/rebase.png" alt="Fast Forward" />
+</div>
+
+---
+
+class: inverse
+
+### *Merge* - "Rebase"
+
+Para fazerem *rebase* de um *branch* sobre outro, têm que efetuar o comando:
+```bash
+# têm que garantir que estão no branch "filho"
+git rebase <nome do novo branch base>
+```
+
+Este processo também pode gerar conflitos, uma vez que o git, no processo do *rebase*, tem que tentar juntar histórias **possivelmente** divergentes.
+
+De modo a facilitar o processo de `rebase`, existe uma opção que torna o comando **interativo** e que vos permite fazer o conhecido ***rebase* interativo**:
+```bash
+# têm que garantir que estão no branch "filho"
+git -i rebase <nome do novo branch base>
+```
+
+---
+
+class: inverse
+
+### *Merge* - "Squash and merge"
+
