@@ -9,7 +9,10 @@ class: center, middle
 
 - Apresentação: https://niaefeup-cpp-workshop.netlify.app
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
-- [Visual Studio](https://visualstudio.microsoft.com), [VSCode](https://code.visualstudio.com), [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
+- [Visual Studio](https://visualstudio.microsoft.com), **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
+
+***NOTA:*** Aconselhamos o uso do **VSCode juntamente com g++** para compilar o código. Para instalar g++, basta correr `sudo apt install g++` (WSL/Linux) ou `brew install gcc` (Mac). 
+            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `/.main`.
 
 ---
 
@@ -225,7 +228,7 @@ Bom dia Inês!
 Tudo bem?
 ```
 
-NOTA: A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
+***NOTA:*** A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
 utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
 seguinte:
 ```Bash
