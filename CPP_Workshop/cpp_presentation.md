@@ -12,7 +12,7 @@ class: center, middle
 - [Visual Studio](https://visualstudio.microsoft.com), **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
 
 ***NOTA:*** Aconselhamos o uso do **VSCode juntamente com g++** para compilar o código. Para instalar g++, basta correr `sudo apt install g++` (WSL/Linux) ou `brew install gcc` (Mac). 
-            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `/.main`.
+            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `./main`.
 
 ---
 
