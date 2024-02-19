@@ -9,7 +9,10 @@ class: center, middle
 
 - Apresentação: https://niaefeup-cpp-workshop.netlify.app
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
-- [Visual Studio](https://visualstudio.microsoft.com), [VSCode](https://code.visualstudio.com), [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
+- [Visual Studio](https://visualstudio.microsoft.com), **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
+
+***NOTA:*** Aconselhamos o uso do **VSCode juntamente com g++** para compilar o código. Para instalar g++, basta correr `sudo apt install g++` (WSL/Linux) ou `brew install gcc` (Mac). 
+            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `./main`.
 
 ---
 
@@ -225,7 +228,7 @@ Bom dia Inês!
 Tudo bem?
 ```
 
-NOTA: A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
+***NOTA:*** A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
 utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
 seguinte:
 ```Bash
@@ -551,25 +554,66 @@ void function3(int* variable) {
 
 ---
 
+# Arrays
+
+Um array é uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores (que iremos ver posteriormente) são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia-a-dia a sua utilização não é muito comum.
+
+Arrays têm comprimento fixo; a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
+
+Os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
+
+Por exemplo, se definirmos um array de 5 inteiros, `int numbers[5]`:
+- numbers é o apontador que aponta para o início do array
+- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
+
+---
+
+```C++
+#include <iostream>
+    
+using namespace std;
+    
+int main() {
+    const int SIZE = 5;
+    int numbers[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+        numbers[i] = i * 10;
+
+    cout << "Array elements: ";
+    for (int i = 0; i < SIZE; i++)
+        cout << numbers[i] << " ";
+    cout << endl;
+
+    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
+    
+    return 0;
+}         
+```
+
+```bash
+Array elements: 0 10 20 30 40
+Last element: 40
+```
+
+---
+
 # Vetores
-- Estrutura de dados linear com a capacidade de armazenar vários valores de um
+- Tal como os arrays, são estruturas de dados lineares com a capacidade de armazenar vários valores de um
 determinado tipo. Pode alterar o seu tamanho automaticamente sempre que um elemento 
 novo é inserido ou apagado
 - São alocados contiguamente na memória, podendo por isso ser vistos como uma extensão de *arrays* de C
 - Os dados são geralmente inseridos no final do vetor (por razões de eficiência)
 
-## Notas importantes
+## Notas Importantes
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
-- é possível consultar o conteúdo de um vetor numa determinada posição utilizando parêntesis 
+- é possível consultar o conteúdo de um vetor numa determinada posição utilizando, tal como nos arrays, parêntesis 
 retos [] ou o método .at();
 
----
-
-# Vetores
 ## Métodos Fundamentais
 
-Os vetores são uma classe da STL (Standard Template Library, contém templates de estruturas de dados e funções úteis que já estão definidas no c++).
+Os vetores são uma classe da STL (*Standard Template Library*, que contém templates de estruturas de dados e funções úteis que já estão definidas no C++).
 
 Para utilizar esta biblioteca é necessário incluir a instrução `#include <vector>`.
 
@@ -643,56 +687,10 @@ Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.g
 
 ---
 
-# Arrays
-
-Tal comos os vetores, arrays são uma estrutura de dados linear com a capacidade de armazenar valores do mesmo tipo. Enquanto que os vetores são uma classe com vários métodos pre-definidos que facilitam vários aspetos da sua utilização, os arrays lidam diretamente com os valores guardados em memória, pelo que no dia a dia a sua utilização não é muito comum.
-
-Arrays têm comprimento fixo, a necessidade de guardar um número de elementos que pode ser dinâmico implica interagir com a memória do computador e gerir a quantidade de espaço alocado.
-
-Tal como os vetores, os elementos de um array também podem ser acedidos com o operador []. Este é o equivalente a um apontador que aponta para um determinado elemento do array.
-
-Ex:
-
-Se tivermos definirmos um array de 5 inteiros, int numbers[5],
-- numbers é o apontador que aponta para o início do array
-- numbers[3] é o apontador que aponta para 3 posições após o início do array (4º elemento)
-
----
-
-```C++
-#include <iostream>
-    
-using namespace std;
-    
-int main() {
-    const int SIZE = 5;
-    int numbers[SIZE];
-
-    for (int i = 0; i < SIZE; i++)
-        numbers[i] = i * 10;
-
-    cout << "Array elements: ";
-    for (int i = 0; i < SIZE; i++)
-        cout << numbers[i] << " ";
-    cout << endl;
-
-    cout << "Last element: " << *(numbers + SIZE - 1) << endl;
-    
-    return 0;
-}         
-```
-
-```bash
-Array elements: 0 10 20 30 40
-Last element: 40
-```
-
----
-
 # Strings
 
 - STL Strings
-    - Semelhante a `vector<char>` e strings de python
+    - Semelhante a `vector<char>` e strings de Python
     - Operações semelhantes às dos vetores
     - Suporta também métodos específicos
         - **str += 'Outra string'**
@@ -727,7 +725,7 @@ int main() {
 	char name1[256];
 	cout << "Hey there, what's your full name?\n";
 	cin.getline(name1, 256);
-	string name = string(name1); //Nome de exemplo � Filipe Pinto Reis
+	string name = string(name1); //Nome de exemplo -> Filipe Pinto Reis
 	cout << name;
 
 	string a = name.substr(0, 6);
@@ -739,6 +737,65 @@ int main() {
 	cout << c.length() << endl;
 
 	return 0;
+}
+```
+
+---
+
+# Structs
+
+Uma struct é uma estrutura de dados que permite agrupar várias variáveis relacionadas entre si; ao contrário dos arrays, as structs podem conter vários tipos de dados diferentes (int, bool, string...).
+
+Para criar uma struct, utilizamos a keyword `struct` e declaramos os seus membros e o nome da variável.
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    /* Cria uma struct */
+    struct {
+      string name;
+      bool released;
+      int year;
+    } myStructure;
+
+    /* Atribui valores aos membros da struct */
+    myStructure.name = "Elden Ring";
+    myStructure.released = true;
+    myStructure.year = 2022;
+    
+    /* Dá print aos membros da struct */
+    cout << myStructure.name << "\n";
+    // cout << boolalpha;                  podes usar para dar print a "true" em vez de "1"
+    cout << myStructure.released << "\n";
+    cout << myStructure.year << "\n";
+}
+```
+
+Também é possível atribuir um nome a uma struct e utilizá-la como um tipo de dados.
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    struct myGame {
+      string name;
+      bool released;
+      int year;
+    };
+
+    myGame st;
+
+    st.name = "Palworld";
+    cout << st.name << "\n";
 }
 ```
 
@@ -829,7 +886,7 @@ class: center, middle
 
 # Tópicos Avançados
 
-Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes
+Se te tivermos conseguido cativar podes continuar a explorar os slides seguintes!
 
 ---
 
@@ -974,7 +1031,7 @@ class B : access_specifier A { // classe derivada de A
 
 ![Access Specifiers](img/table-class.png)
 
-(Imagem retirada de [*Geeks for geeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
+(Imagem retirada de [*GeeksforGeeks*](https://www.geeksforgeeks.org/inheritance-in-c/))
 
 ---
 ## Hierarquia - Exemplo
@@ -1040,6 +1097,45 @@ int main() {
     fluffy.printInfo(); // Fluffy is a cat
 
     return 0;
+}
+```
+
+---
+
+## Operator Overloading
+
+C++ permite-nos atribuir um significado especial a operadores para tipos de dados específicos - conhecido como **operator overloading**. Operator overloading permite-nos realizar operações que não seriam possíveis de outra forma.
+
+O exemplo abaixo demonstra como podemos utilizar *f* e *g* como funções (apesar de serem objetos) utilizando operator overloading.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct Linear
+{
+    double a, b;
+    
+    /* Operator Overloading */
+    double operator()(double x) const
+    {
+        return a * x + b;
+    }
+};
+ 
+int main()
+{
+    Linear f{2, 1};  // f = 2x + 1
+    Linear g{-1, 0}; // g = -x
+ 
+    double f_0 = f(0);
+    double f_1 = f(1);
+    double g_0 = g(0);
+
+    cout << f_0 << endl;
+    cout << f_1 << endl;
+    cout << g_0 << endl;
 }
 ```
 
