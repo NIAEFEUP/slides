@@ -1567,3 +1567,9 @@ public:
 - The C++ Programming Language, 4ª Edição, de Bjarne Stroustrup
 - Effective C++, 3ª Edição, de Scott Meyers
 class: center, middle
+
+---
+
+# Questionário
+
+![QR-code](img/qr.png)
