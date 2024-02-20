@@ -1572,4 +1572,4 @@ class: center, middle
 
 # Questionário
 
-![QR-code](img/qr.png)
+![QR-code](img/qr2.png)
