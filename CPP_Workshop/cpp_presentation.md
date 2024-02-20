@@ -1572,4 +1572,4 @@ class: center, middle
 
 # Questionário
 
-![QR-code](img/qr2.png)
+<img src="img/qr.png" alt="QR Code" style="max-width: 60%; height: auto;" />
