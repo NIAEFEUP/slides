@@ -52,7 +52,7 @@ class: inverse
   - Widgets, Layout, Material Design
   - Advanced topics: state management, platform channels, offline storage, architecture
   - Best practices
-- A hands-on session on _uni_
+- A hands-on session starting with a fresh project
 
 ---
 
@@ -498,11 +498,16 @@ class: center, middle, inverse
 
 ### So you are now a Flutter expert
 
-#### Let's get our hands dirty
+#### Let's get our hands dirty. Can you build this (or better)?
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 2em">
+<img src="./assets/practical/fetch_news.png" style="height: 50vh;">
+<img src="./assets/practical/news_details.png" style="height: 50vh;">
+</div>
 
 ---
 
-### Flutter: Hands-on
+### Bootstrapping a new project
 
 - Make sure you have Flutter well configured on your machine:
 
@@ -510,23 +515,295 @@ class: center, middle, inverse
 flutter doctor
 ```
 
-- Clone the _uni_ repository:
+- Create a new Flutter project and run it on your device:
 
 ```sh
-git clone git@github.com:NIAEFEUP/uni.git
+flutter create news_app && cd news_app && flutter run
 ```
 
-- Run the application on your emulator/device
-- Follow the steps:
-  - Create a `weather.dart` file in `lib/view/weather`
-    - It should contain a widget that fetches data from the [wttr.in](https://github.com/chubin/wttr.in) API upon the press of a button and displays it on the screen. The widget state should extend `GeneralPageViewState`
-  - Create a new `DrawerItem` in `lib/utils/drawer_items.dart` for the weather screen
-  - Create the route for the weather screen in `lib/main.dart`
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/new_project.png" style="height: 50vh;">
+</div>
 
 ---
 
-### Flutter: Hands-on
+### Removing some demo code
 
-The final result should look like this:
+- Change the accent color to `Colors.blue`
+- Change the title of the app to "News App"
+- Remove the counter, the increment button and the center text
 
-<img src="./assets/task_result.png" style="width: 32%">
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/blank_project.png" style="height: 50vh;">
+</div>
+
+---
+
+### Creating a news card widget
+
+- Create a new file `news_card.dart` and define a `NewsCard` stateless widget
+- You can hardcode some strings for now
+- Wrap the `Card` widget and customize as you see fit
+- Add it on the homepage
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/news_card.png" style="height: 50vh;">
+</div>
+
+---
+
+### Creating a news card widget
+
+```dart
+class NewsCard extends StatelessWidget {
+  const NewsCard({super.key});
+  
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        child: Row(
+      children: [
+        Container(
+            child: Image.network(
+              "https://image.cnbcfm.com/api/v1/image/105692413-1548173252068gettyimages-450710900.jpeg?v=1548173273",
+              fit: BoxFit.cover,
+            )),
+        const Expanded(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Ronaldo is upset",
+            ),
+            Text(
+                "He is getting a bit old and it's somewhat hard to drible. Still a legend though."),
+          ],
+        ))
+      ],
+    ));
+  }
+}
+```
+
+---
+
+### Making the widget reusable
+
+- Create a new file `news_article.dart` and define a `NewsArticle` class that holds the article's data
+- Make the `NewsCard` widget accept a `NewsArticle` object as a parameter and use it to populate the children fields
+- Create some articles on the homepage using a ListView
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/listview.png" style="height: 50vh;">
+</div>
+
+---
+
+### Making the widget reusable
+
+```dart
+class NewsArticle {
+  String? imageUrl;
+  String title;
+  String subtitle;
+
+  NewsArticle({this.imageUrl, required this.title, required this.subtitle});
+}
+```
+
+```dart
+Widget build(BuildContext context) {
+    return Card(
+        child: Row(
+        children: [
+        Container(
+            child: Image.network(
+                article.imageUrl ??
+                    "https://image.cnbcfm.com/api/v1/image/105692413-1548173252068gettyimages-450710900.jpeg?v=1548173273",
+                fit: BoxFit.cover)),
+        Expanded(
+            child: Column(
+            children: [
+            Text(article.title),
+            Text(article.subtitle),
+            ],
+        ))
+        ],
+    ));
+}
+```
+
+---
+
+### Making the widget reusable
+
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+  final List<NewsArticle> articles = [
+    NewsArticle(
+        title: "Ronaldo is beautiful",
+        subtitle: "At least according to Georgina."),
+    NewsArticle(
+        title: "FC Porto beats Benfica",
+        subtitle: "It seemed like it was a Champions League game",
+        imageUrl:
+            "https://sportal365images.com/process/smp-images-production/abola.pt/03032024/b61a1758-33bd-4f8a-af5d-a6037c287b89.jpg")
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Container(
+          padding: const EdgeInsets.all(10),
+          child: ListView(
+            children: articles.map((article) => NewsCard(article)).toList(),
+          )),
+    );
+  }
+}
+```
+
+---
+
+### Fetching some actual data
+
+- Create a new file `articles_fetcher.dart` and add a function to fetch articles from a remote API
+  - I suggest you use `https://saurav.tech/NewsAPI/top-headlines/category/<category>/in.json`
+  - Make sure that your function returns `Future<List<NewsArticle>>`
+  - You need to add the `http` package to your `pubspec.yaml` file
+- Use a `FutureBuilder` widget to display the articles on the homepage
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/fetch_news.png" style="height: 50vh;">
+</div>
+
+---
+
+### Fetching some actual data
+
+```dart
+Future<List<NewsArticle>> fetchArticles(String category) async {
+  final response = await get(Uri.parse(
+      "https://saurav.tech/NewsAPI/top-headlines/category/$category/in.json"));
+  final json = jsonDecode(response.body);
+  final articles = (json["articles"] as List).map((article) {
+    return NewsArticle(
+        title: article["title"],
+        subtitle: article["description"],
+        imageUrl: article["urlToImage"]);
+  }).toList();
+  return articles;
+}
+```
+
+```dart
+FutureBuilder(
+    future: fetchArticles("sports"),
+    builder: (BuildContext context,
+        AsyncSnapshot<List<NewsArticle>> snapshot) {
+        if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+        }
+
+        if (snapshot.hasData) {
+        return ListView(
+            children: snapshot.data!.map((a) => NewsCard(a)).toList());
+        }
+
+        return const Center(
+        child: CircularProgressIndicator(),
+        );
+    },
+)
+```
+
+---
+
+### Implementing a details page
+
+- Add a `content` field to the `NewsArticle` model class and update the fetcher accordingly
+- Create a new file `news_details.dart` and define a `NewsDetails` page
+- Navigate to the details page route when tapping the news card (e.g use a `InkWell` widget)
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="./assets/practical/news_details.png" style="height: 50vh;">
+</div>
+
+---
+
+### Implementing a details page
+
+```dart
+class NewsDetailsPage extends StatelessWidget {
+  final NewsArticle article;
+
+  const NewsDetailsPage(this.article, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(article.title),
+        ),
+        body: ListView(children: [
+          if (article.imageUrl != null) Image.network(article.imageUrl!),
+          Text(article.title, style: const TextStyle(fontSize: 20),),
+          if (article.content != null) Text(article.content!),
+        ]));
+  }
+}
+```
+
+```dart
+InkWell(
+        onTap: () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => NewsDetailsPage(article))),
+        child: Card(
+            child: Row(
+          children: [
+            Container(
+                padding: const EdgeInsets.all(10),
+                width: 150,
+                height: 150,
+                child: Image.network(
+                    article.imageUrl ??
+                        "https://image.cnbcfm.com/api/v1/image/105692413-1548173252068gettyimages-450710900.jpeg?v=1548173273",
+                    fit: BoxFit.cover)),
+            const SizedBox(
+              width: 5,
+            ),
+            // We need to "expand this widget" to give it intrinsic width in the row
+            // Otherwise the text would overflow
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  article.title,
+                  style: const TextStyle(fontSize: 20),
+                ),
+                Text(article.subtitle),
+              ],
+            ))
+          ],
+        )))
+```
+
+---
+
+class: center, middle, inverse
+
+### Of course, now can you can make it look better
+
+#### But this is a good start
+
+---
+
+class: center, middle, inverse
+
+### Thank you for your attention :)
