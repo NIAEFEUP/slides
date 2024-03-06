@@ -280,7 +280,7 @@ Ou seja podemos concluir que o `hello_world.txt` está na **staging area** e pro
 
 class: inverse
 
-### *Stages* - Repository
+### *Stages* - *Repository*
 
 Podem pensar no repositório em si como uma coleção de _commits_.
 
@@ -303,7 +303,7 @@ Por fim, o commit inclui as alterações que vocês fizeram.
 
 class: inverse
 
-### *Stages* - Repository (Hands-on)
+### *Stages* - *Repository* (Hands-on)
 
 Para adicionar as alterações que estão na **staging area** ao repositório, devem executar o comando:
 ```bash
@@ -327,7 +327,7 @@ nothing to commit, working tree clean
 
 class: inverse
 
-### *Stages* - Repository (Hands-on - Extra 1/2)
+### *Stages* - *Repository* (Hands-on - Extra 1/2)
 
 #### Menos um comando
 
@@ -353,7 +353,7 @@ Qualquer serviço ou pessoa que tente verificar a autenticidade do vosso _commit
 
 class: inverse
 
-### *Stages* - Repository (Hands-on - Extra 2/2)
+### *Stages* - *Repository* (Hands-on - Extra 2/2)
 
 Se quiserem ver o histórico de _commits_ do vosso repositório, podem executar o comando:
 ```bash
@@ -365,6 +365,57 @@ Isto vai mostrar-vos uma lista de todos os _commits_ que foram feitos ao vosso r
 Uma vez que este comando gera muito texto, existe uma opção que permite ver o histórico de _commits_ de uma forma mais compacta:
 ```bash
 git log --oneline
+```
+
+---
+
+class: inverse
+
+### *Stages* - *Stash*
+
+Existe ainda outra área especial do *git* chamada a *stash*. A ideia é que vocês podem ter alterações feitas ao vosso repositório às quais ainda não deram *commit* (e por isso encontram-se na *working directory*) mas precisam de as descartar temporariamente: ora porque precisam de mudar de branch ou por outro motivo qualquer.
+
+Normalmente vocês teriam que fazer um *commit* para se assegurarem que as vossas alterações são guardadas antes de fazer outra ação qualquer, mas muitas vezes o próprio *git* pode queixar-se por haver *commits* novos (e por isso gerar conflitos).
+
+Com o *stash*, têm a opção de guardar estas alterações sem as perderem e sem criarem um nvo *commit*. Deste modo, podem trabalhar noutra coisa qualquer e quando terminarem retomam as alterações que tinham antes.
+
+---
+
+class: inverse
+
+### *Stages* - *Stash* (Hands-On 1/2)
+
+Para guardarem alterações que tenham na *stash*, basta executarem o seguinte comando:
+```bash
+git stash
+```
+
+Isto vai guardar **todas** as alterações que tenham atualmente num item da *stash*.
+
+Para retomarem estas alterações, usem o comando:
+```bash
+git stash pop
+```
+
+Por vezes querem só guardar um unico ficheiro na *stash*, para isso:
+```bash
+git stash push <path para o ficheiro>
+```
+
+---
+
+class: inverse
+
+### *Stages* - *Stash* (Hands-On 2/2)
+
+Para esquecerem uma alteração que guardaram na *stash*:
+```bash
+git stash drop <referencia ao item da stash>
+```
+
+Para verem todos os items de stash que têm:
+```bash
+git stash list
 ```
 
 ---
@@ -697,7 +748,7 @@ class: inverse
 ### *Merge* - "Three-Way Merge"
 
 <div style="display: inline-flex; width: 100%; justify-content: center;">
-  <img height="500px" src="./assets/twm.png" alt="Fast Forward" />
+  <img height="500px" src="./assets/twm.png" alt="Three-Way Merge" />
 </div>
 
 ---
@@ -719,7 +770,7 @@ class: inverse
 ### *Merge* - "Rebase and merge"
 
 <div style="display: inline-flex; width: 100%; justify-content: center;">
-  <img height="500px" src="./assets/rebase.png" alt="Fast Forward" />
+  <img height="500px" src="./assets/rebase.png" alt="Rebase and Merge" />
 </div>
 
 ---
@@ -734,7 +785,7 @@ Para fazerem *rebase* de um *branch* sobre outro, têm que efetuar o comando:
 git rebase <nome do novo branch base>
 ```
 
-Este processo também pode gerar conflitos, uma vez que o git, no processo do *rebase*, tem que tentar juntar histórias **possivelmente** divergentes.
+Este processo também pode gerar conflitos, uma vez que o *git*, no processo do *rebase*, tem que tentar juntar histórias **possivelmente** divergentes.
 
 De modo a facilitar o processo de `rebase`, existe uma opção que torna o comando **interativo** e que vos permite fazer o conhecido ***rebase* interativo**:
 ```bash
@@ -748,3 +799,54 @@ class: inverse
 
 ### *Merge* - "Squash and merge"
 
+Um *squash* de um *branch* basicamente comprime todos os *commits* efetuados nesse *branch* num só *commit*.
+
+Esta opção deixa a vossa *commit history* bastante limpa mas há perda de informação contextual sobre os diversos *branches*.
+
+Pessoalmente não sei quem use esta opção mas existe.
+
+<div style="display: inline-flex; width: 100%; justify-content: center;">
+  <img height="350px" src="./assets/sm.png" alt="Squash & Merge" />
+</div>
+
+???
+
+Vale a pena falar disto? 
+
+---
+
+class: inverse
+
+### Outros comandos
+
+*Git* é uma ferramenta extremamente versátil, e os comandos que vos mostrámos são apenas a ponta do *iceberg*.
+
+Outros comandos que possam ser interessantes de saber são:
+
+```bash
+# Cria um commit novo que apaga as alterações do commit anterior
+git revert 
+
+# Permite apagar commits
+git reset <ref do commit> 
+
+# Permite pegar em qualquer commit e
+# aplicá-lo na branch em que estamos atualmente
+git cherry-pick <ref do commit>... 
+
+# Permite ver as diferenças entre 2 quaisquer commits. 
+# Normalmente usado com a HEAD
+git diff <ref do commit1> <ref do commit2>
+
+# Permite criar submodulos do git,
+# um bocado como criar um monorepo.
+git submodule
+```
+
+---
+
+class: inverse, center, middle
+
+# Conclusão
+
+Apesar de ter sido muito conteúdo, esperamos que tenham ficado a entender melhor o que é o *git* enquanto ferramenta de trabalho e como esta pode ser útil no vosso dia a dia enquanto developers.
