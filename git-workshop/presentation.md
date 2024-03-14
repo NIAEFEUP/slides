@@ -456,7 +456,7 @@ Existem dois métodos de usar um *remote*, **HTTPS** e **SSH**, que serão falad
 
 class: inverse
 
-### *Remotes* - Hands On (Configração Manual)
+### *Remotes* - Hands On (Configuração Manual)
 
 Se já tiverem um repositório configurado localmente, podem associar um dado remote usando o comando:
 ```bash
@@ -501,7 +501,7 @@ class: inverse
 
 ### *Remotes* - Extra
 
-> Como no NI usamos o Github, este exemplo é sobre um dos nossos repositórios no Github. Deverá ser semelhante notros serviços, como Gitlab ou Bitbucket, mas convém ter as diferenças em conta
+> Como no NI usamos o Github, este exemplo é sobre um dos nossos repositórios no Github. Deverá ser semelhante noutros serviços, como Gitlab ou Bitbucket, mas convém ter as diferenças em conta
 
 No Github, para terem acesso ao URL de um *remote*, devem aceder à pagina de um repositório, carregar no botão `Code` e escolher o método que preferem para usar o *remote*.
 
@@ -842,6 +842,35 @@ git diff <ref do commit1> <ref do commit2>
 # um bocado como criar um monorepo.
 git submodule
 ```
+
+---
+
+class: inverse
+
+# *Git* e GitHub no NI
+
+No NI usamos _git_ para todas as situações do dia-a-dia. Contudo, como vimos e como já falámos, não temos nenuhum servidor de _git_ no NI e por isso usamos o GitHub.
+
+Uma das coisas mais importantes de se saber no GitHub é como utilizar a funcionalidade dos **Pull Requests (PR's)**.
+
+Como o próprio nome indica, um **Pull Request** é simplesmente um "pedido" que fazemos para dar merge de uma _branch_, normalmente controlada por nós, noutra _branch_, normalmente a _branch_ principal do projeto (nem sempre).
+
+Isto pressupõe algumas coisas, a mais importante delas é **vocês terem um _branch_ separado com as vossas alterações**.
+
+---
+
+class: inverse
+
+## *Git* e GitHub no NI
+
+Não complica muito mais para além disto: 
+- Há uma funcionalidade tipo "fórum" onde o vosso código pode ser revisto e podem ter que realizar alterações ao mesmo.
+- Qualquer *push* que façam para um _branch_ é imediatamente refletido no PR.
+- Quando tudo estiver em ordem, o vosso PR é aprovado
+- Quando aprovado (e passar os *checks* todos, ver workshop de GitHub Actions e CI), podem escolher como dar merge:
+- - Rebase and Merge
+- - Squashe and Merge
+- - Normal Merge
 
 ---
 
