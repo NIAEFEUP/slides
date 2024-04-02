@@ -452,3 +452,71 @@ class: inverse, center, middle
 
 # Hands-on
 ### I hope that wasn't too overwhelming 😅
+
+---
+
+### The objective
+
+Let's imagine you've recently entered a company that develops a Flutter application, CineScope (completely not my ESOF project) however they have no CI/CD processes and they would like you to implement it.
+
+You should have:
+ - A CI pipeline that runs the linter, the formatter, and finally, the unit tests. It should run on every PR but also every push to the main branch;
+ - A CD pipeline that builds the final application as an APK and creates a GitHub Release for it.
+
+---
+
+### How to
+
+You should create a new repository that is a template of this repo:
+
+<div style="display:flex; flex-direction: column; justify-content: space-between; height:15rem">
+  <div style="display:flex; justify-content: center">
+    <a href="https://github.com/NIAEFEUP/workshop-ci-24">https://github.com/NIAEFEUP/workshop-ci-24</a>
+  </div>
+
+
+  <div style="display:flex; justify-content: center">
+    <img src="assets/template.png">
+  </div>
+</div>
+
+**NOTE:** you should create it as a public repository because this way you don't waste your precious free minutes.
+
+---
+
+### Developing locally
+
+You can use [act](https://github.com/nektos/act), which is a tool that allows you to run GitHub Action _workflows_ locally using _docker_. However, this is not 100% accurate and some things might not work on the GitHub runners.
+
+I recommend creating a new branch for testing and committing and pushing every change. However, you might not want to have too many commits on your PR so you can amend the last commit and force push it:
+
+```sh
+git commit -a --amend && git push --force
+```
+
+---
+
+### Tips
+You might not know Flutter, so here are the important commands to do the 3 tasks with them:
+
+```sh
+# format command
+dart format . --set-exit-if-changed
+```
+
+```sh
+# lint command
+flutter analyze
+```
+
+```sh
+# release build apk
+flutter build apk
+```
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+## Any questions?
