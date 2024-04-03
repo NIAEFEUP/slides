@@ -37,6 +37,8 @@
 
 - [Web Extension](https://niaefeup.github.io/slides/web-extension)
 
+- [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
+
 ## Archived Workshop Slides
 
 - [Flutter](https://niaefeup.github.io/slides/uni-flutter-internal-workshop)
