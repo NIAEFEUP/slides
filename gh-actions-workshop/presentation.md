@@ -301,8 +301,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ format('GitHub SHA: {0}', github.sha) }}"
-      # Example: it will output 'GitHub SHA: 80910396b2df0f055442575dc109f856edfbc24b'
+      - run: echo "${{ github.sha + ' ola' }}"
+      # Example: it will output 'GitHub SHA: 80910396b2df0f055442575dc109f856edfbc24b ola'
 ```
 
 ---
