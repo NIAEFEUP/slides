@@ -136,7 +136,13 @@ jobs:
         with:
           node-version: 16.13.x
           cache: npm
+...
+```
 
+---
+
+```yaml
+...
       - name: Install
         run: npm ci
 
@@ -177,7 +183,8 @@ A _workflow_ can be triggered by a plentitude of events:
  - `push` or `pull_request` are the most common (listens for branch pushes or to PR events);
  - `create` or `delete` listen for branch creation/deletion events;
  - `workflow_call`, `workflow_dispatch`, and `workflow_run` can chain together _workflows_ via API or by specifying dependencies;
- - the `schedule` can make a _workflow_ work on a recurrent basis using _cron job_ syntax. There's a [huge number of events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) that can automate almost everything ranging from issues, comments or even automating GitHub Projects.
+ - the `schedule` can make a _workflow_ work on a recurrent basis using _cron job_ syntax. 
+ - There's a [huge number of events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) that can automate almost everything ranging from issues, comments or even automating GitHub Projects.
 
 You can automate almost everything in GitHub, the sky is the limit 🚀
 
@@ -471,7 +478,7 @@ You should create a new repository that is a template of this repo:
 
 <div style="display:flex; flex-direction: column; justify-content: space-between; height:15rem">
   <div style="display:flex; justify-content: center">
-    <a href="https://github.com/NIAEFEUP/workshop-ci-24">https://github.com/NIAEFEUP/workshop-ci-24</a>
+    <a href="https://github.com/NIAEFEUP/workshop-ci-24-template">https://github.com/NIAEFEUP/workshop-ci-24-template</a>
   </div>
 
 
