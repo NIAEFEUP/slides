@@ -39,6 +39,8 @@
 
 - [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
 
+- [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
+
 ## Archived Workshop Slides
 
 - [Flutter](https://niaefeup.github.io/slides/uni-flutter-internal-workshop)
