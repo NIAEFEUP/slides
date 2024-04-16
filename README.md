@@ -37,11 +37,13 @@
 
 - [Web Extension](https://niaefeup.github.io/slides/web-extension)
 
-- IoT [(pdf))](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
+- IoT [(pdf)](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
 
 - [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
 
 - [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
+
+- [Kubernetes](https://niaefeup.github.io/slides/kubernetes-workshop)
 
 ## Archived Workshop Slides
 
