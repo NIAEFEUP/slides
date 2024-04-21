@@ -482,15 +482,6 @@ To do so we will deploy a redis master and 2 redis replicas.
 
 ---
 #### Deploying the guestbook app
-##### Deploying the guestbook app
-
-<ol start="6">
-  <li>
-    <p></p>
-    <p>As we are using a local cluster, the <code class="remark-inline-code">LoadBalancer</code> service type is not capable of allocating an external IP for our service. For simplicity sake we will use the <code class="remark-inline-code">kubectl port-forward</code> functionality to access the guestbook app.</p>
-  </li>
-</ol>
-
 ##### Accessing the guestbook
 <ol start="7">
 <li>
