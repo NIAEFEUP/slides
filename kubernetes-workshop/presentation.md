@@ -57,7 +57,7 @@ class: inverse
   - Pods, Workloads, Services and Ingresses, etc.
   - Networking overview
   - Kubernetes in the cloud vs bare-metal
-- Hands-on: Deploying a bank's services
+- Hands-on: Deploying a guestbook app
 
 ---
 class: inverse
@@ -65,9 +65,9 @@ class: inverse
 # Hands-on prequisites
 If you want to prepare things beforehand, you will need:
 
-- A container engine such as [docker](https://www.docker.com/)
-- [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/), a Kubernetes-in-Docker tool
-- A clone of the [Bank of athos repository](https://github.com/GoogleCloudPlatform/bank-of-anthos/tree/main)
+- A container engine such as [Docker](https://www.docker.com/)
+- [`kind`](https://kind.sigs.k8s.io/docs/user/quick-start/), a Kubernetes-in-Docker tool
+- A clone of the [Kubernetes examples repo](https://github.com/kubernetes/examples)
 - [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl), a command to interact with your Kubernetes cluster 
 
 Don't worry if you can't prepare these things beforehand, we will guide you through the process during the hands-on portion.
@@ -355,7 +355,308 @@ Using bare metal deployments can have some performance advantages over some mana
 This happens because some cloud providers use virtual machines to run the worker nodes, which can introduce some overhead.
 
 ---
+
+class: center, middle, inverse
+# Hands-on: Deploying a guestbook app
+---
+
+### Hands-on: Deploying a guestbook app
+#### What we will do
+> Deploy a guestbook app using Kubernetes
+
+What we will get: 
+
+<div style="display:flex; justify-content:center;">
+<img style="width:600px;" src="./assets/hands-on/final-result.png">
+</div>
+
+**The guestbook app** - People comming to your website can leave their name so you can know who came to visit.
+
+---
+
+### Hands-on: Deploying a guestbook app
+#### Getting the example
+
+1. Clone the repository
+  ```sh
+  git git@github.com:kubernetes/examples.git
+  ```
+
+2. Go to the correct commit
+  ```sh
+  cd examples
+  git checkout 171b8cb775c56f27c87361dd46dfa5d94d6282c0
+  ```
+
+3. Go the the golang guestbook example
+  ```sh
+  cd examples/guestbook-go
+  ```
+
+---
+
+#### Deploying the guestbook app
+##### Deploying redis
+
+Redis is used as a database for the guestbook app.
+
+One redis's features is high availability, which can be achieved by using a master-replica configuration.
+
+To do so we will deploy a redis master and 2 redis replicas.
+
+1. Deploy the redis master controller
+  
+  Analysing this manifest we can see that it is using a `ReplicationController` to manage the redis master pod. A `ReplicationController` ensures that a specified number of pod replicas are running at any given time. In this case, we are specifying that we want only one replica of the redis master pod. 
+
+  Usually, we would use a `Deployment` to manage the pods, but for this example, we are using a `ReplicationController` to keep things simple, as a `Deployment` is a higer-level abstraction og the `ReplicationController`.
+
+  ```sh
+  kubectl apply -f redis-master-deployment.yaml
+  ```
+
+---
+#### Deploying the guestbook app
+##### Deploying redis
+
+1. Deploy the redis master controller
+
+  You can check the status of the pod by running:
+  ```sh
+  kubectl get pods
+  ```
+
+  It can take a few seconds for the pod to be created and started. The image for the redis master container is being pulled from the k8s registry, so it may take some time to download the image.
+
+2. Deploy the redis master service
+
+  The redis master service is used to expose the redis master pod to the guestbook app. It creates a stable internal IP address and DNS name for the redis master pod.
+
+  ```sh
+  kubectl apply -f redis-master-service.yaml
+  ```
+
+---
+#### Deploying the guestbook app
+##### Deploying redis
+
+
+<ol start="3">
+  <li>
+    <p>Deploying the redis replicas controller</p>
+    <p>Analogous to the redis master controller, the redis replicas controller is used to manage the redis replicas pods. In this case, we are specifying that we want 2 replicas of the redis replicas pod.</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl apply <span class="hljs-_">-f</span> redis-replica-controller.yaml</div>
+    </code>
+  </li>
+  <li>
+    <p>Deploying the redis replicas service</p>
+    <p>In the same way the same way we did for the redis master service, we will deploy the redis replicas service to expose the redis replicas pods to the guestbook app.</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl apply <span class="hljs-_">-f</span> redis-replica-service.yaml</div>
+    </code>
+  </li>
+</ol>
+
+
+---
+#### Deploying the guestbook app
+##### Deploying the guestbook app
+
+<ol start="5">
+  <li>
+    <p>Deploying the guestbook app controller</p>
+    <p>Here we are deploying the guestbook app controller, which is used to manage the guestbook app pods. In this case, we are specifying that we want 3 replicas of the guestbook app pod. This ensures that we have enough replicas of the guestbook application to handle a lot of external client requests</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl apply <span class="hljs-_">-f</span> guestbook-controller.yaml</div>
+    </code>
+  </li>
+  <li>
+    <p>Deploying the guestbook service</p>
+    <p>Similarly to the redis services, we will deploy the guestbook service to expose the guestbook app pods to the network. Unlike the other services that use the <code class="remark-inline-code">ClusterIP</code> service type (the default type, used if unspecified), this service uses the <code class="remark-inline-code">LoadBalancer</code> type which also exposes it to the outside world.</p>
+    </p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl apply <span class="hljs-_">-f</span> guestbook-service.yaml</div>
+    </code>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Deploying the guestbook app
+
+<ol start="6">
+  <li>
+    <p></p>
+    <p>As we are using a local cluster, the <code class="remark-inline-code">LoadBalancer</code> service type is not capable of allocating an external IP for our service. For simplicity sake we will use the <code class="remark-inline-code">kubectl port-forward</code> functionality to access the guestbook app.</p>
+  </li>
+</ol>
+
+##### Accessing the guestbook
+<ol start="7">
+<li>
+    <p>Ensuring all pods are running</p>
+    <p>Let's make sure the <code class="remark-inline-code">ReplicaController</code>(s) were able to start all the requested pods. Run this:</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl get pods</div>
+    </code>
+    <p>And you should get a redis master, 2 redis replicas and 3 guestbook pods:</p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:450px;" src="./assets/hands-on/get-pods.png">
+    </div>
+  </li>
+  
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Accessing the guestbook
+<ol start="8">
+<li>
+    <p>Ensuring all services exist</p>
+    <p>Now we need to ensure all the <code class="remark-inline-code">Service</code>(s) were were created and are exposing our pods to the cluster network. Run this:</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl get svc</div>
+    </code>
+    <p>And all the 3 services we creates shoud have a <code class="remark-inline-code">ClusterIP</code> bound to them:</p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:175px; width:800px; object-fit:cover; object-position: 0 0" src="./assets/hands-on/get-svc.png">
+    </div>
+    <p>As we are using a local cluster, the <code class="remark-inline-code">LoadBalancer</code> service type is not capable of allocating an external IP for our service.  We can confirm this by checking that the <code class="remark-inline-code">EXTERNAL-IP</code> field reports a <code class="remark-inline-code">&lt;pending&gt;</code> state.</p>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Accessing the guestbook
+<ol start="9">
+<li>
+    <p>Port-forwarding with <code class="remark-inline-code">kubectl</code></p>
+    <p>For simplicity sake we will use the <code class="remark-inline-code">kubectl port-forward</code> functionality to access the guestbook app.</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl port-forward svc/guestbook 8080:3000</div>
+    </code>
+    <p>With this command we are binding the port 8080 of our local machine to the port 3000 of the guestbook service. This way we can access the guestbook app by going to <a href="http://localhost:8080">http://localhost:8080</a> in our browser.</p>
+    <p>This works by routing traffic from the local machine through the Kubernetes cluster <code class="remark-inline-code">apiserver</code> used by <code class="remark-inline-code">kubectl</code> to the service we want to access.</p>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Accessing the guestbook
+<ol start="10">
+<li>
+    <p><i>Et voilá</i>?? </p>
+    <div style="display:flex; justify-content:center;">
+      <img style="width:600px;" src="./assets/hands-on/wait-on-db-connection.png">
+    </div>
+    <p>It seems that our application can't access our redis database</p>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Debugging the guestbook app
+
+<ol start="11">
+  <li>
+    <p>Checking the logs</p>
+    <p>Let's check the logs of the guestbook service to see if we can find any errors. Run this:</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl logs svc/guestbook</div>
+    </code>
+    <p>You might need to scroll a bit, but you should find a log stating something like this:</p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:150px; width:800px; object-fit:cover; object-position: 0 50%" src="./assets/hands-on/guestbook-logs.png">
+    </div>
+    <p>Our guestbook app is unable to resolve the name <code class="remark-inline-code">"redis-slave"</code>.</p>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Debugging the guestbook app
+<ol start="12">
+  <li>
+    <p>Checking redis replica service</p>
+    <p>We can confirm that the redis replica service is configured with <code class="remark-inline-code">"redis-replica"</code> and not <code class="remark-inline-code">"redis-slave"</code>.</p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:150px; width:800px; object-fit:cover; object-position: 0 10%" src="./assets/hands-on/redis-replica-service.png">
+    </div>
+    <p>This was most likely done to follow the more inclusive and respectful language guidelines that are being adopted by the tech community and by redis itself, that moved away from the master-slave naming convention to master-replica convention.</p>
+    <p>The prebuilt guestbook image we are using for the tutorial hasn't however been updated to reflect these changes.</p>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Debugging the guestbook app
+<ol start="13">
+  <li>
+    <p>Switching to the old convention</p>
+    <p>Let's fix this by changing the name of the redis replica service to <code class="remark-inline-code">"redis-slave"</code>. Don't forget to save the changes.</p>
+  </li>
+  <li>
+    <p>Deleting the old replica service</p>
+    <p>Despite not being required, as you can have multiple services targeting the same pods, let's go ahead and delete the old redis replica service and create a new one with the correct name. Run this:</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl delete svc redis-replica</div>
+    </code>
+  </li>
+  <li>
+    <p>Creating the new replica service</p>
+    <p>Now let's create the new redis replica service with the correct name. Run this:</p>
+    <code class="sh hljs bash remark-code">
+      <div class="remark-code-line">kubectl apply -f redis-replica-service.yaml</div>
+    </code>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Debugging the guestbook app
+<ol start="16">
+  <li>
+    <p>Checking the service names</p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:175px; width:800px; object-fit:cover; object-position: 0 0" src="./assets/hands-on/get-svc-slave.png">
+    </div>
+    <p>The new service was created with the correct name</p>
+  </li>
+</ol>
+
+---
+#### Deploying the guestbook app
+##### Debugging the guestbook app
+
+<ol start="17">
+<li>
+    <p><i>Et voilá!!</i> </p>
+    <div style="display:flex; justify-content:center;">
+      <img style="height:400px;" src="./assets/hands-on/final-result.png">
+    </div>
+    <p>Now we can use the app!</p>
+  </li>
+</ol>
+
+---
 ## Other resources
 - [Mara from NGINX](https://github.com/nginxinc/kic-reference-architectures) and the blogpost ["Mara now running on a workstation near you"](https://www.nginx.com/blog/mara-now-running-on-workstation-near-you/)
-- My Networks and systems management course project - [Kubernetes pod autoscaling according to the number HTTP per service](https://github.com/Sirze01/feup-grs-autoscale)
-- [K9s](https://k9scli.io/), a terminal UI for interacting with your Kubernetes clusters
+- My Networks and systems management course project - [Kubernetes pod autoscaling according to the number of HTTP requests per service](https://github.com/Sirze01/feup-grs-autoscale)
+- [K9s](https://k9scli.io/), a terminal UI for interacting with your Kubernetes clusters (a better `kubectl`)
+- [Kubernetes docs](https://kubernetes.io/docs/home/) - All the resources to grasp all the standard concepts and components of Kubernetes
+
+---
+class: center, middle, inverse, small-images
+
+# Kubernetes Workshop
+
+### A gentle introduction to application deployment and orchestration
+
+#### Thank you for attending!
+##### Please anwser our satisfaction survey: [https://forms.gle/WXWKgqd5uEFP2C4K6](https://forms.gle/WXWKgqd5uEFP2C4K6)
+
+<div style="display: flex; justify-content: center; margin-top: 3em; align-items: center; gap: 1em;">
+<img src="./assets/ni_logo.png">
+<div style="font-size: 2.5em; padding-inline: 0.5em;">❤️</div>
+<img src="./assets/kubernetes-logo.png">
+<img src="./assets/kubernetes-name_white.png">
+</div>
