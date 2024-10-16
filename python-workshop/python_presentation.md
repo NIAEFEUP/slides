@@ -1280,7 +1280,8 @@ def adigits(a,b,c):
 
 ---
 # Avalia o nosso Workshop!
-![](./QR_Code.png)
+
+<img src="./QR_Code.png" align="center" width="50%" height="50%" alt="Forms QR code">
 
 ---
 class: center, middle, inverse
