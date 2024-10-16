@@ -1279,5 +1279,9 @@ def adigits(a,b,c):
 ```
 
 ---
+# Avalia o nosso Workshop!
+![](./QR_Code.png)
+
+---
 class: center, middle, inverse
 # Fim!
