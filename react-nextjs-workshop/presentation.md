@@ -739,12 +739,13 @@ Requisitos:
 - [﻿Node.js](https://nodejs.org/en) acima da versão 18
   Primeiros passos:
 
-- `git clone <>`
+- `git clone https://github.com/thePeras/react-next-workshop`
 - `cp .env.example .env`
   - Mudar o `<username>`
   - Mudar a `<password>`
 - `npm install`
 - `npx prisma generate`
+- `npm run dev`
 
 ---
 
