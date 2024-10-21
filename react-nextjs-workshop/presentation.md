@@ -752,7 +752,7 @@ Requisitos:
 
 ## Primeiro Componente em React
 
-`app/components/feed-resource-card.tsx`
+`components/feed-resource-card.tsx`
 
 Implementa o componente `ResourceCard` .
 
@@ -820,7 +820,7 @@ Qual é o ficheiro que deves criar e onde deves colocar?
 
 # Tarefa #6
 
-## Escreve o Metadata da página do recurso
+## Implementa o componente de reações
 
 `app/resources/[id]/counter.tsx`
 
