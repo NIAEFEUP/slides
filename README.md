@@ -31,7 +31,7 @@
 
 - [HTTP Node](https://niaefeup.github.io/slides/http-node-workshop)
 
-- [React](https://niaefeup.github.io/slides/react-workshop)
+- [React and NextJS](https://niaefeup.github.io/slides/react-nextjs-workshop)
 
 - [React and Express](https://niaefeup.github.io/slides/react-express-workshop)
 
@@ -48,6 +48,8 @@
 ## Archived Workshop Slides
 
 - [Flutter](https://niaefeup.github.io/slides/uni-flutter-internal-workshop)
+
+- [React](https://niaefeup.github.io/slides/react-workshop)
 
 ## License
 
