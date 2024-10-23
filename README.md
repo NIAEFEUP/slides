@@ -39,7 +39,7 @@
 
 - IoT [(pdf)](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
 
-- [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
+- [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop-sinf2024)
 
 - [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
 
@@ -50,6 +50,8 @@
 - [Flutter](https://niaefeup.github.io/slides/uni-flutter-internal-workshop)
 
 - [React](https://niaefeup.github.io/slides/react-workshop)
+
+- [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
 
 ## License
 
