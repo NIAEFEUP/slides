@@ -1,3 +1,8 @@
+---
+title: "Continuous Newspaper Enhances Efficiency with New CI/CD Pipeline Powered by GitHub Actions"
+author: "Jane Doe"
+date: "2024-10-23"
+---
 # Continuous Newspaper Enhances Efficiency with New CI/CD Pipeline Powered by GitHub Actions
 
 *October 23, 2024*
