@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300);
+body {
+    font-family: 'Poppins';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+.remark-slide-content:not(.inverse)>h1,
+.remark-slide-content:not(.inverse)>h2,
+.remark-slide-content:not(.inverse)>h3,
+.remark-slide-content:not(.inverse)>h4,
+.remark-slide-content:not(.inverse)>h5,
+.remark-slide-content:not(.inverse)>h6 {
+    color: #13212e;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+}
+
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+}
+
+.small-images img {
+    width: 30%;
+}
+
+.inverse {
+    background: #B33636;
+    color: white;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+ul {
+    margin-top: 1em;
+}
+
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    background-color: #282b2e !important;
+    color: white;
+    padding: 0.1em;
+}
+
+blockquote {
+    font-size: 1em;
+    font-style: italic;
+    border-left: 0.1em solid #13212e;
+    padding-left: 0.5em;
+    margin: 0;
+}
+
+.image-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.side-to-side {
+    display: flex;
+}
