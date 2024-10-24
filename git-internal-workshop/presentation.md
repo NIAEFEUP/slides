@@ -14,22 +14,22 @@ class: middle
 
 # Introdução
 
-Num projeto, vocês escrevem código e querem o partilhar com os membros do vosso grupo. Como fariam isso?
+Num projeto, vocês escrevem código e querem partilhá-lo com os membros do vosso grupo. Como fariam isso?
 
 Podem usar duas estratégias:
-  1. Partilhar os ficheiros diretamente, que pode causar muitos problemas
-  2. Usar algum sistema de controlo de versões (por exemplo Git)
+  1. Partilhar os ficheiros diretamente, o que pode causar muitos problemas
+  2. Usar algum sistema de controlo de versões (por exemplo o Git)
 
 ---
 
 class: center,inverse, middle
 
-# O que é Git?
+# O que é o Git?
 ---
 
 class: middle
 
-# O que é Git?
+# O que é o Git?
 
 Git é um _Version Control System_ (VCS) que permite registar mudanças em código ou outros ficheiros de forma organizada.
 
@@ -58,9 +58,9 @@ class: middle
 
 # Como configurar o Git?
 
-O git não sabe teu nome e email. Portanto temos que configurar o email e nome.
+O git não sabe o vosso nome nem email, portanto temos que configurá-los.
 
-Isso vai servir para quando dermos os commits, porque é este nome e email que aparecem ao lado dos vossos commits.
+É este nome e email vão aparecer ao lado dos vossos commits.
 + Configurar o nome:
 ```bash
   $ git config --global user.name "Tânia Rufino"
@@ -89,7 +89,7 @@ class: middle
 
 # Como criar um repositório
 
-A base do trabalho do Git é o repositório. Portanto, temos que iniciar um repositório para começarmos a trabalhar.
+A base de trabalho do Git é o repositório. Logo, temos que iniciar um repositório para começarmos a trabalhar.
 
 Entra no projeto:
 ```bash
@@ -99,7 +99,7 @@ Para iniciar um repositório, executa:
 ```bash
   $ git init
 ```
-Dentro do ficheiro do projeto, vai ser criada uma pasta .git onde o git vai usar para manter todas as alterações feitas no projeto.
+Dentro do ficheiro do projeto, vai ser criada uma pasta .git que vai ser usada para manter todas as alterações feitas no projeto.
 
 Para testar se o repositório está a funcionar, executa:
 ```bash
@@ -119,7 +119,7 @@ class: middle
 
 # Git Stages
 
-No git existem 4 estados onde os ficheiros podem estar: modified, staged e commited e on remote.
+No git existem 4 estados onde os ficheiros podem estar: modified, staged e commited, e on remote.
 
 Sendo assim, podemos dividir o projeto de Git em quatro secções: **Working Tree**, **Staging Area**, **Git directory(HEAD)** e **Remote**.
 
@@ -129,15 +129,16 @@ Sendo assim, podemos dividir o projeto de Git em quatro secções: **Working Tre
 
 class: center,inverse, middle
 
-# Hands On Pt.1 (Criar ficheiro e dar commit nas alterações)
+# Hands On 1 
+## (Criar um ficheiro e dar commit nas alterações)
 
 ---
 
 class: middle
 
-# Hands On Pt.1 
+# Hands On 1 
 
-A tarefa para esta primeira atividade é nos familiarizar com os comandos básicos de git.
+A tarefa para esta primeira atividade é familiarizar-nos com os comandos básicos de git.
 
 Primeiro, criamos uma pasta e um repositório:
 ```bash
@@ -146,7 +147,7 @@ $ cd hello-world
 $ git init
 ```
 
-Então, fazemos alguma alteração, por exemplo, criar um ficheiro e escrever algo nele:
+Depois, fazemos alguma alteração, por exemplo, criar um ficheiro e escrever algo nele:
 ```bash
 $ touch README.md
 $ echo "não consegui encontrar uma frase nice para meter aqui" >> README.md
@@ -161,9 +162,9 @@ $ git status
 
 class: middle
 
-# Hands On Pt.1 
+# Hands On 1 
 
-Com isso, devemos então adicionar estas alterações na Staging Area:
+Com isso, devemos então adicionar estas alterações na **Staging Area**:
 ```bash
 $ git add README.md
 ```
@@ -178,7 +179,7 @@ Com as alterações salvas, podemos dar commit:
 $ git commit -m "My first commit yay"
 ```
 
-Usando o seguinte comando, olhamos o histórico de commits:
+Conseguimos observar o histórico de commits através do comando:
 ```bash
 $ git log
 ```
@@ -195,9 +196,9 @@ class:  middle
 
 # Branches 
 
-Imaginem que estão a escrever um livro e o guardam numa prateleira. Este livro é o **projeto principal**, no git é conhecido como a **branch "main"**. 
+Imaginem que estão a escrever um livro e guardam-no numa prateleira. Este livro é o **projeto principal**, no git é conhecido como a **branch "main"**. 
 
-Agora, digamos que vocês tem uma ideia ou querem fazer alguns ajustes **sem apagar aquilo que está no livro principal**. 
+Agora, digamos que vocês têm uma ideia nova ou querem fazer alguns ajustes **sem apagar aquilo que está no livro principal**. 
 
 Para isso, podem fazer uma **cópia** deste livro e começar a trabalhar nesta cópia em paralelo. Esta cópia é uma branch.
 
@@ -213,7 +214,7 @@ class:  middle
 
 Depois de termos feito as alterações, temos que substituir o livro principal (branch "main") para a versão com as alterações (branch "cópia"). 
 
-Vamos fazer isso com um merge, onde vamos juntar tudo aquilo que está com o **livro principal** e a **nossa cópia**.
+Vamos fazer isso com um **merge**, onde vamos juntar tudo aquilo que está com o **livro principal** e a **nossa cópia**.
 
 <img height="200" width="400" src="assets/merge.png" class="image-center">
 
@@ -223,7 +224,7 @@ class:  middle
 
 # Branches no NI
 
-De forma muito semelhante à analogia, sempre que queremos fazer alguma alteração em um projeto **criamos uma nova branch**, alteramos em paralelo com a "main" e depois **juntamos as duas branches**.
+De forma muito análoga, sempre que queremos fazer alguma alteração num projeto **criamos uma nova branch**, alteramos em paralelo com a "main" e depois **juntamos as duas branches**.
 
 Podemos ver isso em ação na UNI:
 
@@ -242,9 +243,9 @@ class: middle
 # Rebase
 
 + Enquanto estamos a fazer alterações, o repositório remoto pode receber mais commits
-+ **Rebase serve para mudar a base dos teus commits**
++ **Rebase serve para mudar a base dos vossos commits**
 + O principal objetivo é manter um histórico linear de commits
-+ Para iniciar um rebase, basta executar **git rebase {branch-name}** que vai dar rebase da branch atual na branch "branch-name"
++ Para iniciar um rebase, basta executar **git rebase {branch-name}**. Este comando dá rebase da branch atual na branch "branch-name"
 
 <img height="200" width="500" src="assets/git_rebase.png" class="image-center">
 
@@ -260,8 +261,8 @@ class: middle
 
 # Git Flow 
 
-O git flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos.Alguns dos principais pontos são:
-  + Diferentes categorias de branches **(feature,release,fix,hotfix,refactor)**
+O git flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos. Alguns dos principais pontos são:
+  + Diferentes categorias de branches **(feature, release, fix, hotfix, refactor)**
   + Todos os merges são feitos através de **Pull Requests** (a ser falado)
   + Branch principal para o desenvolvimento de features separada da principal **(develop)**
 
@@ -283,15 +284,16 @@ Está aqui um exemplo do **frontend do TTS**:
 ---
 class: center,inverse, middle
 
-# Hands On Pt.2 (Criar branch e dar merge na branch principal)
+# Hands On 2 
+## (Criar uma branch e dar merge na branch principal)
 
 ---
 
 class: middle
 
-# Hands On Pt.2 
+# Hands On 2 
 
-Com o repositório que criamos na tarefa anterior, vamos criar uma nova branch, fazer alterações e dar merge com a branch main
+Com o repositório que criámos na tarefa anterior, vamos criar uma nova branch, fazer alterações e dar merge com a branch main.
 
 Começamos por criar uma nova branch:
 ```bash
@@ -307,14 +309,14 @@ git switch feature/new-readme
 
 class: middle
 
-# Hands On Pt.2 
+# Hands On 2 
 
-Com a nossa nova branch, podemos fazer adicionar aquilo que queremos:
+Com a nossa nova branch, podemos adicionar aquilo que queremos:
 ```bash
 echo test >> README.md
 ```
 
-E podemos ver aquilo que fizemos:
+E ver aquilo que fizemos:
 ```bash
 cat README.md
 ```
@@ -324,9 +326,9 @@ cat README.md
 
 class: middle
 
-# Hands On Pt.2 
+# Hands On 2 
 
-Agora, vamos dar commit no que fizemos de forma semelhante a que fizemos no Hands On anterior:
+Vamos dar commit ao que fizemos, de forma semelhante ao Hands On anterior:
 ```bash
 git add README.md
 git commit -m "new readme"
@@ -343,7 +345,7 @@ git log
 
 class: middle
 
-# Hands On Pt.2 
+# Hands On 2 
 
 Finalmente, vamos atualizar a branch principal com aquilo que fizemos através de um merge:
 ```bash
@@ -354,7 +356,7 @@ git merge feature/new-readme
 
 ---
 
-class: middle
+class: center,inverse, middle
 
 # Clone
 
@@ -364,13 +366,13 @@ class: middle
 
 # Clone
 
-Como podemos ir atrás de respositório que está na internet?
+Como podemos ir atrás de um respositório que está na internet?
 
-Podemos usar o **git clone** para clonar repositórios que estão a ser hosted por serviços como Github
+Podemos usar o **git clone** para clonar repositórios que estão a ser hosted por serviços como o Github
 
 <img height="150" width="500" src="assets/git_clone.png" class="image-center">
 
-Existem duas formas para acessar a esses repositórios: **SSH ou HTTPS**
+Existem duas formas de acessar estes repositórios: **SSH ou HTTPS**
 
 ---
 
@@ -380,7 +382,7 @@ class: middle
 
 Existem 2 métodos para se usar um servidor de *git* remoto: **SSH** (*Secure Shell*) e **HTTPS**.
 
-Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras, os quais vão ser explorados de seguida.
+Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras.
 
 <div style="display: inline-flex; gap: 1em; width: 100%; justify-content: center; padding-top: 3em;">
   <img width="750" src="assets/remote_https.png" alt="HTTPS" />
@@ -393,8 +395,8 @@ class: middle
 
 ### HTTPS
 
-- Não necessita configuração, sendo mais simples para certas ações simples (clonar um repositório público);
-- Firewalls restritas não conseguem bloquear o tráfego;
+- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público)
+- Firewalls restritas não conseguem bloquear o tráfego
 
 > Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
 
@@ -404,10 +406,10 @@ class: middle
 
 ### SSH
 
-- Necessita sempre de configuração (mas é um **one-time** effort);
-- Recomendado para interações que necessitam de autenticação (ex: um **push**);
-- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
-- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
+- Necessita sempre de configuração (mas é um **one-time** effort)
+- Recomendado para interações que necessitam de autenticação (ex: um **push**)
+- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações
+- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH
 
 
 ---
@@ -422,7 +424,7 @@ class: middle
 
 # Issues
 
-Issues são como uma lista de tarefa ou problemas a serem resolvidos dentro de um projeto. As issues permitem organizar o trabalho, discutir ideias, relatar bugs, etc.
+Issues são como uma lista de tarefas ou problemas a serem resolvidos dentro de um projeto. As issues permitem organizar o trabalho, discutir ideias, relatar bugs, etc.
 
 Como funciona o processo de uma issue?
   1. **Abrir uma issue**
@@ -455,13 +457,13 @@ class: middle
 
 # Pull Requests (PR)
 
-Num projeto, é importante saber se as alterações feitas são válidas ou não. Para isso, mostra-se as alterações para que outras pessoas revisem e, se estiverem de acordo, dão merge na branch principal.
+Num projeto, é importante saber se as alterações feitas são válidas ou não. Para isso, mostra-se as alterações para que outras pessoas confiram e, se estiverem de acordo, dão merge na branch principal.
 
-Como funciona o Pull Request?
-1. **Fazer alterações (em uma branch separada)**
+Como funciona um Pull Request?
+1. **Fazer alterações (numa branch separada)**
 2. **Dar push desta branch para o remote**
 3. **Criar o Pull Request**
-4. **Outros colaboradores revisam o código (veremos a seguir)**
+4. **Outros colaboradores dão review ao código (veremos a seguir)**
 5. **Colaboradores aprovam e dão merge**
 6. **Fechar o PR**
 
@@ -533,14 +535,14 @@ class: middle
 
 # Reviews
 
-Review são uma parte importante no processo de um pull request. Os colaboradores envolvidos no projeto devem ter atenção em possíveis erros ou sugestões que devem ser feitas.
+Review são uma parte importante no processo de um pull request. Os colaboradores envolvidos no projeto devem estar atentos a possíveis erros ou sugestões que devem ser feitas.
 
-Reviews contém comentários, pedidos de mudança e aprovações.
-+ **Comentários**: São só comentários, podem ser aplicados a algum pedido de esclarecimento ou alguma sugestão.
-+ **Pedidos de mudança (Requested changes)**: Algum comentário sobre um erro que precisa ser resolvido ou qualquer outra coisa que esteja mal.
+Reviews contêm comentários, pedidos de mudança e aprovações.
++ **Comentários**: são só comentários, podem ser aplicados a algum pedido de esclarecimento ou alguma sugestão.
++ **Pedidos de mudança (Requested changes)**: algum comentário sobre um erro que precisa de ser resolvido ou qualquer outra coisa que esteja mal.
 + **Aprovações**: Quando todas as alterações parecem estar corretas.
 
-**Para que um PR seja merged, todas as Requested Changes precisam estar resolvidas.**
+**Para que um PR seja merged, todas as Requested Changes precisam de estar resolvidas.**
 
 ---
 
@@ -548,9 +550,9 @@ class: middle
 
 # Como fazer uma Review
 
-Os passos envolvidos em uma review são relativamente simples mas também requer alguma atenção e conhecimento do que está a ser feito.
+Os passos envolvidos numa review são relativamente simples, mas também requerem alguma atenção e conhecimento do que está a ser feito.
 
-Estes processos envolverm:
+Estes processos envolvem:
 1. **Olhar o código de forma analítica**
 2. **Dar checkout para a branch das mudanças e testar**
 3. **Escrever uma review que tenha sugestões claras e que não causem ainda mais confusão**
@@ -581,8 +583,8 @@ class: middle
 
 # Comandos 
 
-+ **git pull**: Atualiza a branch atual com as alterações em remote
-+ **git push**: Envia alterações locais para o remote
++ **git pull**: atualiza a branch atual com as alterações em remote
++ **git push**: envia alterações locais para o remote
   + **git push force (--force-with-lease)**: Força o envio de mudanças (--force-with-lease não permite alterar commits que não estão em remote)
   + **git push --set-upstream origin {tipo de branch}/{nome do repositório}**: Inicia o stream de commits para uma branch
 + **git commit (-m)**: Captura uma snapshot das alterações atuais (requer uma mensagem)
@@ -593,17 +595,17 @@ class: middle
 
 class: middle
 
-# Comandos pt.2 
+# Comandos 
 
-+ **git status**: Informa ficheiros modificados
-+ **git clone {url}**: "Clona" um repositório de acordo com um link
-+ **git switch {mome da branch}**: Troca de branches
-+ **git reset**: Desfaz alterações no repositório
-+ **git checkout**: Troca de branches e mais
-+ **git rebase {nome da branch}**: Dá rebase da branch atual em outra
-+ **git branch**: Criar uma branch
-  + **git branch -m**: Renomear uma branch
-+ **git commit --amend**: Permite alterar o nome do último commit ou adicionar/remover ficheiros a esse commit
++ **git status**: informa ficheiros modificados
++ **git clone {url}**: "clona" um repositório de acordo com um link
++ **git switch {mome da branch}**: troca de branches
++ **git reset**: desfaz alterações no repositório
++ **git checkout**: troca de branches e mais
++ **git rebase {nome da branch}**: dá rebase da branch atual noutra
++ **git branch**: criar uma branch
+  + **git branch -m**: renomear uma branch
++ **git commit --amend**: permite alterar o nome do último commit ou adicionar/remover ficheiros a esse commit
 
 ---
 
@@ -611,7 +613,7 @@ class: middle
 
 # Mais Comandos 
 
-Como podem ver, o git tem número enorme de diferentes funcionalidades e sei que algumas pessoas que estão a assistir esse workshop gostavam que o comando preferido delas estivesse em destaque, mas não temos 15 horas.
+Como podem ver, o git tem um número enorme de diferentes funcionalidades e sei que algumas pessoas que estão a assistir este workshop gostavam que o comando preferido delas estivesse em destaque, mas não temos 15 horas.
 
 Portanto, aqui estão alguns comandos que podem servir para situações mais específicas:
 
@@ -631,7 +633,7 @@ class: middle
 
 ### Situação 1: Não staged e não committed
 
-Numa situação onde o código que foi escrito e ainda não sofreram bash git add, é possível as reverter com os seguintes comandos:
+Numa situação em que o código foi escrito e ainda não sofreu `git add`, é possível revertê-las com os seguintes comandos:
 
 ```bash
 $ git checkout -- "file" # undo the changes to a file
@@ -691,7 +693,7 @@ class: middle
 
 # Git pull pede configuração
 
-Da primeira vez que tentamos atualizar o nosso repositório local usando o git pull, é possível que apareça um aviso que o git pull não está configurado para este repositório e, existem três opções para o configurar:
+Na primeira vez que tentamos atualizar o nosso repositório local usando o git pull, é possível que apareça um aviso que não está configurado para este repositório. Existem três opções para configurá-lo:
 
 <img height="300" width="500" src="assets/git_pull_config.png" class="image-center">
 
@@ -702,7 +704,7 @@ class: middle
 
 # Git pull resulta em conflitos
 
-Ao tentar dar git pull numa branch, podem aparecer erros ao dar merge na branch local e na branch remota. Esses problemas são chamados conflitos e devem ser resolvidos antes do merge continuar.
+Ao tentar dar git pull numa branch, podem aparecer erros ao dar merge na branch local e na branch remota. Estes problemas são chamados conflitos e devem ser resolvidos antes do merge continuar.
 
 <img height="200" width="500" src="assets/git_pull_conflict.png" class="image-center">
 
@@ -710,11 +712,11 @@ Ao tentar dar git pull numa branch, podem aparecer erros ao dar merge na branch 
 ---
 class: middle
 
-# Git pull resulta em conflitos (Como resolver)
+# Git pull resulta em conflitos (como resolver)
 
-1. Precisamos resolver os conflitos
-  + Podemos ver quais ficheiros no aviso de erro no merge
-2. Abrir o seu editor de código favorito
+1. Precisamos de resolver os conflitos
+  + Podemos ver quais são os ficheiros no aviso de erro do merge
+2. Abrir o editor de código favorito
 3. Eliminar aquilo que não faz sentido
   + Incoming vs. Current Change
 + **git add** em todas as alterações
@@ -736,7 +738,7 @@ class: middle
 # Git rebase resulta em conflitos
 
 + Muito semelhante ao **git pull**
-+ Pode acontecer com vários commits, já que estás a percorrer a história commit por commit
++ Pode acontecer com vários commits, já que estão a percorrer a história commit por commit
 + Fazer as alterações
 + **git add** nas alterações
 + **git rebase continue**
@@ -748,33 +750,33 @@ class: middle
 
 # Git push pede git pull
 
-+ As vezes, quando houver alterações entre o teu último **git pull** e **git push** é possível que o histórico esteja diferente
-+ Para resolver o git te pede para dar pull
-+ Dê pull e resolva os conflitos como fizemos antes
++ Às vezes, quando houver alterações entre o último **git pull** e **git push** é possível que o histórico esteja diferente
++ Para resolver o git pede para dar pull
++ Deem pull e resolvam os conflitos como fizemos antes
 
 ---
 class: middle
 
-# Algum reviewer pede rebase em uma branch
+# Algum reviewer pede rebase numa branch
 
 + Reviewer pede para dar rebase numa branch
-+ Entre na sua branch
-+ Atualize a branch principal
++ Entrem na branch
++ Atualizem a branch principal
   + via "git pull origin main"
   + checkout para a main e depois pull
-+ E performe o rebase
++ E performem o rebase
 
 ---
 
 class: center,inverse, middle
 
-# Final Boss (Hands On pt.3)
+# Final Boss (Hands On 3)
 
 ---
 
 class: middle
 
-# Final Boss (Hands On pt.3) - Instruções
+# Final Boss (Hands On 3) - Instruções
 
 O que vamos fazer?
 + Vamos escrever livros (não livros inteiros)
@@ -790,28 +792,28 @@ O que vamos fazer?
 
 class: middle
 
-# Final Boss (Hands On pt.3) - Instruções
+# Final Boss (Hands On 3) - Instruções
 
 + O processo de implementar a issue funciona da seguinte forma:
-  0. **Clonar o projeto.** (usar git clone)
-  1. **Criar uma branch.** (com o nome de acordo com as normas que foram explicadas)
-  2. **Dar push nesta branch.** (para o respositório remoto)
-  3. **Criar um Pull Request.**
-  4. **Esperar pela Review dos outros participantes.**
-  5. **Enquanto estiverem a espera, dão review nos PRs abertos nos repositórios.**
-  6. **Merge no PR, deletar o PR e resolver a Issue.** (com o número necessário de approves)
+  0. **Clonar o projeto** (usar git clone)
+  1. **Criar uma branch** (com o nome de acordo com as normas que foram explicadas)
+  2. **Dar push nesta branch** (para o respositório remoto)
+  3. **Criar um Pull Request**
+  4. **Esperar pela Review dos outros participantes**
+  5. **Enquanto estiverem à espera, dão review aos PRs abertos nos repositórios**
+  6. **Merge no PR, apagar o PR e resolver a Issue** 
 
 ---
 
 class: middle
 
-# Final Boss (Hands On pt.3) - Atenção
+# Final Boss (Hands On 3) - Atenção
 
-+ Podem olhar as **tags de cada issue** para determinar o nome da branch (com base no git flow)
++ Podem ver as **tags de cada issue** para determinar o nome da branch (com base no git flow)
 + No PR, atenção ao "Closes #{número da issue}"
 + Se sentirem que não sabem o que fazer, **peçam ajuda**. Não tenham medo.
-+ Também tem muitos exemplos de Pull Requests nos **nossos projetos**.
-+ **Se divirtam, por favor**.
++ Também há muitos exemplos de Pull Requests nos **nossos projetos**.
++ **Divirtam-se, por favor**.
 
 ---
 
