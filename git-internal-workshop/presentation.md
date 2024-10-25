@@ -60,7 +60,7 @@ class: middle
 
 O git não sabe o vosso nome nem email, portanto temos que configurá-los.
 
-É este nome e email vão aparecer ao lado dos vossos commits.
+É este nome e email que vão aparecer ao lado dos vossos commits.
 + Configurar o nome:
 ```bash
   $ git config --global user.name "Tânia Rufino"
@@ -119,11 +119,9 @@ class: middle
 
 # Git Stages
 
-No git existem 4 estados onde os ficheiros podem estar: modified, staged e commited, e on remote.
+No git existem 4 estados onde os ficheiros podem estar: modified, staged e commited, e on remote. Sendo assim, podemos dividir o projeto de Git em quatro secções: **Working Tree**, **Staging Area**, **Git directory(HEAD)** e **Remote**.
 
-Sendo assim, podemos dividir o projeto de Git em quatro secções: **Working Tree**, **Staging Area**, **Git directory(HEAD)** e **Remote**.
-
-<img height="300" width="400" src="assets/git_00_intro_01_sections.webp" class="image-center">
+<img height="380" width="500" src="assets/git_00_intro_01_sections.webp" class="image-center">
 
 ---
 
@@ -138,7 +136,7 @@ class: middle
 
 # Hands On 1 
 
-A tarefa para esta primeira atividade é familiarizar-nos com os comandos básicos de git.
+A tarefa para esta primeira atividade é familiarizarmo-nos com os comandos básicos de git.
 
 Primeiro, criamos uma pasta e um repositório:
 ```bash
@@ -243,9 +241,9 @@ class: middle
 # Rebase
 
 + Enquanto estamos a fazer alterações, o repositório remoto pode receber mais commits
-+ **Rebase serve para mudar a base dos vossos commits**
-+ O principal objetivo é manter um histórico linear de commits
-+ Para iniciar um rebase, basta executar **git rebase {branch-name}**. Este comando dá rebase da branch atual na branch "branch-name"
++ **Rebase serve para mudar a base dos vossos commits**.
++ O principal objetivo é manter um histórico linear de commits.
++ Para iniciar um rebase, basta executar **git rebase {branch-name}**. Este comando dá rebase da branch atual na branch "branch-name".
 
 <img height="200" width="500" src="assets/git_rebase.png" class="image-center">
 
@@ -262,12 +260,12 @@ class: middle
 # Git Flow 
 
 O git flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos. Alguns dos principais pontos são:
-  + Diferentes categorias de branches **(feature, release, fix, hotfix, refactor)**
-  + Todos os merges são feitos através de **Pull Requests** (a ser falado)
-  + Branch principal para o desenvolvimento de features separada da principal **(develop)**
+  + Diferentes categorias de branches **(feature, release, fix, hotfix, refactor)**.
+  + Todos os merges são feitos através de **Pull Requests** (a ser falado).
+  + Branch principal para o desenvolvimento de features separada da principal **(develop)**.
 
 
-<img height="250" width="400" src="assets/gitflow.png" class="image-center">
+<img height="240" width="400" src="assets/gitflow.png" class="image-center">
 
 ---
 
@@ -395,8 +393,8 @@ class: middle
 
 ### HTTPS
 
-- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público)
-- Firewalls restritas não conseguem bloquear o tráfego
+- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público).
+- Firewalls restritas não conseguem bloquear o tráfego.
 
 > Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
 
@@ -406,10 +404,10 @@ class: middle
 
 ### SSH
 
-- Necessita sempre de configuração (mas é um **one-time** effort)
+- Necessita sempre de configuração (mas é um **one-time** effort).
 - Recomendado para interações que necessitam de autenticação (ex: um **push**)
-- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações
-- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH
+- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
+- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
 
 
 ---
@@ -473,7 +471,7 @@ class: middle
 
 # Como criar Pull Rquests
 
-Para criar um pull request e submeter para a branch em remote, é preciso seguir os seguintes passos:
+Para criar um pull request e submeter para a branch remota, é preciso seguir os seguintes passos:
 
 ```bash
 git switch main // ou branch de onde querem basear
@@ -517,7 +515,7 @@ class: middle
 
 # Pull Requests no NI
 
-Pull Requests são um pilar no desenvolvimento de projetos em grupos.
+Pull Requests são um pilar no desenvolvimento de projetos em grupo.
 
 Exemplo de PRs no **Website do NI**:
 
@@ -693,7 +691,7 @@ class: middle
 
 # Git pull pede configuração
 
-Na primeira vez que tentamos atualizar o nosso repositório local usando o git pull, é possível que apareça um aviso que não está configurado para este repositório. Existem três opções para configurá-lo:
+Quando fazemos um git pull pela primeira vez dentro de um repositório, é possível que dê o seguinte erro. Isto acontece porque a forma que faze-se pull neste repositório não está configurado. Existem 3 formas diferentes de o configurar:
 
 <img height="300" width="500" src="assets/git_pull_config.png" class="image-center">
 
@@ -751,7 +749,7 @@ class: middle
 # Git push pede git pull
 
 + Às vezes, quando houver alterações entre o último **git pull** e **git push** é possível que o histórico esteja diferente
-+ Para resolver o git pede para dar pull
++ Para resolver, o git pede para dar pull
 + Deem pull e resolvam os conflitos como fizemos antes
 
 ---
@@ -809,8 +807,8 @@ class: middle
 
 # Final Boss (Hands On 3) - Atenção
 
-+ Podem ver as **tags de cada issue** para determinar o nome da branch (com base no git flow)
-+ No PR, atenção ao "Closes #{número da issue}"
++ Podem ver as **tags de cada issue** para determinar o nome da branch (com base no git flow).
++ No PR, atenção ao "Closes #{número da issue}".
 + Se sentirem que não sabem o que fazer, **peçam ajuda**. Não tenham medo.
 + Também há muitos exemplos de Pull Requests nos **nossos projetos**.
 + **Divirtam-se, por favor**.
