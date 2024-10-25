@@ -19,7 +19,7 @@
 
 - [Flutter](https://niaefeup.github.io/slides/flutter-workshop)
 
-- [Git](https://niaefeup.github.io/slides/git-workshop/ws-git-slides-2021)
+- [Git - Internal](https://niaefeup.github.io/slides/git-workshop/git-internal-workshop)
 
 - [Python](https://niaefeup.github.io/slides/python-workshop)
 
