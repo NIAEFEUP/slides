@@ -266,7 +266,14 @@ class: center, middle, inverse
 
 class: inverse
 
-### Part 2
+### Part 1
+
+- Clone my UNI fork
+
+```sh
+git clone git@github.com:DGoiana/uni.git
+
+```
 
 - Checkout to part1 branch
 
