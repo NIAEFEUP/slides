@@ -427,7 +427,7 @@ function App() {
 
 ```js
 function Counter() => {
-    const [counter, setCounter] = useState(localStorage.getItem("counter") || 0);
+    const [counter, setCounter] = useState(localStorage.getItem("counter") ?? 0);
 
     useEffect(() => {
         localStorage.setItem("counter", counter);
@@ -450,7 +450,7 @@ function Counter() => {
   sempre a copiar o seguinte código.
 
 ```js
-const [counter, setCounter] = useState(localStorage.getItem("counter") || 0);
+const [counter, setCounter] = useState(localStorage.getItem("counter") ?? 0);
 useEffect(() => {
   localStorage.setItem("counter", counter);
 }, [counter]);
