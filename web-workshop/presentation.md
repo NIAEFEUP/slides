@@ -237,7 +237,7 @@ The `<a>` tag is used to create links. It has an **href** attribute that defines
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is a link</a>
 ```
 
-This <a href="http://127.0.0.1:5500/web-workshop/index.html#15">link</a> takes you to the next slide.
+This <a href="http://127.0.0.1:5500/web-workshop/index.html#14">link</a> takes you to the next slide.
 
 ---
 
@@ -387,7 +387,169 @@ name: css
 
 # CSS
 
-<!-- Para que serve CSS, mostrar o antes e depois -->
+---
+
+## What are they?
+
+  - **C**ascading **S**tyle **S**heets
+  - A style sheet language used for describing the **look and formatting** of a document written in a markup language (like HTML).
+  - Based on two concepts: **selectors** and **properties**.
+
+---
+
+
+<img style="width: 100%;" src="./assets/CSSBeforeAfter.png">
+
+---
+
+# Selectors
+
+---
+
+# Selectors
+
+Allow us to select the HTML elements to which we want to apply some styles.
+```css
+p {            /* selector */
+  color: red;  /* property: value */
+}
+```
+---
+
+# Selectors
+
+- A selector defines a **pattern-matching rule** that determines to which elements style rules apply.
+
+### Types of selectors:
+- The **Universal** (*) selector.
+- **Type** selectors.
+- **Attribute** ([ ]) selectors.
+- **Class** (.) & **Id** (#) selectors.
+- Pseudo-classes (:) and Pseudo-elements (::).
+
+Selectors can also be **grouped** (,) and **combined** (space, >, +, ~).
+
+---
+
+#  Type Selectors
+Select elements by their element type:
+```css
+a
+```
+<img src="./assets/selectors1.svg">
+
+---
+
+#  Id Selector
+Selects element by their id (#):
+```css
+#posts
+```
+<img src="./assets/selectors2.svg">
+
+---
+
+#  Class Selector
+Selects element by their class (.):
+```css
+.intro
+```
+<img src="./assets/selectors3.svg">
+
+---
+
+#  Universal Selector
+
+Selects all elements (*):
+```css
+*
+```
+<img src="./assets/selectors4.svg">
+
+---
+
+# Attribute Selectors
+
+Select elements based on their attribute existence and values:
+
+- **[attribute]** – exists.
+- **[attribute=value]** – equals.
+```css
+form[method=get] /* selects all forms with attribute method="get" */
+```
+
+Other selectors match by containing, starting, or ending with specific values.
+
+---
+
+# Combining Selectors
+
+All these type of selectors can be combined to form complex selectors:
+```css
+p.intro  /* a paragraph with class "intro" */
+```
+
+---
+# Combinators
+
+Used to select elements based on their **relationship with other elements**.
+
+- **Descendant** (space).
+- Child (>).
+- Next-sibling (+).
+- Subsequent-siblings (~).
+  
+In combinators, **the last selector** is the one that identifies the element we are selecting.
+
+---
+# Descendant Combinator
+
+Selects all descendants (space):
+```css
+aside a
+```
+<img src="./assets/selectors5.svg">
+
+---
+
+# Grouping Selectors
+Selector groups (,) are just a logical **OR** of CSS rules:
+```css
+header > *, main article, #articles p
+``` 
+<img src="./assets/selectors9.svg">
+
+---
+
+## Properties
+
+---
+# Properties
+
+Define what aspect of the selected element will be changed or styled.
+
+```css
+p {            /* selector */
+  color: red;  /* property: value */
+}
+```
+---
+# Color
+
+- We can set the **text** and **background** color of any element.
+- Colors can be referred to by a pre-defined [name](https://www.w3.org/wiki/CSS/Properties/color/keywords), or hex value.
+
+```css
+p {
+  color: white; /* text color */
+  background-color: #FF0000;
+}
+```
+<p style="color: white; background-color: #FF0000;">The quick brown fox jumps over the lazy dog</p>
+
+
+
+
 <!-- Cor, texto, posições -->
 <!-- tamanhos (em, rem, px, vh, percentagens)-->
 <!--displays-->
@@ -395,8 +557,7 @@ name: css
 <!-- Layout, deconstruir o layout de uma página -->
 <!--prioridades por alto-->
 
-<!-- selectors: group & combine tudo num slide e não falamos mt, dizer que espaços fazem diferença -->
-<!-- classes, ids, elementos -->
+
 <!-- transitions -->
 
 
