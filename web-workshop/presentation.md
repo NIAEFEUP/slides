@@ -377,9 +377,9 @@ Forms are used for basic interaction with the server or through javascript
 
 --- 
 
-# Other tags
+# A World of tags
 
-<!--Falar das outras por alto: text semantics, semantic sections -->
+TODO(thePeras): See all the possible tags at ()
 
 ---
 
@@ -406,6 +406,33 @@ name: css
 
 ---
 
+# Start Styling
+
+CSS can be written in a `<style>` tag in the `<head>` of the HTML document.
+
+```html
+<head>
+  <style>
+
+  </style>
+</head>
+<body>
+
+</body>
+```
+
+The most common way is to write in a separate file, and then link it in the `<head>` of the HTML document.
+```html
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+</body>
+```
+
+---
+
 # Selectors
 
 Allow us to select the HTML elements to which we want to apply some styles.
@@ -416,11 +443,27 @@ p {            /* selector */
 ```
 ---
 
-# Selectors
+# Nesting Selectors
 
-- A selector defines a **pattern-matching rule** that determines to which elements style rules apply.
+Nested style rules inherit their parent rule's selector context, eliminating the need for repetition.
+```css
+.foo {
+  color: blue;
+  .bar {
+    color: red;
+  }
+}
+```
 
-### Types of selectors:
+```css
+.foo { color: blue; }
+.foo .bar { color: red; }
+```
+
+---
+
+# Selectors Types
+
 - The **Universal** (*) selector.
 - **Type** selectors.
 - **Attribute** ([ ]) selectors.
@@ -475,9 +518,11 @@ Select elements based on their attribute existence and values:
 - **[attribute]** – exists.
 - **[attribute=value]** – equals.
 ```css
-form[method=get] /* selects all forms with attribute method="get" */
+input[type=text] /* selects all input elements with type="text" */
 ```
 
+<br>
+<br>
 Other selectors match by containing, starting, or ending with specific values.
 
 ---
@@ -547,11 +592,148 @@ p {
 ```
 <p style="color: white; background-color: #FF0000;">The quick brown fox jumps over the lazy dog</p>
 
+---
+# Alignment
+Text can be aligned **left**, **right**, **center** or **justified** using the text-align property.
+
+```css
+p {
+  text-align: center;
+}
+```
+<section style="display: flex; flex-wrap: wrap; gap: 0.3em;">
+<p style="width: 8em; border:1px solid gray; padding: 0.5em; text-align: left;"><strong>left</strong><br>The quick brown fox jumps over the lazy dog</p>
+<p style="width: 8em; border:1px solid gray; padding: 0.5em; text-align: right;"><strong>right</strong><br>The quick brown fox jumps over the lazy dog</p>
+<p style="width: 8em; border:1px solid gray; padding: 0.5em; text-align: center;"><strong>center</strong><br>The quick brown fox jumps over the lazy dog</p>
+<p style="width: 8em; border:1px solid gray; padding: 0.5em; text-align: justify;"><strong>justified</strong><br>The quick brown fox jumps over the lazy dog</p>
+<section>
+
+</section></section>
+
+---
+# More Properties
+
+TODO(thePeras): see more properties at []
+
+---
+# Units
+We can use several length units to change the dimension of elements in CSS. These units come in different flavors:
+
+- Absolute units _(mm, cm, **px**, etc...)_
+- Font-relative units
+- Viewport-percentage units
+- Percentages
+
+---
+# Font-relative units
+
+Units rem and em are used to create **scalable layouts**.
+
+- **rem** - Represents the size of the **root element font**. If used to change the font-size in the root element.
+
+- **em** - When used to change the font-size, it represents the size of the parent element font. When used to set the size of an element, it represents the **size of the current element font**.
+
+---
+# Example (rem and em)
 
 
+- Setting the font-size of the root element (`<html>`) to 2rem. <br>
+    <small>For other elements, 1rem becomes 32px (if the user didn't change the default of 16px). </small>
+- Setting the font-size of other element to 2rem. <br>
+    <small>The font-size of that element becomes 64px, twice the size of the root's font-size.  </small>
+- Setting the font-size of the <body> element to 2em. <br>
+    <small>The font-size of that element becomes 64px, twice its parent's font-size. </small>
+
+```css
+html { font-size: 2rem; } /* 32px */
+p    { font-size: 2rem; } /* 64px regardless of its location     */
+body { font-size: 2em;  } /* 64px (the parent is the html element) */
+```
+---
+
+# Viewport-percentage units
+
+Define lengths relative to the **viewport size (the visible part of the document)**:
+
+- **vw** - 1% of the viewport width.
+- **vh** - 1% of the viewport heigth.
+
+So, if the viewport is 600x400 pixels, vw = 6px, vh = 4px.
+
+---
+
+# Percentage unit
+
+Many CSS properties (width, margin, padding, font-size, ...) can take percentage values to define a **size relative to its parent object**.
+
+```css
+width: 50%;     /* width is 50% of the parent's width         */
+font-size: 80%; /* font-size is 80% of the parent's font-size */
+                /* the same as 0.8em                          */
+```
+---
+
+# Box model
+
+- All page elements are **rectangular**.
+- They can have a **border**.
+- Some **space** between themselves and that **border** (**padding**)
+- And some **space** between themselves and the **next element** (**margin**).
+
+<p style="text-align: center; margin-top: 2em;">
+<img src="./assets/box-model.svg"></img>
+</p>
+
+---
+
+# Width and height
+
+We can use the _width_ and _height_ properties to change the size of the **content area**:
+
+- Values can be a **length**, a **percentage** or **auto** (the browser will automatically calculate a width/height).
+- The default value is **auto**.
+
+```css
+section {
+  width: auto; /* default */
+  height: 50px;
+}
+```
+---
+# Box-sizing
+
+We can change the behavior of the _width_ and _height_ properties, by changing the **box-sizing** property:
+
+- **border-box** - the width and height properties **include the padding and border** (much easier to work with).
+- **content-box** - the width and height properties refer to the **content area only** (the default).
+
+```css
+section {
+  box-sizing: border-box;
+  height: 50px;
+}
+```
+<p style="text-align: center;">
+<img src="./assets/border-box.svg"></img>
+</p>
+
+---
+
+# Margin and Padding
+
+---
+
+<!-- 
+81-82
+112-114 (com nota pra inline e none)
+131-142
+118-123 (mencionar float)
+128-129
+173
+179
+>
 
 <!-- Cor, texto, posições -->
-<!-- tamanhos (em, rem, px, vh, percentagens)-->
 <!--displays-->
 <!-- inline e blocks -->
 <!-- Layout, deconstruir o layout de uma página -->
