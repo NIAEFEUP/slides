@@ -1225,27 +1225,6 @@ Or when linking to a CSS file from HTML:
 
 ---
 
-<!-- Cor, texto, posições -->
-<!--displays-->
-<!-- inline e blocks -->
-<!-- Layout, deconstruir o layout de uma página -->
-<!--prioridades por alto-->
-
-<!-- transitions -->
-
-<!-- padding e margens - box model -->
-<!-- width e height, auto -->
-<!-- media queries-->
-
-<!--
-opacity
-fonts, font weight, style, size
-text aligment
-
- -->
-
----
-
 name: js
 
 # JavaScript (JS)
@@ -1484,21 +1463,101 @@ Every function that has a await in it will also be an async function.
 
 ## Promises
 
+A promise represents the eventual result of an asynchronous operation.
+A promise may be in one of 3 possible states: fulfilled, rejected, or pending.
+A Promise is an object that takes a function with two parameters, functions resolve and reject:
+
+```js
+const promise = new Promise((resolve, reject) => {
+  readFile("file.txt", (err, data) => {
+    if (err) reject(err);
+    else resolve(data);
+  });
+});
+```
+
+consuming
+
+```js
+promise
+  .then((content) => console.log(content))
+  .catch((error) => console.log(error));
+```
+
 ---
 
-## Error handling
+## Promises - Promise.all
+
+```js
+Promise.all([
+  promiseFile("file1.txt"),
+  promiseFile("file2.txt"),
+  promiseFile("file3.txt"),
+])
+  .then(([c1, c2, c3]) => console.log(c1, c2, c3))
+  .catch(console.error);
+```
 
 ---
 
-<!-- Para que serve JS -->
-<!-- Comparar js com python? -->
-<!-- iniciar variaveis let, var , const, static-->
-<!-- error handling-->
-<!-- type conversion e comparision (dizer que é todo fudido)-->
-<!-- functions, arrow functions-->
-<!--Async e promises-->
+## Error handling - Try ... Catch ... Finally
+
+```js
+try {
+  doesThisFunctionExist(); // it doesn't
+  console.log("I will not print");
+} catch (e) {
+  console.log(e); // prints the not defined error
+  throw new Error("burp"); // uncaught exception
+} finally {
+  console.log("I always print");
+}
+console.log("I might not print");
+```
+
+We can deal with different types of errors:
+
+```js
+catch (e) {
+  if (e instanceof DatabaseError) {
+    // statements to handle DatabaseError exceptions
+  }
+  if (e instanceof SomethingElseError) {
+    // statements to handle SomethingElseError exceptions
+  }
+}
+```
+
+---
+
+# DOM
+
+---
+
+# DOM - Selecting Elements
+
+- getElementById(id) that returns an Element.
+- returns the element with the specified id.
+- getElementsByClassName(class) that returns a NodeList.
+- returns all elements with the specified class.
+- getElementsByTagName(name) that returns a NodeList.
+- returns all elements with the specified tag name.
+- querySelector(selector) that returns an Element.
+- returns the first element selected by the specified CSS selector.
+- querySelectorAll(selector) that returns a NodeList.
+- returns all elements selected by the specified CSS selector.
+
+---
+
+# DOM
 
 <!-- DOM, eventos, objetos, select elements -->
+
+---
+
+name: http
+
+# HTTP
 
 ---
 
@@ -1510,9 +1569,13 @@ HTTP a protocol, commonly built on top of TCP, used to communicate between two m
 
 ## <img style="width: 100%;" src="./assets/HTTPBasics.png">
 
+---
+
 # HTTP Message Structure - Request
 
 ## <img style="width: 100%;" src="./assets/httpRequestClient.png">
+
+---
 
 # HTTP Message Structure - Response
 
@@ -1543,6 +1606,8 @@ Each HTTP Response has an associated Status code.
 - .dense[`5XX`] Server error
 
 ## Check out https://http.cat !
+
+---
 
 # Parameters / Query Strings
 
@@ -1656,6 +1721,21 @@ help with our productivity and help us do Web Development faster:
 # The light at end of the tunnel
 
 Nonetheless, the basics (HTML, JS, CSS) are important when learning these frameworks because they give a general idea of how the web works!
+
+---
+
+# Dev Tools
+
+Most modern browsers have a **Developer Tools** that can help you debug your website, check the network requests, and even change the website on the fly.
+Let's check some of the most important features:
+
+- **Elements**: Check the HTML and CSS of the website
+- **Console**: Check the output of the website
+- **Network**: Check the network requests
+- **Application**: Check the cookies, local storage, and session storage
+- **Performance**: Check the performance of the website
+
+Check some tips at [Chrome DevTools](https://developer.chrome.com/docs/devtools/tips)
 
 ---
 
