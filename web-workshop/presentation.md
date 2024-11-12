@@ -397,6 +397,37 @@ Forms are used for basic interaction with the server or through javascript
 Discover all the available tags at [w3schools](https://www.w3schools.com/tags/)
 
 ---
+name: practice-html
+
+# Hands-on!
+
+- Your goal is to develop a prototype of **NIbook**, a recruit only social network where you can complain about members and having too hard of issues assigned.
+- However, you don't want members in the NI room to run past you and see this, so the posts on NIbook are only **loaded with a click of a button**, when it's safe.
+- You also obviously have nothing bad to say about us so the posts are fake and loaded from [JSON Placeholder](https://jsonplaceholder.typicode.com/) :)
+
+---
+
+# NIBook - Setup
+
+You can open an HTML file directly with your preffered browser to preview it.
+
+But, for frequent changes, we reccomend the **VSCode Live Server** extension!
+
+<div style="text-align: center;">
+<p style="color: blue;">https://tinyurl.com/vscode-live-server</p>
+<img src="./assets/vscode-live-server.svg"></img>
+</div>
+
+---
+
+# NIBook - HTML
+
+<div style="text-align: center; max-width: 100%;">
+<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
+<img style="width:80%;" src="./assets/NIBook.png"></img>
+</div>
+
+---
 
 name: css
 
@@ -1225,6 +1256,17 @@ Or when linking to a CSS file from HTML:
 
 ---
 
+name: practice-css
+
+# NIBook - CSS
+
+<div style="text-align: center; max-width: 100%;">
+<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
+<img style="width:80%;" src="./assets/NIBook.png"></img>
+</div>
+
+---
+
 name: js
 
 # JavaScript (JS)
@@ -1846,6 +1888,31 @@ We can also send our own data and specify a different **HTTP** method:
     }
 
 ```
+---
+
+name: practice-js
+
+# NIBook - JS
+
+<div style="text-align: center; max-width: 100%;">
+<p style="display: inline;">Fetch the posts from <p style="display: inline; color: blue;">https://jsonplaceholder.typicode.com/posts</p></p>
+<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
+<img style="width:80%;" src="./assets/NIBook.png"></img>
+</div>
+
+---
+
+# NIBook - Bonus
+
+Function to always select random posts so you can see the effects of the fetch when repeatedly clicking the button (thanks ChatGPT!)
+
+```js
+function getRandomPosts(posts, count) {
+    const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()); // Shuffle posts array
+    return shuffledPosts.slice(0, count); // Return first 'count' random posts
+}
+```
+
 
 ---
 
