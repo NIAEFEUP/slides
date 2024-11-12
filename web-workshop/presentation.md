@@ -1173,7 +1173,7 @@ Specifies the behavior of an element when its contents don't fit its specified s
 - visible | hidden | scroll | auto
 
 <p style="text-align: center;">
-<img height="300" src="./assets/overflow.png">
+<img height="300" src="./assets/Overflow.png">
 </p>
 
 ---
@@ -1532,26 +1532,171 @@ catch (e) {
 
 # DOM
 
----
-
-# DOM - Selecting Elements
-
-- getElementById(id) that returns an Element.
-- returns the element with the specified id.
-- getElementsByClassName(class) that returns a NodeList.
-- returns all elements with the specified class.
-- getElementsByTagName(name) that returns a NodeList.
-- returns all elements with the specified tag name.
-- querySelector(selector) that returns an Element.
-- returns the first element selected by the specified CSS selector.
-- querySelectorAll(selector) that returns a NodeList.
-- returns all elements selected by the specified CSS selector.
+- The **Document Object Model** (DOM) is a representation of a web page as a _tree of nodes_.
+- It allow programs to access the tree and change the document **structure, style and content**.
+- Nodes can also have **event handlers** attached to them. Once an event is triggered, the event handlers get executed. 
+- It can be manipulated from the browser using _JavaScript_.
 
 ---
 
 # DOM
 
-<!-- DOM, eventos, objetos, select elements -->
+<div style="text-align: center;">
+<img src="./assets/pic_htmltree.gif"></img>
+</div>
+---
+
+# Start Scripting
+
+- JavaScript code can be written in a `<script>` tag in the `<head>` of the HTML document.
+- As with CSS, the most common way is to write in a **separate file**, and then link it in the `<head>` of the HTML document.
+
+```html
+<html>
+  <head>
+    <script src="...url of javascript script..."></script>
+    <script>...javascript code goes here...</script>
+  </head>
+</html>
+```
+
+
+---
+
+# Selecting Elements
+
+- **getElementById(id)** that returns an Element. <br>
+<small>returns the element with the specified id. </small>
+- **getElementsByClassName(class)** that returns a NodeList. <br>
+<small> returns all elements with the specified class. </small>
+- **getElementsByTagName(name)** that returns a NodeList. <br>
+<small> returns all elements with the specified tag name. </small>
+- **querySelector(selector)** that returns an Element. <br>
+<small> returns _the first element_ selected by the specified CSS selector. </small>
+- **querySelectorAll(selector)** that returns a NodeList. <br>
+<small> returns _all elements_ selected by the specified CSS selector. </small>
+
+```js
+const menu = document.getElementById('menu')
+const paragraphs = document.getElementsByTagName('p')  
+const intros = document.querySelectorAll('article p:first-child')  
+const links = menu.querySelectorAll('a')
+```
+---
+# Traversing
+
+You can also get access to other elements related to the selected one.
+
+```html
+<div id="container">
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+</div>
+```
+
+```js
+const container = document.querySelector("#container");
+
+container.firstChild.textContent                            /* #text (whitespace before <p>) */
+container.firstElementChild.textContent                     /* First Paragraph */         
+container.firstElementChild.nextElementSibling.textContent  /* Second Paragraph */
+container.lastElementChild.textContent                      /* Second Paragraph */
+```
+---
+
+# Alterations to Elements
+After selecting an Element, you can access and alter its:
+- Attributes
+- Class List
+- Style
+- HTML Code
+  
+```js
+const link = document.querySelector("a");
+link.classList.toggle('highlighted')
+link.style.backgroundColor = "blue";
+link.style.color = "red";
+```
+As well as **remove** it, and **add a child** to it.
+
+```js
+const label = document.createElement("span");
+label.textContent = "[Link] ";             /* sets the span's text */
+link.parentNode.insertBefore(label, link); /* inserts the label before the link */
+
+link.remove();
+```
+---
+
+# Events
+
+
+- Events are occurrences that happen in the system. <br>
+<small> e.g., the user clicks a button. </small>
+- Specific events in specific objects can have event handlers attached to them.
+- When the event happens, the attached **handler is called**.
+
+Some possible events:
+
+- **Mouse**  – click, dblclick, mouseup, mousenter, mouseleave, mouseover.
+- **Forms**  – input, focus, submit.
+- **Keyboard** – keydown, keyup, keypress.
+
+
+---
+
+# Event Handlers
+
+The `addEventListener` function is the most common way to attach event handlers.
+
+For example:
+
+```js
+const button = document.querySelector("button")
+button.addEventListener('click', function(event){
+  console.log('User clicked button')
+})
+```
+
+Or:
+
+```js
+function handleEvent() {
+  console.log('User clicked button')
+}
+const button = document.querySelector("button")
+button.addEventListener('click', handleEvent)
+```
+
+---
+
+# Bubbling
+
+
+When an event happens on an element, it first runs any handlers attached to it, then on its parent, then up to the root.
+
+In each step, the handler can know the current target (**event.currentTarget** or this) and also the initial target (**event.target**).
+
+```html
+<section> <article> <p>Text</p> </article> </section>
+```
+```js
+function logEvent(event) {console.log('Bubble: ' + this.tagName + " - " + event.target.tagName)}
+
+document.querySelector('section').addEventListener('click', logEvent)
+document.querySelector('article').addEventListener('click', logEvent)
+document.querySelector('p').addEventListener('click', logEvent)
+```
+
+Clicking on the paragraph:
+
+```txt
+Bubble: P - P
+Bubble: ARTICLE - P
+Bubble: SECTION - P
+```
+
+To stop bubbling, we can use the `event.stopPropagation()` method.
 
 ---
 
