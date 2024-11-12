@@ -32,84 +32,214 @@
 					<p>Exploring the funcionalities of web extension API</p>
 				</section>
 				<section>
+					<p><strong>Index</strong></p>
+					<ul>
+						<li><a href="#/2">HTML/CSS/JS 101 (any%)</a></li>
+						<li><a href="#/2">How it works</a></li>
+						<li><a href="#/2">Examples</a></li>
+						<li><a href="#/2">Extension Anatomy</a></li>
+						<li><a href="#/2">Manifest.json</a></li>
+						<li><a href="#/2">APIs</a></li>
+					</ul>
+				</section>
+
+				<section>
 					<section>
-						<p> A Web extension turns the web navigation more <strong>customizable</strong>.</p>
+						<p>HTML → <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</p>
+						<pre><code data-trim style="font-size: 18px;">
+							&lt;!DOCTYPE html&gt;
+							&lt;html&gt;
+							&lt;head&gt;
+								&lt;title&gt;My First Web Page&lt;/title&gt;
+								&lt;link rel="stylesheet" href="./main.css"&gt;
+							&lt;/head&gt;
+							&lt;body&gt;
+								&lt;h1&gt;Hello, world!&lt;/h1&gt;
+							&lt;/body&gt;
+							&lt;/html&gt;
+						</code></pre>
+					</section>
+					<section>
+						<div class="html" style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; align-items: center;">
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<p>This is a paragraph!</p>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim >
+									<h1>This is a h1!</h1>
+									<h2>This is a h2!</h2>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<a href="">This is an anchor!</a>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<span>This is a span!</span>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<ul>
+										<li>Item 1</li>
+										<li>Item 2</li>
+										<li>Item 3</li>
+									</ul>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<table>
+										<thead>
+											<tr>
+												<th>...</th>
+												<th>...</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>...</td>
+												<td>...</td>
+											</tr>
+									</table>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<img src="..." alt="..."/>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<button type="..."></button>
+								</code></pre>
+							</div>
+							<div>
+								<pre style="font-size: 15px;"><code data-trim>
+									<input type="..."></input>
+								</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p>CSS → <strong>C</strong>ascading <strong>S</strong>tyle<strong>S</strong>heets</p>
+						<pre style="font-size: 18px;"><code class="css" data-trim >
+							* {
+								margin: 0;
+								padding: 0;
+							}
+
+							div {
+								color: red;
+							}
+
+							#myId {
+								background-color: blue;
+							}
+
+							.myClass {
+								font-size: 20px;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<p>JS → <strong>J</strong>ava<strong>S</strong>cript</p>
+						<div>
+							<pre style="font-size: 18px;"><code class="javascript" data-trim >
+								let myVar = 'id';
+
+								const myFunction = (myVar) => {
+									const el = document.getELementById(myVar);
+									el.innerHTML = 'Hello, world!';
+									el.classList += ' myClass';							
+
+									console.log("This is the element with id " + myVar + ":" + el);
+								};
+							</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p> A Web extension turns web navigation more <strong>customizable</strong>.</p>
 					</section>
 					<section>
 						<p>How?</p>
 					</section>
 					<section data-background="#f7df1e">
 						<div style="display:flex; justify-content:center; gap:20px">
-							<p>with JavaScript</p>
+							<p>With JavaScript</p>
 							<img height="50" src="./images/javascript.png"
 							style="border: 5px solid black; border-radius: 4px;"/>
 						</div>
 					</section>
 					<section data-background-transition="zoom">
-						<p><bold>Manipulating</bold> and <bold>injecting</bold> of HTML and CSS</p>
+						<p>By <bold>manipulating</bold> and <bold>injecting</bold> HTML and CSS</p>
 					</section>
 					<section>
-						<p>It also possible to interact with <bold>web APIs</bold> as if the user <strong>authorize</strong>.</p>
+						<p>It's also possible to interact with <bold>web APIs</bold>!</p>
+						<p style="font-size: 18px; text-decoration: line-through;">if the user <strong>authorizes</strong> it</p>
 						<br>
-						<p>Examples</p>
 						<ul>
-							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">Storage</a></li>
-							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API">Cookies</a></li>
-							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio</a></li>
+							<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">Storage</a></li>
+							<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API">Cookies</a></li>
+							<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio</a></li>
 						</ul>
 						<br>
-						<p>Check a full <a href="https://developer.mozilla.org/en-US/docs/Web/API">list</a> of web APIs</p>
+						<p>Check the full <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API">list</a> of web APIs</p>
 					</section>
 				</section>
-				<section>
-					<h3>Lets see some examples of web extensions</h3>
-				</section>
+
 				<section>
 					<section>
-						<h3>Modifying the page</h3>
+						<h3>Some web extensions</h3>
 					</section>
 					<section>
-						<img src="images/adblocker.png" height="130"/>
-						<p>Adblocker</p>
+						<p>Modifying the page</p>
+						<div style="display: grid; grid-template-columns: repeat(3, 1fr); font-size: 24px;">
+							<a target="_blank" href="https://github.com/gorhill/uBlock#ublock-origin">
+								<img src="https://raw.githubusercontent.com/gorhill/uBlock/d325dcd19268ff430516258bb133bbdfe155a7c7/src/img/ublock.svg" height="130"/>
+								<p>uBlock Origin</p>
+							</a>
+							<a target="_blank" href="https://github.com/darkreader/darkreader">
+								<img src="https://raw.githubusercontent.com/darkreader/darkreader.github.io/master/images/darkreader-mascot.svg" height="130"/>
+								<p>Dark Reader</p>
+							</a>
+							<a target="_blank" href="https://github.com/ankit/stylebot">
+								<img src="https://github.com/ankit/stylebot/blob/main/src/extension/img/icon128.png?raw=true" height="130"/>
+								<p>Minimal Theme for Twitter</p>
+							</a>
+						</div>
 					</section>
 					<section>
-						<img src="images/translator.png" height="130"/>
-						<p>TWP - Translate Web Pages</p>
+						<p>Adding features</p>
+						<div style="display: grid; grid-template-columns: repeat(3, 1fr); font-size: 24px;">
+							<a target="_blank" href="https://github.com/dessant/search-by-image">
+								<img src="https://camo.githubusercontent.com/4d540591e1238cca9629ea94c8e57f72027805137ac2fd01ed63ffa02bc6e5f6/68747470733a2f2f692e696d6775722e636f6d2f394a4f7056694c2e706e67" height="130"/>
+								<p>Search by Image</p>
+							</a>
+							<a target="_blank" href="https://bitwarden.com/">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bitwarden_logo.svg/512px-Bitwarden_logo.svg.png" height="130"/>
+								<p>Bitwarden</p>
+							</a>
+							<a target="_blank" href="https://weatherextension.com/">
+								<img src="https://weatherextension.com/img/Weather%20Extension%20Logo.png" height="130"/>
+								<p>Weather</p>
+							</a>
+						</div>
 					</section>
 					<section>
-						<img src="images/minimal-twitter.png" height="130"/>
-						<p>Minimal Theme for Twitter</p>
-					</section>
-					<section>
-						<img src="images/improvedTube.png" height="130"/>
-						<p>ImprovedTube</p>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h3>Adding new features</h3>
-					</section>
-					<section>
-						<img src="images/svg-export.jpg" height="130"/>
-						<p>Svg Export</p>
-					</section>
-					<section>
-						<img src="images/language-tools.png" height="130"/>
-						<p>LanguageTool</p>
-					</section>
-					<section>
-						<img src="images/copy-code.png" height="130"/>
-						<p>Copy Code</p>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h3>Helping Developers</h3>
-					</section>
-					<section>
-						<img src="images/react-dev-tools.png" height="130"/>
-						<p>React Developer Tools</p>
-					</section>
+						<p>Helping Developers</p>
+						<a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" height="130"/>
+							<p>React Developer Tools</p>
+						</a>
+					</section>	
 				</section>
 
 				<section>
@@ -117,82 +247,24 @@
 						<h3>Extension <bold>Anatomy</bold></h3>
 					</section>
 					<section>
-						<p>1- Popup</p>
+						<p>Popup</p>
 						<img src="images/popup.png" height="70%" style="border-radius:10px"/>
 					</section>
 					<section>
-						<p>2- Sidebar</p>
+						<p>Sidebar</p>
 						<img src="images/sidebar.png" height="70%" style="border-radius:10px"/>
 					</section>
 					<section>
-						<p>3- Options</p>
+						<p>Options</p>
 						<img src="images/options.png" height="70%" style="border-radius:10px"/>
 					</section>
 				</section>
+
 				<section>
 					<section>
-						<h4>JavaScript Scripts</h4>
-						<ul>
-							<li>Background scripts</li>
-							<li>Content scripts</li>
-						</ul>
-					</section>
-					<section>
-						<p>Background scripts</p>
-						<br>
-						<p>Listen the <bold>events</bold> occurring in the browser</p>
-						<br>
-						<ul>
-							<li>Adding a new bookmark</li>
-							<li>Navigation to a new page</li>
-							<li>Closing a tab</li>
-							<li>Installing extension</li>
-							(...)
-						</ul>
-					</section>
-					<section>
-						<p>Installing the extension</p>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-							browser.runtime.onInstalled.addListener(function() {
-								// code to run when the extension is installed
-							});
-						</code></pre>
-						<p>Creating new bookmars</p>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-							browser.bookmarks.onCreated.addListener(function() {
-								// do something
-							});
-						</code></pre>
-						<p>Receiving and Sending messages</p>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-							browser.runtime.onMessage.addListener(function(message, callback) {
-								if (message == 'hello') {
-								  sendResponse({greeting: 'welcome!'})
-								} else if (message == 'goodbye') {
-								  chrome.runtime.Port.disconnect();
-								}
-							});
-						</code></pre>
-					</section>
-					<section>
-						<p>Content scripts</p>
-						<br>
-						<p>These are the scripts that run in the <bold>context</bold> of a particular page</p>
-						<p>Therefore they can access the content and interact with it</p>
-					</section>
-					<section>
-						<p>Background Scripts <strong>VS</strong> Content Scripts</º>
-						<br>
-						<p><span>Background Scripts</span> can access <bold>all</bold> the WebExtension JavaScript APIs, but they can't directly access the content of web pages</p>
-						<p><span>Content scripts</span> can only access a <bold>small subset</bold> of the WebExtension APIs.</p> 
-						<p>However they can communicate with background scripts and thereby indirectly access the WebExtension APIs.</p>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h4>Manifest.json</h4>
+						<h3><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json">Manifest.json</a></h3>
 						<p>A JSON file that contains the extension's metadata</p>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 							{
 								// Required
 								"manifest_version": 3,
@@ -264,21 +336,15 @@
 								"version_name": "1.0 beta",
 							  }
 						</code></pre>
-	
-						<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json">Manifest reference</a>
 					</section>
 					<section>
 						<h4>Manifest version 2 vs version 3</h4>
-					</section>
-					<section>
 						<p>Version 3 adds <bold>new rules</bold> for web extensions</p>
 						<p>The new rules provide users increased <bold>security</bold> against malicious extensions.</p>
 					</section>
 					<section>
 						<h3>Service Worker</h3>
-						<p>The background scripts are now just one file and defined as <bold>service_worker</bold></p>
-						<p>The scripts are <bold>not persistent</bold></p>
-						<p>In version 2 the scripts could be persistent</p>
+						<p>The background scripts are now just one file and defined as <bold>service_worker</bold> and they aren't <bold>persistent</bold> anymore</p>
 					</section>
 					<section>
 						<ul>
@@ -290,30 +356,93 @@
 						<h3>Blocked remote JavaScript</h3>
 						<p>Now, web extension can only execute JavaScript that is included within their package and cannot use remotely-hosted code.</p>
 					</section>
+					<section>
+						<h3><a href="https://developer.chrome.com/blog/resuming-the-transition-to-mv3/" target="_blank">Google is cringe</a></h3>
+						<p>Google has changed its manifest v3 to not allow the Web Request API, particularly hindering the effectiveness of adblockers.</p>
+					</section>
 				</section>
+
 				<section>
 					<section>
-						<h2>Exploring some APIs</h2>
+						<h3>JavaScript Scripts</h3>
+						<ul>
+							<li>Background scripts</li>
+							<li>Content scripts</li>
+						</ul>
 					</section>
 					<section>
-						<h2>bookmarks</h2>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<h3>Background scripts</h3>
+						<br>
+						<p>Listen the <bold>events</bold> occurring in the browser</p>
+						<br>
+						<ul>
+							<li>Adding a new bookmark</li>
+							<li>Navigation to a new page</li>
+							<li>Closing a tab</li>
+							<li>Installing extension</li>
+							(...)
+						</ul>
+					</section>
+					<section>
+						<h3>Installing the extension</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
+							browser.runtime.onInstalled.addListener(function() {
+								// code to run when the extension is installed
+							});
+						</code></pre>
+						<p>Creating new bookmars</p>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
+							browser.bookmarks.onCreated.addListener(function() {
+								// do something
+							});
+						</code></pre>
+						<p>Receiving and Sending messages</p>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
+							browser.runtime.onMessage.addListener(function(message, callback) {
+								if (message == 'hello') {
+								  sendResponse({greeting: 'welcome!'})
+								} else if (message == 'goodbye') {
+								  chrome.runtime.Port.disconnect();
+								}
+							});
+						</code></pre>
+					</section>
+					<section>
+						<h3>Content scripts</h3>
+						<br>
+						<p>These are the scripts that run in the <bold>context</bold> of a particular page</p>
+						<p>Therefore they can access the content and interact with it</p>
+					</section>
+					<section>
+						<h3>Background Scripts <strong>VS</strong> Content Scripts</h3>
+						<br>
+						<p><span>Background Scripts</span> can access <bold>all</bold> the WebExtension JavaScript APIs, but they can't directly access the content of web pages</p>
+						<p><span>Content scripts</span> can only access a <bold>small subset</bold> of the WebExtension APIs.</p> 
+						<p style="font-size: 24px;">However they can communicate with background scripts and thereby indirectly access the WebExtension APIs.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Exploring some APIs</h3>
+					</section>
+					<section>
+						<h3>Bookmarks</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.bookmarks.create()
 							browser.bookmarks.get()
 							browser.bookmarks.search()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.bookmarks.onCreated
 							browser.bookmarks.onRemoved
 							browser.bookmarks.onMoved
 						</code></pre>
 
-						<p>BookmarkTreeNode</p>
-						<p>Bookmarks are organized in a based tree data sctruture</p>
-						<p>Each node is a bookmark, a bookmark folder, or a separator.</p>
+						<p>Bookmarks are organized in a tree based data structure where each node is a bookmark, a bookmark folder, or a separator</p>
 					</section>
 					<section>
-						<h2>storage</h2>
+						<h3>Storage</h3>
 						<p>There are 4 different storage areas</p>
 						<ul>
 							<li>storage.local</li>
@@ -322,43 +451,43 @@
 							<li>storage.managed</li>
 						</ul>
 						
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							storage.StorageArea.get()
 							storage.StorageArea.set()
 							storage.StorageArea.remove()
 							storage.StorageArea.clear()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.storage.onChanged
 						</code></pre>
 					</section>
 					<section>
-						<h2>cookies</h2>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<h3>Cookies</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.cookies.get()
 							browser.cookies.getAll()
 							browser.cookies.set()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.cookies.onChanged
 						</code></pre>
 					</section>
 					<section>
-						<h2>downloads</h2>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<h3>Downloads</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.downloads.download() //give an url
 							browser.downloads.search()
 							browser.downloads.pause()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.downloads.onCreated
 							browser.downloads.onErased
 						</code></pre>
 					</section>
 					<section>
-						<h2>context menus</h2>
+						<h3>Context Menus</h3>
 						<img src="./images/context-menus.png" height="200"/>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.menus.create({
 								id: "remove-me",
 								title: "Iteam C",
@@ -367,36 +496,74 @@
 						</code></pre>
 					</section>
 					<section>
-						<h2>runtime</h2>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<h3>Runtime</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.runtime.sendMessage()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.runtime.onMessage
 						</code></pre>
 					</section>
 					<section>
-						<h2>tabs</h2>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<h3>Tabs</h3>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.tabs.goBack()
 							browser.tabs.reload()
 							browser.tabs.remove()
 							browser.tabs.getCurrent()
 							browser.tabs.setZoom()
 						</code></pre>
-						<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							browser.tabs.onMoved
 							browser.tabs.onActivated
 							browser.tabs.onZoomChange
 						</code></pre>
 					</section>
 					<section>
-						<h3>and so much more...</h3>
+						<h3>and much more...</h3>
 					</section>
 				</section>
 				<section>
-					<h3>I Bet</h3>
-					<p>After today you will try to solve your navigation issues creating a web extension</p>
+					<section>
+						<p>We are coding now...</p>
+						<img src="https://media1.tenor.com/m/_Kumf98IT9wAAAAd/cat-reads-chat-cat-eating.gif" alt="cat">
+					</section>
+					<section>
+						<h3>Exercise 1</h3>
+						<p><pre><code class="bash" data-trim>git switch ws/ex-1</code></pre></p>
+						<div style="font-size: 32px;">
+							<p>The teacher page has lost its CSS!<br>Try to fix this issue by writing some new styling for this page</p>
+							<p style="font-size: 24px;">it doesn't need to be the same as the original, <span style="color: #f7df1e">be creative</span></p>
+							<p style="font-size: 18px;"><span style="color: #f7df1e; font-weight: bold;">goal:</span> CSS 101 + adding files</p>
+						</div>
+						<details style="font-size: 18px;"><summary>Hint</summary>
+							<p>There seems to be some <span style="color: #f7df1e">manifest</span>ation missing...</p>
+						</details>
+					</section>
+					<section>
+						<h3>Exercise 2</h3>
+						<p><pre><code class="bash" data-trim>git switch ws/ex-2</code></pre></p>
+						<div style="font-size: 32px;">
+							<p>Someone deleted the button component implementation. That's it don't ask me why this keeps happening</p>
+							<p style="font-size: 24px;"><span style="color: #f7df1e">I have nothing for this one :P</span></p>
+							<p style="font-size: 18px;"><span style="color: #f7df1e; font-weight: bold;">goal:</span> TSX components 101</p>
+						</div>
+						<details style="font-size: 18px;"><summary>Hint</summary>
+							<p>There seems to be some <span style="color: #f7df1e">manifest</span>ation missing...</p>
+						</details>
+					</section>
+					<section>
+						<h3>Exercise 3</h3>
+						<p><pre><code class="bash" data-trim>git switch ws/ex-3</code></pre></p>
+						<div style="font-size: 32px;">
+							<p>The atalhos switch alongside its functionality have disappeared... The other buttons and their functionality are still there tho 🤔</p>
+							<p style="font-size: 24px;">try to understand how <span style="color: #f7df1e">storage</span> works</p>
+							<p style="font-size: 18px;"><span style="color: #f7df1e; font-weight: bold;">goal:</span> popup-scripts interaction</p>
+						</div>
+						<details style="font-size: 18px;"><summary>Hint</summary>
+							<p>Don't reinvent the wheel</p>
+						</details>
+					</section>
 				</section>
 			</div>
 		</div>
