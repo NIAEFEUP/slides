@@ -1,65 +1,242 @@
-class: center, middle, inverse, small-images
+class: center, middle, inverse, smaller-images
 
 # CI/CD Workshop
+
 ### Using GitHub Actions
 
-![NIAEFEUP's logo](assets/logo_2018.png)
+![SINF 2024's logo](assets/logos/sinf2024.svg)
+![NIAEFEUP's logo](assets/logos/niaefeup.png)
 
 ---
 
-class: inverse
+class: inverse, small-images
 
 # Important links
 
-You can follow this presentation on your computer from the link below:
+<div>This presentation is available at <a href="https://slides.niaefeup.pt" style="color: inherit;">https://slides.niaefeup.pt</a>.</div>
 
-<div style="display: flex; justify-content: center; align-items: center; margin: 10rem 0rem;">
-<a href="https://niaefeup.github.io/slides/" style="color: white; font-weight:bold; font-size: 2rem;">https://niaefeup.github.io/slides/</a>
+<div class="center">
+<img src="assets/qr-slides.svg" width="400" height="400">
 </div>
-
-
 ---
+
 class: inverse, center
 
 # Your Host
 
 <img src="./assets/profile.png" height=200 width=200 style="border-radius: 50%; object-fit: cover">
 
-**Luís Duarte**
+**André Lima**
 
-L.EIC Finalist
+M.EIC Finalist
 
 ---
 
-class: center, inverse, middle
+class: center, inverse, middle, medium-images
 
-## Please don't let this be a monologue
-
-#### Feel free to ask any questions anytime
+![TRADE OFFER](assets/trade-offer.png)
 
 ---
 
 ### What is CI/CD - an introduction
 
-To put it simply, CI/CD falls under the umbrella of _DevOps_ and combines the practices of 
-**continuous integration** and **continuous delivery**. It tries to **automate** much 
-of the process of getting new code into production: by **testing**, **building**, **deploying**, and sometimes, provisioning the infrastructure needed.
+.question[
+A quick question before we start...
 
-By automating this boring process that happens every development cycle developers can be more **productive** and also reduce possible **downtime**.
+Does anyone here know what **CI/CD** is?
+]
+
+<br />
+
+--
+
+- *CI/CD* = *Continuous Integration* + *Continuous Delivery*
+
+--
+
+- *CI/CD* is not having to build my code manually
+
+--
+
+- *CI/CD* is not having to deploy my code manually
+
+--
+
+- *CI/CD* is about being more confident in the code I write and push to GitHub
+
+---
+
+### What is CI/CD - an introduction
+
+To put it simply, CI/CD combines the practices of 
+**continuous integration** and **continuous delivery**. It's about **automating** much 
+of the process of getting new code to users: by **testing**, **building** and **deploying**.
 
 <div style="display: flex; justify-content:center;">
 <img src="./assets/ci-cd.webp" width=500>
 </div>
 
+--
+
+.question[
+For the audience...
+  
+Why are continuous processes important?
+]
+
 ---
 
 ### Difference between CI and CD
 
-- **Continuous integration** automates the process of trying to integrate new code into a main branch of a repository early and automatically to detect possible errors before actually merging the new code into production;
+--
 
-- **Continuous delivery** automates the release process once new changes are merged into the main branch by building the final binary of an application or even by moving to **continuous deployment** that also automates de deployment process (eg.: releasing a new version to Google Play).
+**Integration** is "the action or process of combining two or more things in an effective way", ([Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/integration)).
 
-**NOTE:** you don't need to do both processes, it depends on the requirements of your project.
+--
+
+.question[
+Based on this...  
+
+What do we need to perform an integration?
+]
+
+--
+
+- Create, ...
+
+--
+
+- ..., Combine, ...
+
+--
+  
+- ..., and Ensure Quality.
+
+--
+
+The act of doing this continuously is called **Continuous Integration**. It's about:
+
+--
+
+  - continuously creating new code and adding it to the codebase
+
+--
+
+  - ensuring that the codebase remains in a workable and functioning state
+
+---
+
+### Common CI activities
+
+Here are some examples of **common *CI* activities**:
+
+--
+
+  - Build the code
+
+--
+
+  - Perform static code analysis
+
+--
+
+  - Format the code (or just check formatting)
+
+--
+
+  - Run tests (unit testing, integration testing, ...)
+
+--
+
+  - Report code coverage
+
+<div style="display: flex; justify-content:center;">
+<img src="./assets/ci-cd.webp" width=500>
+</div>
+  
+---
+
+### Difference between CI and CD
+
+**Delivery** is "the act of taking goods, letters, parcels, etc. to people's houses or places of work", ([Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/delivery)). In this case, we're delivering software!
+
+.question[
+Based on this...
+
+What do we need to deliver a software? For instance, what would you have to do to deliver an Android application? 
+]
+
+--
+
+- Package, ...
+
+--
+
+- ..., Distribute, ...
+
+--
+
+- ..., Execute, ... *(not applicable to Android apps)*
+
+--
+
+- ..., and Monitor.
+
+--
+
+.question[
+For the audience...
+
+Why is monitoring important?
+]
+
+--
+
+- Gather real-world information like, performance, usability, ...
+- Detect problems early and fix them before they become bigger problems.
+
+---
+
+### Common CD activities
+
+Here are some examples of **common *CD* activities**:
+
+--
+
+  - Packaging the code
+
+--
+
+  - Deploying to QA environments
+
+--
+
+  - Uploading the package to a registry (Play Store, ...)
+
+--
+
+  - Error monitoring
+
+--
+  
+  - After **manual approval**, deploying to production environment
+
+
+<div style="display: flex; justify-content:center;">
+<img src="./assets/ci-cd.webp" width=500>
+</div>
+  
+
+
+---
+
+### Continuous Deployment
+
+**Continuous Deployment** is the same as *continuous delivery* but taken a step further and **automating** the release of the software to the **production environment**, whenever new changes are introduced and certain criteria are met.
+
+
+**NOTE:** you don't need to implement all of these processes, it depends on the requirements of your project.
+
 
 <div style="display: flex; justify-content:center;">
 <img src="./assets/pipeline.png" width=500>
@@ -67,12 +244,12 @@ By automating this boring process that happens every development cycle developer
 
 ---
 
-### Why should you include a CI/CD system in your project?
+### Why should you include a CI/CD in your project?
 
 - **Improved productivity**: With proper testing, the review time of each change is significantly reduced and also frees up your time from testing your project manually;
-- **Fix bugs faster**: When using _CD_ there are smaller software updates so when bugs appear, it's easier to rollback or to pin them down;
-- **Reduced Risk**: By having a proper testing suite and by using CI, you can be confident that your changes will work when your code is deployed;
-- And many other advantages that are not relevant in this context :) 
+- **Fix bugs faster**: When using _CD_, monitoring allows you to understand when problems happen in near real-time; also, having a QA environment helps!
+- **Reduced Risk**: By having a proper testing suite and by using *CI*, you can be confident that your changes will work when your code is deployed;
+- And many other advantages that are not relevant in this context :)
 
 Implementing a CI/CD pipeline takes some time, but sometimes you have to lose time now to **gain** time in the future.
 
@@ -80,99 +257,69 @@ Implementing a CI/CD pipeline takes some time, but sometimes you have to lose ti
 
 ### "Requirements" when using CI/CD
 
-Having a proper _Git_ process that allows for parallel work and has small meaningful commits is very important for a CI/CD pipeline to be effective, for example:
- - [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
- - [Trunk based development](https://trunkbaseddevelopment.com/)
+Having a proper _Git_ process that allows for parallel work and has small meaningful commits is very important for a CI/CD process to be effective, for example:
 
-It is also essential to have a way to properly **test** your project, by having:
-  - Static testing (_linting_, _formatting_, _code analysis_)
-  - Unit testing
-  - Integration testing
+- [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+- [Trunk based development](https://trunkbaseddevelopment.com/)
+
+For **CI**, it is also essential to have a way to properly **validate** your project, by having:
+
+- Formatting
+- Static code analysis
+- Unit testing
+- Integration testing
 
 ---
 
-### CI/CD pipeline tools
+## CI/CD Pipelines
 
-Now that you roughly know what CI/CD is, you can try to implement it. However, trying to do it from scratch is not practical so there are many tools available on the market that try to streamline this process:
+Normally, CI/CD processes are implemented using **pipelines**, which are a *series of steps that are executed in order*.
+There are many systems designed to execute pipelines, but the most common ones are:
 
-- **GitHub Actions** (free for open repositories, "paid" for closed repos when you surpass the limit);
+- **GitHub Actions** (free for public repositories; monthly allowance for private repositories, paid when you surpass the limit);
 - **GitLab Pipelines** (400 compute minutes for free, paid if you wish to use their runners);
-- **Jenkins** (open source, need to bring your infrastructure, harder to learn);
+- **Jenkins** (open source, need to bring your own infrastructure, harder to learn);
 - **CircleCI** (6000 minutes for free, need to upgrade for more)
 
 ---
 
 class: inverse, center, middle
 
-
 ## GitHub Actions
+
 ### Now we're getting to the fun part ;)
 
 ---
 
 ### GitHub Actions - Syntax
 
-Every _workflow_ (equivalent to a pipeline) file is based on the YAML configuration syntax (indentation is required, just like Python). _Workflow_ files need to be in the `.github/workflows` folder to work. 
+Every _workflow_ (equivalent to a pipeline) file is based on the YAML configuration syntax (indentation is required, just like Python). _Workflow_ files need to be in the `.github/workflows` folder to work.
 
+.muted[.mono[.github/workflows/ansible-lint.yml]]
 ```yaml
-name: 'Link Checker: All English'
-
+name: "Lint ansible files"
 on:
-  workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  check-links:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+  lint: # Any name you want
+    name: Ansible Lint
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@main # or version tag instead of 'main'
+        
+      - name: Upload sarif
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
         with:
-          node-version: 16.13.x
-          cache: npm
-...
-```
-
----
-
-```yaml
-...
-      - name: Install
-        run: npm ci
-
-      - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        with:
-          fileOutput: 'json'
-
-      - name: Show files changed
-        run: cat $HOME/files.json
-
-      - name: Link check (warnings, changed files)
-        run: |
-          ./script/rendered-content-link-checker.mjs \
-            --language en \
-            --max 100 \
-            --check-anchors \
-            --check-images \
-            --verbose \
-            --list $HOME/files.json
-
-      - name: Link check (critical, all files)
-        run: |
-          ./script/rendered-content-link-checker.mjs \
-            --language en \
-            --exit \
-            --verbose \
-            --check-images \
-            --level critical
-
+         sarif_file: ansible.sarif
+         category: ansible-lint
 ```
 
 ---
@@ -180,37 +327,26 @@ jobs:
 ### GitHub Actions - Events
 
 A _workflow_ can be triggered by a plentitude of events:
- - `push` or `pull_request` are the most common (listens for branch pushes or to PR events);
- - `create` or `delete` listen for branch creation/deletion events;
- - `workflow_call`, `workflow_dispatch`, and `workflow_run` can chain together _workflows_ via API or by specifying dependencies;
- - the `schedule` can make a _workflow_ work on a recurrent basis using _cron job_ syntax. 
- - There's a [huge number of events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) that can automate almost everything ranging from issues, comments or even automating GitHub Projects.
+
+- `push` or `pull_request` are the most common (listens for branch pushes or to PR events);
+- `create` or `delete` listen for branch creation/deletion events;
+- `workflow_call`, `workflow_dispatch`, and `workflow_run` can chain together _workflows_ via API or by specifying dependencies;
+- the `schedule` can make a _workflow_ work on a recurrent basis using _cron job_ syntax.
+- There's a [huge number of events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) that can automate almost everything ranging from issues, comments or even automating GitHub Projects.
 
 You can automate almost everything in GitHub, the sky is the limit 🚀
 
 ---
 
-### GitHub Actions - Events example
-
-```yaml
-on:
-  push:
-    branches: [master, develop]
-  workflow_dispatch:
-  pull_request:
-```
-
----
-
 ### GitHub Actions - Jobs
 
-A _workflow_ run is defined as one or multiple _jobs_, that run in parallel by default unless you define dependencies between them. A _job_ is then defined by one or multiple _steps_ that can be either shell commands or an action from the _GitHub Marketplace_. 
+A _workflow_ run is defined as one or multiple _jobs_, that run in parallel by default unless you define dependencies between them. A _job_ is then defined by one or multiple _steps_ that can be either **shell commands**, an **action from the _GitHub Marketplace_**, or a **custom action**.
 
 You should also define what type of machine the job will run on, there's multiple types that GitHub can offer:
- - **GitHub-hosted runner** (`macos-latest`, `ubuntu-latest`, `windows-latest`)
- - **Large-runners** (they have fewer limitations compared to the hosted runners for example, they can run Android emulators, etc...)
- - **Self-hosted runners** (you can add your servers into your repository/organization, and have freedom on what you can run)
 
+- **GitHub-hosted runner** (`macos-latest`, `ubuntu-latest`, `windows-latest`)
+- **Large-runners** (they have fewer limitations compared to the hosted runners for example, they can run Android emulators, etc...)
+- **Self-hosted runners** (you can add your servers into your repository/organization, and have freedom on what you can run)
 
 ---
 
@@ -222,14 +358,14 @@ jobs:
     name: First job
     runs-on: ubuntu-latest
     steps:
-     - run: echo "Hello World!"
-  job2: 
+      - run: echo "Hello World!"
+  job2:
     name: Second job
     run-on: macos-latest
     needs: job1
     steps:
-     - run: echo "A UNI é a melhor APP"
-  job3: 
+      - run: echo "A UNI é a melhor APP"
+  job3:
     name: Third job
     run-on: macos-latest
     if: ${{2 > 1}} #you can call jobs conditionally
@@ -237,14 +373,16 @@ jobs:
       - job1
       - job2
     steps:
-     - run: echo "Bye!"
+      - run: echo "Bye!"
 ```
 
 ---
 
 ### GitHub Actions - Steps
 
-As said previously _steps_ can be just a **shell command** or you can use community actions from the _GitHub Marketplace_. You can make your Actions by programming them in **Javascript** or by using **Docker containers**. We will not get very in-depth on Action creation but you can consult the [documentation](https://docs.github.com/en/actions/creating-actions) later.
+As said previously _steps_ can be just a **shell command** or you can use other actions. You can make your Actions by programming them in **Javascript**, by using **Docker containers** or by defining them using **YAML** in the .mono[.github/actions/] folder of your repository.
+
+We will not get very in-depth on Action creation but you can consult the [documentation](https://docs.github.com/en/actions/creating-actions) later.
 
 ```yaml
 jobs:
@@ -252,14 +390,14 @@ jobs:
     name: First job
     runs-on: ubuntu-latest
     steps:
-     # community action to automatically download the 
-     # workflow repo in the correct branch 
-     - uses: actions/checkout@v4 
+     # community action to automatically download the
+     # workflow repo in the correct branch
+     - uses: actions/checkout@v4
      - run: echo "Hello World!"
     - uses: LuisDuarte1/semver-bump-environment@v1.0.0
-      # you can also define IDs to access the 
+      # you can also define IDs to access the
       # action outputs later
-      id: bump-beta-version 
+      id: bump-beta-version
       with:
         current_environment: staging
         production_version: '1.2.0'
@@ -271,13 +409,14 @@ jobs:
 
 ### GitHub Actions - Contexts
 
-Certain types of events define a default _context_ information for that type of event. The most common _context_ is the `github` context, where you can access related metadata about the action itself, or even more importantly the **commit SHA** (`github.sha`) or the **branch** that triggered the _workflow__ (`github.ref`).
+Certain types of events define a default _context_ information for that type of event. The most common _context_ is the `github` context, where you can access related metadata about the action itself, or even more importantly the **commit SHA** (`github.sha`) or the **branch** that triggered the \_workflow\_\_ (`github.ref`).
 
 There are other contexts you can access:
- - **env** (contains variables set in a workflow, job, or step)
- - **secrets** (contains the values of secrets that are available on that workflow)
- - **matrix** (contains properties defined in a _matrix_)
- - [and many other contexts...](https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts)
+
+- **env** (contains variables set in a workflow, job, or step)
+- **secrets** (contains the values of secrets that are available on that workflow)
+- **matrix** (contains properties defined in a _matrix_)
+- [and many other contexts...](https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts)
 
 ---
 
@@ -372,7 +511,7 @@ The matrix strategy will create **all combinations** of the variables (in this c
 
 ### GitHub Actions - Secrets
 
-_Secrets_ allow you to have _workflows_ that can handle **sensitive** information (e.g.: API keys, private keys, etc...). You can only read secrets that you **explicitly** include. You should avoid passing _secrets_ between processes and jobs in your _workflow_ because you might be vulnerable to a **supply-chain attack** (like the xz incident). 
+_Secrets_ allow you to have _workflows_ that can handle **sensitive** information (e.g.: API keys, private keys, etc...). You can only read secrets that you **explicitly** include. You should avoid passing _secrets_ between processes and jobs in your _workflow_ because you might be vulnerable to a **supply-chain attack** (like the xz incident).
 
 You should pass secrets using the **with** keyword in Actions or printing them on **STDIN** of a process. If you wish to pass it as an argument you must do it indirectly:
 
@@ -387,7 +526,7 @@ jobs:
         echo "$SUPER_DUPER_SECRET_KEY" | some-process
   job2:
     steps:
-      run: echo "$SUPER_DUPER_SECRET_KEY" 
+      run: echo "$SUPER_DUPER_SECRET_KEY"
     # will return nothing because it's scoped to the first job
 ```
 
@@ -397,8 +536,8 @@ jobs:
 
 It might be useful to speed up the _workflow_ by caching dependencies between workflow jobs. This improves developer experience but also can reduce costs (if running on paid runners):
 
-  - `setup-python`, `setup-node`, `setup-java`, `setup-ruby`, etc... These are community actions that set the right environment for your desired language but also can cache dependencies automatically;
-  - `cache` action is a generalized caching action that takes a list of paths and caches them with an explicit `key` for a cache entry. [Documentation](https://github.com/actions/cache).
+- `setup-python`, `setup-node`, `setup-java`, `setup-ruby`, etc... These are community actions that set the right environment for your desired language but also can cache dependencies automatically;
+- `cache` action is a generalized caching action that takes a list of paths and caches them with an explicit `key` for a cache entry. [Documentation](https://github.com/actions/cache).
 
 ```yaml
 jobs:
@@ -413,7 +552,7 @@ jobs:
             - bar
           # caches by OS but also caches by current git ref
           key: ${{ runner.os }}-${{ github.ref }}
-      - if: steps.cache-primes.outputs.cache-hit != 'true'
+      - if: steps.cache-files.outputs.cache-hit != 'true'
         run: ./create-files.sh
 ```
 
@@ -458,29 +597,19 @@ Sometimes the best way to learn is by looking at how the community implements CI
 class: inverse, center, middle
 
 # Hands-on
+
 ### I hope that wasn't too overwhelming 😅
 
 ---
 
-### The objective
-
-Let's imagine you've recently entered a company that develops a Flutter application, CineScope (completely not my ESOF project) however they have no CI/CD processes and they would like you to implement it.
-
-You should have:
- - A CI pipeline that runs the linter, the formatter, and finally, the unit tests. It should run on every PR but also every push to the main branch;
- - A CD pipeline that builds the final application as an APK and creates a GitHub Release for it.
-
----
-
-### How to
+### Next steps
 
 You should create a new repository that is a template of this repo:
 
 <div style="display:flex; flex-direction: column; justify-content: space-between; height:15rem">
   <div style="display:flex; justify-content: center">
-    <a href="https://github.com/NIAEFEUP/workshop-ci-24-template">https://github.com/NIAEFEUP/workshop-ci-24-template</a>
+    <a href="https://github.com/NIAEFEUP/workshop-sinf-2024-ci-cd">https://github.com/NIAEFEUP/workshop-sinf-2024-ci-cd</a>
   </div>
-
 
   <div style="display:flex; justify-content: center">
     <img src="assets/template.png">
@@ -503,27 +632,8 @@ git commit -a --amend && git push --force
 
 ---
 
-### Tips
-You might not know Flutter, so here are the important commands to do the 3 tasks with them:
-
-```sh
-# format command
-dart format . --set-exit-if-changed
-```
-
-```sh
-# lint command
-flutter analyze
-```
-
-```sh
-# release build apk
-flutter build apk
-```
-
----
-
 class: inverse, middle, center
 
 # Thank you!
+
 ## Any questions?

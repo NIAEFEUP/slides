@@ -34,8 +34,20 @@ h6 {
     font-family: 'Ubuntu Mono';
 }
 
+img {
+    padding: 1rem;
+}
+
+.medium-images img {
+    width: 50%;
+}
+
 .small-images img {
     width: 30%;
+}
+
+.smaller-images img {
+    width: 15%;
 }
 
 .inverse {
@@ -49,6 +61,23 @@ li {
 
 ul {
     margin-top: 1em;
+}
+
+.question {
+    margin-top: 1.5em;
+    border-left: 0.1em solid rgb(123, 20, 220);
+    padding-left: 0.5em;
+}
+
+.question > p:first-child {
+    font-size: smaller;
+    color: rgb(123, 20, 220);
+    margin: 0;
+}
+
+.question > p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .remark-code,
@@ -66,4 +95,13 @@ blockquote {
     border-left: 0.1em solid #13212e;
     padding-left: 0.5em;
     margin: 0;
+}
+
+.muted {
+    color: #979797;
+    font-size: smaller;
+}
+
+.mono {
+    font-family: 'Ubuntu Mono';
 }

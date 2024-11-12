@@ -1,3 +1,3 @@
-[submodule "CPP_Workshop/feup-prog-RobotsGame"]
-	path = CPP_Workshop/feup-prog-RobotsGame
+[submodule "Archived/cpp-workshop/feup-prog-RobotsGame"]
+	path = Archived/cpp-workshop/feup-prog-RobotsGame
 	url = git@github.com:isabel-amaral/feup-prog-RobotsGame

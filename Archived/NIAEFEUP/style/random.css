@@ -1,0 +1,199 @@
+.red {
+  color: #fa0000;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  font-size: 50%;
+}
+
+/* .inverse {
+  background: #272822;
+  color: #CCCCCC;
+  text-shadow: 0 0 20px #333;
+}
+
+.inverse h1, .inverse h2 {
+  color: #f3f3f3;
+  line-height: 0.8em;
+} */
+
+.indexlink {
+  bottom: 12px;
+  position: absolute;
+  left: 20px;
+  opacity: .5;
+  font-size: 0.8em;
+}
+
+.indexlist li {
+  display: block;
+  float: left;
+  background-color: #333;
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.indexlink a {
+  color: #999;
+  padding-right: 1em;
+}
+
+table td {
+  padding: 0.5em;
+  background-color: #373832;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.8em;
+}
+
+table td:first-child {
+  color: black;
+  white-space: nowrap;
+  background-color: inherit;
+}
+
+blockquote {
+  font-size: 0.7em;
+  background: #f9f9f9;
+  border-left: 10px solid #aaa;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-style: italic;
+  border-radius: .5em;
+}
+
+blockquote:before {
+  color: #aaa;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.relation table {
+  border-collapse: collapse;
+  font-size: 1em;
+}
+
+.relation table td {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  border: 1px solid black;
+  padding: 10px 5px;
+}
+
+.relation.selected table td {
+  color: red;
+}
+
+.relation table td:first-child {
+  border: none;
+}
+
+.relation table td .pk {
+  border-right: 1px solid black;
+  padding: 10px 5px;
+}
+
+.sqltable table {
+  font-family: "Droid Sans Mono";
+}
+
+.sqltable table td {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0;
+}
+
+.sqltable table th {
+  background-color: #EEE;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0;
+  text-align: center;
+}
+
+.simple table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.simple table tr:first-child th {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.5em;
+}
+
+.simple table td {
+  color: black
+}
+
+.simple table td {
+  background-color: white
+}
+
+.selected {
+  color: red
+}
+
+.key {
+  text-decoration: underline
+}
+
+.small,
+.small code {
+  font-size: .8em
+}
+
+.smaller,
+.smaller code {
+  font-size: .5em
+}
+
+del {
+  color: red;
+}
+
+code {
+  display: inline-block !important;
+  font-family: monospace;
+  font-size: .8em;
+  background-color: gray;
+  padding: .2em;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+  margin: .1em;
+}
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+.pull-right~p {
+  clear: both;
+}
+
+.centered {
+  margin: 0 auto;
+  display: table;
+}
+
+.mainLogo { 
+  width: 200px; 
+  height: 200px;
+}

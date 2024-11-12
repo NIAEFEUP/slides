@@ -15,43 +15,47 @@
 
 ## Workshop Slides
 
-- [NIAEFEUP - About](https://niaefeup.github.io/slides/NIAEFEUP)
+- [Git and GitHub](https://niaefeup.github.io/slides/git-workshop)
 
 - [Flutter](https://niaefeup.github.io/slides/flutter-workshop)
 
-- [Git - Internal](https://niaefeup.github.io/slides/git-internal-workshop)
-
 - [Python](https://niaefeup.github.io/slides/python-workshop)
 
-- [Python - BEST](https://niaefeup.github.io/slides/BEST_python_slides/slides)
+- [C++](https://niaefeup.github.io/slides/cpp-Workshop)
 
-- [C++](https://niaefeup.github.io/slides/CPP_Workshop)
-
-- Docker [(pdf)](https://niaefeup.github.io/slides/docker-workshop/Docker%20workshop_juliane_marubayashi.pdf)
-
-- [HTTP Node](https://niaefeup.github.io/slides/http-node-workshop)
-
-- [React and NextJS](https://niaefeup.github.io/slides/react-nextjs-workshop)
-
-- [React and Express](https://niaefeup.github.io/slides/react-express-workshop)
-
-- [Web Extension](https://niaefeup.github.io/slides/web-extension)
-
-- IoT [(pdf)](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
-
-- [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop-sinf2024)
-
-- [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
-
-- [Kubernetes](https://niaefeup.github.io/slides/kubernetes-workshop)
-
-## Archived Workshop Slides
-
-- [Flutter](https://niaefeup.github.io/slides/uni-flutter-internal-workshop)
+- Web (HTML/CSS/JS)
 
 - [React](https://niaefeup.github.io/slides/react-workshop)
 
+- [Next.js](https://niaefeup.github.io/slides/nextjs-workshop)
+
+- [Web Browser Extension](https://niaefeup.github.io/slides/web-extension)
+
 - [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
+
+- Docker [(pdf)](https://niaefeup.github.io/slides/docker-workshop/Docker%20workshop_juliane_marubayashi.pdf)
+
+- [Kubernetes](https://niaefeup.github.io/slides/kubernetes-workshop)
+
+- IoT [(pdf)](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
+
+- [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
+
+## Archived Workshop Slides
+
+- [Flutter for UNI](https://niaefeup.github.io/slides/Archived/uni-flutter-internal-workshop)
+
+- [React](https://niaefeup.github.io/slides/Archived/react-workshop)
+
+- [React and Express](https://niaefeup.github.io/slides/Archived/react-express-workshop)
+
+- [HTTP Node](https://niaefeup.github.io/slides/http-node-workshop)
+
+- [CI/CD](https://niaefeup.github.io/slides/Archived/gh-actions-workshop)
+
+- [NIAEFEUP - About](https://niaefeup.github.io/slides/Archived/NIAEFEUP)
+
+- [GIT](https://niaefeup.github.io/slides/Archived/git-workshop)
 
 ## License
 
