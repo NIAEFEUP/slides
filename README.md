@@ -21,9 +21,9 @@
 
 - [Python](https://niaefeup.github.io/slides/python-workshop)
 
-- [C++](https://niaefeup.github.io/slides/cpp-Workshop)
+- [C++](https://niaefeup.github.io/slides/cpp-workshop)
 
-- Web (HTML/CSS/JS)
+- [Web (HTML/CSS/JS)](https://niaefeup.github.io/slides/web-workshop)
 
 - [React](https://niaefeup.github.io/slides/react-workshop)
 
