@@ -181,14 +181,19 @@ All HTML documents **must** have these elements:
 
 The `<p>` tag can be used to write a paragraph. It's a block element, which means it will take up the whole width of the page.
 
-.horizontal[
-
 ```html
 <p>
   This is a poem A poem this is Why am I not breaking lines? Can you tell me
   please?
 </p>
 ```
+
+<p>
+This is a poem
+A poem this is
+Why am I not breaking lines?
+Can you tell me please?
+</p>
 
 ```html
 <p>
@@ -199,25 +204,12 @@ The `<p>` tag can be used to write a paragraph. It's a block element, which mean
 </p>
 ```
 
-]
-
-↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-.horizontal[
-
-  <p>
-  This is a poem
-  A poem this is
-  Why am I not breaking lines?
-  Can you tell me please?
-  </p>
-  <p>
-  This is a poem<br>
-  A poem this is<br>
-  Why am I not breaking lines?<br>
-  Can you tell me please?
-  </p>
-]
+<p>
+This is a poem<br>
+A poem this is<br>
+Why am I not breaking lines?<br>
+Can you tell me please?
+</p>
 
 ---
 
@@ -397,6 +389,24 @@ Forms are used for basic interaction with the server or through javascript
 Discover all the available tags at [w3schools](https://www.w3schools.com/tags/)
 
 ---
+
+Before Hands-on,
+
+# Dev Tools
+
+Most modern browsers have a **Developer Tools** that can help you debug your website, check the network requests, and even change the website on the fly.
+Let's check some of the most important features:
+
+- **Elements**: Check the HTML and CSS of the website
+- **Console**: Check the output of the website
+- **Network**: Check the network requests
+- **Application**: Check the cookies, local storage, and session storage
+- **Performance**: Check the performance of the website
+
+Check some tips at [Chrome DevTools](https://developer.chrome.com/docs/devtools/tips)
+
+---
+
 name: practice-html
 
 # Hands-on!
@@ -1576,7 +1586,7 @@ catch (e) {
 
 - The **Document Object Model** (DOM) is a representation of a web page as a _tree of nodes_.
 - It allow programs to access the tree and change the document **structure, style and content**.
-- Nodes can also have **event handlers** attached to them. Once an event is triggered, the event handlers get executed. 
+- Nodes can also have **event handlers** attached to them. Once an event is triggered, the event handlers get executed.
 - It can be manipulated from the browser using _JavaScript_.
 
 ---
@@ -1597,34 +1607,37 @@ catch (e) {
 <html>
   <head>
     <script src="...url of javascript script..."></script>
-    <script>...javascript code goes here...</script>
+    <script>
+      ...javascript code goes here...
+    </script>
   </head>
 </html>
 ```
-
 
 ---
 
 # Selecting Elements
 
 - **getElementById(id)** that returns an Element. <br>
-<small>returns the element with the specified id. </small>
+  <small>returns the element with the specified id. </small>
 - **getElementsByClassName(class)** that returns a NodeList. <br>
-<small> returns all elements with the specified class. </small>
+  <small> returns all elements with the specified class. </small>
 - **getElementsByTagName(name)** that returns a NodeList. <br>
-<small> returns all elements with the specified tag name. </small>
+  <small> returns all elements with the specified tag name. </small>
 - **querySelector(selector)** that returns an Element. <br>
-<small> returns _the first element_ selected by the specified CSS selector. </small>
+  <small> returns _the first element_ selected by the specified CSS selector. </small>
 - **querySelectorAll(selector)** that returns a NodeList. <br>
-<small> returns _all elements_ selected by the specified CSS selector. </small>
+  <small> returns _all elements_ selected by the specified CSS selector. </small>
 
 ```js
-const menu = document.getElementById('menu')
-const paragraphs = document.getElementsByTagName('p')  
-const intros = document.querySelectorAll('article p:first-child')  
-const links = menu.querySelectorAll('a')
+const menu = document.getElementById("menu");
+const paragraphs = document.getElementsByTagName("p");
+const intros = document.querySelectorAll("article p:first-child");
+const links = menu.querySelectorAll("a");
 ```
+
 ---
+
 # Traversing
 
 You can also get access to other elements related to the selected one.
@@ -1639,51 +1652,58 @@ You can also get access to other elements related to the selected one.
 ```js
 const container = document.querySelector("#container");
 
-container.firstChild.textContent                            /* #text (whitespace before <p>) */
-container.firstElementChild.textContent                     /* First Paragraph */         
-container.firstElementChild.nextElementSibling.textContent  /* Second Paragraph */
-container.lastElementChild.textContent                      /* Second Paragraph */
+container.firstChild.textContent; /* #text (whitespace before <p>) */
+container.firstElementChild.textContent; /* First Paragraph */
+container.firstElementChild.nextElementSibling
+  .textContent; /* Second Paragraph */
+container.lastElementChild.textContent; /* Second Paragraph */
 ```
+
 ---
 
 # Alterations to Elements
+
 After selecting an Element, you can access and alter its:
+
 - Attributes
 - Class List
 - Style
 - HTML Code
-  
+
 ```js
 const link = document.querySelector("a");
-link.classList.toggle('highlighted')
+link.classList.toggle("highlighted");
 link.style.backgroundColor = "blue";
 link.style.color = "red";
 ```
+
 As well as **remove** it, and **add a child** to it.
 
 ```js
 const label = document.createElement("span");
-label.textContent = "[Link] ";             /* sets the span's text */
-link.parentNode.insertBefore(label, link); /* inserts the label before the link */
+label.textContent = "[Link] "; /* sets the span's text */
+link.parentNode.insertBefore(
+  label,
+  link
+); /* inserts the label before the link */
 
 link.remove();
 ```
+
 ---
 
 # Events
 
-
 - Events are occurrences that happen in the system. <br>
-<small> e.g., the user clicks a button. </small>
+  <small> e.g., the user clicks a button. </small>
 - Specific events in specific objects can have event handlers attached to them.
 - When the event happens, the attached **handler is called**.
 
 Some possible events:
 
-- **Mouse**  – click, dblclick, mouseup, mousenter, mouseleave, mouseover.
-- **Forms**  – input, focus, submit.
+- **Mouse** – click, dblclick, mouseup, mousenter, mouseleave, mouseover.
+- **Forms** – input, focus, submit.
 - **Keyboard** – keydown, keyup, keypress.
-
 
 ---
 
@@ -1694,40 +1714,44 @@ The `addEventListener` function is the most common way to attach event handlers.
 For example:
 
 ```js
-const button = document.querySelector("button")
-button.addEventListener('click', function(event){
-  console.log('User clicked button')
-})
+const button = document.querySelector("button");
+button.addEventListener("click", function (event) {
+  console.log("User clicked button");
+});
 ```
 
 Or:
 
 ```js
 function handleEvent() {
-  console.log('User clicked button')
+  console.log("User clicked button");
 }
-const button = document.querySelector("button")
-button.addEventListener('click', handleEvent)
+const button = document.querySelector("button");
+button.addEventListener("click", handleEvent);
 ```
 
 ---
 
 # Bubbling
 
-
 When an event happens on an element, it first runs any handlers attached to it, then on its parent, then up to the root.
 
 In each step, the handler can know the current target (**event.currentTarget** or this) and also the initial target (**event.target**).
 
 ```html
-<section> <article> <p>Text</p> </article> </section>
+<section>
+  <article><p>Text</p></article>
+</section>
 ```
-```js
-function logEvent(event) {console.log('Bubble: ' + this.tagName + " - " + event.target.tagName)}
 
-document.querySelector('section').addEventListener('click', logEvent)
-document.querySelector('article').addEventListener('click', logEvent)
-document.querySelector('p').addEventListener('click', logEvent)
+```js
+function logEvent(event) {
+  console.log("Bubble: " + this.tagName + " - " + event.target.tagName);
+}
+
+document.querySelector("section").addEventListener("click", logEvent);
+document.querySelector("article").addEventListener("click", logEvent);
+document.querySelector("p").addEventListener("click", logEvent);
 ```
 
 Clicking on the paragraph:
@@ -1888,6 +1912,7 @@ We can also send our own data and specify a different **HTTP** method:
     }
 
 ```
+
 ---
 
 name: practice-js
@@ -1908,11 +1933,10 @@ Function to always select random posts so you can see the effects of the fetch w
 
 ```js
 function getRandomPosts(posts, count) {
-    const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()); // Shuffle posts array
-    return shuffledPosts.slice(0, count); // Return first 'count' random posts
+  const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()); // Shuffle posts array
+  return shuffledPosts.slice(0, count); // Return first 'count' random posts
 }
 ```
-
 
 ---
 
@@ -1933,27 +1957,6 @@ help with our productivity and help us do Web Development faster:
 # The light at end of the tunnel
 
 Nonetheless, the basics (HTML, JS, CSS) are important when learning these frameworks because they give a general idea of how the web works!
-
----
-
-# Dev Tools
-
-Most modern browsers have a **Developer Tools** that can help you debug your website, check the network requests, and even change the website on the fly.
-Let's check some of the most important features:
-
-- **Elements**: Check the HTML and CSS of the website
-- **Console**: Check the output of the website
-- **Network**: Check the network requests
-- **Application**: Check the cookies, local storage, and session storage
-- **Performance**: Check the performance of the website
-
-Check some tips at [Chrome DevTools](https://developer.chrome.com/docs/devtools/tips)
-
----
-
-name: hands-on
-
-# Hands-on!
 
 ---
 
