@@ -1333,7 +1333,7 @@ In Javascript there are 3 ways of initializing a variable, you can use ~~var~~, 
 
 <ul>
 <li> <b>const</b>: we use const when we want to initialize a variable that will never change its value </li>
-<li><b>let</b>: we use const when we want to initialize a variable that will never change its value</li>
+<li><b>let</b>: we use let when we want to initialize a variable that will never change its value</li>
 <li><b>var</b>: You should never use var</li>
 </ul>
 
@@ -1515,9 +1515,9 @@ Every function that has a await in it will also be an async function.
 
 ## Promises
 
-A promise represents the eventual result of an asynchronous operation.
-A promise may be in one of 3 possible states: fulfilled, rejected, or pending.
-A Promise is an object that takes a function with two parameters, functions resolve and reject:
+- A promise represents the eventual result of an asynchronous operation.
+- A promise may be in one of 3 possible states: **fulfilled**, **rejected**, or **pending**.
+- A Promise is an object that takes a function with two parameters, functions resolve and reject:
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -1528,7 +1528,7 @@ const promise = new Promise((resolve, reject) => {
 });
 ```
 
-consuming
+Consuming:
 
 ```js
 promise
@@ -1824,7 +1824,7 @@ Each HTTP Response has an associated Status code.
 
 Let's assume that you have a search page in your website, how would you save what the user has searched directly in the URL?
 
-In the URL you can use the `?` after the path to declare the seach parameters.
+In the URL you can use the `?` after the path to declare the search parameters.
 
 A parameter is in the `key=value` form, and you can seperate them with the `&` character.
 
