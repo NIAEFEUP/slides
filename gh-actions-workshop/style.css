@@ -1,0 +1,107 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300);
+
+body {
+    font-family: 'Droid Serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+.remark-slide-content:not(.inverse)>h1,
+.remark-slide-content:not(.inverse)>h2,
+.remark-slide-content:not(.inverse)>h3,
+.remark-slide-content:not(.inverse)>h4,
+.remark-slide-content:not(.inverse)>h5,
+.remark-slide-content:not(.inverse)>h6 {
+    color: #13212e;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+}
+
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+}
+
+img {
+    padding: 1rem;
+}
+
+.medium-images img {
+    width: 50%;
+}
+
+.small-images img {
+    width: 30%;
+}
+
+.smaller-images img {
+    width: 15%;
+}
+
+.inverse {
+    background: #13212e;
+    color: white;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+ul {
+    margin-top: 1em;
+}
+
+.question {
+    margin-top: 1.5em;
+    border-left: 0.1em solid rgb(123, 20, 220);
+    padding-left: 0.5em;
+}
+
+.question > p:first-child {
+    font-size: smaller;
+    color: rgb(123, 20, 220);
+    margin: 0;
+}
+
+.question > p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    background-color: #282b2e !important;
+    color: white;
+    padding: 0.1em;
+}
+
+blockquote {
+    font-size: 1em;
+    font-style: italic;
+    color: #13212e;
+    border-left: 0.1em solid #13212e;
+    padding-left: 0.5em;
+    margin: 0;
+}
+
+.muted {
+    color: #979797;
+    font-size: smaller;
+}
+
+.mono {
+    font-family: 'Ubuntu Mono';
+}
