@@ -35,3 +35,13 @@ on_fire_1(C) :-
 on_fire_2(C) :- 
     study(C),
     project(C).
+
+% Cut, version 1
+on_fire_cut_1(C):- 
+    project(C), !,
+    study(C).
+
+% Cut, version 2
+on_fire_cut_2(C):- 
+    project(C),
+    study(C), !.
