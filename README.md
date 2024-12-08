@@ -21,6 +21,8 @@
 
 - [Python](https://niaefeup.github.io/slides/python-workshop)
 
+- [Prolog](https://niaefeup.github.io/slides/prolog-workshop)
+
 - [C++](https://niaefeup.github.io/slides/cpp-workshop)
 
 - [Web (HTML/CSS/JS)](https://niaefeup.github.io/slides/web-workshop)
@@ -39,7 +41,7 @@
 
 - IoT [(pdf)](https://niaefeup.github.io/slides/iot-workshop/Workshop%20IoT.pdf)
 
-- [IoT Pong](https://niaefeup.github.io/slides/iot-pong)
+- [IoT Pong](https://niaefeup.github.io/slides/iot-pong-workshop)
 
 ## Archived Workshop Slides
 
@@ -49,14 +51,14 @@
 
 - [React and Express](https://niaefeup.github.io/slides/Archived/react-express-workshop)
 
-- [HTTP Node](https://niaefeup.github.io/slides/http-node-workshop)
+- [HTTP Node](https://niaefeup.github.io/slides/Archived/http-node-workshop)
 
-- [CI/CD](https://niaefeup.github.io/slides/Archived/gh-actions-workshop)
+- [CI/CD 2023](https://niaefeup.github.io/slides/Archived/gh-actions-workshop-2023)
 
 - [NIAEFEUP - About](https://niaefeup.github.io/slides/Archived/NIAEFEUP)
 
-- [GIT](https://niaefeup.github.io/slides/Archived/git-workshop)
-
+- [GIT](https://niaefeup.github.io/slides/Archived/git-workshop/ws-git-slides-2021.html)
+x
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.

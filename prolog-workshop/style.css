@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300);
+
+body {
+    font-family: 'Ubuntu Mono';
+    background: #e0e0e0;
+    color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu Mono';
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.remark-slide-content:not(.inverse)>h1,
+.remark-slide-content:not(.inverse)>h2,
+.remark-slide-content:not(.inverse)>h3,
+.remark-slide-content:not(.inverse)>h4,
+.remark-slide-content:not(.inverse)>h5,
+.remark-slide-content:not(.inverse)>h6 {
+    color: #4a4a4a;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+}
+
+img {
+    padding: 1rem;
+}
+
+.large-images img {
+    width: 90%;
+}
+
+.medium-images img {
+    width: 50%;
+}
+
+.small-images img {
+    width: 30%;
+}
+
+.smaller-images img {
+    width: 15%;
+}
+
+.inverse {
+    background: #e0e0e0;
+    color: #333333;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+ul {
+    margin-top: 1em;
+}
+
+.question {
+    margin-top: 1.5em;
+    border-left: 0.1em solid #cccccc;
+    padding-left: 0.5em;
+}
+
+.question > p:first-child {
+    font-size: smaller;
+    color: #cccccc;
+    margin: 0;
+}
+
+.question > p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    
+    background-color: #2a2a2a !important;
+    color: #000000;
+    padding: 0.1em;
+}
+
+blockquote {
+    font-size: 1em;
+    font-style: italic;
+    color: #7f7f7f;
+    border-left: 0.1em solid #b0b0b0;
+    padding-left: 0.5em;
+    margin: 0;
+}
+
+.muted {
+    color: #9e9e9e;
+    font-size: smaller;
+}
+
+.mono {
+    font-family: 'Ubuntu Mono';
+}
+
+.footer {
+    font-size: 0cm;
+    position: fixed;
+    bottom: 0.5em;
+    width: 80%;
+    font-weight: normal;
+    color: #333333;
+    opacity: 0.8;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #e0e0e0;
+}
+
+.selected {
+    font-weight: bold;
+    opacity: 1;
+}
+
+a:not(.line) {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+    opacity: inherit;
+}
