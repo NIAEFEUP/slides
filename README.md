@@ -58,7 +58,7 @@
 - [NIAEFEUP - About](https://niaefeup.github.io/slides/Archived/NIAEFEUP)
 
 - [GIT](https://niaefeup.github.io/slides/Archived/git-workshop/ws-git-slides-2021.html)
-x
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.

@@ -14,11 +14,11 @@ class: inverse, center, middle, small-images
 
 ### You can follow the presentation here
 
-https://slides.niaefeup.pt/prolog-workshop
+<a href="https://slides.niaefeup.pt/prolog-workshop" class="line">https://slides.niaefeup.pt/prolog-workshop</a>
 
 <img src="./assets/logos/niaefeup.png"><br></br>
 
-Examples, exercises, and solutions can be found in the <a href="/code">/code</a> folder
+Examples, exercises, and solutions can be found in the **/code** folder
 
 ---
 
@@ -55,9 +55,9 @@ class: inverse, center, middle
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -71,9 +71,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -87,9 +87,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -103,9 +103,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -119,9 +119,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -135,9 +135,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -151,9 +151,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -167,9 +167,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -183,9 +183,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -199,9 +199,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -215,9 +215,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -231,9 +231,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -247,9 +247,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -263,9 +263,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -279,9 +279,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -295,9 +295,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -311,9 +311,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -327,9 +327,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -343,9 +343,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -359,9 +359,9 @@ class: inverse, middle, center
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -375,9 +375,9 @@ class: inverse
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -391,9 +391,9 @@ class: inverse,
 <div class="footer">
     <a href="#5" class="selected">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -407,9 +407,9 @@ class: inverse, middle, center
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -423,9 +423,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -439,9 +439,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -455,9 +455,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -471,9 +471,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -487,9 +487,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -503,9 +503,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -519,9 +519,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -535,9 +535,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -551,9 +551,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -567,9 +567,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -583,10 +583,56 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27" class="selected">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
+
+---
+
+class: inverse
+
+# Backtracking - Cut
+
+Let’s prune the search tree!
+
+```prolog
+on_fire(C):- 
+    project(C),
+    study(C).
+```
+
+<div class="footer">
+    <a href="#5">Introduction</a> | 
+    <a href="#27" class="selected">Backtracking</a> |
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
+</div>
+
+--
+
+What will be the output of this code?
+
+```prolog
+on_fire(C):- 
+    project(C), !,
+    study(C).
+```
+
+And this one?
+
+--
+
+```prolog
+on_fire(C):- 
+    project(C),
+    study(C), !.
+```
+
+--
+
+The cut will be very important in the project to create loops and stop recursion/backtracking. We will see other examples later.
 
 ---
 
@@ -597,9 +643,9 @@ class: inverse, large-images
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -624,9 +670,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -652,9 +698,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -694,9 +740,9 @@ father(pedro, manel).
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -732,9 +778,9 @@ unknown(X, Y):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -769,14 +815,14 @@ is_grandchild(X, Y):-
 ```
 ]
 
-##### Use +X for input variable, -X for output and ?X for input/output. See in <a class="line" href="/code/family.pl">/code/family.pl</a>
+##### Use +X for input variable, -X for output and ?X for input/output. See in <a class="line" href="./code/family.pl">/code/family.pl</a>
 
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -792,9 +838,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -806,9 +852,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ### Be careful about arithmetic operations
@@ -852,14 +898,68 @@ class: inverse
 
 # General Tips
 
+<div class="footer">
+    <a href="#5">Introduction</a> | 
+    <a href="#27">Backtracking</a> |
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
+</div>
+
+### Not everything is what it seems:
+
+This is an operation:
+
+.dense[
+```prolog
+?- X is 1, Y is 2, Z is X-Y. % -1
+```
+]
+
+--
+
+And this is a pair of atoms:
+
+.dense[
+```prolog
+?- X is 1, Y is 2, Z = X-Y. % 1-2
+```
+]
+
+--
+
+And this doesn’t work!
+
+.dense[
+```prolog
+?- X is 1, Y is 2, write(X-Y). % 1-2
+```
+]
+
+--
+
+It’s better to do it like this:
+
+.dense[
+```prolog
+?- X is 1, Y is 2, Z is X-Y, write(Z). % -1
+```
+]
+
+---
+
+class: inverse
+
+# General Tips
+
 ### Debugging
 
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -884,9 +984,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ```prolog
@@ -922,9 +1022,9 @@ In the test, you won’t have an IDE or VSCode tools to help you view the Prolog
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -951,9 +1051,9 @@ Solution? Have a sharp eye and always **test your code**!
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 ---
@@ -969,9 +1069,9 @@ SICStus Prolog in the terminal has a *skill issue*: it doesn’t allow access to
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39" class="selected">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43" class="selected">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -998,9 +1098,9 @@ Lists mechanism
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63" class="selected">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71" class="selected">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -1060,9 +1160,9 @@ create_list(Element, Size, List):- % TODO
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63" class="selected">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71" class="selected">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -1075,7 +1175,7 @@ create_list(_, 0, []).                       % first: always the base case
 
 ```prolog
 create_list(Element, Size, List) :-
-    Size > 0,                             % the guard
+    Size > 0,                                % the guard
     Size1 is Size - 1,
     create_list(Element, Size1, Sublist),    % recursive call
     append([Element], Sublist, List).
@@ -1110,9 +1210,9 @@ nthX(List, X, Value):- % TODO
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63" class="selected">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71" class="selected">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -1153,9 +1253,9 @@ replace(Index, Value, List, NewList):- % TODO
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63" class="selected">Lists & Recursion</a> | 
-    <a href="#81">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71" class="selected">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
 </div>
 
 --
@@ -1183,6 +1283,43 @@ Very useful for the project! It will come up again later.
 
 class: inverse
 
+# Lists & Recursion
+
+Can we simplify this more?
+
+```prolog
+replace(0, Value, [_|Tail], [Value|Tail]).
+replace(Index, Value, [Head|Tail], [Head|NewTail]):-
+    Index > 0,
+    NewIndex is Index - 1,
+    replace(NewIndex, Value, Tail, NewTail).
+```
+
+<div class="footer">
+    <a href="#5">Introduction</a> | 
+    <a href="#27">Backtracking</a> |
+    <a href="#43">General Tips</a> |
+    <a href="#71" class="selected">Lists & Recursion</a> | 
+    <a href="#91">Project</a>
+</div>
+
+--
+
+Yes...
+
+You already known the cut operator, right?
+
+```prolog
+replace(0, Value, [_|Tail], [Value|Tail]):- !.
+replace(Index, Value, [Head|Tail], [Head|NewTail]):-
+    NewIndex is Index - 1,
+    replace(NewIndex, Value, Tail, NewTail).
+```
+
+---
+
+class: inverse
+
 # Project
 
 According to the feedback from the workshop registration, the project received some interesting attention...
@@ -1194,9 +1331,9 @@ According to the feedback from the workshop registration, the project received s
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1210,9 +1347,9 @@ A generic game needs to manage a state. This state, or *GameState*, can generall
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -1246,9 +1383,9 @@ The Board always depends on the chosen game. There are two options:
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -1316,9 +1453,9 @@ display_board([Row|RemainingRows]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1351,9 +1488,9 @@ read_number_aux(X, X).
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1378,9 +1515,9 @@ get_number(Min, Max, Context, Value):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -1412,9 +1549,9 @@ get_game_state(GameState):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1433,9 +1570,9 @@ get_game_state([Board, Player]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1455,9 +1592,9 @@ get_game_state([Board, Player]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1481,9 +1618,9 @@ get_game_state([Board, Player]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1514,9 +1651,9 @@ get_game_state([Board, Player]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1536,9 +1673,9 @@ play:-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1552,9 +1689,9 @@ The game loop!
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -1595,9 +1732,9 @@ class: inverse
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1631,9 +1768,9 @@ game_loop(GameState):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1667,9 +1804,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1703,9 +1840,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1739,9 +1876,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1775,9 +1912,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1811,9 +1948,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1845,9 +1982,9 @@ choose_move(Board, X-Y):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1871,9 +2008,9 @@ put_piece(Board, X-Y, Piece, NewBoard):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -1916,9 +2053,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1952,9 +2089,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -1988,9 +2125,9 @@ game_loop([CurrentBoard, CurrentPlayer]):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
@@ -2015,9 +2152,9 @@ generate_moves(Board, Moves):-
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -2043,9 +2180,9 @@ Oh noooo, how are we going to handle the bot's choices now?
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -2077,9 +2214,9 @@ Oh noooo, how are we going to handle the bot's choices now?
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 --
@@ -2125,9 +2262,9 @@ Check out a possible implementation in the <a class="line" href="https://github.
 <div class="footer">
     <a href="#5">Introduction</a> | 
     <a href="#27">Backtracking</a> |
-    <a href="#39">General Tips</a> |
-    <a href="#63">Lists & Recursion</a> | 
-    <a href="#81" class="selected">Project</a>
+    <a href="#43">General Tips</a> |
+    <a href="#71">Lists & Recursion</a> | 
+    <a href="#91" class="selected">Project</a>
 </div>
 
 ---
