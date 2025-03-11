@@ -47,7 +47,7 @@ class Person {
   double height;
 
   String getName() => this.name;
-  
+
   String? getSurname() => this.surname
 }
 
@@ -261,56 +261,78 @@ class: center, middle, inverse
 
 #### Let's build a widget
 
-<img src="./assets/example.png" style="width: 40%;">
+## <img src="./assets/example.png" style="width: 40%;">
+
 ---
 
 class: inverse
 
 ### Part 1
 
-- Clone my UNI fork
+- Clone the workshop's repo
 
 ```sh
-git clone git@github.com:DGoiana/uni.git
+git clone git@github.com:DGoiana/flutter-ws.git
 
 ```
 
 - Checkout to part1 branch
 
 ```sh
-git checkout workshop/part1
+git checkout part1
 
 ```
 
-- Implement ExamInfo (will present information about an exam)
+- Implement Meal class (meal.dart)
+- Implement Meal card (meal_card.dart)
 
 ---
 
-### ExamInfo Widget
+### Meal Class
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:workshop/exam.dart';
-// import 'package:intl/intl.dart'; -> uncomment if needed
+class Meal{
+  Meal({
+    required this.name,
+    required this.category,
+    required this.region,
+    this.imageURL
+  });
 
-class ExamInfo extends StatelessWidget {
-  ExamInfo({required this.exam});
-
-  final Exam exam;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-        // TODO: change this in order to display the exam's information
-        child: Container());
-  }
+  // name
+  // category
+  // region
+  // optional URL
 }
 
 ```
 
-- Implement the body of the widget
+---
+
+### Meal Card
+
+```dart
+
+import 'package:flutter/material.dart';
+
+class MealCard extends StatelessWidget {
+  const MealCard({super.key, required this.meal});
+
+  final Meal meal;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+      ),
+      child: _;
+  }
+}
+
+```
 
 ---
 
@@ -386,10 +408,11 @@ class: center, middle, inverse
 #### Let's get our hands dirty. Can you build this (or better)?
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2em">
-<img src="./assets/second_example.png" style="height: 50vh;">
+<img src="./assets/practical/part2.gif" style="height: 50vh;">
 </div>
 
 ---
+
 class: inverse
 
 ### Part 2
@@ -397,66 +420,109 @@ class: inverse
 - Checkout to part2 branch
 
 ```sh
-git checkout workshop/part2
+git checkout part2
 ```
 
-- Implement ExamProvider (will hold all exams)
-- Implement ExamList (will present a ExamInfo card for each exam)
+- Implement RecipesProvider (will memorize all reciped generated)
+- Implement RandomMealPage (page to randomize meals)
+- Implement FetchRandomMeal (function to call API)
 
 ---
 
-### ExamList Widget
+### Fetch Random Meal
+
+```dart
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'meal.dart';
+
+Future<Meal> fetchRandomMeal() async {
+  final response = await http
+      .get(Uri.parse('https://www.themealdb.com/api/json/v1/1/random.php'));
+
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+    final mealData = data['meals'][0];
+
+    // retornar um objeto meal novo
+
+  } else {
+    throw Exception('Failed to load meal');
+  }
+}
+
+```
+
+---
+
+### Recipes Provider
 
 ```dart
 import 'package:flutter/material.dart';
 
-class ExamListSolution extends StatelessWidget {
-  ExamListSolution({super.key});
+class RecipesProvider extends ChangeNotifier {
+  final List<String> _recipes = [];
+
+  // cria uma função que retorna o nome das receitas
+
+  // cria uma função que adiciona as receitas à lista
+}
+
+```
+
+---
+
+### Random Meal Page
+
+```dart
+
+class RandomMealPage extends StatefulWidget {
+  const RandomMealPage({super.key});
 
   @override
+  State<RandomMealPage> createState() => RandomMealPageState();
+}
+
+class RandomMealPageState extends State<RandomMealPage> {
+  late Meal randomMeal;
+
+  @override
+  void initState() {
+    super.initState();
+    setRandomMeal();
+  }
+
+  Future<void> setRandomMeal() async {
+    Meal meal = await fetchRandomMeal();
+
+    // modificar estado
+  }
+
+```
+
+---
+
+### Random Meal Page II
+
+```dart
+
+@override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Exam List')),
+    final recipeProvider = Provider.of<RecipesProvider>(context);
 
-      // TODO: display all the exams from the provider's exam list
-      body: Container(),
-
-      floatingActionButton: FloatingActionButton(
-        // TODO: add an exam to the provider when the button is pressed
-        onPressed: () {},
-
-        child: Icon(Icons.add),
-      ),
+    return Column(
+      children: [
+        // adicionar botão
+        MealCard(meal: randomMeal),
+        Expanded(
+          child: // adicionar lista
+        ),
+      ],
     );
   }
 }
-```
-
-- Implement the body of the widget
-- Implement the action of the button
-
----
-
-### ExamProvider
-
-```dart
-import 'package:flutter/material.dart';
-
-class ExamProvider extends ChangeNotifier {
-  // TODO: create the list of exams
-
-  // TODO: create a function to return the list of exams
-
-  // TODO: create a function that adds an exam to the list
-
-  // TODO: create a function that removes an exam from the list
-}
 
 ```
-
-- Create a list to hold all exams
-- Create a function that returns the list of exams
-- Create functions to remove/add an exam to the list
 
 ---
 
