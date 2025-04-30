@@ -43,6 +43,8 @@
 
 - [IoT Pong](https://niaefeup.github.io/slides/iot-pong-workshop)
 
+- Pytn - High School Python [(pdf)](https://niaefeup.github.io/slides/python-high-school-workshop/NIcoders%20-%20Python%20with%20Pytn.pdf)
+
 ## Archived Workshop Slides
 
 - [Flutter for UNI](https://niaefeup.github.io/slides/Archived/uni-flutter-internal-workshop)
