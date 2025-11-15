@@ -39,7 +39,7 @@ Git é um _Version Control System_ (VCS) que permite registar mudanças em códi
 
 class: middle
 
-# Como instalar Git?
+# Instalar o Git
 
 Se estiverem a usar Linux, muito provavelmente vai estar diretamente no vosso package manager:
 
@@ -55,7 +55,7 @@ Se estiverem em Windows, podem utilizar o Git através do WSL (Windows Subsystem
 
 class: middle
 
-# Como configurar o Git?
+# Configurar o Git
 
 O primeiro passo é configurar o Git de modo a associarem o vosso nome e email aos commits:
 
@@ -75,49 +75,37 @@ Posteriormente, podem confirmar que as alterações foram feitas de forma corret
 
 ---
 
-class: center,inverse, middle
-
-# Como criar um repositório
-
----
-
 class: middle
 
-# Como criar um repositório
+# Git Stages
 
-A base de trabalho do Git é o repositório. Logo, temos que iniciar um repositório para começarmos a trabalhar.
+O Git possui **4 estados** diferentes onde os ficheiros podem estar: *untracked*, *unmodified*, *modified*, e *staged*.
+Sendo assim, podemos dividir o projeto de Git em 3 secções: ***Working Directory***, ***Staging Area*** e ***Git Directory***.
 
-Entra no projeto:
-```bash
-  $ cd <project-name>
-```
-Para iniciar um repositório, executa:
-```bash
-  $ git init
-```
-Dentro do ficheiro do projeto, vai ser criada uma pasta .git que vai ser usada para manter todas as alterações feitas no projeto.
-
-Para testar se o repositório está a funcionar, executa:
-```bash
-  $ git status 
-```
-
+<img height="380" width="500" src="assets/git-sections.svg" class="image-center">
 
 ---
 
 class: center,inverse, middle
 
-# Git Stages
+# Criar um repositório
 
 ---
 
 class: middle
 
-# Git Stages
+# Criar um repositório
 
-No git existem 4 estados onde os ficheiros podem estar: modified, staged e commited, e on remote. Sendo assim, podemos dividir o projeto de Git em quatro secções: **Working Tree**, **Staging Area**, **Git directory(HEAD)** e **Remote**.
+Um repositório é a base de trabalho do Git, pelo que é necessário iniciar um repositório para começarmos a trabalhar.
 
-<img height="380" width="500" src="assets/git_00_intro_01_sections.webp" class="image-center">
+```bash
+  $ cd <folder-name> # entrar num diretório local específico
+
+  $ git init # inicializar um repositório do Git
+
+  $ git status # verificar se o repositório está funcional
+```
+Dentro do diretório que escolheram vai ser criada uma pasta `.git` que vai ser usada para registar todas as alterações realizadas no projeto.
 
 ---
 
