@@ -31,9 +31,9 @@ class: middle
 
 # O que é o Git?
 
-Git é um _Version Control System_ (VCS) que permite registar mudanças em código e outros ficheiros de forma organizada.
+Git é um *Version Control System* (VCS) que permite registar mudanças em código e outros ficheiros de forma organizada.
 
-É o sistema de _version control_ mais usado no mundo e é o que vamos utilizar nste workshop.
+É o sistema de *version control* mais usado no mundo e é o que vamos utilizar neste workshop.
 
 ---
 
@@ -126,7 +126,9 @@ Primeiro, criem uma pasta e um repositório:
 
 ```bash
 $ mkdir git-test
+
 $ cd git-test
+
 $ git init
 ```
 
@@ -148,22 +150,37 @@ Agora podem adicionar estas alterações à **Staging Area**:
 $ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
 ```
 
-***Nota***: Podem adicionar a flag *--all* ou *-A* para dar *stage* a todos os ficheiros (quer não sejam seguidos, quer tenham apenas sido modificados).
+***Nota***: Podem adicionar a flag `--all` ou `-A` para dar *stage* a todos os ficheiros (quer não sejam seguidos, quer tenham apenas sido modificados).
 
-Mais uma vez, vemos que esta operação foi registada pelo git:
+Depois de verificarmos se a operação foi registada pelo Git, podemos dar commit:
+
 ```bash
 $ git status
+
+$ git commit -m "First commit"
+
+$ git log # lista o histórico de commits
 ```
 
-Com as alterações salvas, podemos dar commit:
-```bash
-$ git commit -m "My first commit yay"
-```
+---
 
-Conseguimos observar o histórico de commits através do comando:
+class: middle
+
+# Exercício 1 
+
+Posteriormente, podem, por exemplo, remover o ficheiro do working directory:
+
 ```bash
+$ git rm <ficheiro> # remove o ficheiro e dá stage às alterações
+
+$ git status
+
+$ git commit -m "Removi o ficheiro"
+
 $ git log
 ```
+
+***Nota***: Podem adicionar a flag `--cached` para apenas removerem o ficheiro do repositório do Git (o ficheiro não é eliminado).
 
 ---
 
@@ -175,29 +192,91 @@ class: center,inverse, middle
 
 class:  middle
 
-# Branches 
+# Branches
 
-Imaginem que estão a escrever um livro e guardam-no numa prateleira. Este livro é o **projeto principal**, no git é conhecido como a **branch "main"**. 
+Se os commits essencialmente representam as diferentes versões de um projeto, as branches funcionam como uma espécie de apontador para uma versão específica do projeto.
 
-Agora, digamos que vocês têm uma ideia nova ou querem fazer alguns ajustes **sem apagar aquilo que está no livro principal**. 
-
-Para isso, podem fazer uma **cópia** deste livro e começar a trabalhar nesta cópia em paralelo. Esta cópia é uma branch.
-
+Cada projeto no Git tem uma branch principal — ***master*** ou ***main***. Se quisermos fazer alterações ao projeto sem eliminar ou alterar aquilo que está na branch principal, podemos fazer uma cópia deste **criando uma nova branch** (utilizando o comando `git branch <nome>`).
 
 <img height="150" width="500" src="assets/branches.png" class="image-center">
-
 
 ---
 
 class:  middle
 
-# Merge Branches 
+# Merging
 
-Depois de termos feito as alterações, temos que substituir o livro principal (branch "main") para a versão com as alterações (branch "cópia"). 
+Depois de terminarmos de fazer alterações, temos que atualizar a branch principal para a versão mais recente. 
 
-Vamos fazer isso com um **merge**, onde vamos juntar tudo aquilo que está com o **livro principal** e a **nossa cópia**.
+Podemos fazer isto com um **merge**, onde tudo aquilo que desenvolvemeos na branch que foi criada irá ser juntado à branch principal.
 
 <img height="200" width="400" src="assets/merge.png" class="image-center">
+
+---
+
+class:  middle
+
+# Merging
+
+```bash
+$ git branch testing # cria a branch "testing"
+
+$ git checkout testing # mudar para a branch "testing"
+
+$ echo "Testing branches!" > branch.txt
+
+$ git add branch.txt
+
+$ git commit -m "Criei um segundo ficheiro"
+
+$ git checkout main # regressar à branch principal
+
+$ git merge testing # mergir a branch "testing" para a branch principal
+```
+
+---
+
+class: center,inverse, middle
+
+# Remotes (TODO)
+
+---
+
+class: middle
+
+## Remotes
+
+Existem 2 métodos para se usar um servidor de *git* remoto: **SSH** (*Secure Shell*) e **HTTPS**.
+
+Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras.
+
+<div style="display: inline-flex; gap: 1em; width: 100%; justify-content: center; padding-top: 3em;">
+  <img width="750" src="assets/remote_https.png" alt="HTTPS" />
+  <img width="750" src="assets/remote_ssh.png" alt="SSH" />
+</div>
+
+---
+
+class: middle
+
+### HTTPS
+
+- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público).
+- Firewalls restritas não conseguem bloquear o tráfego.
+
+> Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
+
+---
+
+class: middle
+
+### SSH
+
+- Necessita sempre de configuração (mas é um **one-time** effort).
+- Recomendado para interações que necessitam de autenticação (ex: um **push**)
+- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
+- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
+
 
 ---
 
@@ -330,44 +409,6 @@ Podemos usar o **git clone** para clonar repositórios que estão a ser hosted p
 <img height="150" width="500" src="assets/git_clone.png" class="image-center">
 
 Existem duas formas de acessar estes repositórios: **SSH ou HTTPS**
-
----
-
-class: middle
-
-## SSH vs HTTPS
-
-Existem 2 métodos para se usar um servidor de *git* remoto: **SSH** (*Secure Shell*) e **HTTPS**.
-
-Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras.
-
-<div style="display: inline-flex; gap: 1em; width: 100%; justify-content: center; padding-top: 3em;">
-  <img width="750" src="assets/remote_https.png" alt="HTTPS" />
-  <img width="750" src="assets/remote_ssh.png" alt="SSH" />
-</div>
-
----
-
-class: middle
-
-### HTTPS
-
-- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público).
-- Firewalls restritas não conseguem bloquear o tráfego.
-
-> Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
-
----
-
-class: middle
-
-### SSH
-
-- Necessita sempre de configuração (mas é um **one-time** effort).
-- Recomendado para interações que necessitam de autenticação (ex: um **push**)
-- É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
-- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
-
 
 ---
 
