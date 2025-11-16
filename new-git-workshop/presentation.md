@@ -99,11 +99,11 @@ class: middle
 Um repositório é a base de trabalho do Git, pelo que é necessário iniciar um repositório para começarmos a trabalhar.
 
 ```bash
-  $ cd <folder-name> # entrar num diretório local específico
+  $ cd <folder-name>
 
-  $ git init # inicializar um repositório do Git
+  $ git init # inicializa um repositório do Git
 
-  $ git status # verificar se o repositório está funcional
+  $ git status # verifica o estado do working directory e da staging area
 ```
 Dentro do diretório que escolheram vai ser criada uma pasta `.git` que vai ser usada para registar todas as alterações realizadas no projeto.
 
@@ -111,31 +111,27 @@ Dentro do diretório que escolheram vai ser criada uma pasta `.git` que vai ser 
 
 class: center,inverse, middle
 
-# Hands On 1 
+# Exercício 1 
 ## (Criar um ficheiro e dar commit nas alterações)
 
 ---
 
 class: middle
 
-# Hands On 1 
+# Exercício 1 
 
-A tarefa para esta primeira atividade é familiarizarmo-nos com os comandos básicos de git.
+Este primeiro exercício tem como objetivo familiarizarem-se com os comandos básicos de Git.
 
-Primeiro, criamos uma pasta e um repositório:
+Primeiro, criem uma pasta e um repositório:
+
 ```bash
-$ mkdir hello-world
-$ cd hello-world
+$ mkdir git-test
+$ cd git-test
 $ git init
 ```
 
-Depois, fazemos alguma alteração, por exemplo, criar um ficheiro e escrever algo nele:
-```bash
-$ touch README.md
-$ echo "não consegui encontrar uma frase nice para meter aqui" >> README.md
-```
+Em seguida, façam alguma alteração dentro do repositório (por exemplo, criem um ficheiro) e verifiquem se as alterações foram registadas pelo Git:
 
-Podemos ver que as alterações foram registadas pelo git:
 ```bash
 $ git status
 ```
@@ -144,12 +140,15 @@ $ git status
 
 class: middle
 
-# Hands On 1 
+# Exercício 1 
 
-Com isso, devemos então adicionar estas alterações na **Staging Area**:
+Agora podem adicionar estas alterações à **Staging Area**:
+
 ```bash
-$ git add README.md
+$ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
 ```
+
+***Nota***: Podem adicionar a flag *--all* ou *-A* para dar *stage* a todos os ficheiros (quer não sejam seguidos, quer tenham apenas sido modificados).
 
 Mais uma vez, vemos que esta operação foi registada pelo git:
 ```bash
@@ -202,18 +201,6 @@ Vamos fazer isso com um **merge**, onde vamos juntar tudo aquilo que está com o
 
 ---
 
-class:  middle
-
-# Branches no NI
-
-De forma muito análoga, sempre que queremos fazer alguma alteração num projeto **criamos uma nova branch**, alteramos em paralelo com a "main" e depois **juntamos as duas branches**.
-
-Podemos ver isso em ação na UNI:
-
-<img height="200" width="400" src="assets/uni_merge_example.png" class="image-center">
-
----
-
 class: center,inverse, middle
 
 # Rebase
@@ -250,18 +237,6 @@ O git flow é um modelo de trabalho que ajuda muito na organização e desenvolv
 
 
 <img height="240" width="400" src="assets/gitflow.png" class="image-center">
-
----
-
-class: middle
-
-# Git Flow no NI 
-
-Como devem estar a esperar, também usamos o Gitflow nos projetos do NI.
-
-Está aqui um exemplo do **frontend do TTS**:
-
-<img height="300" width="220" src="assets/gitflow_tts_example.png" class="image-center">
 
 ---
 class: center,inverse, middle
@@ -417,18 +392,6 @@ Como funciona o processo de uma issue?
 
 ---
 
-class: middle
-
-# Issues no NI
-
-Issues também estão presentes nos nossos projetos.
-
-Aqui jaz um exemplo das issues do Nitsig:
-
-<img height="400" width="470" src="assets/nitsig_issue_example.png" class="image-center">
-
----
-
 class: center,inverse, middle
 
 # Pull Requests (PR)
@@ -494,19 +457,6 @@ Exemplo do **Website da SINF**:
 </div>
 ---
 
-class: middle
-
-
-# Pull Requests no NI
-
-Pull Requests são um pilar no desenvolvimento de projetos em grupo.
-
-Exemplo de PRs no **Website do NI**:
-
-<img height="300" width="450" src="assets/websiteNI_pr_example.png" class="image-center">
-
----
-
 class: center,inverse, middle
 
 # Reviews
@@ -540,19 +490,6 @@ Estes processos envolvem:
 3. **Escrever uma review que tenha sugestões claras e que não causem ainda mais confusão**
 
 ---
-
-class: middle
-
-# Reviews no NI
-
-Também utilizamos reviews para nos ajudar com as issues dentro dos nossos projetos.
-
-Exemplo de reviews nos NIployments:
-
-<img height="350" width="500" src="assets/niployments_git_review.png" class="image-center">
-
----
-
 
 class: center,inverse, middle
 
@@ -588,18 +525,6 @@ class: middle
 + **git branch**: criar uma branch
   + **git branch -m**: renomear uma branch
 + **git commit --amend**: permite alterar o nome do último commit ou adicionar/remover ficheiros a esse commit
-
----
-
-class: middle
-
-# Mais Comandos 
-
-Como podem ver, o git tem um número enorme de diferentes funcionalidades e sei que algumas pessoas que estão a assistir este workshop gostavam que o comando preferido delas estivesse em destaque, mas não temos 15 horas.
-
-Portanto, aqui estão alguns comandos que podem servir para situações mais específicas:
-
-git blame, git cherry-pick, git fetch, git rebase -i, git commit --amend, git clean, git rm, etc...
 
 ---
 
