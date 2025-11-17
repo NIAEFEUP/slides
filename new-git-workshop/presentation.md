@@ -44,10 +44,10 @@ class: middle
 Se estiverem a usar Linux, muito provavelmente vai estar diretamente no vosso package manager:
 
 ```bash
-sudo apt install git
-sudo pacman -S git
-sudo dnf install git
-sudo brew install git
+  sudo apt install git
+  sudo pacman -S git
+  sudo dnf install git
+  sudo brew install git
 ```
 Se estiverem em Windows, podem utilizar o Git através do WSL (Windows Subsystem for Linux) ou fazer download da bash [diretamente para o Windows](https://git-scm.com/download/win).
 
@@ -125,17 +125,17 @@ Este primeiro exercício tem como objetivo familiarizarem-se com os comandos bá
 Primeiro, criem uma pasta e um repositório:
 
 ```bash
-$ mkdir git-test
+  $ mkdir git-test
 
-$ cd git-test
+  $ cd git-test
 
-$ git init
+  $ git init
 ```
 
 Em seguida, façam alguma alteração dentro do repositório (por exemplo, criem um ficheiro) e verifiquem se as alterações foram registadas pelo Git:
 
 ```bash
-$ git status
+  $ git status
 ```
 
 ---
@@ -147,7 +147,7 @@ class: middle
 Agora podem adicionar estas alterações à **Staging Area**:
 
 ```bash
-$ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
+  $ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
 ```
 
 ***Nota***: Podem adicionar a flag `--all` ou `-A` para dar *stage* a todos os ficheiros (quer não sejam seguidos, quer tenham apenas sido modificados).
@@ -155,11 +155,11 @@ $ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seg
 Depois de verificarmos se a operação foi registada pelo Git, podemos dar commit:
 
 ```bash
-$ git status
+  $ git status
 
-$ git commit -m "First commit"
+  $ git commit -m "First commit"
 
-$ git log # lista o histórico de commits
+  $ git log # lista o histórico de commits
 ```
 
 ---
@@ -171,13 +171,13 @@ class: middle
 Posteriormente, podem, por exemplo, remover o ficheiro do working directory:
 
 ```bash
-$ git rm <ficheiro> # remove o ficheiro e dá stage às alterações
+  $ git rm <ficheiro> # remove o ficheiro e dá stage às alterações
 
-$ git status
+  $ git status
 
-$ git commit -m "Removi o ficheiro"
+  $ git commit -m "Removi o ficheiro"
 
-$ git log
+  $ git log
 ```
 
 ***Nota***: Podem adicionar a flag `--cached` para apenas removerem o ficheiro do repositório do Git (o ficheiro não é eliminado).
@@ -219,26 +219,67 @@ class:  middle
 # Merging
 
 ```bash
-$ git branch testing # cria a branch "testing"
+  $ git branch testing # cria a branch "testing"
 
-$ git checkout testing # mudar para a branch "testing"
+  $ git checkout testing # mudar para a branch "testing"
 
-$ echo "Testing branches!" > branch.txt
+  $ echo "Testing branches!" > branch.txt
 
-$ git add branch.txt
+  $ git add branch.txt
 
-$ git commit -m "Criei um segundo ficheiro"
+  $ git commit -m "Criei um segundo ficheiro"
 
-$ git checkout main # regressar à branch principal
+  $ git checkout main # regressar à branch principal
 
-$ git merge testing # mergir a branch "testing" para a branch principal
+  $ git merge testing # mergir a branch "testing" para a branch principal
 ```
 
 ---
 
 class: center,inverse, middle
 
-# Remotes (TODO)
+# Conflitos
+
+---
+
+class: middle
+
+## Conflitos
+
+Se alterarmos de formas diferentes em duas branches a mesma secção de um ficheiro, o Git não vai conseguir dar merge sem gerar um conflito:
+
+```bash
+  $ git merge testing-conflict
+  > Auto-merging test.txt
+  CONFLICT (content): Merge conflict in test.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Podemos verificar em que ficheiros existem conflitos utilizando `git status`; para resolver um conflito, precisamos de editar diretamente o ficheiro, dar *stage* às alterações e *commit* ao merge.
+
+---
+
+
+class: center,inverse, middle
+
+# Exercício 2
+## (Resolver um conflito num merge)
+
+---
+
+class: middle
+
+# Exercício 2
+
+Este segundo exercício tem como objetivo compreenderem melhor como resolver um conflito causado por um merge.
+
+TODO
+
+---
+
+class: center,inverse, middle
+
+# Remotes
 
 ---
 
@@ -246,9 +287,9 @@ class: middle
 
 ## Remotes
 
-Existem 2 métodos para se usar um servidor de *git* remoto: **SSH** (*Secure Shell*) e **HTTPS**.
+Um remote é uma versão do repositório que é *hosted* noutro local. Existem essencialmente 2 métodos para se conectar a um repositório de Git remoto: **SSH** (*Secure Shell*) e **HTTPS**.
 
-Apesar de, atualmente, o método mais recomendado ser **SSH**, cada um tem os seus prós e contras.
+Atualmente, o método mais recomendado é **SSH**, mas cada um tem os seus prós e contras.
 
 <div style="display: inline-flex; gap: 1em; width: 100%; justify-content: center; padding-top: 3em;">
   <img width="750" src="assets/remote_https.png" alt="HTTPS" />
@@ -261,10 +302,10 @@ class: middle
 
 ### HTTPS
 
-- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público).
+- Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público, por exemplo).
 - Firewalls restritas não conseguem bloquear o tráfego.
 
-> Por motivos de segurança, o Github agora requer um _PAT_ (Personal Access Token) como autenticação ao invés de uma password. Para todos os efeitos é só uma password que vocês usam para ações _dentro_ do Github que vos dá certas permissões para certas ações.
+> Por motivos de segurança, o GitHub agora requer um _PAT_ (Personal Access Token) como autenticação, ao invés de uma password. Para todos os efeitos é apenas uma password que vocês usam para ações *dentro* do GitHub, que vos dá certas permissões para certas ações.
 
 ---
 
@@ -272,30 +313,29 @@ class: middle
 
 ### SSH
 
-- Necessita sempre de configuração (mas é um **one-time** effort).
-- Recomendado para interações que necessitam de autenticação (ex: um **push**)
+- Necessita sempre de configuração (mas é um ***one-time effort***).
+- Recomendado para interações que necessitam de autenticação (por exemplo, um **push**).
 - É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
-- Se perderem as chaves que têm na vossa máquina local vão ter que reconfigurar os acessos por SSH.
-
+- Se perderem as chaves que têm na vossa máquina local, vão ter que reconfigurar os acessos por SSH.
 
 ---
 
 class: center,inverse, middle
 
-# Rebase
+# Exercício 3
+## (Conectar a um remote)
 
 ---
 
 class: middle
 
-# Rebase
+# Exercício 3
 
-+ Enquanto estamos a fazer alterações, o repositório remoto pode receber mais commits
-+ **Rebase serve para mudar a base dos vossos commits**.
-+ O principal objetivo é manter um histórico linear de commits.
-+ Para iniciar um rebase, basta executar **git rebase {branch-name}**. Este comando dá rebase da branch atual na branch "branch-name".
+Este terceiro exercício tem como objetivo compreenderem como se conectarem a um remote (neste caso em particular, do GitHub) utilizando o comando `git clone`, usando tanto SSH como HTTPS.
 
-<img height="200" width="500" src="assets/git_rebase.png" class="image-center">
+<img height="150" width="500" src="assets/git_clone.png" class="image-center">
+
+TODO
 
 ---
 
@@ -389,26 +429,6 @@ git switch main
 git merge feature/new-readme
 ```
 <img height="100" width="500" src="assets/handson2_git_merge.png" class="image-center">
-
----
-
-class: center,inverse, middle
-
-# Clone
-
----
-
-class: middle
-
-# Clone
-
-Como podemos ir atrás de um respositório que está na internet?
-
-Podemos usar o **git clone** para clonar repositórios que estão a ser hosted por serviços como o Github
-
-<img height="150" width="500" src="assets/git_clone.png" class="image-center">
-
-Existem duas formas de acessar estes repositórios: **SSH ou HTTPS**
 
 ---
 
@@ -762,11 +782,3 @@ class: middle
 + Se sentirem que não sabem o que fazer, **peçam ajuda**. Não tenham medo.
 + Também há muitos exemplos de Pull Requests nos **nossos projetos**.
 + **Divirtam-se, por favor**.
-
----
-
-class: middle
-
-# LESGOOOOOOO
-
-<img height="500" width="500" src="assets/quero_trabalhar.png" class="image-center">
