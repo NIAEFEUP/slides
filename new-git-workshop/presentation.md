@@ -57,7 +57,7 @@ class: middle
 
 # Configurar o Git
 
-O primeiro passo é configurar o Git de modo a associarem o vosso nome e email aos commits:
+O primeiro passo é configurar o Git de modo a **associarem o vosso nome e email aos commits**:
 
 ```bash
   $ git config --global user.name "Test" # o vosso nome
@@ -96,7 +96,7 @@ class: middle
 
 # Criar um repositório
 
-Um repositório é a base de trabalho do Git, pelo que é necessário iniciar um repositório para começarmos a trabalhar.
+Um repositório é a **base de trabalho do Git**, pelo que é necessário iniciar um repositório para começarmos a trabalhar.
 
 ```bash
   $ cd <folder-name>
@@ -194,7 +194,7 @@ class:  middle
 
 # Branches
 
-Se os commits essencialmente representam as diferentes versões de um projeto, as branches funcionam como uma espécie de apontador para uma versão específica do projeto.
+Se os commits essencialmente representam as diferentes versões de um projeto, as branches funcionam como uma espécie de **apontador para uma versão específica do projeto**.
 
 Cada projeto no Git tem uma branch principal — ***master*** ou ***main***. Se quisermos fazer alterações ao projeto sem eliminar ou alterar aquilo que está na branch principal, podemos fazer uma cópia deste **criando uma nova branch** (utilizando o comando `git branch <name>`).
 
@@ -208,7 +208,7 @@ class:  middle
 
 Depois de terminarmos de fazer alterações, temos que atualizar a branch principal para a versão mais recente. 
 
-Podemos fazer isto com um **merge**, onde tudo aquilo que desenvolvemeos na branch que foi criada irá ser juntado à branch principal.
+Podemos fazer isto com um **merge**, onde **tudo aquilo que desenvolvemos na branch que foi criada irá ser juntado à branch principal**.
 
 <img height="200" width="400" src="assets/merge.png" class="image-center">
 
@@ -246,7 +246,7 @@ class: middle
 
 ## Conflitos
 
-Se alterarmos de formas diferentes em duas branches a mesma secção de um ficheiro, o Git não vai conseguir dar merge sem gerar um conflito:
+**Se alterarmos de formas diferentes em duas branches a mesma secção de um ficheiro**, o Git não vai conseguir dar merge sem gerar um conflito:
 
 ```bash
   $ git merge testing-conflict
@@ -255,7 +255,7 @@ Se alterarmos de formas diferentes em duas branches a mesma secção de um fiche
   Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Podemos verificar em que ficheiros existem conflitos utilizando `git status`; para resolver um conflito, precisamos de editar diretamente o ficheiro, dar stage às alterações e commit ao merge.
+Podemos verificar em que ficheiros existem conflitos utilizando `git status`; **para resolver um conflito, precisamos de editar diretamente o ficheiro, dar stage às alterações e commit ao merge**.
 
 ---
 
@@ -355,7 +355,7 @@ class: middle
 
 ## Git Ignore
 
-Um ficheiro `.gitignore` especifica ficheiros que devem ser ignorados pelo Git (sendo que ficheiros que já sejam seguidos pelo Git não são afetados).
+Um ficheiro `.gitignore` especifica **ficheiros que devem ser ignorados pelo Git** (sendo que ficheiros que já sejam seguidos pelo Git não são afetados).
 
 Cada linha do ficheiro `.gitignore` representa um padrão específico:
 
@@ -378,7 +378,7 @@ class: middle
 
 ## Remotes
 
-Um remote é uma versão do repositório que é *hosted* noutro local. Existem essencialmente 2 protocolos para nos conectarmos a um repositório de Git remoto: **SSH** (*Secure Shell*) e **HTTPS**.
+Um remote é uma **versão do repositório que é *hosted* noutro local**. Existem essencialmente 2 protocolos para nos conectarmos a um repositório de Git remoto: **SSH** (*Secure Shell*) e **HTTPS**.
 
 Atualmente, o método mais recomendado é **SSH**, mas cada um tem os seus prós e contras.
 
@@ -513,7 +513,7 @@ class: middle
 
 # Reverting
 
-Adicionalmente, em vez de utilizarmos os hashes dos commits para revertermos alterações, podemos recorrer a uma notação relativa, utilizando os símbolos **~** e **^**.
+Adicionalmente, em vez de utilizarmos os hashes dos commits para revertermos alterações, **podemos recorrer a uma notação relativa**, utilizando os símbolos **~** e **^**.
   + `COMMIT^` refere-se ao commit anterior a `COMMIT`.
   + `COMMIT^^` refere-se ao commit anterior a `COMMIT^`.
   + `COMMIT~2` refere-se ao commit que precede o commit anterior a `COMMIT`.
@@ -537,7 +537,7 @@ class: middle
 # Rebase
 
 + Enquanto estamos a fazer alterações, o remote pode receber mais commits.
-+ **Rebase serve para mudar a base dos vossos commits**.
++ **Rebase permite alterar a base dos vossos commits**.
 + O principal objetivo deste comando é manter um histórico linear de commits.
 + Para iniciar um rebase, basta executar `git rebase <branch-name>`; este comando dá rebase da branch atual na branch que especificarmos.
 
@@ -555,7 +555,7 @@ class: middle
 
 # Git Flow 
 
-O Git Flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos (não sendo, no entanto, o único). Alguns dos principais pontos são:
+O Git Flow é um **modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos** (não sendo, no entanto, o único). Alguns dos principais pontos são:
   + Diferentes categorias de branches (***feature***, ***release***, ***fix***, ***hotfix***, ***refactor***).
   + Todos os merges são feitos através de **Pull Requests** (a ser falado).
   + Branch principal para o desenvolvimento de features separada da principal (***develop***).
@@ -563,7 +563,7 @@ O Git Flow é um modelo de trabalho que ajuda muito na organização e desenvolv
 
 <img height="200" width="400" src="assets/gitflow.png" class="image-center">
 
-O mais importante, no entanto, é que sejam consistentes na forma como utilizam o Git!
+O mais importante, no entanto, é que **sejam consistentes na forma como utilizam o Git**!
 
 ---
 
