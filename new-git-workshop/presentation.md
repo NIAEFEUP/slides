@@ -411,6 +411,48 @@ class: middle
 
 ---
 
+class: middle
+
+## Remotes
+
+Para além do remote `origin` (criado após clonarmos um repositório), **é possível criarmos mais remotes**:
+
+```bash
+  $ git remote add <remote-name> git@github.com:<user>/<repository>
+```
+
+Podemos consultar os nossos remotes utilizando o comando `git remote -v` (a flag `-v` serve apenas para demonstrar mais informação).
+
+---
+
+class: middle
+
+## Remotes
+
+Se a nossa branch atual estiver a seguir uma branch no remote, podemos utilizar o comando `git pull` para obter os dados do repositório remoto e tentar dar merge automaticamente das alterações (da branch remota) na branch local. Este comando também obtém referências de branches no remote que possam não estar presentes localmente.
+
+```bash
+  $ git pull <remote> <branch> # dá fetch e merge à branch especificada
+```
+
+Notem que se não quiserem atualizar/modificar a branch atual, podem apenas utilizar o comando `git fetch`.
+
+---
+
+class: middle
+
+## Remotes
+
+Para atualizar um remote, podemos utilizar o comando `git push` para propagar alterações (commits) locais para o repositório remoto — assumindo que a nossa branch local está devidamente atualizada.
+
+Adicionalmente, podemos utilizar a flag `-u` para fazer com que a branch local siga a branch remota.
+
+```bash
+  $ git push (<remote> <branch>) # dá push às alterações feitas localmente para um remote
+```
+
+---
+
 class: center,inverse, middle
 
 # Exercício 3
@@ -684,14 +726,14 @@ Os passos envolvidos numa review são relativamente simples, mas também requere
 
 class: center,inverse, middle
 
-# Comandos
+# Lista de Comandos
 
 ---
 
 
 class: middle
 
-# Comandos 
+# Lista de Comandos 
 
 + **git pull**: atualiza a branch atual com as alterações em remote
 + **git push**: envia alterações locais para o remote
@@ -705,7 +747,7 @@ class: middle
 
 class: middle
 
-# Comandos 
+# Lista de Comandos 
 
 + **git status**: informa ficheiros modificados
 + **git clone <url>**: "clona" um repositório de acordo com um link
@@ -721,7 +763,7 @@ class: middle
 
 class: center,inverse, middle
 
-# Problemas
+# Problemas Comuns
 
 ---
 class: middle
