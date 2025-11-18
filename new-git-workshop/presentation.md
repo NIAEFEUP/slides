@@ -708,11 +708,11 @@ class: middle
 # Comandos 
 
 + **git status**: informa ficheiros modificados
-+ **git clone {url}**: "clona" um repositório de acordo com um link
-+ **git switch {mome da branch}**: troca de branches
++ **git clone <url>**: "clona" um repositório de acordo com um link
++ **git switch <branch>**: troca de branches
 + **git reset**: desfaz alterações no repositório
-+ **git checkout**: troca de branches e mais
-+ **git rebase {nome da branch}**: dá rebase da branch atual noutra
++ **git checkout (<branch>)**: troca de branches e mais
++ **git rebase <branch>**: troca a base dos commits de uma branch específica
 + **git branch**: criar uma branch
   + **git branch -m**: renomear uma branch
 + **git commit --amend**: permite alterar o nome do último commit ou adicionar/remover ficheiros a esse commit
@@ -800,52 +800,3 @@ class: middle
   + via "git pull origin main"
   + checkout para a main e depois pull
 + E performem o rebase
-
----
-
-class: center,inverse, middle
-
-# Final Boss (Hands On 3)
-
----
-
-class: middle
-
-# Final Boss (Hands On 3) - Instruções
-
-O que vamos fazer?
-+ Vamos escrever livros (não livros inteiros)
-+ Para isso, temos 5 escolhas diferentes:
-  + [1984](https://github.com/rubuy-74/1984-git) 
-  + [Diário de um banana](https://github.com/rubuy-74/diario-banana-git)
-  + [Pequeno Príncipe (BR >>>>>)](https://github.com/rubuy-74/little-prince-git)
-  + [Viagens de Gulliver](https://github.com/rubuy-74/viagens-gulliver-git)
-  + [Harry Potter](https://github.com/rubuy-74/harry-potter-git)
-+ Cada um destes repositórios tem **10 issues abertas**
-
----
-
-class: middle
-
-# Final Boss (Hands On 3) - Instruções
-
-+ O processo de implementar a issue funciona da seguinte forma:
-  0. **Clonar o projeto** (usar git clone)
-  1. **Criar uma branch** (com o nome de acordo com as normas que foram explicadas)
-  2. **Dar push nesta branch** (para o respositório remoto)
-  3. **Criar um Pull Request**
-  4. **Esperar pela Review dos outros participantes**
-  5. **Enquanto estiverem à espera, dão review aos PRs abertos nos repositórios**
-  6. **Merge no PR, apagar o PR e resolver a Issue** 
-
----
-
-class: middle
-
-# Final Boss (Hands On 3) - Atenção
-
-+ Podem ver as **tags de cada issue** para determinar o nome da branch (com base no git flow).
-+ No PR, atenção ao "Closes #{número da issue}".
-+ Se sentirem que não sabem o que fazer, **peçam ajuda**. Não tenham medo.
-+ Também há muitos exemplos de Pull Requests nos **nossos projetos**.
-+ **Divirtam-se, por favor**.
