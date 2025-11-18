@@ -144,7 +144,7 @@ class: middle
 
 # Exercício 1 
 
-Agora podem adicionar estas alterações à **Staging Area**:
+Agora podem adicionar estas alterações à **staging area**:
 
 ```bash
   $ git add <file> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
@@ -432,6 +432,97 @@ TODO
 
 class: center,inverse, middle
 
+# Reverting
+
+---
+
+class: middle
+
+# Reverting
+
+### Situação 1: Nem staged nem committed
+
+Numa situação em que existem alterações mas estas ainda não foram staged (`git add` não foi executado), é possível revertê-las com os seguintes comandos:
+
+```bash
+  $ git checkout -- <file> # desfaz as alterações num único ficheiro
+```
+
+```bash
+  $ git reset --hard # descarta todas as alterações feitas
+```
+
+---
+
+class: middle
+
+# Reverting
+
+### Situação 2: Staged, mas não committed 
+
+Numa situação em que existem alterações que foram staged mas não foram committed, é possível removê-las da staging area com os seguintes comandos:
+
+```bash
+  $ git reset HEAD <file> # remove da staging area as alterações a um único ficheiro
+```
+
+```bash
+  $ git reset # remove da staging area as alterações a todos os ficheiros
+```
+
+Com estes comandos, os ficheiros são removidos da staging area, mas as alterações feitas são mantidas no working directory.
+
+---
+
+class: middle
+
+# Reverting
+
+### Situação 3: Committed, mas não pushed
+
+Se já demos commit de alterações que queremos reverter, mas estas ainda não foram pushed para um remote, podemos revertê-las encontrando o ID/hash do commit a que queremos regressar (utilizando `git log`) e executando o seguinte comando:
+
+```bash
+  $ git reset --hard <commit-id>
+```
+
+---
+
+class: middle
+
+# Reverting
+
+## Situação 4: Committed e pushed
+
+Devemos tentar evitar ao máximo reescrever o histórico (público) de commits; por esse motivo, se for necessário reverter alterações que já foram pushed, devemos utilizar o seguinte comando:
+
+```bash
+  $ git revert <commit-id>
+```
+
+<img height="220" width="500" src="assets/git-revert.svg" class="image-center">
+
+---
+
+class: middle
+
+# Reverting
+
+Adicionalmente, em vez de utilizarmos os hashes dos commits para revertermos alterações, podemos recorrer a uma notação relativa, utilizando os símbolos **~** e **^**.
+  + `COMMIT^` refere-se ao commit anterior a `COMMIT`.
+  + `COMMIT^^` refere-se ao commit anterior a `COMMIT^`.
+  + `COMMIT~2` refere-se ao commit que precede o commit anterior a `COMMIT`.
+
+```bash
+  $ git reset --hard HEAD^ # reverte o último commit
+```
+
+<img height="200" width="500" src="assets/commit-relative.svg" class="image-center">
+
+---
+
+class: center,inverse, middle
+
 # Git Flow
 
 ---
@@ -612,69 +703,6 @@ class: middle
 class: center,inverse, middle
 
 # Problemas
-
----
-
-class: middle
-
-# Desfazer alterações
-
-### Situação 1: Não staged e não committed
-
-Numa situação em que o código foi escrito e ainda não sofreu `git add`, é possível revertê-las com os seguintes comandos:
-
-```bash
-$ git checkout -- "file" # undo the changes to a file
-```
-
-```bash
-$ git reset --hard # discard all changes
-```
-
-Obs.: Este comando não funciona para untracked files.
-
----
-
-class: middle
-
-# Desfazer alterações
-
-### Situação 2: Staged mas não commited 
-
-
-```bash
-$ git reset HEAD "file" # unstage the changes to a file
-```
-
-```bash
-$ git reset # unstagd all changes
-```
-
-Com isso, os ficheiros voltam para a situação 1
-
----
-
-class: middle
-
-# Desfazer alterações
-
-### Situação 3: Committed mas não pushed
-
-```bash
-$ git reset --hard "commit-id"
-```
-
----
-
-class: middle
-
-# Desfazer alterações
-
-## Situação 4: Pushed
-Devem evitar o máximo possível estas situações, porque estas alterações vão aparecer no histórico de commits.
-```bash
-$ git revert "commit-id"
-```
 
 ---
 class: middle
