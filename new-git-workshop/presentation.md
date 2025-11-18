@@ -33,7 +33,7 @@ class: middle
 
 Git é um *Version Control System* (VCS) que permite registar mudanças em código e outros ficheiros de forma organizada.
 
-É o sistema de *version control* mais usado no mundo e é o que vamos utilizar neste workshop.
+É o sistema de *version control* mais usado no mundo e é o que iremos utilizar neste workshop.
 
 ---
 
@@ -259,7 +259,6 @@ Podemos verificar em que ficheiros existem conflitos utilizando `git status`; pa
 
 ---
 
-
 class: center,inverse, middle
 
 # Exercício 2
@@ -273,7 +272,7 @@ class: middle
 
 Este segundo exercício tem como objetivo compreenderem melhor como resolver um conflito causado por um merge.
 
-Depois de criarem um repositório de teste, criem um ficheiro `README.md`, adicionem o conteúdo que quiserem e dêem commit na branch principal.
+Depois de criarem um repositório de teste, criem um ficheiro (`README.md`), adicionem o conteúdo que quiserem e dêem commit na branch principal.
 
 ```bash
   $ git add README.md
@@ -281,7 +280,7 @@ Depois de criarem um repositório de teste, criem um ficheiro `README.md`, adici
   $ git commit -m "Initial commit"
 ```
 
-Em seguida, criem uma nova branch a partir da branch principal; ainda nesta última, façam uma alteração ao `README` e dêem commit novamente.
+Em seguida, criem uma nova branch a partir da branch principal; façam uma alteração ao ficheiro `README` e dêem commit novamente.
 
 ```bash
   $ git branch conflict # depois de correrem este comando, alterem o README
@@ -300,7 +299,7 @@ class: middle
 Em seguida, troquem para a branch que criaram anteriormente, modifiquem o ficheiro `README` e dêem commit às alterações.
 
 ```bash
-  $ git checkout conflicts
+  $ git checkout conflicts # também podem utilizar o comando git switch
 
   $ git add README.md
 
@@ -311,6 +310,8 @@ Regressem agora à branch principal e tentem dar merge da branch que criaram; v�
 
 ```bash
   $ git checkout main
+
+  $ git log --oneline # podem verificar o histórico dos commits
   
   $ git merge conflicts
   > Auto-merging README.md
@@ -326,7 +327,7 @@ class: middle
 
 Se consultarem o ficheiro `README`, irão observar algo semelhante a isto:
 
-<img height="200" width="400" src="assets/git_conflict.png" class="image-center">
+<img width="600" src="assets/git_conflict.png" class="image-center">
 
 Tendo isto em conta, podem escolher manter apenas uma das versões (ou a da branch principal ou a da branch que criaram) ou até ambas! 
 
@@ -338,7 +339,32 @@ Após escolherem, dêem stage às alterações e commit ao merge.
   $ git commit -m "Fixed merge conflicts"
 
   $ git status # verifiquem se correu tudo bem
+
+  $ git branch -d conflicts # podem utilizar este comando para eliminar a branch que criaram
 ```
+
+---
+
+class: center,inverse, middle
+
+# Git Ignore
+
+---
+
+class: middle
+
+## Git Ignore
+
+Um ficheiro `.gitignore` especifica ficheiros que devem ser ignorados pelo Git (sendo que ficheiros que já sejam seguidos pelo Git não são afetados).
+
+Cada linha do ficheiro `.gitignore` representa um padrão específico:
+
+```.gitignore
+  docs/      # todos os ficheiros dentro da pasta docs/ na raiz do projeto
+  *.txt      # todos os ficheiros com extensão .txt
+```
+
+Normalmente, queremos ignorar ficheiros que não são utilizados no projeto ou que são generados por outro processo (como ficheiros compilados).
 
 ---
 
@@ -352,7 +378,7 @@ class: middle
 
 ## Remotes
 
-Um remote é uma versão do repositório que é *hosted* noutro local. Existem essencialmente 2 métodos para se conectar a um repositório de Git remoto: **SSH** (*Secure Shell*) e **HTTPS**.
+Um remote é uma versão do repositório que é *hosted* noutro local. Existem essencialmente 2 protocolos para nos conectarmos a um repositório de Git remoto: **SSH** (*Secure Shell*) e **HTTPS**.
 
 Atualmente, o método mais recomendado é **SSH**, mas cada um tem os seus prós e contras.
 
@@ -370,7 +396,7 @@ class: middle
 - Não necessita de configuração, sendo mais simples para certas ações simples (clonar um repositório público, por exemplo).
 - Firewalls restritas não conseguem bloquear o tráfego.
 
-> Por motivos de segurança, o GitHub agora requer um _PAT_ (Personal Access Token) como autenticação, ao invés de uma password. Para todos os efeitos é apenas uma password que vocês usam para ações *dentro* do GitHub, que vos dá certas permissões para certas ações.
+> Por motivos de segurança, o GitHub agora requer um _PAT_ (Personal Access Token) como autenticação, ao invés de uma password. Para todos os efeitos é apenas uma password que usamos para ações *dentro* do GitHub, que nos dá certas permissões para certas ações.
 
 ---
 
@@ -381,7 +407,7 @@ class: middle
 - Necessita sempre de configuração (mas é um ***one-time effort***).
 - Recomendado para interações que necessitam de autenticação (por exemplo, um **push**).
 - É mais seguro que HTTPS e não requer que o utilizador se autentique em todas as interações.
-- Se perderem as chaves que têm na vossa máquina local, vão ter que reconfigurar os acessos por SSH.
+- Se perdermos as chaves que temos na nossa máquina local, temos que reconfigurar os acessos por SSH.
 
 ---
 
@@ -414,86 +440,15 @@ class: middle
 
 # Git Flow 
 
-O git flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos. Alguns dos principais pontos são:
-  + Diferentes categorias de branches **(feature, release, fix, hotfix, refactor)**.
+O Git Flow é um modelo de trabalho que ajuda muito na organização e desenvolvimento de projetos (não sendo, no entanto, o único). Alguns dos principais pontos são:
+  + Diferentes categorias de branches (***feature***, ***release***, ***fix***, ***hotfix***, ***refactor***).
   + Todos os merges são feitos através de **Pull Requests** (a ser falado).
-  + Branch principal para o desenvolvimento de features separada da principal **(develop)**.
+  + Branch principal para o desenvolvimento de features separada da principal (***develop***).
 
 
-<img height="240" width="400" src="assets/gitflow.png" class="image-center">
+<img height="200" width="400" src="assets/gitflow.png" class="image-center">
 
----
-class: center,inverse, middle
-
-# Hands On 2 
-## (Criar uma branch e dar merge na branch principal)
-
----
-
-class: middle
-
-# Hands On 2 
-
-Com o repositório que criámos na tarefa anterior, vamos criar uma nova branch, fazer alterações e dar merge com a branch main.
-
-Começamos por criar uma nova branch:
-```bash
-git branch feature/new-readme
-```
-
-Vamos então mover para esta branch:
-```bash
-git switch feature/new-readme
-```
-
----
-
-class: middle
-
-# Hands On 2 
-
-Com a nossa nova branch, podemos adicionar aquilo que queremos:
-```bash
-echo test >> README.md
-```
-
-E ver aquilo que fizemos:
-```bash
-cat README.md
-```
-
-
----
-
-class: middle
-
-# Hands On 2 
-
-Vamos dar commit ao que fizemos, de forma semelhante ao Hands On anterior:
-```bash
-git add README.md
-git commit -m "new readme"
-```
-
-Podemos ver o histórico de commits:
-```bash
-git log
-```
-
-<img height="200" width="600" src="assets/handson2_git_log.png" class="image-center">
-
----
-
-class: middle
-
-# Hands On 2 
-
-Finalmente, vamos atualizar a branch principal com aquilo que fizemos através de um merge:
-```bash
-git switch main
-git merge feature/new-readme
-```
-<img height="100" width="500" src="assets/handson2_git_merge.png" class="image-center">
+O mais importante, no entanto, é que sejam consistentes na forma como utilizam o Git!
 
 ---
 
