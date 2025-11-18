@@ -424,10 +424,15 @@ class: middle
 
 Este terceiro exercício tem como objetivo compreenderem como se conectarem a um remote (neste caso em particular, do GitHub) utilizando o comando `git clone`, usando tanto SSH como HTTPS.
 
-<img height="150" width="500" src="assets/git_clone.png" class="image-center">
+Em primeiro lugar, temos de [gerar uma chave SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) (caso não a tenhamos configurada) para podermos clonar um repositório utilizando o protocolo SSH.
 
-TODO
+Depois de configurada, podemos clonar [este repositório](https://github.com/aaguiar/live-software) utilizando tanto SSH como HTTPS:
 
+```bash
+  $ git clone git@github.com:aaguiar/live-software.git # SSH
+
+  $ git clone https://github.com/aaguiar/live-software.git # HTTPS
+```
 ---
 
 class: center,inverse, middle
@@ -517,7 +522,26 @@ Adicionalmente, em vez de utilizarmos os hashes dos commits para revertermos alt
   $ git reset --hard HEAD^ # reverte o último commit
 ```
 
-<img height="200" width="500" src="assets/commit-relative.svg" class="image-center">
+<img height="180" width="500" src="assets/commit-relative.svg" class="image-center">
+
+---
+
+class: center,inverse, middle
+
+# Rebase
+
+---
+
+class: middle
+
+# Rebase
+
++ Enquanto estamos a fazer alterações, o remote pode receber mais commits.
++ **Rebase serve para mudar a base dos vossos commits**.
++ O principal objetivo deste comando é manter um histórico linear de commits.
++ Para iniciar um rebase, basta executar `git rebase <branch-name>`; este comando dá rebase da branch atual na branch que especificarmos.
+
+<img height="200" width="500" src="assets/git_rebase.png" class="image-center">
 
 ---
 
