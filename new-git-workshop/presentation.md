@@ -60,17 +60,17 @@ class: middle
 O primeiro passo é configurar o Git de modo a associarem o vosso nome e email aos commits:
 
 ```bash
-  $ git config --global user.name "Teste" # o vosso nome
+  $ git config --global user.name "Test" # o vosso nome
 
-  $ git config --global user.email "teste@gmail.com" # o vosso email
+  $ git config --global user.email "test@gmail.com" # o vosso email
 ```
 Posteriormente, podem confirmar que as alterações foram feitas de forma correta:
 
 ```bash
   $ git config --global user.name
-  > Teste
+  > Test
   $ git config --global user.email 
-  > teste@gmail.com
+  > test@gmail.com
 ```
 
 ---
@@ -147,7 +147,7 @@ class: middle
 Agora podem adicionar estas alterações à **Staging Area**:
 
 ```bash
-  $ git add <ficheiro> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
+  $ git add <file> # segue e dá stage a um ficheiro que não esteja a ser seguido (ou apenas stage a um ficheiro modificado)
 ```
 
 ***Nota***: Podem adicionar a flag `--all` ou `-A` para dar *stage* a todos os ficheiros (quer não sejam seguidos, quer tenham apenas sido modificados).
@@ -171,11 +171,11 @@ class: middle
 Posteriormente, podem, por exemplo, remover o ficheiro do working directory:
 
 ```bash
-  $ git rm <ficheiro> # remove o ficheiro e dá stage às alterações
+  $ git rm <file> # remove o ficheiro e dá stage às alterações
 
   $ git status
 
-  $ git commit -m "Removi o ficheiro"
+  $ git commit -m "Removed the file"
 
   $ git log
 ```
@@ -196,7 +196,7 @@ class:  middle
 
 Se os commits essencialmente representam as diferentes versões de um projeto, as branches funcionam como uma espécie de apontador para uma versão específica do projeto.
 
-Cada projeto no Git tem uma branch principal — ***master*** ou ***main***. Se quisermos fazer alterações ao projeto sem eliminar ou alterar aquilo que está na branch principal, podemos fazer uma cópia deste **criando uma nova branch** (utilizando o comando `git branch <nome>`).
+Cada projeto no Git tem uma branch principal — ***master*** ou ***main***. Se quisermos fazer alterações ao projeto sem eliminar ou alterar aquilo que está na branch principal, podemos fazer uma cópia deste **criando uma nova branch** (utilizando o comando `git branch <name>`).
 
 <img height="150" width="500" src="assets/branches.png" class="image-center">
 
@@ -227,7 +227,7 @@ class:  middle
 
   $ git add branch.txt
 
-  $ git commit -m "Criei um segundo ficheiro"
+  $ git commit -m "Created a second file"
 
   $ git checkout main # regressar à branch principal
 
@@ -255,7 +255,7 @@ Se alterarmos de formas diferentes em duas branches a mesma secção de um fiche
   Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Podemos verificar em que ficheiros existem conflitos utilizando `git status`; para resolver um conflito, precisamos de editar diretamente o ficheiro, dar *stage* às alterações e *commit* ao merge.
+Podemos verificar em que ficheiros existem conflitos utilizando `git status`; para resolver um conflito, precisamos de editar diretamente o ficheiro, dar stage às alterações e commit ao merge.
 
 ---
 
@@ -273,7 +273,72 @@ class: middle
 
 Este segundo exercício tem como objetivo compreenderem melhor como resolver um conflito causado por um merge.
 
-TODO
+Depois de criarem um repositório de teste, criem um ficheiro `README.md`, adicionem o conteúdo que quiserem e dêem commit na branch principal.
+
+```bash
+  $ git add README.md
+
+  $ git commit -m "Initial commit"
+```
+
+Em seguida, criem uma nova branch a partir da branch principal; ainda nesta última, façam uma alteração ao `README` e dêem commit novamente.
+
+```bash
+  $ git branch conflict # depois de correrem este comando, alterem o README
+  
+  $ git add README.md
+
+  $ git commit -m "Modified the README file"
+```
+
+---
+
+class: middle
+
+# Exercício 2
+
+Em seguida, troquem para a branch que criaram anteriormente, modifiquem o ficheiro `README` e dêem commit às alterações.
+
+```bash
+  $ git checkout conflicts
+
+  $ git add README.md
+
+  $ git commit -m "Created a conflict"
+```
+
+Regressem agora à branch principal e tentem dar merge da branch que criaram; vão verificar que existe um conflito.
+
+```bash
+  $ git checkout main
+  
+  $ git merge conflicts
+  > Auto-merging README.md
+  CONFLICT (content): Merge conflict in README.md
+  Automatic merge failed; fix conflicts and then commit the result.
+```
+
+---
+
+class: middle
+
+# Exercício 2
+
+Se consultarem o ficheiro `README`, irão observar algo semelhante a isto:
+
+<img height="200" width="400" src="assets/git_conflict.png" class="image-center">
+
+Tendo isto em conta, podem escolher manter apenas uma das versões (ou a da branch principal ou a da branch que criaram) ou até ambas! 
+
+Após escolherem, dêem stage às alterações e commit ao merge.
+
+```bash
+  $ git add README.md
+
+  $ git commit -m "Fixed merge conflicts"
+
+  $ git status # verifiquem se correu tudo bem
+```
 
 ---
 
