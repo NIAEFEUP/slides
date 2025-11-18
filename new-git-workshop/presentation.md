@@ -581,7 +581,7 @@ class: middle
 + Enquanto estamos a fazer alterações, o remote pode receber mais commits.
 + **Rebase permite alterar a base dos vossos commits**.
 + O principal objetivo deste comando é manter um histórico linear de commits.
-+ Para iniciar um rebase, basta executar `git rebase <branch-name>`; este comando dá rebase da branch atual na branch que especificarmos.
++ Para iniciar um rebase, basta executar `git rebase <branch>`; este comando dá rebase da branch atual na branch que especificarmos.
 
 <img height="200" width="500" src="assets/git_rebase.png" class="image-center">
 
@@ -656,15 +656,20 @@ class: middle
 
 # Pull Requests (PR)
 
-Para criar um pull request e submeter para a branch remota, é preciso seguir os seguintes passos:
+É necessário seguir os seguintes passos de modo a garantir que existe uma branch remota atualizada para criar um Pull Request:
 
 ```bash
-git switch main // ou branch de onde querem basear
-git pull
-git checkout -b {tipo de branch}/{nome da branch}
-git add {ficheiros relevantes mudados}
-git commit -m "{nome do commit}"
-git push --set-upstream origin {tipo de branch}/{nome da branch}
+  $ git switch main # escolher a branch que serve de base
+
+  $ git pull
+
+  $ git checkout -b <branch>
+  
+  $ git add -A # dar stage aos ficheiros necessários
+  
+  $ git commit -m "Something"
+  
+  $ git push --set-upstream origin <branch>
 ```
 
 ---
@@ -735,13 +740,14 @@ class: middle
 
 # Lista de Comandos 
 
-+ **git pull**: atualiza a branch atual com as alterações em remote
-+ **git push**: envia alterações locais para o remote
-  + **git push force (--force-with-lease)**: Força o envio de mudanças (--force-with-lease não permite alterar commits que não estão em remote)
-  + **git push --set-upstream origin {tipo de branch}/{nome do repositório}**: Inicia o stream de commits para uma branch
++ **git init**: Inicializa um repositório de Git
++ **git status**: Demonstra as modificações efetuadas nos ficheiros
++ **git add file**: Adiciona o ficheiro modificado à staging area (e segue o ficheiro se este não estiver já a ser seguido)
+  + **git add -A**: Adiciona todos os ficheiros modificados à staging area
 + **git commit (-m)**: Captura uma snapshot das alterações atuais (requer uma mensagem)
-+ **git log**: Exibe o histórico de commits
-  + **git log --oneline**: Exibe o histórico de commits de forma simplificada
+  + **git commit --amend**: Permite alterar o nome do último commit ou incluir alterações adicionais nesse commit
++ **git branch**: Cria uma branch
+  + **git branch -m**: Altera o nome de uma branch
 
 ---
 
@@ -749,15 +755,28 @@ class: middle
 
 # Lista de Comandos 
 
-+ **git status**: informa ficheiros modificados
-+ **git clone <url>**: "clona" um repositório de acordo com um link
-+ **git switch <branch>**: troca de branches
-+ **git reset**: desfaz alterações no repositório
-+ **git checkout (<branch>)**: troca de branches e mais
-+ **git rebase <branch>**: troca a base dos commits de uma branch específica
-+ **git branch**: criar uma branch
-  + **git branch -m**: renomear uma branch
-+ **git commit --amend**: permite alterar o nome do último commit ou adicionar/remover ficheiros a esse commit
++ **git merge branch**: Dá merge da branch especificada com a branch atual
++ **git rm file**: Remove o ficheiro e dá stage às alterações
++ **git log**: Exibe o histórico de commits
+  + **git log --oneline**: Exibe o histórico de commits de forma simplificada
++ **git switch branch**: Troca de branches
++ **git checkout (branch)**: Troca de branches (e mais!)
++ **git reset**: Desfaz alterações no repositório, reescrevendo o histórico de commits
++ **git revert**: Desfaz alterações no repositório, preservando o histórico de commits
+
+---
+
+class: middle
+
+# Lista de Comandos 
+
++ **git clone url**: Clona um repositório remoto associado ao link providenciado
++ **git fetch**: Obtém as alterações do remote
++ **git pull**: Atualiza a branch atual com as alterações do remote
++ **git push**: Envia alterações locais para o remote
+  + **git push force (--force-with-lease)**: Força o envio de mudanças (*--force-with-lease* não permite alterar commits que não estão no remote)
+  + **git push --set-upstream origin branch**: Envia alterações locais para o remote e associa a branch atual à branch remota especificada (equivalente a usar *-u*)
++ **git rebase <branch>**: Troca a base dos commits de uma branch específica
 
 ---
 
