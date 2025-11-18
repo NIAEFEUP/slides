@@ -776,7 +776,7 @@ class: middle
 + **git push**: Envia alterações locais para o remote
   + **git push force (--force-with-lease)**: Força o envio de mudanças (*--force-with-lease* não permite alterar commits que não estão no remote)
   + **git push --set-upstream origin branch**: Envia alterações locais para o remote e associa a branch atual à branch remota especificada (equivalente a usar *-u*)
-+ **git rebase <branch>**: Troca a base dos commits de uma branch específica
++ **git rebase (branch)**: Troca a base dos commits de uma branch específica
 
 ---
 
@@ -794,39 +794,6 @@ Quando fazemos um git pull pela primeira vez dentro de um repositório, é poss�
 <img height="300" width="500" src="assets/git_pull_config.png" class="image-center">
 
 Podemos também usar ```bash git config --global``` para configurar em todos os repositórios.
-
----
-class: middle
-
-# Git pull resulta em conflitos
-
-Ao tentar dar git pull numa branch, podem aparecer erros ao dar merge na branch local e na branch remota. Estes problemas são chamados conflitos e devem ser resolvidos antes do merge continuar.
-
-<img height="200" width="500" src="assets/git_pull_conflict.png" class="image-center">
-
-
----
-class: middle
-
-# Git pull resulta em conflitos (como resolver)
-
-1. Precisamos de resolver os conflitos
-  + Podemos ver quais são os ficheiros no aviso de erro do merge
-2. Abrir o editor de código favorito
-3. Eliminar aquilo que não faz sentido
-  + Incoming vs. Current Change
-+ **git add** em todas as alterações
-+ **git commit** (--no-edit)
-
----
-
-class: middle
-
-# Git pull resulta em conflitos
-
-Exemplo de conflito:
-
-<img height="200" width="700" src="assets/git_conflict.png" class="image-center">
 
 ---
 class: middle
