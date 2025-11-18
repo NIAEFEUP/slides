@@ -577,12 +577,12 @@ class: middle
 
 # Issues
 
-Issues são como uma lista de tarefas ou problemas a serem resolvidos dentro de um projeto. As issues permitem organizar o trabalho, discutir ideias, relatar bugs, etc.
+Issues são como uma **lista de tarefas ou problemas a serem resolvidos dentro de um projeto** que vos permitem organizar o trabalho, discutir ideias, relatar bugs...
 
 Como funciona o processo de uma issue?
   1. **Abrir uma issue**
   2. **Discussão (Opcional)**
-  3. **Atribuir Responsáveis**
+  3. **Atribuir responsáveis**
   4. **Resolver a issue através de um Pull Request (PR)**
   5. **Fechar a issue**
 
@@ -598,13 +598,13 @@ class: middle
 
 # Pull Requests (PR)
 
-Num projeto, é importante saber se as alterações feitas são válidas ou não. Para isso, mostra-se as alterações para que outras pessoas confiram e, se estiverem de acordo, dão merge na branch principal.
+Num projeto, é importante saber se as alterações feitas são válidas ou não. Para isso, **listam-se as alterações** num Pull Request (ou PR) para que **outras pessoas confiram e validem as alterações efetuadas antes de se efetuar um merge para a branch principal**.
 
 Como funciona um Pull Request?
-1. **Fazer alterações (numa branch separada)**
+1. **Fazer alterações numa branch diferente**
 2. **Dar push desta branch para o remote**
 3. **Criar o Pull Request**
-4. **Outros colaboradores dão review ao código (veremos a seguir)**
+4. **Outros colaboradores dão *review* ao código**
 5. **Colaboradores aprovam e dão merge**
 6. **Fechar o PR**
 
@@ -612,7 +612,7 @@ Como funciona um Pull Request?
 
 class: middle
 
-# Como criar Pull Rquests
+# Pull Requests (PR)
 
 Para criar um pull request e submeter para a branch remota, é preciso seguir os seguintes passos:
 
@@ -631,9 +631,7 @@ class: middle
 
 # Pull Requests != Issues
 
-Pull Requests e issues não são a mesma coisa, mas estão muito relacionados.
-
-Exemplo do **Website da SINF**:
+Pull Requests e issues não são a mesma coisa, mas estão diretamente relacionados.
 
 <div class="side-to-side">
   <img height="320" width="500" src="assets/sinf_issue.png" class="image-center">  
@@ -644,9 +642,7 @@ class: middle
 
 # Pull Requests != Issues
 
-Pull Requests e issues não são a mesma coisa, mas estão muito relacionados.
-
-Exemplo do **Website da SINF**:
+Pull Requests e issues não são a mesma coisa, mas estão diretamente relacionados.
 
 <div class="side-to-side">
   <img height="320" width="500" src="assets/sinf_PR.png" class="image-center">
@@ -663,33 +659,32 @@ class: middle
 
 # Reviews
 
-Review são uma parte importante no processo de um pull request. Os colaboradores envolvidos no projeto devem estar atentos a possíveis erros ou sugestões que devem ser feitas.
+Review são uma parte importante no âmbito de um Pull Request — os **colaboradores envolvidos no projeto devem estar atentos a possíveis erros ou alterações que possam ser sugeridas**.
 
-Reviews contêm comentários, pedidos de mudança e aprovações.
-+ **Comentários**: são só comentários, podem ser aplicados a algum pedido de esclarecimento ou alguma sugestão.
-+ **Pedidos de mudança (Requested changes)**: algum comentário sobre um erro que precisa de ser resolvido ou qualquer outra coisa que esteja mal.
-+ **Aprovações**: Quando todas as alterações parecem estar corretas.
+As reviews contêm:
++ **Comentários**: Apenas comentários, podendo estar relacionados com algum pedido de esclarecimento ou alguma sugestão.
++ **Pedidos de Mudança (*Requested Changes*)**: Comentário sobre um erro que precisa de ser resolvido ou algo que requer uma alteração.
++ **Aprovações**: Quando todas as alterações aparentam estar corretas.
 
-**Para que um PR seja merged, todas as Requested Changes precisam de estar resolvidas.**
+**Para que um PR seja merged, todas as *requested changes* precisam de ser resolvidas**.
 
 ---
 
 class: middle
 
-# Como fazer uma Review
+# Reviews
 
-Os passos envolvidos numa review são relativamente simples, mas também requerem alguma atenção e conhecimento do que está a ser feito.
+Os passos envolvidos numa review são relativamente simples, mas também requerem alguma atenção e conhecimento, envolvendo:
 
-Estes processos envolvem:
-1. **Olhar o código de forma analítica**
-2. **Dar checkout para a branch das mudanças e testar**
-3. **Escrever uma review que tenha sugestões claras e que não causem ainda mais confusão**
+1. **Analisar e rever o código**
+2. **Dar checkout para a branch das mudanças e testá-las**
+3. **Deixar uma review que tenha sugestões claras e que não causem (ainda mais) confusão**
 
 ---
 
 class: center,inverse, middle
 
-# Comandos (e breve explicação)
+# Comandos
 
 ---
 
