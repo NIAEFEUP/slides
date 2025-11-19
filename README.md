@@ -17,6 +17,8 @@
 
 - [Git and GitHub](https://niaefeup.github.io/slides/git-workshop)
 
+- [Git (New)](https://niaefeup.github.io/slides/new-git-workshop)
+
 - [Flutter](https://niaefeup.github.io/slides/flutter-workshop)
 
 - [Python](https://niaefeup.github.io/slides/python-workshop)
