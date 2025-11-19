@@ -824,3 +824,7 @@ class: middle
 # Reviewer pede rebase numa branch
 
 Se um reviewer pedir para darem rebase de uma branch, entrem na branch e atualizem-na com a branch principal (`git pull origin main`). Posteriormente, dêem checkout para a main e pull, podendo depois executar o rebase.
+---
+class: middle
+
+<img height="600" width="600" src="assets/qr-code.png" class="image-center">
