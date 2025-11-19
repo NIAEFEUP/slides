@@ -829,4 +829,4 @@ class: middle
 
 # Feedback
 
-<img height="600" width="600" src="assets/qr-code.png" class="image-center">
+<img height="520" width="520" src="assets/qr-code.png" class="image-center">
