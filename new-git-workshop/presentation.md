@@ -475,6 +475,9 @@ Depois de configurada, podemos clonar [este repositório](https://github.com/aag
 
   $ git clone https://github.com/aaguiar/live-software.git # HTTPS
 ```
+
+**Nota**: Testem também os comandos `git pull` e `git push` se tiverem acesso a um repositório em que possuam as permissões para o fazer.
+
 ---
 
 class: center,inverse, middle
@@ -789,42 +792,35 @@ class: middle
 
 # Git pull pede configuração
 
-Quando fazemos um git pull pela primeira vez dentro de um repositório, é possível que dê o seguinte erro. Isto acontece porque a forma que faze-se pull neste repositório não está configurado. Existem 3 formas diferentes de o configurar:
+Quando executamos um `git pull` pela primeira vez dentro de um repositório, é possível que resulte num erro, viste que o método do pull pode não estar configurado nesse repositório. Existem 3 formas diferentes de o configurar:
 
 <img height="300" width="500" src="assets/git_pull_config.png" class="image-center">
 
-Podemos também usar ```bash git config --global``` para configurar em todos os repositórios.
+Podemos também usar `bash git config --global` para o configurar em todos os repositórios.
 
 ---
 class: middle
 
 # Git rebase resulta em conflitos
 
-+ Muito semelhante ao **git pull**
-+ Pode acontecer com vários commits, já que estão a percorrer a história commit por commit
-+ Fazer as alterações
-+ **git add** nas alterações
-+ **git rebase continue**
-  + git rebase abort para cancelar
-+ A resolução dos conflitos é igual a do **git pull**
+Muito semelhante ao que se verifica com o comando `git pull`, pode ocorrer com vários commits, visto que todo o histórico é percorrido, commit a commit.
+
+Para resolver o conflito, é necessário fazer as alterações, dar-lhes stage — `git add` — e utilizar o comando `git rebase --continue` (ou `git rebase --abort` se quisermos cancelar o processo).
+
+<img height="200" width="700" src="assets/git-rebase-conflict.png" class="image-center">
 
 ---
 class: middle
 
 # Git push pede git pull
 
-+ Às vezes, quando houver alterações entre o último **git pull** e **git push** é possível que o histórico esteja diferente
-+ Para resolver, o git pede para dar pull
-+ Deem pull e resolvam os conflitos como fizemos antes
+É possível que o histórico de commits local seja diferente do remote se tiverem existido alterações entre o último `git pull` e `git push`.
+
+Para ultrapassar este problema, apenas é necessário dar pull e resolver os conflitos.
 
 ---
 class: middle
 
-# Algum reviewer pede rebase numa branch
+# Reviewer pede rebase numa branch
 
-+ Reviewer pede para dar rebase numa branch
-+ Entrem na branch
-+ Atualizem a branch principal
-  + via "git pull origin main"
-  + checkout para a main e depois pull
-+ E performem o rebase
+Se um reviewer pedir para darem rebase de uma branch, entrem na branch e atualizem-na com a branch principal (`git pull origin main`). Posteriormente, dêem checkout para a main e pull, podendo depois executar o rebase.
