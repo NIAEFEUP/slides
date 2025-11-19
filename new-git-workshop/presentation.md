@@ -827,4 +827,6 @@ Se um reviewer pedir para darem rebase de uma branch, entrem na branch e atualiz
 ---
 class: middle
 
+# Feedback
+
 <img height="600" width="600" src="assets/qr-code.png" class="image-center">
