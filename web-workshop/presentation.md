@@ -30,7 +30,7 @@ name: index
 
 - [HTML](#html)
 - [CSS](#css)
-- [JS](#js)
+- [JS](#javascript)
 - [HTTP](#http)
 - [Hands-on!](#hands-on)
 
@@ -44,8 +44,6 @@ name: html
 ---
 
 # What is it?
-
-<!--O que é e para que é que serve (referir semantica)-->
 
 - **H**yper **T**ext **M**arkup **L**anguage
 - **Hyper Text**: More than plain text, usually has links to other documents
@@ -65,21 +63,19 @@ name: html
 
 # Tags
 
-<!-- tags -->
-
-**Tags** start with **<** and end with **>** and always have a name.
+**Tags** start with **`<`** and end with **`>`** and always have a name.
 
 ```html
 <img />
 ```
 
-Most tags have a pair, a **closing tag**, which start with **</**.
+Most tags have a pair, a **closing tag**, which start with **`</`**.
 
 ```html
 <p>...</p>
 ```
 
-To close a tag automatically, end it with **/>**.
+To close a tag automatically, end it with **`/>`**.
 
 ```html
 <p />
@@ -139,7 +135,7 @@ Boolean attributes can be set True by assigning it it's own name or by just writ
 
 # IDs and Classes
 
-The **id** and class **attributes** are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **Javascript**.
+The **id** and class **attributes** are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **JavaScript**.
 
 - There can only be one tag with a certain **id** in a page.
 
@@ -223,12 +219,14 @@ Heading are used to structure a page. They go from `<h1>` to `<h6>`, where `<h1>
   <h1>Heading 1</h1>
   <h2>Heading 2</h2>
   <h3>Heading 3</h3>
-</div> 
+</div>
+
 ```html
 <h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
 ```
+
 ]
 
 ---
@@ -347,7 +345,7 @@ Forms are used for basic interaction with the server or through javascript
     <input type="checkbox">
     Checkbox
   </label><br>
-  
+
   <label>
     <input type="radio">
     Radio
@@ -522,13 +520,13 @@ Nested style rules inherit their parent rule's selector context, eliminating the
 
 # Selectors Types
 
-- The **Universal** (\*) selector.
+- The **Universal** (`\*`) selector.
 - **Type** selectors.
-- **Attribute** ([ ]) selectors.
-- **Class** (.) & **Id** (#) selectors.
-- Pseudo-classes (:) and Pseudo-elements (::).
+- **Attribute** (`[ ]`) selectors.
+- **Class** (`.`) & **Id** (`#`) selectors.
+- Pseudo-classes (`:`) and Pseudo-elements (`::`).
 
-Selectors can also be **grouped** (,) and **combined** (space, >, +, ~).
+Selectors can also be **grouped** (`,`) and **combined** (space, `>`, `+`, `~`).
 
 ---
 
@@ -591,8 +589,6 @@ Select elements based on their attribute existence and values:
 input[type=text] /* selects all input elements with type="text" */
 ```
 
-<br>
-<br>
 Other selectors match by containing, starting, or ending with specific values.
 
 ---
@@ -612,9 +608,9 @@ p.intro  /* a paragraph with class "intro" */
 Used to select elements based on their **relationship with other elements**.
 
 - **Descendant** (space).
-- Child (>).
-- Next-sibling (+).
-- Subsequent-siblings (~).
+- Child (`>`).
+- Next-sibling (`+`).
+- Subsequent-siblings (`~`).
 
 In combinators, **the last selector** is the one that identifies the element we are selecting.
 
@@ -634,13 +630,13 @@ aside a
 
 # Grouping Selectors
 
-Selector groups (,) are just a logical **OR** of CSS rules:
+Selector groups (`,`) are just a logical **OR** of CSS rules:
 
 ```css
 header > *, main article, #articles p
 ```
 
-<img src="./assets/selectors9.svg">
+<img src="./assets/selectors6.svg">
 
 ---
 
@@ -702,7 +698,7 @@ p {
 
 There are a LOT more properties in CSS.
 
-You can check the full list at [w3schools](https://www.w3schools.com/cssref/index.php).
+You can check the full list at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ---
 
@@ -766,9 +762,9 @@ So, if the viewport is 600x400 pixels, vw = 6px, vh = 4px.
 Many CSS properties (width, margin, padding, font-size, ...) can take percentage values to define a **size relative to its parent object**.
 
 ```css
-width: 50%; /* width is 50% of the parent's width         */
+width: 50%; /* width is 50% of the parent's width */
 font-size: 80%; /* font-size is 80% of the parent's font-size */
-/* the same as 0.8em                          */
+/* the same as 0.8em */
 ```
 
 ---
@@ -918,7 +914,7 @@ Flexbox provides block level arrangement of parent and child elements that are f
 ```
 
 <p style="text-align: center;">
-<img height="200"  src="./assets/Flexbox Layout Guide.svg"> 
+<img height="200"  src="./assets/Flexbox Layout Guide.svg">
 </p>
 
 ---
@@ -932,7 +928,7 @@ Flexbox provides block level arrangement of parent and child elements that are f
 ```
 
 <p style="text-align: center;">
-<img height="300"  src="./assets/Flex Direction.svg"> 
+<img height="300"  src="./assets/Flex Direction.svg">
 </p>
 
 ---
@@ -949,7 +945,7 @@ You can change that and allow the items to wrap as needed with this property.
 ```
 
 <p style="text-align: center;">
-<img height="300"  src="./assets/Flex Wrap SVG.svg"> 
+<img height="300"  src="./assets/Flex Wrap SVG.svg">
 </p>
 
 ---
@@ -966,7 +962,7 @@ Defines the alignment along the main axis. It helps distribute extra free space 
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Justify Content.svg"> 
+<img height="300" src="./assets/Justify Content.svg">
 </p>
 
 ---
@@ -984,7 +980,7 @@ This defines the default behavior for how flex items are laid out along the **cr
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Items.svg"> 
+<img height="300" src="./assets/Align Items.svg">
 </p>
 
 ---
@@ -1002,7 +998,7 @@ This aligns a flex container’s lines within when there is extra space in the c
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Content.svg"> 
+<img height="300" src="./assets/Align Content.svg">
 </p>
 
 ---
@@ -1023,7 +1019,7 @@ The gap property explicitly controls the space between flex items. It applies th
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Flex Gap.svg"> 
+<img height="300" src="./assets/Flex Gap.svg">
 </p>
 
 ---
@@ -1039,7 +1035,7 @@ By default, flex items are laid out in the source order. However, you can change
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Flex Order.svg"> 
+<img height="300" src="./assets/Flex Order.svg">
 </p>
 
 ---
@@ -1064,7 +1060,7 @@ This defines the ability for a flex item to grow if necessary. It accepts a unit
 ```
 
 <p style="text-align: center;">
-<img height="100" src="./assets/Flex Grow.png"> 
+<img height="100" src="./assets/Flex Grow.png">
 </p>
 
 ---
@@ -1074,7 +1070,7 @@ This defines the ability for a flex item to grow if necessary. It accepts a unit
 This allows the specified align-items alignment to be overridden for individual flex items.
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Self.svg"> 
+<img height="300" src="./assets/Align Self.svg">
 </p>
 
 ---
@@ -1277,20 +1273,18 @@ name: practice-css
 
 ---
 
-name: js
+name: javascript
 
-# JavaScript (JS)
+# JavaScript
 
 ---
 
 ## What is JavaScript?
 
-<ul>
-<li>JavaScript is a dynamic, imperative and functional language.</li>
-<li>Along with HTML and CSS, JavaScript is one of the three main technologies of the World Wide Web.</li>
-<li>It has many uses, but it's most commonly used as a client-side scripting language (in browsers).</li>
-<li>While HTML and CSS are used for the structure and look of the website, Javascript is used for its functionalities and interactions</li>
-</ul>
+- JavaScript is a dynamic, imperative and functional language.
+- Along with HTML and CSS, JavaScript is one of the three main technologies of the World Wide Web.
+- It has many uses, but it's most commonly used as a client-side scripting language (in browsers).
+- While HTML and CSS are used for the structure and look of the website, JavaScript is used for its functionalities and interactions.
 
 ---
 
@@ -1300,7 +1294,7 @@ Both function increment the counter 123 times
 .horizontal[
 
 ```js
-// Javascript
+// JavaScript
 
 const a = 123;
 let counter = 0;
@@ -1329,17 +1323,15 @@ for i in range(a):
 
 ## Variables in JS
 
-In Javascript there are 3 ways of initializing a variable, you can use ~~var~~, let and const.
+In JavaScript there are 3 ways of initializing a variable, you can use ~~var~~, let and const.
 
-<ul>
-<li> <b>const</b>: we use const when we want to initialize a variable that will never change its value </li>
-<li><b>let</b>: we use let when we want to initialize a variable that will never change its value</li>
-<li><b>var</b>: You should never use var</li>
-</ul>
+- **const**: we use const when we want to initialize a variable that will never change its value
+- **let**: we use let when we want to initialize a variable that will never change its value
+- **var**: You should never use var
 
 ---
 
-## Primitive Data Types:
+## Primitive Data Types
 
 - **Number**: Represents both integer and floating-point numbers. For example: 3.14, 42
 - **String**: Represents text and is enclosed in single, double quotes, or backticks (these are special). For example: 'Hello, World!', "JavaScript", \`Magic string\`
@@ -1778,13 +1770,13 @@ name: http
 
 HTTP a protocol, commonly built on top of TCP, used to communicate between two machines, mainly used in web applications. It's a **stateless** protocol so no information is stored between requests.
 
-## <img style="width: 100%;" src="./assets/HTTPBasics.png">
+<img style="width: 100%;" src="./assets/HTTPBasics.png">
 
 ---
 
 # HTTP Message Structure - Request
 
-## <img style="width: 100%;" src="./assets/httpRequestClient.png">
+<img style="width: 100%;" src="./assets/httpRequestClient.png">
 
 ---
 
