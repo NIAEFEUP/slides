@@ -1,6 +1,6 @@
 name: title
 layout: true
-class: center, middle
+class: center, middle, inverse, small-images
 
 ---
 
@@ -14,13 +14,15 @@ template: title
 
 # Web Workshop
 
+<img src="./assets/html_css_js.png" width=300></img>
+
 ---
 
 ## Props to André Restivo <3
 
-This workshop slides are based on the slides from the André Restivo the professor of the course LTW at FEUP.
-This covers the most important parts of the first 3 classes of the course.
-This doesn't mean you can skip the classes, there are details that are not covered here.
+This workshop slides are based on the slides from the André Restivo, the professor of the course LTW at FEUP.
+This covers the most important parts of the first 3 lectures of the course.
+This doesn't mean you can skip the lectures, there are details that are not covered here.
 
 ---
 
@@ -30,7 +32,7 @@ name: index
 
 - [HTML](#html)
 - [CSS](#css)
-- [JS](#js)
+- [JS](#javascript)
 - [HTTP](#http)
 - [Hands-on!](#hands-on)
 
@@ -45,8 +47,6 @@ name: html
 
 # What is it?
 
-<!--O que é e para que é que serve (referir semantica)-->
-
 - **H**yper **T**ext **M**arkup **L**anguage
 - **Hyper Text**: More than plain text, usually has links to other documents
 - **Markup**: A way to represent hypertext
@@ -57,32 +57,30 @@ name: html
 
 # HTML Structure
 
-- **HTML** has a **tree** structure, where each element is a **node** and within itself can cointain either other nodes or text.
-- Each node is defined using **tags** and each tag can have it's own set of **attributes**.
-- Browser's have their own **default styles** for each tag, but they can be overriden using **CSS**.
+- **HTML** has a **tree** structure, where each element is a **node** and within itself can contain either other nodes or text.
+- Each node is defined using **tags** and each tag can have its own set of **attributes**.
+- Browsers have their own **default styles** for each tag, but they can be overridden using **CSS**.
 
 ---
 
 # Tags
 
-<!-- tags -->
-
-**Tags** start with **<** and end with **>** and always have a name.
+**Tags** start with **`<`** and end with **`>`** and always have a name.
 
 ```html
 <img />
 ```
 
-Most tags have a pair, a **closing tag**, which start with **</**.
+Most tags have a pair, a **closing tag**, which start with **`</`**.
 
 ```html
 <p>...</p>
 ```
 
-To close a tag automatically, end it with **/>**.
+To close a tag automatically, end it with **`/>`**.
 
 ```html
-<p />
+<br />
 ```
 
 ---
@@ -126,7 +124,7 @@ A **checkbox** will work without the **checked** attribute, but it won't be chec
 <input type="checkbox" checked="checked" />
 ```
 
-Boolean attributes can be set True by assigning it it's own name or by just writting the attribute:
+Boolean attributes can be set True by assigning it its own name or by just writing the attribute:
 
 ```html
 <input type="checkbox" checked="checked" />
@@ -139,7 +137,7 @@ Boolean attributes can be set True by assigning it it's own name or by just writ
 
 # IDs and Classes
 
-The **id** and class **attributes** are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **Javascript**.
+The **id** and **class** attributes are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **JavaScript**.
 
 - There can only be one tag with a certain **id** in a page.
 
@@ -223,19 +221,21 @@ Heading are used to structure a page. They go from `<h1>` to `<h6>`, where `<h1>
   <h1>Heading 1</h1>
   <h2>Heading 2</h2>
   <h3>Heading 3</h3>
-</div> 
+</div>
+
 ```html
 <h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
 ```
+
 ]
 
 ---
 
 # Anchors
 
-The `<a>` tag is used to create links. It has an **href** attribute that defines the link's destination.
+The `<a>` tag is used to create links. It has an **`href`** attribute that defines the link's destination.
 
 ```html
 <a href="link.html">This is a link</a>
@@ -250,7 +250,7 @@ This <a href="http://127.0.0.1:5500/web-workshop/index.html#14">link</a> takes y
 
 # Images
 
-The `<img>` tag is used to display images. It has a **src** attribute that defines the image's source.
+The `<img>` tag is used to display images. It has a **`src`** attribute that defines the image's source.
 
 ```html
 <img src="dog.png" />
@@ -277,13 +277,13 @@ There are two types of lists in HTML, ordered and unordered.
 .horizontal[
 
 ```html
-Unordered list
+<!-- Unordered list -->
 <ul>
   <li>Item 1</li>
   <li>Item 2</li>
 </ul>
 
-Ordered list
+<!-- Ordered list -->
 <ol>
   <li>Item 1</li>
   <li>Item 2</li>
@@ -307,7 +307,7 @@ Ordered list
 
 # Span and Div
 
-The `<span>` and `<div>` tags are used to group elements together. They are both block elements, but the `<span>` tag is inline.
+The `<div>` and `<span>` tags are used to group elements together. `<div>` is a block-level element, while `<span>` is an inline element.
 
 Span elements are useful to apply styles to a specific part of a text as they are inline elements.
 
@@ -315,7 +315,7 @@ Span elements are useful to apply styles to a specific part of a text as they ar
 <p>My name is <span style="color: red;">John</span></p>
 ```
 
-Div elements are useful to group elements together and apply styles to them.
+Div elements are useful to group larger sections of content and apply styles to them, as they are block-level elements.
 
 ```html
 <div style="background-color: red;">
@@ -328,7 +328,7 @@ Div elements are useful to group elements together and apply styles to them.
 
 # Forms, inputs and labels
 
-Forms are used for basic interaction with the server or through javascript
+Forms are used for basic interaction with the server or through JavaScript
 
 .horizontal[
 
@@ -347,7 +347,7 @@ Forms are used for basic interaction with the server or through javascript
     <input type="checkbox">
     Checkbox
   </label><br>
-  
+
   <label>
     <input type="radio">
     Radio
@@ -386,7 +386,7 @@ Forms are used for basic interaction with the server or through javascript
 
 # A World of tags
 
-Discover all the available tags at [w3schools](https://www.w3schools.com/tags/)
+Discover all the available tags at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements)
 
 ---
 
@@ -407,39 +407,49 @@ Check some tips at [Chrome DevTools](https://developer.chrome.com/docs/devtools/
 
 ---
 
-name: practice-html
+name: hands-on
 
 # Hands-on!
 
-- Your goal is to develop a prototype of **NIbook**, a recruit only social network where you can complain about members and having too hard of issues assigned.
-- However, you don't want members in the NI room to run past you and see this, so the posts on NIbook are only **loaded with a click of a button**, when it's safe.
-- You also obviously have nothing bad to say about us so the posts are fake and loaded from [JSON Placeholder](https://jsonplaceholder.typicode.com/) :)
+- Your goal is to develop a prototype of **NIws**, a collaborative news website where anyone can post anything they want!
+  - > What could go wrong...
+- The exercise will be done in 3 steps:
+
+  1. Build the basic website layout with just plain HTML
+  2. Make it look nice by adding some CSS styles
+  3. Pull in the latest posts from an external API (so you don't have to write them yourself)
+  4. Add a form so you and your friend can share the freshest news with everyone
 
 ---
 
-# NIBook - Setup
+# NIws - Setup
 
-You can open an HTML file directly with your preffered browser to preview it.
+You can open an HTML file directly with your preferred browser to preview it.
 
-But, for frequent changes, we reccomend the **VSCode Live Server** extension!
+But, for frequent changes, we recommend the **VSCode Live Preview** extension!
 
 <div style="text-align: center;">
-<p style="color: blue;">https://tinyurl.com/vscode-live-server</p>
-<img src="./assets/vscode-live-server.svg"></img>
+<a href="https://tinyurl.com/vscode-live-preview">
+<p style="color: blue;">https://tinyurl.com/vscode-live-preview</p>
+</a>
+<img src="./assets/vscode-live-preview-qr.png" width=300></img>
 </div>
 
 ---
 
-# NIBook - HTML
+# NIws - HTML
 
 <div style="text-align: center; max-width: 100%;">
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-1">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-1</p>
+</a>
+<img style="width:80%" src="./assets/NIws-html.png"></img>
 </div>
 
 ---
 
 name: css
+template: title
 
 # CSS
 
@@ -522,13 +532,13 @@ Nested style rules inherit their parent rule's selector context, eliminating the
 
 # Selectors Types
 
-- The **Universal** (\*) selector.
+- The **Universal** (`\*`) selector.
 - **Type** selectors.
-- **Attribute** ([ ]) selectors.
-- **Class** (.) & **Id** (#) selectors.
-- Pseudo-classes (:) and Pseudo-elements (::).
+- **Attribute** (`[ ]`) selectors.
+- **Class** (`.`) & **Id** (`#`) selectors.
+- Pseudo-classes (`:`) and Pseudo-elements (`::`).
 
-Selectors can also be **grouped** (,) and **combined** (space, >, +, ~).
+Selectors can also be **grouped** (`,`) and **combined** (space, `>`, `+`, `~`).
 
 ---
 
@@ -591,8 +601,6 @@ Select elements based on their attribute existence and values:
 input[type=text] /* selects all input elements with type="text" */
 ```
 
-<br>
-<br>
 Other selectors match by containing, starting, or ending with specific values.
 
 ---
@@ -612,9 +620,9 @@ p.intro  /* a paragraph with class "intro" */
 Used to select elements based on their **relationship with other elements**.
 
 - **Descendant** (space).
-- Child (>).
-- Next-sibling (+).
-- Subsequent-siblings (~).
+- Child (`>`).
+- Next-sibling (`+`).
+- Subsequent-siblings (`~`).
 
 In combinators, **the last selector** is the one that identifies the element we are selecting.
 
@@ -634,13 +642,13 @@ aside a
 
 # Grouping Selectors
 
-Selector groups (,) are just a logical **OR** of CSS rules:
+Selector groups (`,`) are just a logical **OR** of CSS rules:
 
 ```css
 header > *, main article, #articles p
 ```
 
-<img src="./assets/selectors9.svg">
+<img src="./assets/selectors6.svg">
 
 ---
 
@@ -702,7 +710,7 @@ p {
 
 There are a LOT more properties in CSS.
 
-You can check the full list at [w3schools](https://www.w3schools.com/cssref/index.php).
+You can check the full list at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ---
 
@@ -755,7 +763,7 @@ body {
 Define lengths relative to the **viewport size (the visible part of the document)**:
 
 - **vw** - 1% of the viewport width.
-- **vh** - 1% of the viewport heigth.
+- **vh** - 1% of the viewport height.
 
 So, if the viewport is 600x400 pixels, vw = 6px, vh = 4px.
 
@@ -766,9 +774,9 @@ So, if the viewport is 600x400 pixels, vw = 6px, vh = 4px.
 Many CSS properties (width, margin, padding, font-size, ...) can take percentage values to define a **size relative to its parent object**.
 
 ```css
-width: 50%; /* width is 50% of the parent's width         */
+width: 50%; /* width is 50% of the parent's width */
 font-size: 80%; /* font-size is 80% of the parent's font-size */
-/* the same as 0.8em                          */
+/* the same as 0.8em */
 ```
 
 ---
@@ -806,7 +814,7 @@ section {
 
 # Minimum and Maximum
 
-We can set their minimum and maximum values using the min-width, max-width, min-height, and max-height properties.
+We can set their minimum and maximum values using the `min-width`, `max-width`, `min-height`, and `max-height` properties.
 
 Values can be a length, a percentage, or auto (the default value).
 
@@ -877,7 +885,7 @@ padding: 20px 10px; /* top/bottom right/left */
 
 Flow layout is how elements are placed on a page before any layout changes.
 
-There are two primary types of elements: block (default) and inline elements.
+There are two primary types of elements: `block` (default) and `inline` elements.
 
 <p style="text-align: center;">
 <img src="./assets/flow.svg"></img>
@@ -918,7 +926,7 @@ Flexbox provides block level arrangement of parent and child elements that are f
 ```
 
 <p style="text-align: center;">
-<img height="200"  src="./assets/Flexbox Layout Guide.svg"> 
+<img height="200"  src="./assets/Flexbox Layout Guide.svg">
 </p>
 
 ---
@@ -932,7 +940,7 @@ Flexbox provides block level arrangement of parent and child elements that are f
 ```
 
 <p style="text-align: center;">
-<img height="300"  src="./assets/Flex Direction.svg"> 
+<img height="300"  src="./assets/Flex Direction.svg">
 </p>
 
 ---
@@ -949,7 +957,7 @@ You can change that and allow the items to wrap as needed with this property.
 ```
 
 <p style="text-align: center;">
-<img height="300"  src="./assets/Flex Wrap SVG.svg"> 
+<img height="300"  src="./assets/Flex Wrap SVG.svg">
 </p>
 
 ---
@@ -966,7 +974,7 @@ Defines the alignment along the main axis. It helps distribute extra free space 
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Justify Content.svg"> 
+<img height="300" src="./assets/Justify Content.svg">
 </p>
 
 ---
@@ -984,7 +992,7 @@ This defines the default behavior for how flex items are laid out along the **cr
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Items.svg"> 
+<img height="300" src="./assets/Align Items.svg">
 </p>
 
 ---
@@ -1002,7 +1010,7 @@ This aligns a flex container’s lines within when there is extra space in the c
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Content.svg"> 
+<img height="300" src="./assets/Align Content.svg">
 </p>
 
 ---
@@ -1010,6 +1018,8 @@ This aligns a flex container’s lines within when there is extra space in the c
 ## Flexbox - Gap, Row-gap, Column-gap
 
 The gap property explicitly controls the space between flex items. It applies that spacing only between items not on the outer edges.
+
+.horizontal[
 
 ```css
 .container {
@@ -1023,8 +1033,10 @@ The gap property explicitly controls the space between flex items. It applies th
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Flex Gap.svg"> 
+<img height="300" src="./assets/Flex Gap.svg">
 </p>
+
+]
 
 ---
 
@@ -1039,7 +1051,7 @@ By default, flex items are laid out in the source order. However, you can change
 ```
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Flex Order.svg"> 
+<img height="300" src="./assets/Flex Order.svg">
 </p>
 
 ---
@@ -1064,7 +1076,7 @@ This defines the ability for a flex item to grow if necessary. It accepts a unit
 ```
 
 <p style="text-align: center;">
-<img height="100" src="./assets/Flex Grow.png"> 
+<img height="100" src="./assets/Flex Grow.png">
 </p>
 
 ---
@@ -1074,7 +1086,7 @@ This defines the ability for a flex item to grow if necessary. It accepts a unit
 This allows the specified align-items alignment to be overridden for individual flex items.
 
 <p style="text-align: center;">
-<img height="300" src="./assets/Align Self.svg"> 
+<img height="300" src="./assets/Align Self.svg">
 </p>
 
 ---
@@ -1268,29 +1280,30 @@ Or when linking to a CSS file from HTML:
 
 name: practice-css
 
-# NIBook - CSS
+# NIws - CSS
 
 <div style="text-align: center; max-width: 100%;">
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-2">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-2</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-css.png"></img>
 </div>
 
 ---
 
-name: js
+name: javascript
+template: title
 
-# JavaScript (JS)
+# JavaScript
 
 ---
 
 ## What is JavaScript?
 
-<ul>
-<li>JavaScript is a dynamic, imperative and functional language.</li>
-<li>Along with HTML and CSS, JavaScript is one of the three main technologies of the World Wide Web.</li>
-<li>It has many uses, but it's most commonly used as a client-side scripting language (in browsers).</li>
-<li>While HTML and CSS are used for the structure and look of the website, Javascript is used for its functionalities and interactions</li>
-</ul>
+- JavaScript is a dynamic, imperative and functional language.
+- Along with HTML and CSS, JavaScript is one of the three main technologies of the World Wide Web.
+- It has many uses, but it's most commonly used as a client-side scripting language (in browsers).
+- While HTML and CSS are used for the structure and look of the website, JavaScript is used for its functionalities and interactions.
 
 ---
 
@@ -1300,7 +1313,7 @@ Both function increment the counter 123 times
 .horizontal[
 
 ```js
-// Javascript
+// JavaScript
 
 const a = 123;
 let counter = 0;
@@ -1329,17 +1342,15 @@ for i in range(a):
 
 ## Variables in JS
 
-In Javascript there are 3 ways of initializing a variable, you can use ~~var~~, let and const.
+In JavaScript there are 3 ways of initializing a variable, you can use ~~var~~, let and const.
 
-<ul>
-<li> <b>const</b>: we use const when we want to initialize a variable that will never change its value </li>
-<li><b>let</b>: we use let when we want to initialize a variable that will never change its value</li>
-<li><b>var</b>: You should never use var</li>
-</ul>
+- **const**: we use const when we want to initialize a variable that will never change its value
+- **let**: we use let when we want to initialize a variable that can change its value
+- **var**: You should never use var
 
 ---
 
-## Primitive Data Types:
+## Primitive Data Types
 
 - **Number**: Represents both integer and floating-point numbers. For example: 3.14, 42
 - **String**: Represents text and is enclosed in single, double quotes, or backticks (these are special). For example: 'Hello, World!', "JavaScript", \`Magic string\`
@@ -1428,7 +1439,7 @@ let value_returned = add(1, 2);
 console.log(value_returned); // 3
 ```
 
-A function with an empty return or no return at all, returns **undefined**.
+A function with no return statement, or with an empty return, returns **undefined**.
 
 ---
 
@@ -1463,7 +1474,7 @@ const foo = (var1, var2) => var1 + var2;
 
 ## Async functions
 
-In JS code is executed sequencialy:
+In JS code is executed sequentially:
 
 ```js
 first(); // first function to execute
@@ -1471,7 +1482,7 @@ second(); // this function will run, once the above function has finished
 third(); // this function will run, once the above function is finished
 ```
 
-If a function takes one minute to execute our website will freze until the function has finished its execution
+If a function takes one minute to execute our website will freeze until the function has finished its execution
 
 ```js
 const takes_one_minute = () => sleep(60);
@@ -1497,7 +1508,7 @@ takes_two_minutes(); // takes two minutes to finish its execution
 rest_of_the_code(); // this will be running at the same time of the other two
 ```
 
-If you want to do anything after the function is finished you can use **then** or **wait**:
+If you want to do anything after the function is finished you can use **then** or **await**:
 
 ```js
 const foo = async () => 10;
@@ -1508,8 +1519,9 @@ const value = await boo();
 console.log(value); // 20
 ```
 
-**then** will call a block of code to be executed once the function is finished while **wait** will wait until the function is finished to execute the rest code
-Every function that has a await in it will also be an async function.
+**then** will call a block of code to be executed once the function is finished while **wait** will wait until the function is finished to execute the rest of code
+
+Every function that has an await must also be an async function.
 
 ---
 
@@ -1517,7 +1529,7 @@ Every function that has a await in it will also be an async function.
 
 - A promise represents the eventual result of an asynchronous operation.
 - A promise may be in one of 3 possible states: **fulfilled**, **rejected**, or **pending**.
-- A Promise is an object that takes a function with two parameters, functions resolve and reject:
+- A Promise is an object that takes a function with two parameters: resolve and reject
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -1606,9 +1618,9 @@ catch (e) {
 ```html
 <html>
   <head>
-    <script src="...url of javascript script..."></script>
+    <script src="...url of JavaScript script..."></script>
     <script>
-      ...javascript code goes here...
+      ...JavaScript code goes here...
     </script>
   </head>
 </html>
@@ -1686,7 +1698,6 @@ link.parentNode.insertBefore(
   label,
   link
 ); /* inserts the label before the link */
-
 link.remove();
 ```
 
@@ -1695,7 +1706,7 @@ link.remove();
 # Events
 
 - Events are occurrences that happen in the system. <br>
-  <small> e.g., the user clicks a button. </small>
+  <small> e.g.: the user clicks a button. </small>
 - Specific events in specific objects can have event handlers attached to them.
 - When the event happens, the attached **handler is called**.
 
@@ -1736,7 +1747,7 @@ button.addEventListener("click", handleEvent);
 
 When an event happens on an element, it first runs any handlers attached to it, then on its parent, then up to the root.
 
-In each step, the handler can know the current target (**event.currentTarget** or this) and also the initial target (**event.target**).
+In each step, the handler can know the current target (`event.currentTarget` or this) and also the initial target (`event.target`).
 
 ```html
 <section>
@@ -1767,24 +1778,23 @@ To stop bubbling, we can use the `event.stopPropagation()` method.
 ---
 
 name: http
+template: title
 
 # HTTP
 
 ---
 
-name: http
-
 # HTTP
 
-HTTP a protocol, commonly built on top of TCP, used to communicate between two machines, mainly used in web applications. It's a **stateless** protocol so no information is stored between requests.
+HTTP a protocol, commonly built on top of TCP, used to communicate between two machines, mainly used in web applications, APIs, and IoT. It's a **stateless** protocol so no information is stored between requests.
 
-## <img style="width: 100%;" src="./assets/HTTPBasics.png">
+<img style="width: 100%;" src="./assets/HTTPBasics.png">
 
 ---
 
 # HTTP Message Structure - Request
 
-## <img style="width: 100%;" src="./assets/httpRequestClient.png">
+<img style="width: 100%;" src="./assets/httpRequestClient.png">
 
 ---
 
@@ -1816,7 +1826,7 @@ Each HTTP Response has an associated Status code.
 - .dense[`4XX`] Client error
 - .dense[`5XX`] Server error
 
-## Check out https://http.cat !
+### Check out https://http.cat !
 
 ---
 
@@ -1826,7 +1836,7 @@ Let's assume that you have a search page in your website, how would you save wha
 
 In the URL you can use the `?` after the path to declare the search parameters.
 
-A parameter is in the `key=value` form, and you can seperate them with the `&` character.
+A parameter is in the `key=value` form, and you can separate them with the `&` character.
 
 `https://cutedogs.com/search?q=shiba%20inu&limit=10`
 
@@ -1834,7 +1844,7 @@ A parameter is in the `key=value` form, and you can seperate them with the `&` c
 
 # Cookies
 
-Because **HTTP** is stateless, some clever enginners thought of a way to store state between requests.
+Because **HTTP** is stateless, some clever engineers thought of a way to store state between requests.
 
 This is useful because we might need a way to recognize the user when he's logged in, ~~or a way to track them~~.
 
@@ -1846,13 +1856,13 @@ This is useful because we might need a way to recognize the user when he's logge
 
 There are two main types of cookies:
 
-- Session cookies (are deleted when the user closes the session eg.: closes the browser);
+- Session cookies (are deleted when the user closes the session e.g.: closes the browser);
 - Permanent cookies - they set the `Max-Age` in seconds or a `Expires` date and are preserved between sessions;
 
 However they can have some extra attributes:
 
 - `Secure`: the cookie is only sent if using **HTTPS**
-- `HttpOnly`: prevents javascript from accessing and modifying the cookie
+- `HttpOnly`: prevents JavaScript from accessing and modifying the cookie
 - `SameSite`: the cookie is not sent on a cross-site request
 
 ---
@@ -1861,15 +1871,15 @@ However they can have some extra attributes:
 
 AJAX (**A**synchronous **J**avascript **A**nd **X**ML) is a methodology that consists of making requests to the server **without** reloading the page.
 
-While **AJAX** was initialy done with **XML**, nowadays there are multiple formats used (mainly **JSON** or even **HTML**).
+While **AJAX** was initially done with **XML**, nowadays there are multiple formats used (mainly **JSON** or even **HTML**).
 
-This is **super useful** especially with modern website, that often provide with seamless experiences that don't reload at all.
+This is **super useful** especially with modern websites, that often provide with seamless experiences that don't reload at all.
 
 ---
 
 # AJAX
 
-You can make a request with javascript using two different ways, `XMLHttpRequest` or using `fetch`. `XMLHttpRequest` is pretty much legacy now, and `fetch` is almost universally used.
+You can make a request with JavaScript using two different ways, `XMLHttpRequest` or using `fetch`. `XMLHttpRequest` is pretty much legacy now, and `fetch` is almost universally used.
 
 Example:
 
@@ -1884,7 +1894,7 @@ if (request.status != 200) {
 }
 
 let cuteDogsList = await request.json();
-console.log(cureDogsList);
+console.log(cuteDogsList);
 //outputs: ['shiba inu', 'akita', 'portuguese water dog']
 ```
 
@@ -1917,47 +1927,50 @@ We can also send our own data and specify a different **HTTP** method:
 
 name: practice-js
 
-# NIBook - JS
+# NIws - JS
 
 <div style="text-align: center; max-width: 100%;">
-<p style="display: inline;">Fetch the posts from <p style="display: inline; color: blue;">https://jsonplaceholder.typicode.com/posts</p></p>
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-3">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-3</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-js.png"></img>
 </div>
 
 ---
 
-# NIBook - Bonus
+# NIws - Bonus
 
-Function to always select random posts so you can see the effects of the fetch when repeatedly clicking the button (thanks ChatGPT!)
+Create a form to post content in the platform!
 
-```js
-function getRandomPosts(posts, count) {
-  const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()); // Shuffle posts array
-  return shuffledPosts.slice(0, count); // Return first 'count' random posts
-}
-```
+<div style="text-align: center; max-width: 100%;">
+<a href="https://github.com/peucastro/NIws-fe/tree/step-3">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-3</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-extra.png"></img>
+</div>
 
 ---
 
-# The light at the end of the tunnel
+## The light at the end of the tunnel
 
-As you can see, this a pretty tedious process to make what it seems a "simple" website, so other developers created some **frameworks** and **libraries** that
+As you can see, this a pretty tedious proccess to make what it seems a "simple" website, so other developers created some **frameworks** and **libraries** that
 help with our productivity and help us do Web Development faster:
 
 - React (you can also use Next.js to help with backend development at the same time)
 - Svelte (you can also use SvelteKit to help with backend development at the same time)
 - Vue.js
 - AngularJS
-- jQuery (not much used nowadays, but a honorable mention)
+- jQuery (not much used nowadays, but a honourable mention)
 - ... and **many** **many** **many** other JavaScript frameworks and libraries
 
 ---
 
-# The light at end of the tunnel
+## The light at end of the tunnel
 
 Nonetheless, the basics (HTML, JS, CSS) are important when learning these frameworks because they give a general idea of how the web works!
 
 ---
+
+class: center, middle
 
 # Thanks!
