@@ -78,7 +78,7 @@ Most tags have a pair, a **closing tag**, which start with **`</`**.
 To close a tag automatically, end it with **`/>`**.
 
 ```html
-<p />
+<br />
 ```
 
 ---
@@ -135,7 +135,7 @@ Boolean attributes can be set True by assigning it its own name or by just writi
 
 # IDs and Classes
 
-The **id** and class **attributes** are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **JavaScript**.
+The **id** and **class** attributes are the most used attributes in HTML. They can be used to identify tags in order to manipulate them with **CSS** or **JavaScript**.
 
 - There can only be one tag with a certain **id** in a page.
 
@@ -233,7 +233,7 @@ Heading are used to structure a page. They go from `<h1>` to `<h6>`, where `<h1>
 
 # Anchors
 
-The `<a>` tag is used to create links. It has an **href** attribute that defines the link's destination.
+The `<a>` tag is used to create links. It has an **`href`** attribute that defines the link's destination.
 
 ```html
 <a href="link.html">This is a link</a>
@@ -248,7 +248,7 @@ This <a href="http://127.0.0.1:5500/web-workshop/index.html#14">link</a> takes y
 
 # Images
 
-The `<img>` tag is used to display images. It has a **src** attribute that defines the image's source.
+The `<img>` tag is used to display images. It has a **`src`** attribute that defines the image's source.
 
 ```html
 <img src="dog.png" />
@@ -305,7 +305,7 @@ There are two types of lists in HTML, ordered and unordered.
 
 # Span and Div
 
-The `<span>` and `<div>` tags are used to group elements together. They are both block elements, but the `<span>` tag is inline.
+The `<div>` and `<span>` tags are used to group elements together. `<div>` is a block-level element, while `<span>` is an inline element.
 
 Span elements are useful to apply styles to a specific part of a text as they are inline elements.
 
@@ -313,7 +313,7 @@ Span elements are useful to apply styles to a specific part of a text as they ar
 <p>My name is <span style="color: red;">John</span></p>
 ```
 
-Div elements are useful to group elements together and apply styles to them.
+Div elements are useful to group larger sections of content and apply styles to them, as they are block-level elements.
 
 ```html
 <div style="background-color: red;">
@@ -413,9 +413,10 @@ name: hands-on
   - > What could go wrong...
 - The exercise will be done in 3 steps:
 
-  1. Make a frontend for the website using HTML and CSS
-  2. Fetch the existing posts using an external API
-  3. Create a form to share the latest news with your friend
+  1. Build the basic website layout with just plain HTML
+  2. Make it look nice by adding some CSS styles
+  3. Pull in the latest posts from an external API (so you don't have to write them yourself)
+  4. Add a form so you and your friend can share the freshest news with everyone
 
 ---
 
@@ -810,7 +811,7 @@ section {
 
 # Minimum and Maximum
 
-We can set their minimum and maximum values using the min-width, max-width, min-height, and max-height properties.
+We can set their minimum and maximum values using the `min-width`, `max-width`, `min-height`, and `max-height` properties.
 
 Values can be a length, a percentage, or auto (the default value).
 
@@ -881,7 +882,7 @@ padding: 20px 10px; /* top/bottom right/left */
 
 Flow layout is how elements are placed on a page before any layout changes.
 
-There are two primary types of elements: block (default) and inline elements.
+There are two primary types of elements: `block` (default) and `inline` elements.
 
 <p style="text-align: center;">
 <img src="./assets/flow.svg"></img>
@@ -1434,7 +1435,7 @@ let value_returned = add(1, 2);
 console.log(value_returned); // 3
 ```
 
-A function with an empty return or no return at all returns **undefined**.
+A function with no return statement, or with an empty return, returns **undefined**.
 
 ---
 
@@ -1503,7 +1504,7 @@ takes_two_minutes(); // takes two minutes to finish its execution
 rest_of_the_code(); // this will be running at the same time of the other two
 ```
 
-If you want to do anything after the function is finished you can use **then** or **wait**:
+If you want to do anything after the function is finished you can use **then** or **await**:
 
 ```js
 const foo = async () => 10;
@@ -1516,7 +1517,7 @@ console.log(value); // 20
 
 **then** will call a block of code to be executed once the function is finished while **wait** will wait until the function is finished to execute the rest of code
 
-Every function that has an await in it will also be an async function.
+Every function that has an await must also be an async function.
 
 ---
 
@@ -1693,7 +1694,6 @@ link.parentNode.insertBefore(
   label,
   link
 ); /* inserts the label before the link */
-
 link.remove();
 ```
 
@@ -1702,7 +1702,7 @@ link.remove();
 # Events
 
 - Events are occurrences that happen in the system. <br>
-  <small> e.g., the user clicks a button. </small>
+  <small> e.g.: the user clicks a button. </small>
 - Specific events in specific objects can have event handlers attached to them.
 - When the event happens, the attached **handler is called**.
 
@@ -1743,7 +1743,7 @@ button.addEventListener("click", handleEvent);
 
 When an event happens on an element, it first runs any handlers attached to it, then on its parent, then up to the root.
 
-In each step, the handler can know the current target (**event.currentTarget** or this) and also the initial target (**event.target**).
+In each step, the handler can know the current target (`event.currentTarget` or this) and also the initial target (`event.target`).
 
 ```html
 <section>
@@ -1783,7 +1783,7 @@ name: http
 
 # HTTP
 
-HTTP a protocol, commonly built on top of TCP, used to communicate between two machines, mainly used in web applications. It's a **stateless** protocol so no information is stored between requests.
+HTTP a protocol, commonly built on top of TCP, used to communicate between two machines, mainly used in web applications, APIs, and IoT. It's a **stateless** protocol so no information is stored between requests.
 
 <img style="width: 100%;" src="./assets/HTTPBasics.png">
 
@@ -1853,7 +1853,7 @@ This is useful because we might need a way to recognize the user when he's logge
 
 There are two main types of cookies:
 
-- Session cookies (are deleted when the user closes the session eg.: closes the browser);
+- Session cookies (are deleted when the user closes the session e.g.: closes the browser);
 - Permanent cookies - they set the `Max-Age` in seconds or a `Expires` date and are preserved between sessions;
 
 However they can have some extra attributes:
@@ -1948,7 +1948,7 @@ Create a form to post content in the platform!
 
 ---
 
-# The light at the end of the tunnel
+## The light at the end of the tunnel
 
 As you can see, this a pretty tedious proccess to make what it seems a "simple" website, so other developers created some **frameworks** and **libraries** that
 help with our productivity and help us do Web Development faster:
@@ -1962,10 +1962,12 @@ help with our productivity and help us do Web Development faster:
 
 ---
 
-# The light at end of the tunnel
+## The light at end of the tunnel
 
 Nonetheless, the basics (HTML, JS, CSS) are important when learning these frameworks because they give a general idea of how the web works!
 
 ---
+
+class: center, middle
 
 # Thanks!
