@@ -18,9 +18,9 @@ template: title
 
 ## Props to André Restivo <3
 
-This workshop slides are based on the slides from the André Restivo the professor of the course LTW at FEUP.
-This covers the most important parts of the first 3 classes of the course.
-This doesn't mean you can skip the classes, there are details that are not covered here.
+This workshop slides are based on the slides from the André Restivo, the professor of the course LTW at FEUP.
+This covers the most important parts of the first 3 lectures of the course.
+This doesn't mean you can skip the lectures, there are details that are not covered here.
 
 ---
 
@@ -55,9 +55,9 @@ name: html
 
 # HTML Structure
 
-- **HTML** has a **tree** structure, where each element is a **node** and within itself can cointain either other nodes or text.
-- Each node is defined using **tags** and each tag can have it's own set of **attributes**.
-- Browser's have their own **default styles** for each tag, but they can be overriden using **CSS**.
+- **HTML** has a **tree** structure, where each element is a **node** and within itself can contain either other nodes or text.
+- Each node is defined using **tags** and each tag can have its own set of **attributes**.
+- Browsers have their own **default styles** for each tag, but they can be overridden using **CSS**.
 
 ---
 
@@ -122,7 +122,7 @@ A **checkbox** will work without the **checked** attribute, but it won't be chec
 <input type="checkbox" checked="checked" />
 ```
 
-Boolean attributes can be set True by assigning it it's own name or by just writting the attribute:
+Boolean attributes can be set True by assigning it its own name or by just writing the attribute:
 
 ```html
 <input type="checkbox" checked="checked" />
@@ -326,7 +326,7 @@ Div elements are useful to group elements together and apply styles to them.
 
 # Forms, inputs and labels
 
-Forms are used for basic interaction with the server or through javascript
+Forms are used for basic interaction with the server or through JavaScript
 
 .horizontal[
 
@@ -414,16 +414,16 @@ name: hands-on
 - The exercise will be done in 3 steps:
 
   1. Make a frontend for the website using HTML and CSS
-  2. Fetch the existing posts using and external API
+  2. Fetch the existing posts using an external API
   3. Create a form to share the latest news with your friend
 
 ---
 
 # NIws - Setup
 
-You can open an HTML file directly with your preffered browser to preview it.
+You can open an HTML file directly with your preferred browser to preview it.
 
-But, for frequent changes, we reccomend the **VSCode Live Preview** extension!
+But, for frequent changes, we recommend the **VSCode Live Preview** extension!
 
 <div style="text-align: center;">
 <a href="https://tinyurl.com/vscode-live-preview">
@@ -759,7 +759,7 @@ body {
 Define lengths relative to the **viewport size (the visible part of the document)**:
 
 - **vw** - 1% of the viewport width.
-- **vh** - 1% of the viewport heigth.
+- **vh** - 1% of the viewport height.
 
 So, if the viewport is 600x400 pixels, vw = 6px, vh = 4px.
 
@@ -1015,6 +1015,8 @@ This aligns a flex container’s lines within when there is extra space in the c
 
 The gap property explicitly controls the space between flex items. It applies that spacing only between items not on the outer edges.
 
+.horizontal[
+
 ```css
 .container {
   display: flex;
@@ -1029,6 +1031,8 @@ The gap property explicitly controls the space between flex items. It applies th
 <p style="text-align: center;">
 <img height="300" src="./assets/Flex Gap.svg">
 </p>
+
+]
 
 ---
 
@@ -1430,7 +1434,7 @@ let value_returned = add(1, 2);
 console.log(value_returned); // 3
 ```
 
-A function with an empty return or no return at all, returns **undefined**.
+A function with an empty return or no return at all returns **undefined**.
 
 ---
 
@@ -1465,7 +1469,7 @@ const foo = (var1, var2) => var1 + var2;
 
 ## Async functions
 
-In JS code is executed sequencialy:
+In JS code is executed sequentially:
 
 ```js
 first(); // first function to execute
@@ -1473,7 +1477,7 @@ second(); // this function will run, once the above function has finished
 third(); // this function will run, once the above function is finished
 ```
 
-If a function takes one minute to execute our website will freze until the function has finished its execution
+If a function takes one minute to execute our website will freeze until the function has finished its execution
 
 ```js
 const takes_one_minute = () => sleep(60);
@@ -1510,8 +1514,9 @@ const value = await boo();
 console.log(value); // 20
 ```
 
-**then** will call a block of code to be executed once the function is finished while **wait** will wait until the function is finished to execute the rest code
-Every function that has a await in it will also be an async function.
+**then** will call a block of code to be executed once the function is finished while **wait** will wait until the function is finished to execute the rest of code
+
+Every function that has an await in it will also be an async function.
 
 ---
 
@@ -1519,7 +1524,7 @@ Every function that has a await in it will also be an async function.
 
 - A promise represents the eventual result of an asynchronous operation.
 - A promise may be in one of 3 possible states: **fulfilled**, **rejected**, or **pending**.
-- A Promise is an object that takes a function with two parameters, functions resolve and reject:
+- A Promise is an object that takes a function with two parameters: resolve and reject
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -1608,9 +1613,9 @@ catch (e) {
 ```html
 <html>
   <head>
-    <script src="...url of javascript script..."></script>
+    <script src="...url of JavaScript script..."></script>
     <script>
-      ...javascript code goes here...
+      ...JavaScript code goes here...
     </script>
   </head>
 </html>
@@ -1828,7 +1833,7 @@ Let's assume that you have a search page in your website, how would you save wha
 
 In the URL you can use the `?` after the path to declare the search parameters.
 
-A parameter is in the `key=value` form, and you can seperate them with the `&` character.
+A parameter is in the `key=value` form, and you can separate them with the `&` character.
 
 `https://cutedogs.com/search?q=shiba%20inu&limit=10`
 
@@ -1836,7 +1841,7 @@ A parameter is in the `key=value` form, and you can seperate them with the `&` c
 
 # Cookies
 
-Because **HTTP** is stateless, some clever enginners thought of a way to store state between requests.
+Because **HTTP** is stateless, some clever engineers thought of a way to store state between requests.
 
 This is useful because we might need a way to recognize the user when he's logged in, ~~or a way to track them~~.
 
@@ -1854,7 +1859,7 @@ There are two main types of cookies:
 However they can have some extra attributes:
 
 - `Secure`: the cookie is only sent if using **HTTPS**
-- `HttpOnly`: prevents javascript from accessing and modifying the cookie
+- `HttpOnly`: prevents JavaScript from accessing and modifying the cookie
 - `SameSite`: the cookie is not sent on a cross-site request
 
 ---
@@ -1863,15 +1868,15 @@ However they can have some extra attributes:
 
 AJAX (**A**synchronous **J**avascript **A**nd **X**ML) is a methodology that consists of making requests to the server **without** reloading the page.
 
-While **AJAX** was initialy done with **XML**, nowadays there are multiple formats used (mainly **JSON** or even **HTML**).
+While **AJAX** was initially done with **XML**, nowadays there are multiple formats used (mainly **JSON** or even **HTML**).
 
-This is **super useful** especially with modern website, that often provide with seamless experiences that don't reload at all.
+This is **super useful** especially with modern websites, that often provide with seamless experiences that don't reload at all.
 
 ---
 
 # AJAX
 
-You can make a request with javascript using two different ways, `XMLHttpRequest` or using `fetch`. `XMLHttpRequest` is pretty much legacy now, and `fetch` is almost universally used.
+You can make a request with JavaScript using two different ways, `XMLHttpRequest` or using `fetch`. `XMLHttpRequest` is pretty much legacy now, and `fetch` is almost universally used.
 
 Example:
 
@@ -1886,7 +1891,7 @@ if (request.status != 200) {
 }
 
 let cuteDogsList = await request.json();
-console.log(cureDogsList);
+console.log(cuteDogsList);
 //outputs: ['shiba inu', 'akita', 'portuguese water dog']
 ```
 
@@ -1945,14 +1950,14 @@ Create a form to post content in the platform!
 
 # The light at the end of the tunnel
 
-As you can see, this a pretty tedious process to make what it seems a "simple" website, so other developers created some **frameworks** and **libraries** that
+As you can see, this a pretty tedious proccess to make what it seems a "simple" website, so other developers created some **frameworks** and **libraries** that
 help with our productivity and help us do Web Development faster:
 
 - React (you can also use Next.js to help with backend development at the same time)
 - Svelte (you can also use SvelteKit to help with backend development at the same time)
 - Vue.js
 - AngularJS
-- jQuery (not much used nowadays, but a honorable mention)
+- jQuery (not much used nowadays, but a honourable mention)
 - ... and **many** **many** **many** other JavaScript frameworks and libraries
 
 ---
