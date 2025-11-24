@@ -1,6 +1,6 @@
 name: title
 layout: true
-class: center, middle
+class: center, middle, inverse, small-images
 
 ---
 
@@ -13,6 +13,8 @@ class: left, middle
 template: title
 
 # Web Workshop
+
+<img src="./assets/html_css_js.png" width=300></img>
 
 ---
 
@@ -447,6 +449,7 @@ But, for frequent changes, we recommend the **VSCode Live Preview** extension!
 ---
 
 name: css
+template: title
 
 # CSS
 
@@ -1289,6 +1292,7 @@ name: practice-css
 ---
 
 name: javascript
+template: title
 
 # JavaScript
 
@@ -1774,12 +1778,11 @@ To stop bubbling, we can use the `event.stopPropagation()` method.
 ---
 
 name: http
+template: title
 
 # HTTP
 
 ---
-
-name: http
 
 # HTTP
 
