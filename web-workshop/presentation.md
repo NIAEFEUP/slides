@@ -275,13 +275,13 @@ There are two types of lists in HTML, ordered and unordered.
 .horizontal[
 
 ```html
-Unordered list
+<!-- Unordered list -->
 <ul>
   <li>Item 1</li>
   <li>Item 2</li>
 </ul>
 
-Ordered list
+<!-- Ordered list -->
 <ol>
   <li>Item 1</li>
   <li>Item 2</li>
@@ -384,7 +384,7 @@ Forms are used for basic interaction with the server or through javascript
 
 # A World of tags
 
-Discover all the available tags at [w3schools](https://www.w3schools.com/tags/)
+Discover all the available tags at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements)
 
 ---
 
@@ -405,34 +405,42 @@ Check some tips at [Chrome DevTools](https://developer.chrome.com/docs/devtools/
 
 ---
 
-name: practice-html
+name: hands-on
 
 # Hands-on!
 
-- Your goal is to develop a prototype of **NIbook**, a recruit only social network where you can complain about members and having too hard of issues assigned.
-- However, you don't want members in the NI room to run past you and see this, so the posts on NIbook are only **loaded with a click of a button**, when it's safe.
-- You also obviously have nothing bad to say about us so the posts are fake and loaded from [JSON Placeholder](https://jsonplaceholder.typicode.com/) :)
+- Your goal is to develop a prototype of **NIws**, a collaborative news website where anyone can post anything they want!
+  - > What could go wrong...
+- The exercise will be done in 3 steps:
+
+  1. Make a frontend for the website using HTML and CSS
+  2. Fetch the existing posts using and external API
+  3. Create a form to share the latest news with your friend
 
 ---
 
-# NIBook - Setup
+# NIws - Setup
 
 You can open an HTML file directly with your preffered browser to preview it.
 
-But, for frequent changes, we reccomend the **VSCode Live Server** extension!
+But, for frequent changes, we reccomend the **VSCode Live Preview** extension!
 
 <div style="text-align: center;">
-<p style="color: blue;">https://tinyurl.com/vscode-live-server</p>
-<img src="./assets/vscode-live-server.svg"></img>
+<a href="https://tinyurl.com/vscode-live-preview">
+<p style="color: blue;">https://tinyurl.com/vscode-live-preview</p>
+</a>
+<img src="./assets/vscode-live-preview-qr.png" width=300></img>
 </div>
 
 ---
 
-# NIBook - HTML
+# NIws - HTML
 
 <div style="text-align: center; max-width: 100%;">
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-1">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-1</p>
+</a>
+<img style="width:80%" src="./assets/NIws-html.png"></img>
 </div>
 
 ---
@@ -1264,11 +1272,13 @@ Or when linking to a CSS file from HTML:
 
 name: practice-css
 
-# NIBook - CSS
+# NIws - CSS
 
 <div style="text-align: center; max-width: 100%;">
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-2">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-2</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-css.png"></img>
 </div>
 
 ---
@@ -1326,7 +1336,7 @@ for i in range(a):
 In JavaScript there are 3 ways of initializing a variable, you can use ~~var~~, let and const.
 
 - **const**: we use const when we want to initialize a variable that will never change its value
-- **let**: we use let when we want to initialize a variable that will never change its value
+- **let**: we use let when we want to initialize a variable that can change its value
 - **var**: You should never use var
 
 ---
@@ -1808,7 +1818,7 @@ Each HTTP Response has an associated Status code.
 - .dense[`4XX`] Client error
 - .dense[`5XX`] Server error
 
-## Check out https://http.cat !
+### Check out https://http.cat !
 
 ---
 
@@ -1909,26 +1919,27 @@ We can also send our own data and specify a different **HTTP** method:
 
 name: practice-js
 
-# NIBook - JS
+# NIws - JS
 
 <div style="text-align: center; max-width: 100%;">
-<p style="display: inline;">Fetch the posts from <p style="display: inline; color: blue;">https://jsonplaceholder.typicode.com/posts</p></p>
-<p style="color: blue;">https://tinyurl.com/web-workshop-slides</p>
-<img style="width:80%;" src="./assets/NIBook.png"></img>
+<a href="https://github.com/peucastro/NIws-fe/tree/step-3">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-3</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-js.png"></img>
 </div>
 
 ---
 
-# NIBook - Bonus
+# NIws - Bonus
 
-Function to always select random posts so you can see the effects of the fetch when repeatedly clicking the button (thanks ChatGPT!)
+Create a form to post content in the platform!
 
-```js
-function getRandomPosts(posts, count) {
-  const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()); // Shuffle posts array
-  return shuffledPosts.slice(0, count); // Return first 'count' random posts
-}
-```
+<div style="text-align: center; max-width: 100%;">
+<a href="https://github.com/peucastro/NIws-fe/tree/step-3">
+<p style="color: blue;">https://github.com/peucastro/NIws-fe/tree/step-3</p>
+</a>
+<img style="width:80%;" src="./assets/NIws-extra.png"></img>
+</div>
 
 ---
 
