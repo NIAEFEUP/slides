@@ -56,7 +56,7 @@ class: middle
 - [Components](#components)
 - [Reactivity](#reactivity)
 - [Templates](#templates)
-- [SvelteKit Basics](#sveltekit-basics)
+- [Interactivity](#interactivity)
 
 ---
 
@@ -653,34 +653,99 @@ You can access the **index** (position) and **destructure** objects in one line:
 
 ---
 
+template: title
+name: interactivity
+
+# Interactivity
+
+---
+
 class: middle
 
-## Async Data with {#await}
+## Event Handlers
 
-Handle promises (async data) with three states:
+Event handlers let you respond to user actions like clicks, typing, and form submissions.
 
 ```svelte
 <script>
-  async function fetchUser() {
-    const res = await fetch('/api/user');
-    return await res.json();
-  }
-
-  let userPromise = fetchUser();
+  let count = $state(0);
+  let message = $state('');
 </script>
 
-{#await userPromise}
-  <p>Loading user...</p>
-{:then user}
-  <p>Welcome, {user.name}!</p>
-{:catch error}
-  <p>Error: {error.message}</p>
-{/await}
+<button onclick={() => count++}>Clicked {count} times</button>
+
+<input type="text" bind:value={message} />
+<p>You typed: {message}</p>
+```
+
+Use `on` + event name: `onclick`, `oninput`, `onsubmit`, `onmouseover`, etc.
+
+**Tip:** You can use inline functions with `onclick={() => count++}` or define separate functions.
+
+---
+
+class: middle
+
+## Form Bindings with bind:value
+
+Instead of handling events manually, use `bind:value` for two-way binding:
+
+```svelte
+<script>
+  let username = $state('');
+  let age = $state(18);
+</script>
+
+<form>
+  <label>
+    Username:
+    <input type="text" bind:value={username} />
+  </label>
+
+  <label>
+    Age:
+    <input type="number" bind:value={age} />
+  </label>
+</form>
+
+<p>Hello {username}! You are {age} years old.</p>
+```
+
+---
+
+class: middle
+
+## Complete Form Example
+
+Putting it all together - a simple form with validation:
+
+```svelte
+<script>
+  let name = $state('');
+  let email = $state('');
+  let agreed = $state(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(`Welcome, ${name}!`);
+  }
+</script>
+
+<form onsubmit={handleSubmit}>
+  <input type="text" bind:value={name} placeholder="Name" required />
+  <input type="email" bind:value={email} placeholder="Email" required />
+
+  <label>
+    <input type="checkbox" bind:checked={agreed} />
+    I agree to the terms
+  </label>
+
+  <button type="submit">Sign Up</button>
+</form>
 ```
 
 ---
 
 template: title
-name: sveltekit-basics
 
-# SvelteKit Basics
+## Thank you!
