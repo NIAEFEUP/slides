@@ -240,6 +240,138 @@ name: components
 
 ---
 
+class: middle
+
+# What are Components?
+
+Think of components as **custom HTML elements** that you create yourself.
+
+Just like how you use `<div>`, `<button>`, or `<img>` in HTML, you can create your own tags like `<Header>`, `<Card>`, or `<TodoItem>`.
+
+---
+
+class: middle
+
+# Why Use Components?
+
+**Reusability:** Write once, use everywhere
+
+**Organization:** Break complex UIs into smaller, manageable pieces
+
+**Maintainability:** Easier to find and fix bugs
+
+**Teamwork:** Different people can work on different components
+
+---
+
+class: middle
+
+# Your First Component
+
+Let's create a simple greeting component:
+
+```svelte
+<!-- Greeting.svelte -->
+<script>
+  let name = 'Student';
+</script>
+
+<div class="greeting">
+  <h2>Hello, {name}!</h2>
+  <p>Welcome to the Svelte workshop!</p>
+</div>
+```
+
+---
+
+class: middle
+
+# Using Your Component
+
+Once you've created a component, you can use it in other files:
+
+```svelte
+<!-- +page.svelte -->
+<script>
+  import Greeting from './Greeting.svelte';
+</script>
+
+<main>
+  <Greeting />
+  <p>This is my web page!</p>
+</main>
+```
+
+---
+
+class: middle
+
+## Component Props (Parameters)
+
+Props let you pass data **into** components, like function parameters:
+
+```svelte
+<!-- StudentCard.svelte -->
+<script>
+  let { name, course, year = 1 } = $props();
+</script>
+
+<div class="card">
+  <h3>{name}</h3>
+  <p>{course} - Year {year}</p>
+</div>
+```
+
+**`$props()`** gets the data passed from the parent component
+
+---
+
+class: middle
+
+# Passing Props
+
+```svelte
+<!-- +page.svelte -->
+<script>
+  import StudentCard from '$lib/components/StudentCard.svelte';
+</script>
+
+<main>
+  <h1>Our Students</h1>
+  <StudentCard name="Alice" course="Computer Science" year={2} />
+  <StudentCard name="Bob" course="Engineering" />
+  <StudentCard name="Carol" course="Design" year={3} />
+</main>
+```
+
+- Strings: `name="Alice"`
+- Numbers/Variables: `year={2}` or `year={studentYear}`
+- Default values: `year = 1` (when not provided)
+
+---
+
+class: middle
+
+# Component Best Practices
+
+- **File Organization:**
+
+  - Keep components in `src/lib/components/`
+  - If the component is scoped to a speficific page, keep it in `src/routes/[page]/_components/`
+
+- **Single Responsibility:**
+
+  - Each component should do one thing well
+  - If it's getting too complex, split it up
+
+- **Clear Props:**
+
+  - Use descriptive prop names
+  - Provide sensible defaults
+  - Consider which props are required vs optional
+
+---
+
 template: title
 name: reactivity
 
