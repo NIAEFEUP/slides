@@ -244,7 +244,7 @@ The `<a>` tag is used to create links. It has an **`href`** attribute that defin
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is a link</a>
 ```
 
-This <a href="http://127.0.0.1:5500/web-workshop/index.html#14">link</a> takes you to the next slide.
+This <a href="https://slides.niaefeup.pt/web-workshop/#14">link</a> takes you to the next slide.
 
 ---
 
@@ -413,7 +413,7 @@ name: hands-on
 
 - Your goal is to develop a prototype of **NIws**, a collaborative news website where anyone can post anything they want!
   - > What could go wrong...
-- The exercise will be done in 3 steps:
+- The exercise will be done in 4 steps:
 
   1. Build the basic website layout with just plain HTML
   2. Make it look nice by adding some CSS styles
@@ -887,6 +887,8 @@ Flow layout is how elements are placed on a page before any layout changes.
 
 There are two primary types of elements: `block` (default) and `inline` elements.
 
+.horizontal[
+
 <p style="text-align: center;">
 <img src="./assets/flow.svg"></img>
 </p>
@@ -902,6 +904,8 @@ section {
   display: none; /* Hidden */
 }
 ```
+
+]
 
 ---
 
@@ -1675,12 +1679,7 @@ container.lastElementChild.textContent; /* Second Paragraph */
 
 # Alterations to Elements
 
-After selecting an Element, you can access and alter its:
-
-- Attributes
-- Class List
-- Style
-- HTML Code
+After selecting an Element, you can access and alter its attributes, class lists, style and HTML code
 
 ```js
 const link = document.querySelector("a");
@@ -1765,6 +1764,8 @@ document.querySelector("article").addEventListener("click", logEvent);
 document.querySelector("p").addEventListener("click", logEvent);
 ```
 
+.horizontal[
+
 Clicking on the paragraph:
 
 ```txt
@@ -1774,6 +1775,8 @@ Bubble: SECTION - P
 ```
 
 To stop bubbling, we can use the `event.stopPropagation()` method.
+
+]
 
 ---
 
