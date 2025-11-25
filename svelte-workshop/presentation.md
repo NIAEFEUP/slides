@@ -55,7 +55,7 @@ class: middle
 - [Fundamentals](#fundamentals)
 - [Components](#components)
 - [Reactivity](#reactivity)
-- [Control Flow](#control-flow)
+- [Templates](#templates)
 - [SvelteKit Basics](#sveltekit-basics)
 
 ---
@@ -548,9 +548,135 @@ class: middle
 ---
 
 template: title
-name: control1-flow
+name: templates
 
-# Control Flow
+# Templates
+
+---
+
+class: middle
+
+# Template Logic in Svelte
+
+Svelte provides special syntax to add **logic directly in your HTML**:
+
+- **`{#if}`** - Show/hide content conditionally
+- **`{#each}`** - Loop through arrays and display lists
+- **`{#await}`** - Handle async data (promises)
+
+Think of these as "if statements" and "for loops" but for your HTML!
+
+---
+
+class: middle
+
+## Conditional Rendering with {#if}
+
+Use `{#if}` to show content only when a condition is true:
+
+```svelte
+<script>
+  let loggedIn = $state(false);
+  let score = $state(85);
+</script>
+
+{#if loggedIn}
+  <p>Welcome back!</p>
+{/if}
+
+{#if score >= 90}
+  <p>Grade: A - Excellent!</p>
+{:else if score >= 80}
+  <p>Grade: B - Great job!</p>
+{:else if score >= 70}
+  <p>Grade: C - Good work!</p>
+{:else}
+  <p>Grade: F - Keep trying!</p>
+{/if}
+```
+
+---
+
+class: middle
+
+## Lists with {#each}
+
+Loop through arrays to display lists:
+
+```svelte
+<script>
+  let todos = [
+    { id: 1, text: 'Learn Svelte', done: true },
+    { id: 2, text: 'Build a project', done: false },
+    { id: 3, text: 'Deploy it', done: false }
+  ];
+</script>
+
+<ul>
+  {#each todos as todo (todo.id)}
+    <li>
+      <input type="checkbox" checked={todo.done} />
+      {todo.text}
+    </li>
+  {/each}
+</ul>
+```
+
+**Always use keys** `(todo.id)` when items can be added, removed, or reordered!
+
+---
+
+class: middle
+
+## {#each} - Index & Destructuring
+
+You can access the **index** (position) and **destructure** objects in one line:
+
+```svelte
+<script>
+  let users = [
+    { id: 1, name: 'Alice', age: 20, course: 'CS' },
+    { id: 2, name: 'Bob', age: 21, course: 'EE' }
+  ];
+</script>
+
+<ul>
+  {#each users as { name, age, course }, index (id)}
+    <li>#{index + 1}: {name} ({age}) - {course}</li>
+  {/each}
+</ul>
+```
+
+- `{ name, age, course }` - Extract properties from each user object
+- `, index` - Get the position (0, 1, 2, ...)
+- `(id)` - Use the id as a unique key
+
+---
+
+class: middle
+
+## Async Data with {#await}
+
+Handle promises (async data) with three states:
+
+```svelte
+<script>
+  async function fetchUser() {
+    const res = await fetch('/api/user');
+    return await res.json();
+  }
+
+  let userPromise = fetchUser();
+</script>
+
+{#await userPromise}
+  <p>Loading user...</p>
+{:then user}
+  <p>Welcome, {user.name}!</p>
+{:catch error}
+  <p>Error: {error.message}</p>
+{/await}
+```
 
 ---
 
