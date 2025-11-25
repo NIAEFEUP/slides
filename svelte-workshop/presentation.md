@@ -379,6 +379,174 @@ name: reactivity
 
 ---
 
+class: middle
+
+# What is Reactivity?
+
+**Reactivity** means your UI automatically updates when data changes.
+
+In plain JavaScript, if you change a variable, you need to manually update the DOM.
+
+With Svelte, when reactive data changes, the UI updates **automatically**! ✨
+
+---
+
+class: middle
+
+# What are Runes?
+
+**Runes** are special symbols in Svelte that control reactivity.
+
+- They start with a `$` sign (like `$state`, `$derived`)
+- They look like functions but are actually **compiler keywords**
+- They tell Svelte: "Hey, track this value and update the UI when it changes!"
+
+---
+
+class: middle
+
+# The Main Runes
+
+We'll cover four essential runes:
+
+1. **`$state`** - Create reactive variables
+2. **`$derived`** - Create values that automatically update based on other values
+3. **`$effect`** - Run code when reactive values change (side effects)
+4. **`$props`** - Receive data from parent components
+
+---
+
+class: middle
+
+## 1. $state - Reactive Variables
+
+`$state` creates a reactive variable. When it changes, the UI updates automatically.
+
+```svelte
+<script>
+  let count = $state(0);
+
+  function increment() {
+    count += 1;
+  }
+</script>
+
+<button onclick={increment}>
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+```
+
+Every time you click, `count` changes and the button text updates!
+
+---
+
+class: middle
+
+## 2. $derived - Computed Values
+
+`$derived` creates values that **automatically update** when their dependencies change.
+
+```svelte
+<script>
+  let numbers = $state([1, 2, 3, 4]);
+  let total = $derived(numbers.reduce((t, n) => t + n, 0));
+
+  function addNumber() {
+    numbers.push(numbers.length + 1);
+  }
+</script>
+
+<p>{numbers.join(' + ')} = {total}</p>
+
+<button onclick={addNumber}>
+  Add a number
+</button>
+
+```
+
+You never have to manually update `numbers` or `total`, they update automatically!
+
+---
+
+class: middle
+
+## 3. $effect - Side Effects
+
+`$effect` runs code when reactive values change. Use it for **side effects** (actions that affect things outside your component).
+
+Think of it as: _"When this data changes, do something extra"_
+
+```svelte
+<script>
+  let count = $state(0);
+
+  $effect(() => {
+    console.log(`Count is now: ${count}`);
+  });
+</script>
+
+<button onclick={() => count++}>Count: {count}</button>
+```
+
+Every time `count` changes, the effect runs and logs the new value
+
+---
+
+class: middle
+
+## When NOT to Use $effect
+
+❌ **Don't** use `$effect` to create derived state:
+
+```svelte
+// BAD - Don't do this!
+let count = $state(0);
+let doubled = $state(0);
+
+$effect(() => {
+  doubled = count * 2; // Wrong approach!
+});
+```
+
+✅ **Do** use `$derived` instead:
+
+```svelte
+// GOOD - Do this!
+let count = $state(0);
+let doubled = $derived(count * 2); // Correct!
+```
+
+**Rule of thumb:** Use `$derived` for values, `$effect` for actions.
+
+---
+
+class: middle
+
+## 4. $props - Component Props
+
+`$props` receives data from parent components.
+
+```svelte
+<!-- Child.svelte -->
+<script>
+  let { name, age = 18 } = $props();
+</script>
+
+<p>Hello {name}! You are {age} years old.</p>
+```
+
+```svelte
+<!-- Parent.svelte -->
+<script>
+  import Child from './Child.svelte';
+</script>
+
+<Child name="Bob" age={25} />
+<Child name="Carol" />
+```
+
+---
+
 template: title
 name: control1-flow
 
