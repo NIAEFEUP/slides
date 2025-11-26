@@ -33,6 +33,8 @@
 
 - [Next.js](https://niaefeup.github.io/slides/nextjs-workshop)
 
+- [Svelte](https://niaefeup.github.io/slides/svelte-workshop)
+
 - [Web Browser Extension](https://niaefeup.github.io/slides/web-extension)
 
 - [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
