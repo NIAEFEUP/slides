@@ -79,12 +79,6 @@ class: middle
 
 ## ... But what is a framework?
 
----
-
-class: middle
-
-## ... But what is a framework?
-
 A **framework** is a set of tools and conventions that helps you build applications more easily.
 
 It provides a robust foundation for your application by offering:
@@ -357,7 +351,7 @@ class: middle
 - **File Organization:**
 
   - Keep components in `src/lib/components/`
-  - If the component is scoped to a speficific page, keep it in `src/routes/[page]/_components/`
+  - If the component is scoped to a specific page, keep it in `src/routes/[page]/_components/`
 
 - **Single Responsibility:**
 
@@ -641,7 +635,7 @@ You can access the **index** (position) and **destructure** objects in one line:
 </script>
 
 <ul>
-  {#each users as { name, age, course }, index (id)}
+  {#each users as { name, age, course }, index}
     <li>#{index + 1}: {name} ({age}) - {course}</li>
   {/each}
 </ul>
@@ -743,6 +737,23 @@ Putting it all together - a simple form with validation:
   <button type="submit">Sign Up</button>
 </form>
 ```
+
+---
+
+class: middle
+
+## What's next?
+
+- Create a simple Svelte website and try running it:
+
+```bash
+npx sv create myapp
+cd myapp
+npm install
+npm run dev
+```
+
+- Follow the tutorials at [svelte.dev/tutorials](https://svelte.dev/tutorial/svelte/welcome-to-svelte1x)
 
 ---
 
