@@ -15,6 +15,8 @@
 
 ## Workshop Slides
 
+- [Niployments Introduction](https://niaefeup.github.io/slides/niployments-intro)
+
 - [Git and GitHub](https://niaefeup.github.io/slides/git-workshop)
 
 - [Git (New)](https://niaefeup.github.io/slides/new-git-workshop)
