@@ -35,7 +35,7 @@ class: center, middle, inverse
 
 - Dart is an **imperative programming language**
 - It is **object-oriented** as well
-- It supports **null-safety**
+- It is a **null-safe** language
 
 ```dart
 class Person {
@@ -52,9 +52,9 @@ class Person {
 }
 
 void main() {
-  Person recruta = Person(18, "Recruta", 1.8);
+  Person pessoa = Person(18, "Maria", 1.8);
 
-  print(recruta.getName());
+  print(pessoa.getName());
 }
 ```
 
@@ -79,13 +79,13 @@ class Person {
 }
 
 void main() {
-  Person recruta = Person(18, "Recruta", 1.8, null);
+  Person pessoa = Person(18, "Maria", 1.8, null);
 
-  if (recruta.getSurname() != null) {
-    print(recruta.getSurname()!.length); // ignores null-safety, prints nothing
+  if (pessoa.getSurname() != null) {
+    print(pessoa.getSurname()!.length); // ignores null-safety, prints nothing
   }
 
-  print(recruta.getSurname()?.length); // prints null
+  print(pessoa.getSurname()?.length); // prints null
 }
 
 ```
@@ -529,3 +529,9 @@ class RandomMealPageState extends State<RandomMealPage> {
 class: center, middle, inverse
 
 ### Thank you for your attention :)
+
+#### Please take a moment to fill this feedback form!
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 2em">
+<img src="./assets/form.jpeg" style="height: 25vh;">
+</div>
