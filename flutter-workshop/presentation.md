@@ -261,7 +261,7 @@ class: center, middle, inverse
 
 #### Let's build a widget
 
-## <img src="./assets/example.png" style="width: 40%;">
+## <img src="./assets/example.png" style="width: 30%;">
 
 ---
 
@@ -272,7 +272,7 @@ class: inverse
 - Clone the workshop's repo
 
 ```sh
-git clone git@github.com:DGoiana/flutter-ws.git
+git clone git@github.com:pedroafmonteiro/flutter-workshop.git
 
 ```
 
@@ -284,7 +284,7 @@ git checkout part1
 ```
 
 - Implement Meal class (meal.dart)
-- Implement Meal card (meal_card.dart)
+- Implement Meal page (meal_page.dart)
 
 ---
 
@@ -295,8 +295,9 @@ class Meal{
   Meal({
     required this.name,
     required this.category,
-    required this.region,
-    this.imageURL
+    required this.area,
+    this.imageUrl,
+    required this.ingredients,
   });
 
   // name
@@ -309,25 +310,20 @@ class Meal{
 
 ---
 
-### Meal Card
+### Meal Page
 
 ```dart
 
 import 'package:flutter/material.dart';
 
-class MealCard extends StatelessWidget {
-  const MealCard({super.key, required this.meal});
+class MealPage extends StatelessWidget {
+  const MealPage({super.key, required this.meal});
 
   final Meal meal;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
-      ),
+    return Column(
       child: _;
   }
 }
@@ -408,7 +404,7 @@ class: center, middle, inverse
 #### Let's get our hands dirty. Can you build this (or better)?
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2em">
-<img src="./assets/practical/part2.gif" style="height: 50vh;">
+<img src="./assets/practical/part2.gif" style="height: 40vh;">
 </div>
 
 ---
@@ -426,6 +422,7 @@ git checkout part2
 - Implement RecipesProvider (will memorize all reciped generated)
 - Implement RandomMealPage (page to randomize meals)
 - Implement FetchRandomMeal (function to call API)
+- Implement RecipeListPage (page to see saved meal names)
 
 ---
 
@@ -513,7 +510,7 @@ class RandomMealPageState extends State<RandomMealPage> {
     return Column(
       children: [
         // adicionar botão
-        MealCard(meal: randomMeal),
+        MealPage(meal: randomMeal),
         Expanded(
           child: // adicionar lista
         ),
