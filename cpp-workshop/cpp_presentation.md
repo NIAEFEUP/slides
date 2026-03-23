@@ -7,47 +7,47 @@ class: center, middle
 
 # Links importantes
 
-- Apresentação: https://niaefeup-cpp-workshop.netlify.app
+- Apresentação: https://slides.niaefeup.pt/cpp-workshop/
 - [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
-- [Visual Studio](https://visualstudio.microsoft.com), **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
-
-***NOTA:*** Aconselhamos o uso do **VSCode juntamente com g++** para compilar o código. Para instalar g++, basta correr `sudo apt install g++` (WSL/Linux) ou `brew install gcc` (Mac). 
-            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `./main`.
 
 ---
 
 # Overview
 
-1. O que é o C++?
-2. Hello World!
-3. Tipos de Dados
-4. Variáveis
-5. Constantes
-6. Operadores
-7. Condições
-8. Ciclos
-9. Funções
-10. Apontadores
-11. Vetores
-12. Classes
+1. TODO - UPDATE THIS PAGE
 
 ---
 
-# O que é o C++?
-- Criado por Bjarne Stroustrup
-- Extensão da linguagem C - 99% retrocompatível
-- Linguagem compilável
-- Disponível em praticamente todos os computadores
-- Suporta programação orientada a objetos
-- Usada para definir precisamente uma sequência de operações que o computador tem que executar para realizar uma determinada tarefa
-- Extremamente eficiente (quando bem utilizada...)
-- Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
+# Hello World - Setup do ambiente
 
-![Bjarne Stroustrup](img/bjarne.jpg)
+#### 1. Instalar um Editor de Código
+
+Podes usar o **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler), etc.
+
+
+#### 2. Instalar o Compilador g++
+
+No **Windows** (através do [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)) ou **Ubuntu**, basta correr o seguinte comando no terminal:
+
+```bash
+$ sudo apt install g++
+```
+
+Em **Mac**, basta correr o seguinte comando no terminal:
+
+```bash
+$ brew install gcc
+```
 
 ---
 
-# Hello World!
+# Hello World - Setup do ambiente
+
+#### 3. Compilar o Código
+
+Descarrega o [seguinte código](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) para o teu computador e vamos testar compila-lo.
+
+
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -60,88 +60,93 @@ int main() {
 }
 ```
 
----
+E finalmente, compila o código e corre o programa:
 
-# Exercícios
+```bash
+$ g++ helloworld.cpp -o helloworld
+$ ./helloworld
+```
 
-**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
-
----
-
-# Tipos de Dados Primitivos
-- **char:** caracteres (ex: 'c', '8', '$') correspondentes a valores ASCII
-- **int:** números inteiros (ex: 10**3, -2)
-- **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
-- **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
-- **bool:** verdadeiro ou falso (ex: true, false)
-- **void:** significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
-valor
+Qualquer problema, não hesites em perguntar-nos!
 
 ---
 
-# Tipos de Dados
-## Modificadores de tipos de dados
-- **signed/unsigned:** para números com/sem sinal
-- **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
-- **long/long long:** valor otimizado para precisão com comprimento de pelo menos 32/64 bits
+# Variáveis
 
-```C++
+## Declaração e Sintaxe
 
-int main() {
-    unsigned int i = 5;
-    int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
-    long float z = 9;
-    long long double d = 37.2387193;
-    char x = 'r';
-    int i = 0;
-    float y = 1.3;
-    double z = 4.586
-    bool b = true;
+Ao contrário do Python, o C++ é uma linguagem **estaticamente tipada**. Isto significa que tens *sempre* de declarar o tipo de dados de uma variável no momento em que a crias!
 
-    return 0;
-}
+### Sintaxe
+```cpp
+tipo nome_da_variavel = valor;
+
+```
+
+### Exemplos
+
+```cpp
+int age = 18;
+bool isStudent = true;
+int uninitializedVar; // Declarada mas não inicializada. Pode conter "lixo" da memória!
+
 ```
 
 ---
 
 # Variáveis
-São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
-## Como as declarar?
-```C++
-int myNumber = 15;
-bool myBoolean = true;
-```
-## Tipos de Variáveis
-- Globais - declarar fora de qualquer função
-- Locais - declarar dentro de uma função específica (ex. main)
+## Tipos de Dados Primitivos
 
-### NOTAS:
-- Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
-desde que sejam locais e estejam em diferentes blocos de código (entre {})
-- Não têm que ser inicializadas ao mesmo tempo que são declaradas
+Sendo estaticamente tipado, o C++ obriga-nos a escolher exatamente o que queremos guardar na memória:
+
+* **int:** números inteiros (ex: 10, -2, 42)
+* **float:** vírgula flutuante de precisão simples (ex: 1.902f)
+* **double:** vírgula flutuante de precisão dupla, guarda números maiores e com mais casas decimais (ex: 3.14159265)
+* **char:** um único caracter, delimitado por plicas (ex: 'c', '8', '$')
+* **bool:** *true* ou *false*
+* **void:** significa "sem valor" ou "vazio" (será muito útil mais à frente, em funções que não retornam nada)
 
 ---
 
-# Constantes
-Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização. 
-Podem ser locais ou globais.
+# Variáveis
 
-```C++
-#include <iostream>
+## Modificadores de Tipos
 
-using namespace std;
+Podemos alterar o comportamento e o espaço na memória alocado para os tipos inteiros e de vírgula flutuante utilizando modificadores:
 
+* **unsigned:** retira a capacidade de guardar números negativos, duplicando o limite máximo positivo. (O `signed` é o default).
+* **short:** otimiza o espaço alocado na memória (pelo menos 16 bits).
+* **long / long long:** aumenta a capacidade e precisão da variável (pelo menos 32 ou 64 bits).
+
+```cpp
+unsigned int studentsCount = 45; // Nunca será negativo
+long long universeAge = 13787000000;
+long double precisePi = 3.141592653589793238;
+
+```
+
+---
+
+# Variáveis
+
+## Constantes
+
+Uma constante atua como uma variável, mas o seu valor **não pode ser alterado** após a sua inicialização. Para a criares, basta usar a *keyword* `const` antes do tipo de dados.
+
+São muito úteis para valores fixos e ajudam a prevenir bugs acidentais ao longo do código.
+
+```cpp
 int main() {
-    int variable;
-    const char constant = 'T';
+    int lives = 3;
+    const float PI = 3.14159;
 
-    variable = 5;
-    constant = 3; // IMPOSSÍVEL: seria gerado um erro durante a compilação!
-    cout << variable << " " << constant << endl;
+    lives = 2; // OK
+    PI = 3;    // ERRO DE COMPILAÇÃO! Uma constante é inalterável.
 
     return 0;
 }
+
 ```
 
 ---
@@ -183,23 +188,16 @@ int main() {
 
 ---
 
-# Exercícios
+# Input e Output
+## Bibliotecas e Namespaces
 
-**E2.** Vamos observar o comportamento de alguns dos tipos de dados. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/dataTypes.cpp) e corre o programa.
-
----
-
-# Input/Output
-## Requisitos
-Para utilizar os operadores I/O de C++, é necessário incluir a seguinte linha no topo do ficheiro de código:
+Para lermos e escrevermos dados no terminal, precisamos de importar a biblioteca `<iostream>`. Em C++, fazemos isso com:
 
 ```C++
-#include <iostream>
+#include <iostream> // O equivalente ao "import" do Python
 ```
 
-`iostream` é a biblioteca *standard* que fornece operadores e funções de I/O.
-
-É também necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`) ou simplesmente declarar o *namespace* `std`.
+Para além disso é útil declarar o uso do *namespace* `std` para não termos de escrever `std::cout` ou `std::cin` sempre que quisermos usar estas funções. Para isso, declaramos o uso do *namespace* no topo do ficheiro:
 
 ```C++
 using namespace std;
@@ -207,118 +205,66 @@ using namespace std;
 
 ---
 
+# Input e Output
+## Output (Escrever no terminal)
 
-# Input/Output
-## Escrever Informação
-De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
-mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
-anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
-transmitir informação para o ecrã do utilizador.
+Para imprimir algo no ecrã, enviamos a nossa informação para o objeto **`cout`** (character output) utilizando o operador **`<<`**.
 
-```C++
-cout << "Bom dia " << nome_do_aluno << "!" << endl;
-cout << "Tudo bem contigo?" << endl;
-```
+A palavra **`endl`** serve para dar uma quebra de linha (um enter) no fim da linha.
 
---- 
-
-```Bash
-// Assuma-se que o conteudo da variável nome_do_aluno é Inês.
-Bom dia Inês!
-Tudo bem?
-```
-
-***NOTA:*** A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
-utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
-seguinte:
-```Bash
-Bom dia Inês!Tudo bem?
-```
-
----
-# Input/Output
-### Ler Informação
-De forma semelhante, é possível ler informações do utilizador, usando o objeto **cin** e o operador **>>** seguido da variável onde vai ser guardada a informação.
-
---- 
-
-O objeto **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
-definidos pelo utilizador, a não ser que o operador >> tenha sido *overloaded*).
-
-Para ler *strings*, **cin** utiliza qualquer espaço em branco como delimitador (o que inclui espaços, newlines, tabs, etc.). Para ler strings com o caracter espaço ' ', pode user usada a função *getline()* (a string *acaba* apenas quando o caracter '\n' é encontrado).
-
----
-# Input/Output
 ```C++
 #include <iostream>
-  
 using namespace std;
-    
-// Um mau uso da stream cin
 
 int main() {
-    string name;
-    cout << "Insert your name here: ";
-    cin >> name;
-    cout << "Your name is " << name << endl;
+    string nome = "Inês";
+    
+    // Podemos encadear vários << na mesma linha!
+    cout << "Bom dia " << nome << "!" << endl;
+    cout << "Tudo bem contigo?" << endl;
     
     return 0;
-}     
-```
-
---- 
-
-```Bash
-Insert your name here: André Moreira
-Your name is André
-```
-
---- 
-
-Repare-se que o nome inserido difere do recebido pelo programa!
-Mais à frente veremos o porquê de isto acontecer, e perceberemos melhor o 
-funcionamento da stream **cin**.
-
----
-
-# Exercícios
-
-
-**E3.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
-
-**E4.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
-
----
-
-# Solução
-
-```cpp
-int main() {
-    // ...
-    string name;
-    cout << "Hey there, what's your name?" << endl;
-    cin >> name;
-
-    cout << "Hello " << name << ", what's your age?" << endl;
-
-    int age;
-    cin >> age;
-    cout << "Your age is " << age << endl;
-    // ...
 }
+```
+
+---
+
+# Input e Output
+## Input (Ler do terminal)
+
+Para receber informação do utilizador, usamos o objeto **`cin`** (character input) e o operador **`>>`**.
+
+```C++
+int idade;
+cout << "Qual é a tua idade? ";
+cin >> idade; // O utilizador escreve e o valor vai para a variável 'idade'
+```
+
+**⚠️ CUIDADO: Espaços no input!**
+O `cin` normal usa espaços em branco (espaços, *tabs*, *enters*) como separadores. Se o utilizador escrever "André Moreira", o `cin` só vai guardar "André". 
+
+Para ler uma linha inteira com espaços (como num input de texto), usamos a função `getline`, que lê uma linha completa até encontrar um `\n` (um *enter*).
+```C++
+string nome_completo;
+getline(cin, nome_completo); 
 ```
 
 ---
 
 # Condições
 ## Declarações *If*
+
+As condições em C++ têm uma sintaxe semelhante à do Python, mas com a grande diferença de as condições serem sempre delimitadas por parêntesis.
+
 ```C++
 if (price < 0)
     return -1;
 else if (price == 0)
     return 0;
-else
+else {
+    // Code with more than one line    
     return 1;
+}
 ```
 
 ```C++
@@ -335,13 +281,13 @@ if (smart && !lazy)
 # Condições
 ## Declarações *Switch-Case*
 Ideal para substituir declarações *if* muito longas que 
-comparam uma variável com vários **valores inteiros** (incluíndo *char*)
+comparam uma variável com vários valores (do tipo inteiros ou caracteres).
 ```C++
 switch (choice) {
-    case 1: 
+    case 'a': 
         cout << "First item selected!" << endl;
         break;
-    case 2:
+    case 'b':
         cout << "Second item selected!" << endl;
         break;
     default:
@@ -349,26 +295,25 @@ switch (choice) {
         break;
 }
 ```
-Na ausência do *break*, as condições *case* seguintes seriam executadas 
-
----
-
-# Exercícios
-
-**E5.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
-
-**E6.** Vamos tentar perceber o funcionamento de um programa com `switch-case` e um `break` statement em falta. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/badSwitchCase.cpp) e corre-o no teu IDE.
+Na ausência do *break*, as condições *case* seguintes seriam executadas.
 
 ---
 
 # Ciclos
+
 ## While loop 
+
+O mesmo se aplica ao `while loop` quanto aos parêntesis que são sempre obrigatórios.
+
 ```C++
 while (x < 5)
     cout << x << " is less than 5" << endl;
 ```
 
 ## Do-while loop
+
+Existe no entanto uma variante que permite executar o código pelo menos uma vez, mesmo que a condição seja falsa, e só depois verificar a condição e se o código deve ser executado novamente:
+
 ```C++
 do {
     cout << x << " is less than 5" << endl;
@@ -379,6 +324,13 @@ while (x < 5);
 
 # Ciclos
 ## For loop
+
+A sintaxe do `for loop` é composta por 3 partes:
+
+- **Inicialização**: onde se define a variável de controlo do ciclo (ex: `int i = 0`)
+- **Condição**: onde se define a condição para o ciclo continuar a ser executado (ex: `i < 10`)
+- **Incremento**: onde se define a atualização da variável de controlo (ex: `i++`)
+
 ```C++
 for (int i = 0; i < 10; i++) {
     int y = i * 2;
@@ -386,109 +338,99 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-```C++
-int x = 0;
-for (int i = 0; i < 10; i++, x--) {
-    int y = i * 2;
-    cout << y << endl;
-}
-
-cout << x << endl;
-```
-
-É possível encadear ciclos. Útil para percorrer elementos de matrizes, por exemplo
-
-```C++
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            cout << "Linha " << i << " Coluna " << j << endl;
-        }
-    }
-    return 0;
-}
-```
-
----
-
-# Exercícios
-
-**E7.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
-
----
-
-# Funções
-
-A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
-
-- **Organização**: Reduzem um programa complexo em módulos mais pequenos e fáceis de lidar.
-- **Reusabilidade**: A função pode ser chamada múltiplas vezes, evitando repetição de código e minimizando a probabilidade de erros.
-- **Testabilidade**: Como as funções são isoladas, isto torna mais fácil testar as várias partes do programa e reduz o número de testes necessários. Reduz também a quantidade código, facilitando a correção e prevenção de bugs.
-- **Extensibilidade**: Permitem-nos fazer uma modificação num lugar e vê-la ao longo de todo o programa.
-- **Abstração**: Não é necessário saber sobre o funcionamento da função, apenas como chamá-la.
-
 ---
 
 # Funções
 ## Como Declarar e Invocar uma Função
 
-![Function Syntax](img/function.png)
+Em C++ as funções são definidas através do tipo de retorno, nome da função e parâmetros (se existirem).
 
-(Imagem retirada de [*Programiz*](https://www.programiz.com/cpp-programming/function))
+- **Tipo de retorno**: o tipo de dado que a função irá retornar
+- **Nome da função**: o nome que irá identificar a função
+- **Parâmetros**: os dados que a função irá receber para processar (se existirem)
+
+```C++
+int add(int a, int b) { // Declaração da função
+    return a + b;
+}
+
+void main() {
+    int sum;
+    sum = add(5, 3); // Invocação da função
+}
+
+```
 
 ---
 
 # Funções
-## Argumentos
-Os argumentos nas funções podem ser passados de diferentes formas.
-- **Cópia**: O objeto e a sua memória associada são copiados para um novo objeto. Quaisquer alterações à variável passada no argumento não terão efeito no objeto original.
-- **Referência**: O objeto passado por argumento poderá ser manipulado e terá efeito no objeto original (tipo do argumento marcado com **&**).
-- **Apontador**: Funciona de forma semelhante a ser passado por referência. No entanto, tem uma utilização diferente (tipo do argumento marcado com **\***). Representa o endereço do objeto em memória.
+## Passagem por Cópia
 
+Por defeito, o C++ passa os argumentos por **cópia**. Isto significa que a função recebe um "clone" da variável original. 
 
----
+**O problema:** Mexer no clone não afeta o original!
 
 ```C++
-#include <iostream>
-using namespace std;
-
-int getAge() {
-    int age;
-    cout << "Insert your age (years): ";
-    cin >> age;
-
-    return age;
-}
-
-void convertToMonths(int& age) {
-    age = age * 12;
+void fazerAnos(int idade) {
+    idade = idade + 1; // Estamos a alterar apenas a cópia!
 }
 
 int main() {
-    int age = getAge();
-    convertToMonths(age);
-    cout << "Hello! You are " << age << " months old." << endl;
+    int minhaIdade = 18;
+    fazerAnos(minhaIdade);
+    
+    cout << minhaIdade; // Output: 18 (Não mudou!)
     return 0;
 }
 ```
 
-```Bash
-Insert your age (years): 18
-Hello! You are 216 months old.
+---
+
+# Funções
+## Passagem por Referência (`&`)
+
+E se quisermos que a função altere a variável original? Adicionamos um **`&`** a seguir ao tipo de dados! 
+
+Isto diz ao C++ para passar uma **referência** à variável original, sem fazer cópias. É útil para passar listas/vetores gigantes sem gastar memória a duplicá-los! É atualmente a forma mais moderna de passar argumentos em C++.
+
+```C++
+void fazerAnos(int& idade) { // <-- Repara no &
+    idade = idade + 1; // Agora altera a variável verdadeira!
+}
+
+int main() {
+    int minhaIdade = 18;
+    fazerAnos(minhaIdade);
+    
+    cout << minhaIdade; // Output: 19 (Sucesso!)
+    return 0;
+}
 ```
 
 ---
 
-# Exercícios
+# Funções
+## Passagem por Apontador (`*`)
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/Functions.cpp) e completa as partes em falta para construir um pequeno programa interativo que recebe como input dois operandos e um operador (pode ser '+', '-', '*', '/') e imprime o resultado da operação especificada.
+Outra forma de alterar o valor original é passar o **endereço de memória** da variável, usando um apontador (**`*`**).
 
-Quando acabares (não vale fazer batota) vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/FunctionsSolved.cpp).
+São encontrados frequentemente em código mais antigo ou quando trabalhares com memória dinâmica. Mas o que é um **apontador**?
+
+```C++
+void fazerAnos(int* idade) { // Recebe um endereço de memória
+    *idade = *idade + 1;     // Vai a esse endereço e altera o valor
+}
+
+int main() {
+    int minhaIdade = 18;
+    
+    // O & aqui serve para enviar o "endereço" da variável
+    fazerAnos(&minhaIdade); 
+    
+    cout << minhaIdade; // Output: 19
+    return 0;
+}
+```
 
 ---
 
