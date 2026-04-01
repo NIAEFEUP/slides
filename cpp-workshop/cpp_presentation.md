@@ -434,6 +434,48 @@ int main() {
 
 ---
 
+# Exercício Guiado
+
+![](img/pointers_0.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_1.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_2.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_3.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_4.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_5.png)
+
+---
+
+# Exercício Guiado
+
+![](img/pointers_6.png)
+
+---
+
 # Apontadores
 
 A execução de processos tem muito por base a manipulação da memória física do computador. Assim sendo, o C++ permite-nos aceder-lhes com o uso de apontadores.
@@ -460,39 +502,40 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 ---
 
 
-# Exercícios
+# Exercício Guiado Pt.2 - 0
 
-**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é definires 3 funções de modo a que os valores sejam retornados de 3 formas diferentes, pedindo ao utilizador um valor.
+![](img/list_0.png)
 
 ---
 
-# Soluções
+# Exercício Guiado Pt.2 - 1
 
-```cpp
+![](img/list_1.png)
 
-int function1() {
-    int variable;
-    cout << "Hey there, what's your age?" << endl;
-    cin >> variable;
-    cout << "You are " << variable << " years old" << endl;
-    return variable;
-}
+---
 
-void function2(int &variable) {
-    cout << "Hey there, what's your age?" << endl;
-    cin >> variable;
-    cout << "You are " << variable << " years old" << endl;
+# Exercício Guiado Pt.2 - 2
 
-}
+![](img/list_2.png)
 
-void function3(int* variable) {
-    int temp;
-    cout << "Hey there, what's your age?" << endl;
-    cin >> temp;
-    *variable = temp;
-    cout << "You are " << *variable << " years old" << endl;
-}
-```
+---
+
+# Exercício Guiado Pt.2 - 3
+
+![](img/list_3.png)
+
+---
+
+# Exercício Guiado Pt.2 - 4
+
+![](img/list_4.png)
+
+---
+
+# Exercício Guiado Pt.2 - 5
+
+![](img/list_5.png)
+
 
 ---
 
@@ -537,6 +580,13 @@ int main() {
 Array elements: 0 10 20 30 40
 Last element: 40
 ```
+---
+
+# E se quissesemos listas com tamanho dinâmico?
+
+Por exemplo, uma lista de clientes que crescesse com o tempo?
+
+![](img/mercado.jpg)
 
 ---
 
@@ -551,7 +601,12 @@ novo é inserido ou apagado
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
 - é possível consultar o conteúdo de um vetor numa determinada posição utilizando, tal como nos arrays, parêntesis 
-retos [] ou o método .at();
+retos [] ou o método .at()
+
+--- 
+---
+
+# Vetores
 
 ## Métodos Fundamentais
 
@@ -568,8 +623,6 @@ A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para 
 - **end()**: Referência para a posição após o último elemento do vetor
 - **erase(*pos*):** Remove um elemento do vetor na posição dada
 - **erase(*first*, *last*):** Remove todos os elementos entre as posições dadas
-
-***NOTA:*** Também é possível consultar o conteúdo de um vetor numa determinada posição utilizando **iteradores**.
 
 ---
 
@@ -628,6 +681,20 @@ Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.g
 Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
 
 ---
+
+# Questão
+
+Okay, temos que listas que mudam de tamanho (WOOOOW). O que fazemos com isso??
+
+
+![](img/vector.png)
+
+## E se guardassemos letras ao invés de números? 
+
+
+
+---
+
 
 # Strings
 
@@ -690,6 +757,12 @@ Uma struct é uma estrutura de dados que permite agrupar várias variáveis rela
 
 Para criar uma struct, utilizamos a keyword `struct` e declaramos os seus membros e o nome da variável.
 
+![](img/structs.png)
+
+---
+
+# Structs
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -712,11 +785,13 @@ int main()
     
     /* Dá print aos membros da struct */
     cout << myStructure.name << "\n";
-    // cout << boolalpha;                  podes usar para dar print a "true" em vez de "1"
     cout << myStructure.released << "\n";
     cout << myStructure.year << "\n";
 }
 ```
+---
+
+# Structs
 
 Também é possível atribuir um nome a uma struct e utilizá-la como um tipo de dados.
 
