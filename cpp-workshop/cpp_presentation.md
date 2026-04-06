@@ -890,7 +890,7 @@ int main()
 
 // Categorias: *Functions, Vectors, Pointers*
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/05-vectors/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/06-structs/main.cpp)
 
 Vais criar um programa que recebe:
 ![](img/06.2-structs.png)
