@@ -8,7 +8,7 @@ class: center, middle
 # Links importantes
 
 - Apresentação: https://slides.niaefeup.pt/cpp-workshop/
-- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
+- [Exercícios](https://github.com/rubuy-74/cpp-workshop/)
 
 ---
 
@@ -45,7 +45,7 @@ $ brew install gcc
 
 #### 3. Compilar o Código
 
-Descarrega o [seguinte código](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) para o teu computador e vamos testar compila-lo.
+Descarrega o [seguinte código](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/00-hello-world/main.cpp) para o teu computador e vamos testar compila-lo.
 
 
 ```C++
@@ -299,6 +299,26 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas.
 
 ---
 
+# Exercício 1/5 - Analisar preços
+
+// Categorias: *Input, if-else*
+
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/01-input/main.cpp)
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+
+De acordo com o preço, o programa vai "printar" mensagens diferentes:
+- 0€ - 10€: Barato
+- 11€ - 50€: Médio
+- 51€ - 100€: Caro
+- 101€ - : Muito Caro
+
+![](img/01-input.png)
+
+---
+
 # Ciclos
 
 ## While loop 
@@ -434,6 +454,23 @@ int main() {
 
 ---
 
+# Exercício 2/5 - Calcular razão preço/custo
+
+// Categorias: *Input, functions*
+
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/02-functions/main.cpp)
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+- **O custo do produto para o vendedor**
+
+O objetivo é calcular a proporção do preço do produto comparado ao custo para o vendedor
+
+![](img/02-functions.png)
+
+---
+
 # Exercício Guiado
 
 ![](img/pointers_0.png)
@@ -498,6 +535,23 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 -    Possível alterar endereços de variáveis não desejáveis, ou de espaço dedicado ao controlo de fluxo (ver estrutura da stack e falhas de segurança)
 
 **Buffer Overflow -** Essencialmente, um buffer overflow ocorre quando um programa tenta utilizar mais memória do que a que foi alocada (i.e. para um array ou uma string).
+
+---
+
+# Exercício 3/5 - Aplicar imposto
+
+// Categorias: *Input, Functions, Pointers*
+
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/03-pointers/main.cpp)
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+- **O custo do produto para o vendedor**
+
+O objetivo é calcular a taxa a ser aplicada e aplica-la. **Se a razão preço/custo for maior do que 2 a taxa é 10% do valor do produto, senão é zero.**
+
+![](img/03-pointers.png)
 
 ---
 
@@ -580,6 +634,21 @@ int main() {
 Array elements: 0 10 20 30 40
 Last element: 40
 ```
+---
+
+# Exercício 4/5 - Detetar Duplicados
+
+// Categorias: *Functions, Arrays*
+
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/04-lists/main.cpp)
+
+Vais criar um programa que recebe:
+- **Lista de nomes de produtos com tamanho constante de 5**
+
+O objetivo é detetar quais dos elementos na lista se repetem.
+
+![](img/04-lists.png)
+
 ---
 
 # E se quissesemos listas com tamanho dinâmico?
@@ -668,30 +737,24 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 ---
 
-# Exercícios
+# Exercício 5/5 - Calcular total (com imposto)
 
-**E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/iterators.cpp) e corre o programa.
+// Categorias: *Functions, Vectors, Pointers*
 
-**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/search.cpp) e completa a função dada de modo a que esta retorne a posição (_index_) de _key_ no vetor v ou -1 caso _key_ não exista no vetor - se quiseres, como desafio, tenta resolver este problema utilizando apenas **um** loop!
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/05-vectors/main.cpp)
 
-Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/search_sol.cpp)
+Vais criar um programa que recebe:
+- **Vector com nomes de produtos**
+- **Vector com preços de produtos**
+- **Vector com custos de produtos**
 
-**E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vetor v.
-
-Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
+O objetivo é calcular o total a se pagar (incluindo o imposto que foi determinado no exercício 3).
 
 ---
 
-# Questão
+# Exercício 5/5 - Calcular total (com imposto)
 
-Okay, temos que listas que mudam de tamanho (WOOOOW). O que fazemos com isso??
-
-
-![](img/vector.png)
-
-## E se guardassemos letras ao invés de números? 
-
-
+![](img/05-vectors.png)
 
 ---
 
@@ -716,14 +779,7 @@ Okay, temos que listas que mudam de tamanho (WOOOOW). O que fazemos com isso??
 
 ---
 
-# Exercícios
-
-**E13.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
-
-
----
-
-# Solução
+# Strings - Exemplo
 
 ```cpp
 
@@ -818,84 +874,23 @@ int main()
 
 ---
 
-# Exercícios - Shopping Cart
+# Exercício 6/5 - Refactor com structs
 
-Temos agora um deafio para ti! Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCart.cpp) para o teu IDE e segue as instruções das várias alíneas.
+// Categorias: *Functions, Vectors, Pointers*
 
-No fim de todas as alíneas, vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCartSolved.cpp).
+Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/05-vectors/main.cpp)
 
-**SC1.** Se correres o programa, reparas que aparece uma lista das opções disponíveis e é pedido ao utilizador para escolher uma delas. Melhora o programa de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
-
----
-
-# Exercícios - Shopping Cart
-
-**SC2.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
+Vais criar um programa que recebe:
+![](img/06.2-structs.png)
 
 ---
+# Exercício 6/5 - Refactor com structs
 
-# Exercícios - Shopping Cart
+// Categorias: *Functions, Vectors, Pointers*
 
-**SC3.** Implementa a funcionalidade de adicionar um item e o seu preço ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício.
+O objetivo é calcular o total a se pagar (incluindo o imposto que foi determinado no exercício 3).
 
-Ex:
-
-```bash
-Novo item: Leite
-Preco: 0.56
-Adicionado item: Leite
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC4.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir no ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
-
-Ex:
-
-```bash
-ITENS NO CARRINHO DE COMPRAS
-1 - Leite - 0.56
-```
-
-```bash
-ITENS NO CARRINHO DE COMPRAS
-O carrinho encontra-se vazio :(
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC5.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. Caso o utilizador escolha um item não existente, deve ser imprimida uma mensagem a assinalar o erro e assegura-te que o código responsável por remover o item não é executado.
-
-Ex:
-
-```bash
-ID do item a remover: 1
-Removido item: Leite
-```
-
-```bash
-ID do item a remover: 1000
-O item nao existe! :(
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC6.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício anterior, certifica-te que o utilizador não escolhe um item não existente.
-
-Ex:
-
-```bash
-ID do item a atualizar: 1
-Novo item: Arroz
-Novo preco: 0.5
-Atualizado item Leite para Arroz
-```
+![](img/06.1-structs.png)
 
 ---
 
