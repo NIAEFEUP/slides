@@ -7,47 +7,59 @@ class: center, middle
 
 # Links importantes
 
-- Apresentação: https://niaefeup-cpp-workshop.netlify.app
-- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/workshop2023)
-- [Visual Studio](https://visualstudio.microsoft.com), **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) (escolher um)
-
-***NOTA:*** Aconselhamos o uso do **VSCode juntamente com g++** para compilar o código. Para instalar g++, basta correr `sudo apt install g++` (WSL/Linux) ou `brew install gcc` (Mac). 
-            Para compilar e correr o código, basta executar `g++ main.cpp -o main` seguido de `./main`.
+- Apresentação: https://slides.niaefeup.pt/cpp-workshop/
+- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9)
 
 ---
 
 # Overview
 
-1. O que é o C++?
-2. Hello World!
-3. Tipos de Dados
-4. Variáveis
-5. Constantes
-6. Operadores
-7. Condições
-8. Ciclos
-9. Funções
-10. Apontadores
-11. Vetores
-12. Classes
+1. Hello World - Setup do ambiente
+2. Variáveis
+3. Operadores
+4. Input e Output
+5. Condições
+6. Ciclos
+7. Funções
+8. Apontadores
+9. Arrays
+10. Vetores
+11. Strings
+12. Structs
+13. Tópicos Avançados
 
 ---
 
-# O que é o C++?
-- Criado por Bjarne Stroustrup
-- Extensão da linguagem C - 99% retrocompatível
-- Linguagem compilável
-- Disponível em praticamente todos os computadores
-- Suporta programação orientada a objetos
-- Usada para definir precisamente uma sequência de operações que o computador tem que executar para realizar uma determinada tarefa
-- Extremamente eficiente (quando bem utilizada...)
-- Versátil e muito poderosa, mas exige responsabilidade (memory leaks, dangling pointers...)
+# Hello World - Setup do ambiente
 
-![Bjarne Stroustrup](img/bjarne.jpg)
+#### 1. Instalar um Editor de Código
+
+Podes usar o **[VSCode](https://code.visualstudio.com)**, [CLion](https://www.jetbrains.com/clion/), [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler), etc.
+
+
+#### 2. Instalar o Compilador g++
+
+No **Windows** (através do [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)) ou **Ubuntu**, basta correr o seguinte comando no terminal:
+
+```bash
+$ sudo apt install g++
+```
+
+Em **Mac**, basta correr o seguinte comando no terminal:
+
+```bash
+$ brew install gcc
+```
 
 ---
 
-# Hello World!
+# Hello World - Setup do ambiente
+
+#### 3. Compilar o Código
+
+Descarrega o [seguinte código](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/00-hello-world/main.cpp) para o teu computador e vamos testar compila-lo.
+
+
 ```C++
 // helloworld.cpp
 #include <iostream>
@@ -60,88 +72,93 @@ int main() {
 }
 ```
 
----
+E finalmente, compila o código e corre o programa:
 
-# Exercícios
+```bash
+$ g++ helloworld.cpp -o helloworld
+$ ./helloworld
+```
 
-**E1.** A função `main` é o ponto de entrada do programa. Comprova a afirmação, copiando o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/explainMain.cpp) e correndo-o no IDE.
-
----
-
-# Tipos de Dados Primitivos
-- **char:** caracteres (ex: 'c', '8', '$') correspondentes a valores ASCII
-- **int:** números inteiros (ex: 10**3, -2)
-- **float:** números com vírgula flutuante de precisão simples (ex: 1.902, -5,926563840)
-- **double:** números com vírgula flutuante de precisão dupla (ex: 1.2, -4.587)  
-- **bool:** verdadeiro ou falso (ex: true, false)
-- **void:** significa "sem qualquer valor". É usado quando uma função não retorna nenhum 
-valor
+Qualquer problema, não hesites em perguntar-nos!
 
 ---
 
-# Tipos de Dados
-## Modificadores de tipos de dados
-- **signed/unsigned:** para números com/sem sinal
-- **short:** valor otimizado para o espaço com comprimento de pelo menos 16 bits
-- **long/long long:** valor otimizado para precisão com comprimento de pelo menos 32/64 bits
+# Variáveis
 
-```C++
+## Declaração e Sintaxe
 
-int main() {
-    unsigned int i = 5;
-    int y = 3; // Quando omisso o modificador, é assumido que o valor é signed
-    long float z = 9;
-    long long double d = 37.2387193;
-    char x = 'r';
-    int i = 0;
-    float y = 1.3;
-    double z = 4.586
-    bool b = true;
+Ao contrário do Python, o C++ é uma linguagem **estaticamente tipada**. Isto significa que tens *sempre* de declarar o tipo de dados de uma variável no momento em que a crias!
 
-    return 0;
-}
+### Sintaxe
+```cpp
+tipo nome_da_variavel = valor;
+
+```
+
+### Exemplos
+
+```cpp
+int age = 18;
+bool isStudent = true;
+int uninitializedVar; // Declarada mas não inicializada. Pode conter "lixo" da memória!
+
 ```
 
 ---
 
 # Variáveis
-São contentores capazes de armazenar, em memória, valores de um determinado tipo, para serem reutilizados mais tarde.
 
-## Como as declarar?
-```C++
-int myNumber = 15;
-bool myBoolean = true;
-```
-## Tipos de Variáveis
-- Globais - declarar fora de qualquer função
-- Locais - declarar dentro de uma função específica (ex. main)
+## Tipos de Dados Primitivos
 
-### NOTAS:
-- Podem existir variáveis locais com o mesmo nome e diferentes valores ao mesmo tempo, 
-desde que sejam locais e estejam em diferentes blocos de código (entre {})
-- Não têm que ser inicializadas ao mesmo tempo que são declaradas
+Sendo estaticamente tipado, o C++ obriga-nos a escolher exatamente o que queremos guardar na memória:
+
+* **int:** números inteiros (ex: 10, -2, 42)
+* **float:** vírgula flutuante de precisão simples (ex: 1.902f)
+* **double:** vírgula flutuante de precisão dupla, guarda números maiores e com mais casas decimais (ex: 3.14159265)
+* **char:** um único caracter, delimitado por plicas (ex: 'c', '8', '$')
+* **bool:** *true* ou *false*
+* **void:** significa "sem valor" ou "vazio" (será muito útil mais à frente, em funções que não retornam nada)
 
 ---
 
-# Constantes
-Semelhantes a variáveis, mas o seu conteúdo não pode ser alterado após a sua inicialização. 
-Podem ser locais ou globais.
+# Variáveis
 
-```C++
-#include <iostream>
+## Modificadores de Tipos
 
-using namespace std;
+Podemos alterar o comportamento e o espaço na memória alocado para os tipos inteiros e de vírgula flutuante utilizando modificadores:
 
+* **unsigned:** retira a capacidade de guardar números negativos, duplicando o limite máximo positivo. (O `signed` é o default).
+* **short:** otimiza o espaço alocado na memória (pelo menos 16 bits).
+* **long / long long:** aumenta a capacidade e precisão da variável (pelo menos 32 ou 64 bits).
+
+```cpp
+unsigned int studentsCount = 45; // Nunca será negativo
+long long universeAge = 13787000000;
+long double precisePi = 3.141592653589793238;
+
+```
+
+---
+
+# Variáveis
+
+## Constantes
+
+Uma constante atua como uma variável, mas o seu valor **não pode ser alterado** após a sua inicialização. Para a criares, basta usar a *keyword* `const` antes do tipo de dados.
+
+São muito úteis para valores fixos e ajudam a prevenir bugs acidentais ao longo do código.
+
+```cpp
 int main() {
-    int variable;
-    const char constant = 'T';
+    int lives = 3;
+    const float PI = 3.14159;
 
-    variable = 5;
-    constant = 3; // IMPOSSÍVEL: seria gerado um erro durante a compilação!
-    cout << variable << " " << constant << endl;
+    lives = 2; // OK
+    PI = 3;    // ERRO DE COMPILAÇÃO! Uma constante é inalterável.
 
     return 0;
 }
+
 ```
 
 ---
@@ -183,23 +200,16 @@ int main() {
 
 ---
 
-# Exercícios
+# Input e Output
+## Bibliotecas e Namespaces
 
-**E2.** Vamos observar o comportamento de alguns dos tipos de dados. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/dataTypes.cpp) e corre o programa.
-
----
-
-# Input/Output
-## Requisitos
-Para utilizar os operadores I/O de C++, é necessário incluir a seguinte linha no topo do ficheiro de código:
+Para lermos e escrevermos dados no terminal, precisamos de importar a biblioteca `<iostream>`. Em C++, fazemos isso com:
 
 ```C++
-#include <iostream>
+#include <iostream> // O equivalente ao "import" do Python
 ```
 
-`iostream` é a biblioteca *standard* que fornece operadores e funções de I/O.
-
-É também necessário pré-anexar `std::` aos métodos *standard* (e.g. `std::cout`) ou simplesmente declarar o *namespace* `std`.
+Para além disso é útil declarar o uso do *namespace* `std` para não termos de escrever `std::cout` ou `std::cin` sempre que quisermos usar estas funções. Para isso, declaramos o uso do *namespace* no topo do ficheiro:
 
 ```C++
 using namespace std;
@@ -207,118 +217,66 @@ using namespace std;
 
 ---
 
+# Input e Output
+## Output (Escrever no terminal)
 
-# Input/Output
-## Escrever Informação
-De maneira a ser possível enviar informação para o utilizador, é comum imprimir 
-mensagens no ecrã do computador. Para isso, e como foi possível ver no slide 
-anterior, utiliza-se o objeto **cout** seguido do operador **<<** para 
-transmitir informação para o ecrã do utilizador.
+Para imprimir algo no ecrã, enviamos a nossa informação para o objeto **`cout`** (character output) utilizando o operador **`<<`**.
 
-```C++
-cout << "Bom dia " << nome_do_aluno << "!" << endl;
-cout << "Tudo bem contigo?" << endl;
-```
+A palavra **`endl`** serve para dar uma quebra de linha (um enter) no fim da linha.
 
---- 
-
-```Bash
-// Assuma-se que o conteudo da variável nome_do_aluno é Inês.
-Bom dia Inês!
-Tudo bem?
-```
-
-***NOTA:*** A partícula **endl** permite mover o cursor para a linha seguinte, entre diferentes 
-utilizações do objeto **cout**. Caso não estivesse presente, o resultado seria o 
-seguinte:
-```Bash
-Bom dia Inês!Tudo bem?
-```
-
----
-# Input/Output
-### Ler Informação
-De forma semelhante, é possível ler informações do utilizador, usando o objeto **cin** e o operador **>>** seguido da variável onde vai ser guardada a informação.
-
---- 
-
-O objeto **cin** permite obter informação de qualquer tipo de dados (exceto tipos 
-definidos pelo utilizador, a não ser que o operador >> tenha sido *overloaded*).
-
-Para ler *strings*, **cin** utiliza qualquer espaço em branco como delimitador (o que inclui espaços, newlines, tabs, etc.). Para ler strings com o caracter espaço ' ', pode user usada a função *getline()* (a string *acaba* apenas quando o caracter '\n' é encontrado).
-
----
-# Input/Output
 ```C++
 #include <iostream>
-  
 using namespace std;
-    
-// Um mau uso da stream cin
 
 int main() {
-    string name;
-    cout << "Insert your name here: ";
-    cin >> name;
-    cout << "Your name is " << name << endl;
+    string nome = "Inês";
+    
+    // Podemos encadear vários << na mesma linha!
+    cout << "Bom dia " << nome << "!" << endl;
+    cout << "Tudo bem contigo?" << endl;
     
     return 0;
-}     
-```
-
---- 
-
-```Bash
-Insert your name here: André Moreira
-Your name is André
-```
-
---- 
-
-Repare-se que o nome inserido difere do recebido pelo programa!
-Mais à frente veremos o porquê de isto acontecer, e perceberemos melhor o 
-funcionamento da stream **cin**.
-
----
-
-# Exercícios
-
-
-**E3.** Vamos agora tentar perceber como fazer operações aritméticas. Está atento ao quadro e, se quiseres, reproduz no teu IDE!
-
-**E4.** Vamos experimentar com variáveis. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/IOops.cpp) e corre o programa. Completa-o, de forma a também perguntar a idade e imprimi-la de seguida.
-
----
-
-# Solução
-
-```cpp
-int main() {
-    // ...
-    string name;
-    cout << "Hey there, what's your name?" << endl;
-    cin >> name;
-
-    cout << "Hello " << name << ", what's your age?" << endl;
-
-    int age;
-    cin >> age;
-    cout << "Your age is " << age << endl;
-    // ...
 }
+```
+
+---
+
+# Input e Output
+## Input (Ler do terminal)
+
+Para receber informação do utilizador, usamos o objeto **`cin`** (character input) e o operador **`>>`**.
+
+```C++
+int idade;
+cout << "Qual é a tua idade? ";
+cin >> idade; // O utilizador escreve e o valor vai para a variável 'idade'
+```
+
+**⚠️ CUIDADO: Espaços no input!**
+O `cin` normal usa espaços em branco (espaços, *tabs*, *enters*) como separadores. Se o utilizador escrever "André Moreira", o `cin` só vai guardar "André". 
+
+Para ler uma linha inteira com espaços (como num input de texto), usamos a função `getline`, que lê uma linha completa até encontrar um `\n` (um *enter*).
+```C++
+string nome_completo;
+getline(cin, nome_completo); 
 ```
 
 ---
 
 # Condições
 ## Declarações *If*
+
+As condições em C++ têm uma sintaxe semelhante à do Python, mas com a grande diferença de as condições serem sempre delimitadas por parêntesis.
+
 ```C++
 if (price < 0)
     return -1;
 else if (price == 0)
     return 0;
-else
+else {
+    // Code with more than one line    
     return 1;
+}
 ```
 
 ```C++
@@ -335,13 +293,13 @@ if (smart && !lazy)
 # Condições
 ## Declarações *Switch-Case*
 Ideal para substituir declarações *if* muito longas que 
-comparam uma variável com vários **valores inteiros** (incluíndo *char*)
+comparam uma variável com vários valores (do tipo inteiros ou caracteres).
 ```C++
 switch (choice) {
-    case 1: 
+    case 'a': 
         cout << "First item selected!" << endl;
         break;
-    case 2:
+    case 'b':
         cout << "Second item selected!" << endl;
         break;
     default:
@@ -349,26 +307,45 @@ switch (choice) {
         break;
 }
 ```
-Na ausência do *break*, as condições *case* seguintes seriam executadas 
+Na ausência do *break*, as condições *case* seguintes seriam executadas.
 
 ---
 
-# Exercícios
+# Exercício 1 - Analisar preços
 
-**E5.** Vamos tentar perceber o funcionamento de programas com `if`. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/ControlFlow.cpp) e corre-o no teu IDE.
+`Categorias: Input, if-else`
 
-**E6.** Vamos tentar perceber o funcionamento de um programa com `switch-case` e um `break` statement em falta. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/badSwitchCase.cpp) e corre-o no teu IDE.
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/01-input/main.cpp);
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+
+De acordo com o preço, o programa vai "printar" mensagens diferentes:
+- 0€ - 10€: Barato
+- 11€ - 50€: Médio
+- 51€ - 100€: Caro
+- \> 101€ : Muito Caro
+
+![](img/01-input.png)
 
 ---
 
 # Ciclos
+
 ## While loop 
+
+Também no `while loop` os parêntesis são sempre obrigatórios.
+
 ```C++
 while (x < 5)
     cout << x << " is less than 5" << endl;
 ```
 
 ## Do-while loop
+
+Existe no entanto uma variante que permite executar o código pelo menos uma vez, mesmo que a condição seja falsa, e só depois verificar a condição e se o código deve ser executado novamente:
+
 ```C++
 do {
     cout << x << " is less than 5" << endl;
@@ -379,6 +356,13 @@ while (x < 5);
 
 # Ciclos
 ## For loop
+
+A sintaxe do `for loop` é composta por 3 partes:
+
+- **Inicialização**: onde se define a variável de controlo do ciclo (ex: `int i = 0`)
+- **Condição**: onde se define a condição para o ciclo continuar a ser executado (ex: `i < 10`)
+- **Incremento**: onde se define a atualização da variável de controlo (ex: `i++`)
+
 ```C++
 for (int i = 0; i < 10; i++) {
     int y = i * 2;
@@ -386,109 +370,161 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-```C++
-int x = 0;
-for (int i = 0; i < 10; i++, x--) {
-    int y = i * 2;
-    cout << y << endl;
-}
-
-cout << x << endl;
-```
-
-É possível encadear ciclos. Útil para percorrer elementos de matrizes, por exemplo
-
-```C++
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            cout << "Linha " << i << " Coluna " << j << endl;
-        }
-    }
-    return 0;
-}
-```
-
----
-
-# Exercícios
-
-**E7.** De forma a perceber melhor como ciclos funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Looping.cpp) e coloca-o no teu IDE.
-
----
-
-# Funções
-
-A divisão do código em funções curtas com objetivos claros é uma boa prática de programação que torna o programa mais fácil de ler e de manter.
-
-- **Organização**: Reduzem um programa complexo em módulos mais pequenos e fáceis de lidar.
-- **Reusabilidade**: A função pode ser chamada múltiplas vezes, evitando repetição de código e minimizando a probabilidade de erros.
-- **Testabilidade**: Como as funções são isoladas, isto torna mais fácil testar as várias partes do programa e reduz o número de testes necessários. Reduz também a quantidade código, facilitando a correção e prevenção de bugs.
-- **Extensibilidade**: Permitem-nos fazer uma modificação num lugar e vê-la ao longo de todo o programa.
-- **Abstração**: Não é necessário saber sobre o funcionamento da função, apenas como chamá-la.
-
 ---
 
 # Funções
 ## Como Declarar e Invocar uma Função
 
-![Function Syntax](img/function.png)
+Em C++ as funções são definidas através do tipo de retorno, nome da função e parâmetros (se existirem).
 
-(Imagem retirada de [*Programiz*](https://www.programiz.com/cpp-programming/function))
+- **Tipo de retorno**: o tipo de dado que a função irá retornar
+- **Nome da função**: o nome que irá identificar a função
+- **Parâmetros**: os dados que a função irá receber para processar (se existirem)
+
+```C++
+int add(int a, int b) { // Declaração da função
+    return a + b;
+}
+
+void main() {
+    int sum;
+    sum = add(5, 3); // Invocação da função
+}
+
+```
 
 ---
 
 # Funções
-## Argumentos
-Os argumentos nas funções podem ser passados de diferentes formas.
-- **Cópia**: O objeto e a sua memória associada são copiados para um novo objeto. Quaisquer alterações à variável passada no argumento não terão efeito no objeto original.
-- **Referência**: O objeto passado por argumento poderá ser manipulado e terá efeito no objeto original (tipo do argumento marcado com **&**).
-- **Apontador**: Funciona de forma semelhante a ser passado por referência. No entanto, tem uma utilização diferente (tipo do argumento marcado com **\***). Representa o endereço do objeto em memória.
+## Passagem por Cópia
 
+Por defeito, o C++ passa os argumentos por **cópia**. Isto significa que a função recebe um "clone" da variável original. 
 
----
+**O problema:** Mexer no clone não afeta o original!
 
 ```C++
-#include <iostream>
-using namespace std;
-
-int getAge() {
-    int age;
-    cout << "Insert your age (years): ";
-    cin >> age;
-
-    return age;
-}
-
-void convertToMonths(int& age) {
-    age = age * 12;
+void fazerAnos(int idade) {
+    idade = idade + 1; // Estamos a alterar apenas a cópia!
 }
 
 int main() {
-    int age = getAge();
-    convertToMonths(age);
-    cout << "Hello! You are " << age << " months old." << endl;
+    int minhaIdade = 18;
+    fazerAnos(minhaIdade);
+    
+    cout << minhaIdade; // Output: 18 (Não mudou!)
     return 0;
 }
 ```
 
-```Bash
-Insert your age (years): 18
-Hello! You are 216 months old.
+---
+
+# Funções
+## Passagem por Referência (`&`)
+
+E se quisermos que a função altere a variável original? Adicionamos um **`&`** a seguir ao tipo de dados! 
+
+Isto diz ao C++ para passar uma **referência** à variável original, sem fazer cópias. É útil para passar listas/vetores gigantes sem gastar memória a duplicá-los! É atualmente a forma mais moderna de passar argumentos em C++.
+
+```C++
+void fazerAnos(int& idade) { // <-- Repara no &
+    idade = idade + 1; // Agora altera a variável verdadeira!
+}
+
+int main() {
+    int minhaIdade = 18;
+    fazerAnos(minhaIdade);
+    
+    cout << minhaIdade; // Output: 19 (Sucesso!)
+    return 0;
+}
 ```
 
 ---
 
-# Exercícios
+# Funções
+## Passagem por Apontador (`*`)
 
-**E8.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/Functions.cpp) e completa as partes em falta para construir um pequeno programa interativo que recebe como input dois operandos e um operador (pode ser '+', '-', '*', '/') e imprime o resultado da operação especificada.
+Outra forma de alterar o valor original é passar o **endereço de memória** da variável, usando um apontador (**`*`**).
 
-Quando acabares (não vale fazer batota) vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/FunctionsSolved.cpp).
+São encontrados frequentemente em código mais antigo ou quando trabalhares com memória dinâmica. Mas o que é um **apontador**?
+
+```C++
+void fazerAnos(int* idade) { // Recebe um endereço de memória
+    *idade = *idade + 1;     // Vai a esse endereço e altera o valor
+}
+
+int main() {
+    int minhaIdade = 18;
+    
+    // O & aqui serve para enviar o "endereço" da variável
+    fazerAnos(&minhaIdade); 
+    
+    cout << minhaIdade; // Output: 19
+    return 0;
+}
+```
+
+---
+
+# Exercício 2 - Calcular razão preço/custo
+
+`Categorias: Input, functions`
+
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/02-functions/main.cpp);
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+- **O custo do produto para o vendedor**
+
+O objetivo é calcular a proporção do preço do produto comparado ao custo para o vendedor
+
+![](img/02-functions.png)
+
+---
+class: center, middle
+# Exploração Prática 1
+---
+
+# Exploração Prática 1
+
+![](img/pointers_0.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_1.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_2.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_3.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_4.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_5.png)
+
+---
+
+# Exploração Prática 1
+
+![](img/pointers_6.png)
 
 ---
 
@@ -517,40 +553,63 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 ---
 
+# Exercício 3 - Aplicar imposto
 
-# Exercícios
+`Categorias: Input, Functions, Pointers`
 
-**E9.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/Pointers.cpp) e completa-o no teu IDE. O objetivo é definires 3 funções de modo a que os valores sejam retornados de 3 formas diferentes, pedindo ao utilizador um valor.
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/03-pointers/main.cpp)
+
+Vais criar um programa que recebe:
+- **O nome de um produto**
+- **O preço do produto**
+- **O custo do produto para o vendedor**
+
+O objetivo é calcular a taxa a ser aplicada e aplica-la. **Se a razão preço/custo for maior do que 2 a taxa é 10% do valor do produto, senão é zero.**
+
+![](img/03-pointers.png)
 
 ---
 
-# Soluções
+class: center, middle
+# Exploração Prática 2
 
-```cpp
+---
 
-int function1() {
-    int variable;
-    cout << "Hey there, what's your age?" << endl;
-    cin >> variable;
-    cout << "You are " << variable << " years old" << endl;
-    return variable;
-}
 
-void function2(int &variable) {
-    cout << "Hey there, what's your age?" << endl;
-    cin >> variable;
-    cout << "You are " << variable << " years old" << endl;
+# Exploração Prática 2
 
-}
+![](img/list_0.png)
 
-void function3(int* variable) {
-    int temp;
-    cout << "Hey there, what's your age?" << endl;
-    cin >> temp;
-    *variable = temp;
-    cout << "You are " << *variable << " years old" << endl;
-}
-```
+---
+
+# Exploração Prática 2
+
+![](img/list_1.png)
+
+---
+
+# Exploração Prática 2
+
+![](img/list_2.png)
+
+---
+
+# Exploração Prática 2
+
+![](img/list_3.png)
+
+---
+
+# Exploração Prática 2
+
+![](img/list_4.png)
+
+---
+
+# Exploração Prática 2
+
+![](img/list_5.png)
+
 
 ---
 
@@ -595,6 +654,28 @@ int main() {
 Array elements: 0 10 20 30 40
 Last element: 40
 ```
+---
+
+# Exercício 4 - Detetar Duplicados
+
+`Categorias: Functions, Arrays`
+
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/04-lists/main.cpp)
+
+Vais criar um programa que recebe:
+- **Lista de nomes de produtos com tamanho constante de 5**
+
+O objetivo é detetar quais dos elementos na lista se repetem.
+
+![](img/04-lists.png)
+
+---
+
+# E se quissesemos listas com tamanho dinâmico?
+
+Por exemplo, uma lista de clientes que crescesse com o tempo?
+
+![](img/mercado.jpg)
 
 ---
 
@@ -609,7 +690,12 @@ novo é inserido ou apagado
 - Os índices de um vetor iniciam-se sempre no zero. Ou seja, o primeiro elemento de um vetor 
 está na posição 0, o segundo elemento na posição 1, etc.
 - é possível consultar o conteúdo de um vetor numa determinada posição utilizando, tal como nos arrays, parêntesis 
-retos [] ou o método .at();
+retos [] ou o método .at()
+
+--- 
+---
+
+# Vetores
 
 ## Métodos Fundamentais
 
@@ -626,8 +712,6 @@ A biblioteca inclui muitos métodos úteis, alguns deles listados a baixo. Para 
 - **end()**: Referência para a posição após o último elemento do vetor
 - **erase(*pos*):** Remove um elemento do vetor na posição dada
 - **erase(*first*, *last*):** Remove todos os elementos entre as posições dadas
-
-***NOTA:*** Também é possível consultar o conteúdo de um vetor numa determinada posição utilizando **iteradores**.
 
 ---
 
@@ -673,19 +757,27 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 ---
 
-# Exercícios
+# Exercício 5 - Calcular total (com imposto)
 
-**E10.** Vamos observar o comportamento de algumas operações com iteradores. Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/iterators.cpp) e corre o programa.
+`Categorias: Functions, Vectors, Pointers`
 
-**E11.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/search.cpp) e completa a função dada de modo a que esta retorne a posição (_index_) de _key_ no vetor v ou -1 caso _key_ não exista no vetor - se quiseres, como desafio, tenta resolver este problema utilizando apenas **um** loop!
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/05-vectors/main.cpp)
 
-Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/search_sol.cpp)
+Vais criar um programa que recebe:
+- **Vector com nomes de produtos**
+- **Vector com preços de produtos**
+- **Vector com custos de produtos**
 
-**E12.** Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/maxSubArray.cpp) e completa a função dada de forma a que esta seja capaz de retornar a maior soma de uma subsequência contígua de um vetor v.
-
-Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/introdutory%20exercises/solutions/maxSubArray_sol.cpp) - não te preocupes se a tua resolução não for exatamente igual, visto que esta é apenas uma de várias formas de resolver este problema!
+O objetivo é calcular o total a se pagar (incluindo o imposto que foi determinado no exercício 3).
 
 ---
+
+# Exercício 5 - Calcular total (com imposto)
+
+![](img/05-vectors.png)
+
+---
+
 
 # Strings
 
@@ -707,14 +799,7 @@ Quando acabares podes ver uma possível solução [neste ficheiro](https://raw.g
 
 ---
 
-# Exercícios
-
-**E13.** De forma a perceber melhor como as strings funcionam, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/introdutory%20exercises/string.cpp), coloca-o no teu IDE e segue as instruções.
-
-
----
-
-# Solução
+# Strings - Exemplo
 
 ```cpp
 
@@ -748,6 +833,12 @@ Uma struct é uma estrutura de dados que permite agrupar várias variáveis rela
 
 Para criar uma struct, utilizamos a keyword `struct` e declaramos os seus membros e o nome da variável.
 
+![](img/structs.png)
+
+---
+
+# Structs
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -770,11 +861,13 @@ int main()
     
     /* Dá print aos membros da struct */
     cout << myStructure.name << "\n";
-    // cout << boolalpha;                  podes usar para dar print a "true" em vez de "1"
     cout << myStructure.released << "\n";
     cout << myStructure.year << "\n";
 }
 ```
+---
+
+# Structs
 
 Também é possível atribuir um nome a uma struct e utilizá-la como um tipo de dados.
 
@@ -801,84 +894,35 @@ int main()
 
 ---
 
-# Exercícios - Shopping Cart
+# Exercício 6 - Refactor com structs
 
-Temos agora um deafio para ti! Copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCart.cpp) para o teu IDE e segue as instruções das várias alíneas.
+`Categorias: Functions, Vectors, Pointers`
 
-No fim de todas as alíneas, vê uma possível solução [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/workshop2023/shopping-cart/no-classes/MyShoppingCartSolved.cpp).
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/06-structs/main.cpp)
 
-**SC1.** Se correres o programa, reparas que aparece uma lista das opções disponíveis e é pedido ao utilizador para escolher uma delas. Melhora o programa de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
+Vais criar um programa que recebe:
+![](img/06.2-structs.png)
+
+---
+# Exercício 6 - Refactor com structs
+
+`Categorias: Functions, Vectors, Pointers`
+
+O objetivo é calcular o total a se pagar (incluindo o imposto que foi determinado no exercício 3).
+
+![](img/06.1-structs.png)
 
 ---
 
-# Exercícios - Shopping Cart
+# Soluções Exercícios
 
-**SC2.** Melhora o programa de forma a que seja possível continuar a fazer operações enquanto o utilizador assim quiser. Ou seja, como na lista de opções, a opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
-
----
-
-# Exercícios - Shopping Cart
-
-**SC3.** Implementa a funcionalidade de adicionar um item e o seu preço ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço e adicionar cada variável ao seu vetor respetivo. No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício.
-
-Ex:
-
-```bash
-Novo item: Leite
-Preco: 0.56
-Adicionado item: Leite
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC4.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer os vetores de itens e preços (que, recorda-te, têm o mesmo tamanho) e imprimir no ecrã cada um dos valores. Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicar o mesmo.
-
-Ex:
-
-```bash
-ITENS NO CARRINHO DE COMPRAS
-1 - Leite - 0.56
-```
-
-```bash
-ITENS NO CARRINHO DE COMPRAS
-O carrinho encontra-se vazio :(
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC5.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do vetor correspondente, juntamente com o preço. Caso o utilizador escolha um item não existente, deve ser imprimida uma mensagem a assinalar o erro e assegura-te que o código responsável por remover o item não é executado.
-
-Ex:
-
-```bash
-ID do item a remover: 1
-Removido item: Leite
-```
-
-```bash
-ID do item a remover: 1000
-O item nao existe! :(
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC6.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar esses valores nos vetores respetivos. À semelhança do exercício anterior, certifica-te que o utilizador não escolhe um item não existente.
-
-Ex:
-
-```bash
-ID do item a atualizar: 1
-Novo item: Arroz
-Novo preco: 0.5
-Atualizado item Leite para Arroz
-```
+- [Exercício 1](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/01-input/solution.cpp)
+- [Exercício 2](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/
+02-functions/solution.cpp)
+- [Exercício 3](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/03-pointers/solution.cpp)
+- [Exercício 4](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/04-lists/solution.cpp)
+- [Exercício 5](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/05-vectors/solution.cpp)
+- [Exercício 6](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/06-structs/solution.cpp)
 
 ---
 
@@ -1140,393 +1184,6 @@ int main()
 ```
 
 ---
-
-# Exercícios - Shopping Cart
-
-**SC0.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/classes/Initial.cpp) e cola-o no teu IDE. Trabalharás com este ficheiro até ao final do workshop!
-
-Exemplo do programa em execução:
-![Exemplo SC0](img/sc0.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC1.** Melhora a mensagem de boas vindas de forma a pedir o nome do utilizador e cumprimentá-lo. Atenção aos nomes que contêm espaços.
-
-Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
-
-
-Exemplo do programa em execução:
-![Exemplo sc1](img/sc1.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    string name;
-
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    cout << "Qual é o teu nome? ";
-    getline(cin, name);
-    cout << "Olá " << name << "!" << endl;
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC2.** Completa o método `printAndChooseOption(option)` da classe **ShoppingCart**, usando a variável *option* e a técnica do *switch case*.
-
-Se correres o método, reparas que aparece uma lista das opções disponíveis, sendo que o objetivo é pedir ao utilizador para escolher uma delas.
-
-Constrói o método de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
-
-Exemplo do programa em execução:
-
-![Exemplo sc2](img/sc2.png)
-
----
-
-
-```cpp
-void printAndChooseOption(int &option) {
-    // ...
-    cin >> option;
-    cin.ignore(10000, '\n');
-    cout << endl << endl;
-
-    switch (option)
-    {
-        case 0:
-            // TERMINAR O PROGRAMA
-            cout << "Obrigado por escolher a nossa aplicação!" << endl;
-            break;
-        case 1:
-            // VER ITENS
-            break;
-        case 2:
-            // ADICIONAR ITEM
-            break;
-        case 3:
-            // ATUALIZAR ITEMS
-            break;
-        case 4:
-            // REMOVER ITEMS
-            break;
-        default:
-           cout << "Opção não existente!" << endl;
-           break;
-    }
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC3.** Completa o *main*, criando um objeto **ShoppingCart** e chamando o método *printAndChooseOption*, de forma a que seja possível continuar a fazer operações enquanto o utilizador assim desejar.
-
-Ou seja, como, na lista de opções, opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
-Exemplo do programa em execução:
-
-Primeiro Input             |  Segundo Input
-:-------------------------:|:-------------------------:
-![Exemplo sc3-1](img/sc3.png)  |  ![Exemplo sc3-2](img/sc3_2.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    int option = -1;
-    ShoppingCart shoppingCart;
-
-    while (option != 0)
-        shoppingCart.printAndChooseOption(option);
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC4.** Implementa a funcionalidade de adicionar um item ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço, e adicionar um novo item a um vetor definido previamente na classe **ShoppingCart**.
-
-No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc4](img/sc4.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC5.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer o vetor de itens e imprimir no ecrã o nome e preço respetivos.
-Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicá-lo.
-
-No código, está indicado com “VER ITENS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc5](img/sc5.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC6.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do carrinho. Certifica-te que o utilizador não escolhe um item não existente.
-
-No final, para verificar que a função funciona, corre a opção de ver os itens do carrinho e certifica-te que o item escolhido não aparece.
-
-No código, está indicado com “REMOVER ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Primeiro Input             |  Segundo Input
-:-------------------------:|:-------------------------:
-![Exemplo sc6](img/sc6.png)  |  ![Exemplo sc6-2](img/sc6_2.png)
-
-
----
-
-# Soluções
-
-
-```cpp
-class ShoppingCart {
-private:
-    vector <Item> cart;
-public:
-    void addItem() {
-        string newName;
-        double price;
-
-        cout << "Novo Item: ";
-        getline(cin, newName);
-
-        cout << "Preço (€): ";
-        cin >> price;
-
-        Item item(newName, price);
-
-        cart.push_back(item);
-
-        cout << "Adicionado item: " << newName << endl;
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-
-```cpp
-public:
-    // ...
-    void printItems() {
-        int size = cart.size();
-
-        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-
-        if (size == 0) {
-            cout << "O carrinho de compras está vazio!" << endl;
-        }
-
-        for (int i = 0; i < size; i++) {
-            Item item = cart.at(i);
-            string name = item.getName();
-            double price = item.getPrice();
-
-            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
-        }
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-
-```cpp
-public:
-    // ...
-    void removeItem() {
-        int id;
-
-        cout << "ID do item a remover: ";
-        cin >> id;
-
-        if (id < 0 || id > cart.size()) {
-            cout << "Esse item não existe!" << endl;
-            return;
-        }
-
-        Item item = cart.at(id - 1);
-        cart.erase(cart.begin() + id - 1);
-
-        cout << "Removido item: " << item.getName() << endl;
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-```cpp
-void printAndChooseOption(int &option) {
-    // ...
-    switch (option)
-    {
-        case 0:
-            // TERMINAR O PROGRAMA
-            cout << "Obrigado por escolher a nossa aplicação!" << endl;
-            break;
-        case 1:
-            printItems();
-            break;
-        case 2:
-            addItem();
-            break;
-        case 3:
-            // ATUALIZAR ITEMS
-            break;
-        case 4:
-            removeItem();
-            break;
-        default:
-           cout << "Opção não existente!" << endl;
-           break;
-    }
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC7.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar o respetivo item no carrinho. Certifica-te que o utilizador não escolhe um item não existente.
-
-No código, está indicado com “ATUALIZAR ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc7](img/sc7.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC8.** Melhora a funcionalidade de mostrar os itens do carrinho de forma a ser possível ver o preço total dos produtos. Para isso, deves escrever uma função que calcule a soma dos preços, chamá-la no local apropriado, e imprimir o valor retornado pela mesma após mostrares os itens presentes no carrinho.
-
-Exemplo do programa em execução:
-![Soluçao sc8](img/sc8.png)
-
----
-
-```cpp
-public:
-    // ...
-    void updateItem() {
-        int id;
-
-        cout << "ID do item a atualizar: ";
-        cin >> id;
-        cin.ignore(10000, '\n');
-
-        if (id < 0 || id > cart.size()) {
-            cout << "Esse item não existe!" << endl;
-            return;
-        }
-
-        string oldName = cart.at(id - 1).getName();
-
-        string newName;
-        cout << "Novo item: ";
-        getline(cin, newName);
-
-        double newPrice;
-        cout << "Novo preço (€): ";
-        cin >> newPrice;
-
-        Item newItem(newName, newPrice);
-
-        cart.at(id - 1) = newItem;
-
-        cout << "Atualizado item " << oldName << " para " << newName << endl;
-    }
-    // ...
-```
-
----
-
-```cpp
-public:
-    // ...
-    double sumPrices() {
-        double sum = 0;
-
-        for (int i = 0; i < cart.size(); i++) {
-            Item item = cart.at(i);
-            sum += item.getPrice();
-        }
-
-        return sum;
-    }
-    
-    void printItems() {
-        int size = cart.size();
-        double total = sumPrices();
-
-        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-
-        if (size == 0) {
-            cout << "O carrinho de compras está vazio!" << endl;
-        }
-
-        for (int i = 0; i < size; i++) {
-            Item item = cart.at(i);
-            string name = item.getName();
-            double price = item.getPrice();
-
-            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
-        }
-        cout << "Total: " << total << "€" << endl;
-    }
-    // ...
-```
-
----
 # Outros Tópicos Avançados
 
 - Alguns conceitos de classes
@@ -1570,6 +1227,8 @@ class: center, middle
 
 ---
 
-# Questionário
+# Questionário de Feedback
+
+Ajuda-nos a melhorar o workshop preenchendo este questionário de feedback - [Link](https://forms.gle/VUM3XhY4GT83wPXJ7)
 
 <img src="img/qr.png" alt="QR Code" style="max-width: 60%; height: auto;" />
