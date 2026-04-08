@@ -8,7 +8,7 @@ class: center, middle
 # Links importantes
 
 - Apresentação: https://slides.niaefeup.pt/cpp-workshop/
-- [Exercícios](https://github.com/rubuy-74/cpp-workshop/)
+- [Exercícios](https://github.com/NIAEFEUP/Workshop_CPP/tree/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9)
 
 ---
 
@@ -57,7 +57,7 @@ $ brew install gcc
 
 #### 3. Compilar o Código
 
-Descarrega o [seguinte código](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/00-hello-world/main.cpp) para o teu computador e vamos testar compila-lo.
+Descarrega o [seguinte código](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/00-hello-world/main.cpp) para o teu computador e vamos testar compila-lo.
 
 
 ```C++
@@ -311,11 +311,11 @@ Na ausência do *break*, as condições *case* seguintes seriam executadas.
 
 ---
 
-# Exercício 1/5 - Analisar preços
+# Exercício 1 - Analisar preços
 
-// Categorias: *Input, if-else*
+`Categorias: Input, if-else`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/01-input/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/01-input/main.cpp);
 
 Vais criar um programa que recebe:
 - **O nome de um produto**
@@ -325,7 +325,7 @@ De acordo com o preço, o programa vai "printar" mensagens diferentes:
 - 0€ - 10€: Barato
 - 11€ - 50€: Médio
 - 51€ - 100€: Caro
-- 101€ - : Muito Caro
+- \> 101€ : Muito Caro
 
 ![](img/01-input.png)
 
@@ -335,7 +335,7 @@ De acordo com o preço, o programa vai "printar" mensagens diferentes:
 
 ## While loop 
 
-O mesmo se aplica ao `while loop` quanto aos parêntesis que são sempre obrigatórios.
+Também no `while loop` os parêntesis são sempre obrigatórios.
 
 ```C++
 while (x < 5)
@@ -466,11 +466,11 @@ int main() {
 
 ---
 
-# Exercício 2/5 - Calcular razão preço/custo
+# Exercício 2 - Calcular razão preço/custo
 
-// Categorias: *Input, functions*
+`Categorias: Input, functions`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/02-functions/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/02-functions/main.cpp);
 
 Vais criar um programa que recebe:
 - **O nome de um produto**
@@ -482,44 +482,47 @@ O objetivo é calcular a proporção do preço do produto comparado ao custo par
 ![](img/02-functions.png)
 
 ---
+class: center, middle
+# Exploração Prática 1
+---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_0.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_1.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_2.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_3.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_4.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_5.png)
 
 ---
 
-# Exercício Guiado
+# Exploração Prática 1
 
 ![](img/pointers_6.png)
 
@@ -550,11 +553,11 @@ Quando se está a trabalhar com apontadores, há que ter um cuidado reforçado, 
 
 ---
 
-# Exercício 3/5 - Aplicar imposto
+# Exercício 3 - Aplicar imposto
 
-// Categorias: *Input, Functions, Pointers*
+`Categorias: Input, Functions, Pointers`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/03-pointers/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/03-pointers/main.cpp)
 
 Vais criar um programa que recebe:
 - **O nome de um produto**
@@ -567,38 +570,43 @@ O objetivo é calcular a taxa a ser aplicada e aplica-la. **Se a razão preço/c
 
 ---
 
+class: center, middle
+# Exploração Prática 2
 
-# Exercício Guiado Pt.2 - 0
+---
+
+
+# Exploração Prática 2
 
 ![](img/list_0.png)
 
 ---
 
-# Exercício Guiado Pt.2 - 1
+# Exploração Prática 2
 
 ![](img/list_1.png)
 
 ---
 
-# Exercício Guiado Pt.2 - 2
+# Exploração Prática 2
 
 ![](img/list_2.png)
 
 ---
 
-# Exercício Guiado Pt.2 - 3
+# Exploração Prática 2
 
 ![](img/list_3.png)
 
 ---
 
-# Exercício Guiado Pt.2 - 4
+# Exploração Prática 2
 
 ![](img/list_4.png)
 
 ---
 
-# Exercício Guiado Pt.2 - 5
+# Exploração Prática 2
 
 ![](img/list_5.png)
 
@@ -648,11 +656,11 @@ Last element: 40
 ```
 ---
 
-# Exercício 4/5 - Detetar Duplicados
+# Exercício 4 - Detetar Duplicados
 
-// Categorias: *Functions, Arrays*
+`Categorias: Functions, Arrays`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/04-lists/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/04-lists/main.cpp)
 
 Vais criar um programa que recebe:
 - **Lista de nomes de produtos com tamanho constante de 5**
@@ -749,11 +757,11 @@ do início do vetor (numbers.begin()). Sendo que o primeiro elemento é o númer
 
 ---
 
-# Exercício 5/5 - Calcular total (com imposto)
+# Exercício 5 - Calcular total (com imposto)
 
-// Categorias: *Functions, Vectors, Pointers*
+`Categorias: Functions, Vectors, Pointers`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/05-vectors/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/05-vectors/main.cpp)
 
 Vais criar um programa que recebe:
 - **Vector com nomes de produtos**
@@ -764,7 +772,7 @@ O objetivo é calcular o total a se pagar (incluindo o imposto que foi determina
 
 ---
 
-# Exercício 5/5 - Calcular total (com imposto)
+# Exercício 5 - Calcular total (com imposto)
 
 ![](img/05-vectors.png)
 
@@ -886,23 +894,35 @@ int main()
 
 ---
 
-# Exercício 6/5 - Refactor com structs
+# Exercício 6 - Refactor com structs
 
-// Categorias: *Functions, Vectors, Pointers*
+`Categorias: Functions, Vectors, Pointers`
 
-Source-code: [Link](https://raw.githubusercontent.com/rubuy-74/cpp-workshop/refs/heads/main/06-structs/main.cpp)
+Source-code: [Link](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/06-structs/main.cpp)
 
 Vais criar um programa que recebe:
 ![](img/06.2-structs.png)
 
 ---
-# Exercício 6/5 - Refactor com structs
+# Exercício 6 - Refactor com structs
 
-// Categorias: *Functions, Vectors, Pointers*
+`Categorias: Functions, Vectors, Pointers`
 
 O objetivo é calcular o total a se pagar (incluindo o imposto que foi determinado no exercício 3).
 
 ![](img/06.1-structs.png)
+
+---
+
+# Soluções Exercícios
+
+- [Exercício 1](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/01-input/solution.cpp)
+- [Exercício 2](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/
+02-functions/solution.cpp)
+- [Exercício 3](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/03-pointers/solution.cpp)
+- [Exercício 4](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/04-lists/solution.cpp)
+- [Exercício 5](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/05-vectors/solution.cpp)
+- [Exercício 6](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/5fd81073cf1b3e7dc6b77d3a10543b56ac19e9f9/06-structs/solution.cpp)
 
 ---
 
@@ -1164,393 +1184,6 @@ int main()
 ```
 
 ---
-
-# Exercícios - Shopping Cart
-
-**SC0.** Começa o desenvolvimento do programa MyShoppingCart por adicionar uma mensagem de boas-vindas ao utilizador. Para isso, copia o código [neste ficheiro](https://raw.githubusercontent.com/NIAEFEUP/Workshop_CPP/master/shopping-cart/classes/Initial.cpp) e cola-o no teu IDE. Trabalharás com este ficheiro até ao final do workshop!
-
-Exemplo do programa em execução:
-![Exemplo SC0](img/sc0.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC1.** Melhora a mensagem de boas vindas de forma a pedir o nome do utilizador e cumprimentá-lo. Atenção aos nomes que contêm espaços.
-
-Por exemplo, se o utilizador responder com “Pedro Fernandes”, o programa deve responder “Olá Pedro Fernandes!” e não “Olá Pedro!”.
-
-
-Exemplo do programa em execução:
-![Exemplo sc1](img/sc1.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    string name;
-
-    cout << "Bem-vindo ao MyShoppingCart!" << endl;
-    cout << "Qual é o teu nome? ";
-    getline(cin, name);
-    cout << "Olá " << name << "!" << endl;
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC2.** Completa o método `printAndChooseOption(option)` da classe **ShoppingCart**, usando a variável *option* e a técnica do *switch case*.
-
-Se correres o método, reparas que aparece uma lista das opções disponíveis, sendo que o objetivo é pedir ao utilizador para escolher uma delas.
-
-Constrói o método de forma a que, quando o utilizador coloca uma opção não existente (ex: -1), seja imprimida uma mensagem a assinalar o erro.
-
-Exemplo do programa em execução:
-
-![Exemplo sc2](img/sc2.png)
-
----
-
-
-```cpp
-void printAndChooseOption(int &option) {
-    // ...
-    cin >> option;
-    cin.ignore(10000, '\n');
-    cout << endl << endl;
-
-    switch (option)
-    {
-        case 0:
-            // TERMINAR O PROGRAMA
-            cout << "Obrigado por escolher a nossa aplicação!" << endl;
-            break;
-        case 1:
-            // VER ITENS
-            break;
-        case 2:
-            // ADICIONAR ITEM
-            break;
-        case 3:
-            // ATUALIZAR ITEMS
-            break;
-        case 4:
-            // REMOVER ITEMS
-            break;
-        default:
-           cout << "Opção não existente!" << endl;
-           break;
-    }
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC3.** Completa o *main*, criando um objeto **ShoppingCart** e chamando o método *printAndChooseOption*, de forma a que seja possível continuar a fazer operações enquanto o utilizador assim desejar.
-
-Ou seja, como, na lista de opções, opção 0 é a responsável por terminar o programa, este deve continuar enquanto essa opção não for escolhida.
-Exemplo do programa em execução:
-
-Primeiro Input             |  Segundo Input
-:-------------------------:|:-------------------------:
-![Exemplo sc3-1](img/sc3.png)  |  ![Exemplo sc3-2](img/sc3_2.png)
-
----
-
-# Solução
-
-
-```cpp
-int main() {
-    // ...
-
-    int option = -1;
-    ShoppingCart shoppingCart;
-
-    while (option != 0)
-        shoppingCart.printAndChooseOption(option);
-    
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC4.** Implementa a funcionalidade de adicionar um item ao carrinho. O programa deve pedir ao utilizador o nome do produto, o seu preço, e adicionar um novo item a um vetor definido previamente na classe **ShoppingCart**.
-
-No código, está indicado com “ADICIONAR ITEM” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc4](img/sc4.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC5.** Implementa a funcionalidade de ver os itens no carrinho. Para isso, deves percorrer o vetor de itens e imprimir no ecrã o nome e preço respetivos.
-Caso não existam quaisquer produtos, deves imprimir uma mensagem a indicá-lo.
-
-No código, está indicado com “VER ITENS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc5](img/sc5.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC6.** Implementa a funcionalidade de remover um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto (que pode ser usado para calcular o índice do mesmo no vetor) e removê-lo do carrinho. Certifica-te que o utilizador não escolhe um item não existente.
-
-No final, para verificar que a função funciona, corre a opção de ver os itens do carrinho e certifica-te que o item escolhido não aparece.
-
-No código, está indicado com “REMOVER ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Primeiro Input             |  Segundo Input
-:-------------------------:|:-------------------------:
-![Exemplo sc6](img/sc6.png)  |  ![Exemplo sc6-2](img/sc6_2.png)
-
-
----
-
-# Soluções
-
-
-```cpp
-class ShoppingCart {
-private:
-    vector <Item> cart;
-public:
-    void addItem() {
-        string newName;
-        double price;
-
-        cout << "Novo Item: ";
-        getline(cin, newName);
-
-        cout << "Preço (€): ";
-        cin >> price;
-
-        Item item(newName, price);
-
-        cart.push_back(item);
-
-        cout << "Adicionado item: " << newName << endl;
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-
-```cpp
-public:
-    // ...
-    void printItems() {
-        int size = cart.size();
-
-        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-
-        if (size == 0) {
-            cout << "O carrinho de compras está vazio!" << endl;
-        }
-
-        for (int i = 0; i < size; i++) {
-            Item item = cart.at(i);
-            string name = item.getName();
-            double price = item.getPrice();
-
-            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
-        }
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-
-```cpp
-public:
-    // ...
-    void removeItem() {
-        int id;
-
-        cout << "ID do item a remover: ";
-        cin >> id;
-
-        if (id < 0 || id > cart.size()) {
-            cout << "Esse item não existe!" << endl;
-            return;
-        }
-
-        Item item = cart.at(id - 1);
-        cart.erase(cart.begin() + id - 1);
-
-        cout << "Removido item: " << item.getName() << endl;
-    }
-    // ...
-```
-
----
-
-# Soluções
-
-```cpp
-void printAndChooseOption(int &option) {
-    // ...
-    switch (option)
-    {
-        case 0:
-            // TERMINAR O PROGRAMA
-            cout << "Obrigado por escolher a nossa aplicação!" << endl;
-            break;
-        case 1:
-            printItems();
-            break;
-        case 2:
-            addItem();
-            break;
-        case 3:
-            // ATUALIZAR ITEMS
-            break;
-        case 4:
-            removeItem();
-            break;
-        default:
-           cout << "Opção não existente!" << endl;
-           break;
-    }
-    // ...
-}
-```
-
----
-
-# Exercícios - Shopping Cart
-
-**SC7.** Implementa a funcionalidade de atualizar um item do carrinho. Para isso, deves pedir ao utilizador o ID do produto, pedir o novo nome do produto e preço do produto, e atualizar o respetivo item no carrinho. Certifica-te que o utilizador não escolhe um item não existente.
-
-No código, está indicado com “ATUALIZAR ITEMS” o local onde deves trabalhar neste exercício. Recorda-te do uso de métodos de classe.
-
-Exemplo do programa em execução:
-![Exemplo sc7](img/sc7.png)
-
----
-
-# Exercícios - Shopping Cart
-
-**SC8.** Melhora a funcionalidade de mostrar os itens do carrinho de forma a ser possível ver o preço total dos produtos. Para isso, deves escrever uma função que calcule a soma dos preços, chamá-la no local apropriado, e imprimir o valor retornado pela mesma após mostrares os itens presentes no carrinho.
-
-Exemplo do programa em execução:
-![Soluçao sc8](img/sc8.png)
-
----
-
-```cpp
-public:
-    // ...
-    void updateItem() {
-        int id;
-
-        cout << "ID do item a atualizar: ";
-        cin >> id;
-        cin.ignore(10000, '\n');
-
-        if (id < 0 || id > cart.size()) {
-            cout << "Esse item não existe!" << endl;
-            return;
-        }
-
-        string oldName = cart.at(id - 1).getName();
-
-        string newName;
-        cout << "Novo item: ";
-        getline(cin, newName);
-
-        double newPrice;
-        cout << "Novo preço (€): ";
-        cin >> newPrice;
-
-        Item newItem(newName, newPrice);
-
-        cart.at(id - 1) = newItem;
-
-        cout << "Atualizado item " << oldName << " para " << newName << endl;
-    }
-    // ...
-```
-
----
-
-```cpp
-public:
-    // ...
-    double sumPrices() {
-        double sum = 0;
-
-        for (int i = 0; i < cart.size(); i++) {
-            Item item = cart.at(i);
-            sum += item.getPrice();
-        }
-
-        return sum;
-    }
-    
-    void printItems() {
-        int size = cart.size();
-        double total = sumPrices();
-
-        cout << "ITENS NO CARRINHO DE COMPRAS" << endl;
-
-        if (size == 0) {
-            cout << "O carrinho de compras está vazio!" << endl;
-        }
-
-        for (int i = 0; i < size; i++) {
-            Item item = cart.at(i);
-            string name = item.getName();
-            double price = item.getPrice();
-
-            cout << i + 1 << " - " << name << " - " << price << "€" << endl;
-        }
-        cout << "Total: " << total << "€" << endl;
-    }
-    // ...
-```
-
----
 # Outros Tópicos Avançados
 
 - Alguns conceitos de classes
@@ -1594,6 +1227,8 @@ class: center, middle
 
 ---
 
-# Questionário
+# Questionário de Feedback
+
+Ajuda-nos a melhorar o workshop preenchendo este questionário de feedback - [Link](https://forms.gle/VUM3XhY4GT83wPXJ7)
 
 <img src="img/qr.png" alt="QR Code" style="max-width: 60%; height: auto;" />
