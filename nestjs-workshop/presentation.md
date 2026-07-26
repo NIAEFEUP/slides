@@ -304,9 +304,9 @@ A module can contain four things:
 ```typescript
 @Module({
   imports: [TypeOrmModule.forFeature([User])], // register entities
-  controllers: [UsersController],              // handles HTTP requests
-  providers: [UsersService],                   // business logic (services)
-  exports: [UsersService],                     // share with other modules
+  controllers: [UsersController], // handles HTTP requests
+  providers: [UsersService], // business logic (services)
+  exports: [UsersService], // share with other modules
 })
 export class UsersModule {}
 ```
@@ -322,12 +322,12 @@ export class UsersModule {}
 
 Back to our restaurant analogy:
 
-| Layer          | Role            | Job                                      |
-| -------------- | --------------- | ---------------------------------------- |
-| **Controller** | Waiter          | Takes orders, brings back food           |
-| **Service**    | Kitchen         | Does the actual cooking                  |
-| **Entity**     | Recipe card     | Defines what data looks like in the DB   |
-| **DTO**        | Order slip      | Defines what data goes in/out of the API |
+| Layer          | Role        | Job                                      |
+| -------------- | ----------- | ---------------------------------------- |
+| **Controller** | Waiter      | Takes orders, brings back food           |
+| **Service**    | Kitchen     | Does the actual cooking                  |
+| **Entity**     | Recipe card | Defines what data looks like in the DB   |
+| **DTO**        | Order slip  | Defines what data goes in/out of the API |
 
 The flow of a request:
 
@@ -339,7 +339,7 @@ Request -> Controller -> Service -> Database -> Service -> Controller -> Respons
 
 # Controller
 
-The controller handles **HTTP requests** - just like we learned in Web Basics.
+The controller is resposible for handling **HTTP requests**.
 
 ```typescript
 // users.controller.ts
@@ -420,6 +420,141 @@ export class UsersService {
 ```
 
 > This is where **CRUD** operations actually happen.
+
+---
+
+# Entity
+
+The entity defines the **shape of your data in the database**.
+
+Think of it as a **blueprint** for a database table.
+
+```typescript
+// user.entity.ts
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column({ unique: true })
+  email: string;
+}
+```
+
+- `@Entity()` - marks this class as a database table
+- `@Column()` - each property becomes a column in the table
+- `@PrimaryGeneratedColumn()` - the unique identifier (auto-incremented)
+
+---
+
+# What is a Repository?
+
+A Repository is your **interface to the database**. ORMs (**O**bject-**R**elational **M**apping, like TypeORM) gives you one Repository per Entity.
+
+Think of it as a **toolbox** for talking to a specific table:
+
+```txt
+userRepo.find()              ->  SELECT * FROM user
+userRepo.findOne({ id: 1 })  ->  SELECT * FROM user WHERE id = 1
+userRepo.create(dto)         ->  creates a new User in memory
+userRepo.save(user)          ->  INSERT or UPDATE in the database
+userRepo.delete(id)          ->  DELETE FROM user WHERE id = ?
+```
+
+You don't write SQL. You call methods, and the ORM builds the query for you.
+
+---
+
+# DTO
+
+**D**ata **T**ransfer **O**bject - defines what data the client **sends** and **receives**.
+
+Remember JSON from [Web Basics](#web-basics)? DTOs define the shape of that JSON.
+
+```typescript
+// create-user.dto.ts
+export class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsEmail()
+  email: string;
+}
+```
+
+When a client sends this JSON:
+
+```json
+{ "name": "Alice", "email": "alice@example.com" }
+```
+
+NestJS maps it to a `CreateUserDto` object that you can use in your service.
+
+> DTOs are the **contract** between your API and the client.
+
+---
+
+# DTO vs Entity
+
+They look similar but serve **different purposes**:
+
+```typescript
+// Entity - for the database (what the database stores)
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number; // DB generates this
+
+  @Column()
+  name: string;
+
+  @Column({ unique: true })
+  email: string;
+}
+```
+
+```typescript
+// DTO - for the API (what the client sends/receives)
+export class CreateUserDto {
+  @IsString()
+  name: string; // client sends this
+
+  @IsEmail()
+  email: string; // client sends this
+  // no id! the DB generates it
+}
+```
+
+---
+
+# The full flow
+
+Let's trace a `GET /users/42` request through all four layers:
+
+```txt
+1. HTTP Request arrives:
+   GET /users/42
+
+2. Controller receives it:
+   @Get(':id')
+   findOne(@Param('id') id: string) {
+     return this.usersService.findOne(+id);
+   }
+
+3. Service asks the Repository:
+   findOne(id: number) {
+     return this.userRepo.findOneOrFail({ where: { id } });
+   }
+
+4. Response goes back (JSON):
+   { "name": "Alice", "email": "alice@example.com" }
+```
+
+Each layer has a single responsibility.
 
 ---
 
