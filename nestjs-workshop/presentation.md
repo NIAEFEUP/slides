@@ -80,7 +80,7 @@ Think of it like a _restaurant_:
 
 - You (the **frontend**) look at a menu and place an order
 - The kitchen (the **backend**) prepares your food
-- A waiter (the **internet**) delivers it back to you
+- A waiter (**HTTP**) delivers it back to you
 
 ---
 
@@ -106,6 +106,8 @@ The frontend **asks** the backend for data. The backend **replies** with it.
 
 # What is an API?
 
+Now that we know the frontend needs data from the backend, _how_ do they talk?
+
 **A**pplication **P**rogramming **I**nterface
 
 An API is a **contract** between the frontend and the backend:
@@ -126,7 +128,8 @@ In web apps, an API is a set of **URLs** (called **endpoints**) that you can tal
 
 **H**yper**T**ext **T**ransfer **P**rotocol
 
-- The "language" that browsers and servers use to communicate
+If the API is the **menu** (what you can order), HTTP is the **language** you use to place the order.
+
 - Every conversation has two parts:
   - A **request** - what the client (your browser) asks for
   - A **response** - what the server sends back
@@ -178,14 +181,12 @@ Every response comes with a **status code** - tells you what happened.
 
 # Methods - CRUD
 
-Every HTTP method maps to a basic operation on data:
+CRUD is a concept - the four basic operations on any data. HTTP methods are how we **implement** CRUD in our API:
 
 - **GET** - **R**ead -> fetch data
 - **POST** - **C**reate -> send new data
 - **PUT** - **U**pdate -> replace existing data
 - **DELETE** - **D**elete -> remove data
-
-These four operations are called **CRUD**.
 
 ---
 
@@ -193,7 +194,7 @@ These four operations are called **CRUD**.
 
 **RE**presentational **S**tate **T**ransfer
 
-REST is not a protocol - it's a set of **conventions** for designing APIs:
+REST is a convention for designing your API so that it uses **HTTP methods** to perform **CRUD operations** on **resources** identified by **URLs**:
 
 - Resources are identified by **URLs**
   - `/users` - all users
@@ -232,17 +233,17 @@ A lightweight, human-readable text format for exchanging data:
 Here's what happens when you open a webpage and it loads your profile:
 
 ```txt
-1. Browser sends a request:
+1. Browser sends an HTTP request (API endpoint):
    GET /users/42
 
 2. Backend receives the request:
    Queries the database for user #42
 
-3. Backend sends a response:
+3. Backend sends an HTTP response (JSON data):
    Status: 200 OK
    Body: { "name": "Alice", "age": 20 }
 
-4. Browser receives the response:
+4. Browser receives the JSON response:
    Renders your profile on screen
 ```
 
