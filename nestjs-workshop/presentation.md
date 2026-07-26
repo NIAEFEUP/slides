@@ -53,14 +53,200 @@ class: middle
 # Index
 
 - [Web Basics](#web-basics) - HTTP, REST
-- [CRUD Endpoints](#crud-endpoints) - Building a REST API
-- [JSON & Data Validation](#json-data-validation) - Class Validators, Pipes
 - [Project Structure](#project-structure) - Entity, DTO, Service, Controller, Module
 - [Dependency Injection](#dependency-injection) - Decorators, providers
 - [Guards](#guards) - Authentication & authorization
 - [Exception Filters](#exception-filters) - Custom error handling
 - [Live Demo](#live-demo) - Building a simple API from scratch
 - [Niddle Codebase Walkthrough](#niddle-codebase) - Real-world project structure
+
+---
+
+name: web-basics
+template: title
+
+# Web Basics
+
+---
+
+# How do websites work?
+
+Every app you use (UNI, SIGARRA, Instagram) needs to:
+
+- **Store data** - users, posts, grades
+- **Send that data to your screen** - so you can see it and interact with it
+
+Think of it like a _restaurant_:
+
+- You (the **frontend**) look at a menu and place an order
+- The kitchen (the **backend**) prepares your food
+- A waiter (the **internet**) delivers it back to you
+
+---
+
+# Frontend vs Backend
+
+.horizontal[
+
+- What you **see** and **interact with**
+- Buttons, pages, forms, animations
+- Runs inside your **browser**
+- Built with HTML, CSS, JavaScript
+
+
+- The **brain** behind the scenes
+- Stores data, enforces rules, does the heavy lifting
+- Runs on a **server** (a computer somewhere on the internet)
+- Usually built with frameworks like **NestJS**
+]
+
+The frontend **asks** the backend for data. The backend **replies** with it.
+
+---
+
+# What is an API?
+
+**A**pplication **P**rogramming **I**nterface
+
+An API is a **contract** between the frontend and the backend:
+
+> "If you send me **this**, I'll respond with **that**"
+
+Think of it like a **menu at a restaurant**:
+
+- You don't need to know _how_ the kitchen cooks your food
+- You just need to know _what you can order_ and _what you'll get_
+- The menu is the **API**
+
+In web apps, an API is a set of **URLs** (called **endpoints**) that you can talk to.
+
+---
+
+# How do they talk? - HTTP
+
+**H**yper**T**ext **T**ransfer **P**rotocol
+
+- The "language" that browsers and servers use to communicate
+- Every conversation has two parts:
+  - A **request** - what the client (your browser) asks for
+  - A **response** - what the server sends back
+- It's **stateless**: every request is independent
+
+> The server does not keep any state between requests!
+
+---
+
+# HTTP Requests
+
+Every request has three key parts:
+
+- **Method** - _What_ you want to do
+- **URL / Endpoint** - _Which_ resource you're asking about
+- **Body** (optional) - _Extra data_ you're sending
+
+```txt
+GET /users/42
+```
+
+> "Give me user number 42"
+
+```txt
+POST /users
+Body: { "name": "Alice", "age": 20 }
+```
+
+> "Create a new user called Alice, age 20"
+
+---
+
+# Responses & Status Codes
+
+Every response comes with a **status code** - tells you what happened.
+
+- **`2xx` Success** - everything went fine
+  - `200 OK` - here's your data
+  - `201 Created` - your resource was created
+
+- **`4xx` Client error** - _you_ messed up
+  - `404 Not Found` - that resource doesn't exist
+  - `401 Unauthorized` - you're not logged in
+
+- **`5xx` Server error** - _the server_ messed up
+  - `500 Internal Server Error` - something broke on our side
+
+---
+
+# Methods - CRUD
+
+Every HTTP method maps to a basic operation on data:
+
+- **GET** - **R**ead -> fetch data
+- **POST** - **C**reate -> send new data
+- **PUT** - **U**pdate -> replace existing data
+- **DELETE** - **D**elete -> remove data
+
+These four operations are called **CRUD**.
+
+---
+
+# What is REST?
+
+**RE**presentational **S**tate **T**ransfer
+
+REST is not a protocol - it's a set of **conventions** for designing APIs:
+
+- Resources are identified by **URLs**
+  - `/users` - all users
+  - `/posts/5` - post number 5
+- Use **HTTP methods** to act on those resources
+  - `GET /users` -> list all users
+  - `DELETE /posts/5` -> delete post #5
+- Data is exchanged as **JSON**
+
+> REST is the "style guide" of web APIs.
+
+---
+
+# What is JSON?
+
+**J**ava**S**cript **O**bject **N**otation
+
+A lightweight, human-readable text format for exchanging data:
+
+```json
+{
+  "name": "Alice",
+  "age": 20,
+  "courses": ["LTW", "AC"]
+}
+```
+
+- It's just **key-value pairs** (like a dictionary in Python)
+- Almost every web API in the world sends and receives JSON
+- JavaScript can parse it natively - `JSON.parse()` and `JSON.stringify()`
+
+---
+
+# Putting it all together
+
+Here's what happens when you open a webpage and it loads your profile:
+
+```txt
+1. Browser sends a request:
+   GET /users/42
+
+2. Backend receives the request:
+   Queries the database for user #42
+
+3. Backend sends a response:
+   Status: 200 OK
+   Body: { "name": "Alice", "age": 20 }
+
+4. Browser receives the response:
+   Renders your profile on screen
+```
+
+That's it! (Almost) Every interaction on the web follows this same pattern.
 
 ---
 
