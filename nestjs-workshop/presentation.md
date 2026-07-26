@@ -408,16 +408,14 @@ export class UsersService {
     return this.userRepo.find();
   }
 
-  findOne(id: number) {
-    return this.userRepo.findOneOrFail({ where: { id } });
-  }
-
   create(dto: CreateUserDto) {
     const user = this.userRepo.create(dto);
     return this.userRepo.save(user);
   }
 }
 ```
+
+Where does the `userRepo` come from? Check [Dependency Injection](#dependency-injection).
 
 > This is where **CRUD** operations actually happen.
 
@@ -555,6 +553,113 @@ Let's trace a `GET /users/42` request through all four layers:
 ```
 
 Each layer has a single responsibility.
+
+---
+
+name: dependency-injection
+template: title
+
+# Dependency Injection
+
+---
+
+# The problem: tight coupling
+
+Without **DI**, a class has to **create its own dependencies**:
+
+```typescript
+export class UsersController {
+  private service = new UsersService(new UserRepository(new Database()));
+}
+```
+
+- The controller is responsible for creating everything it needs
+- Want to swap the database? **Change the controller.**
+- Want to mock the service for testing? **Can't.**
+
+> Imagine if the waiter had to buy the ingredients, cook the food, _and_ serve it. That's tight coupling.
+
+---
+
+# The solution: Dependency Injection
+
+With **DI**, NestJS **creates and provides** your dependencies automatically:
+
+```typescript
+@Controller("users")
+export class UsersController {
+  constructor(private usersService: UsersService) {}
+}
+```
+
+The controller doesn't create the service. It just says:
+
+> "I need a `UsersService`" - and NestJS hands it over.
+
+You **declare what you need**, NestJS **provides it**.
+
+---
+
+# How does NestJS know?
+
+Two things make **DI** work:
+
+```typescript
+@Injectable() // 1. "This class can be injected"
+export class UsersService {
+  constructor(
+    @InjectRepository(User) // 2. "This repository handles User entities"
+    private userRepo: Repository<User>,
+  ) {}
+}
+```
+
+When the app starts:
+
+```txt
+1. NestJS scans for @Injectable() classes
+2. Creates instances (the "singletons")
+3. When a Controller needs a Service, NestJS hands it the existing instance
+```
+
+> Think of the IoC container as a restaurant manager. It stocks the kitchen and provides what each waiter needs.
+
+---
+
+# In practice
+
+You've already been using **DI**! Let's highlight the injected parts:
+
+```typescript
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private userRepo: Repository<User>, // <-- injected by NestJS
+  ) {}
+}
+```
+
+```typescript
+@Controller("users")
+export class UsersController {
+  constructor(
+    private usersService: UsersService, // <-- injected by NestJS
+  ) {}
+}
+```
+
+Now you know what this is called.
+
+---
+
+# Why should I care?
+
+- **Testing** - swap a real service for a fake one in tests
+- **Flexibility** - change the database without touching the controller
+- **Clean code** - each class only worries about its own job
+
+> **DI** is what makes NestJS's architecture work. Without it, the Module / Controller / Service structure wouldn't be possible.
 
 ---
 
