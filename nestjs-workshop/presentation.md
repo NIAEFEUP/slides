@@ -251,6 +251,178 @@ That's it! (Almost) Every interaction on the web follows this same pattern.
 
 ---
 
+name: project-structure
+template: title
+
+# Project Structure
+
+---
+
+# Why structure matters?
+
+When you first create a NestJS project, you get this:
+
+```txt
+src/
+  app.module.ts          <- root module (the "main" file)
+  app.controller.ts      <- handles HTTP requests
+  app.service.ts         <- business logic
+  app.controller.spec.ts <- tests
+  main.ts                <- entry point
+```
+
+A real app has users, orders, authentication, and much more. NestJS organizes code by **feature** - each feature is its own module.
+
+---
+
+# What is a Module?
+
+A module groups **related code** together - like a department in a company.
+
+- If your app is a restaurant, a module is the "kitchen department"
+- Or the "billing department"
+- Or the "reservation department"
+
+Every NestJS app starts with one **root module**: `AppModule`, but each feature gets its own module.
+
+```typescript
+// users.module.ts
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [UsersService],
+})
+export class UsersModule {}
+```
+
+---
+
+# Module anatomy
+
+A module can contain four things:
+
+```typescript
+@Module({
+  imports: [TypeOrmModule.forFeature([User])], // register entities
+  controllers: [UsersController],              // handles HTTP requests
+  providers: [UsersService],                   // business logic (services)
+  exports: [UsersService],                     // share with other modules
+})
+export class UsersModule {}
+```
+
+- **imports** - Other modules this module depends on
+- **controllers** - The "waiters" that handle HTTP
+- **providers** - The "kitchen" that does the work (services)
+- **exports** - Share your providers with other modules
+
+---
+
+# The four layers
+
+Back to our restaurant analogy:
+
+| Layer          | Role            | Job                                      |
+| -------------- | --------------- | ---------------------------------------- |
+| **Controller** | Waiter          | Takes orders, brings back food           |
+| **Service**    | Kitchen         | Does the actual cooking                  |
+| **Entity**     | Recipe card     | Defines what data looks like in the DB   |
+| **DTO**        | Order slip      | Defines what data goes in/out of the API |
+
+The flow of a request:
+
+```txt
+Request -> Controller -> Service -> Database -> Service -> Controller -> Response
+```
+
+---
+
+# Controller
+
+The controller handles **HTTP requests** - just like we learned in Web Basics.
+
+```typescript
+// users.controller.ts
+@Controller("users")
+export class UsersController {
+  @Get()
+  findAll() {
+    return ["Alice", "Bob"];
+  }
+
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return { name: "Alice", age: 20 };
+  }
+}
+```
+
+- `@Controller('users')` - this controller handles `/users`
+- `@Get()` - responds to `GET /users`
+- `@Get(':id')` - responds to `GET /users/42`
+
+---
+
+# Controller - more methods
+
+```typescript
+@Controller("users")
+export class UsersController {
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return { name: "Charlie", age: 22 };
+  }
+
+  @Put(":id")
+  update(@Param("id") id: string, @Body() dto: UpdateUserDto) {
+    return { name: "Charlie", age: 23 };
+  }
+
+  @Delete(":id")
+  remove(@Param("id") id: string) {
+    return { deleted: true };
+  }
+}
+```
+
+Notice how each decorator maps to an **HTTP method** from the [Web Basics](#web-basics) section.
+
+> Controllers should be **thin** - they just receive the request and pass it to the service.
+
+---
+
+# Service
+
+The service contains the **business logic** - the "kitchen" that does the work.
+
+```typescript
+// users.service.ts
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private userRepo: Repository<User>,
+  ) {}
+
+  findAll() {
+    return this.userRepo.find();
+  }
+
+  findOne(id: number) {
+    return this.userRepo.findOneOrFail({ where: { id } });
+  }
+
+  create(dto: CreateUserDto) {
+    const user = this.userRepo.create(dto);
+    return this.userRepo.save(user);
+  }
+}
+```
+
+> This is where **CRUD** operations actually happen.
+
+---
+
 template: title
 
 ## Thank you!
