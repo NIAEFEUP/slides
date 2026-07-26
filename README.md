@@ -37,6 +37,8 @@
 
 - [Svelte](https://niaefeup.github.io/slides/svelte-workshop)
 
+- [NestJS](https://niaefeup.github.io/slides/nestjs-workshop)
+
 - [Web Browser Extension](https://niaefeup.github.io/slides/web-extension)
 
 - [CI/CD](https://niaefeup.github.io/slides/gh-actions-workshop)
