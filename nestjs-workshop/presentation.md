@@ -663,6 +663,76 @@ Now you know what this is called.
 
 ---
 
+name: guards
+template: title
+
+# Guards
+
+---
+
+# What is a Guard?
+
+A guard is a **gatekeeper** that runs _before_ your route handler.
+
+It answers one question: **should this request proceed?**
+
+- `true` -> request continues
+- Throws exception -> request is **rejected**
+
+> Think of it like a bouncer at a club door. Checks your ID before letting you in.
+
+Guards can answer two types of questions:
+
+- **"Who are you?"** -> Authentication (are you logged in?)
+- **"Can you do this?"** -> Authorization (are you an admin?)
+
+---
+
+# @UseGuards()
+
+Apply guards to routes with a decorator:
+
+```typescript
+@UseGuards(JwtAuthGuard)
+@Get("profile")
+getProfile() { ... }
+```
+
+Stack multiple guards for layered checks:
+
+```typescript
+@UseGuards(JwtAuthGuard, AdminOnlyGuard)
+@Post()
+create() { ... }
+```
+
+Guards run **left to right** - the first one to reject stops the chain.
+
+---
+
+# In practice
+
+Here's a real guard from Niddle:
+
+```typescript
+@Injectable()
+export class AdminOnlyGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const user = context.switchToHttp().getRequest().user;
+    if (!user || !user.isAdmin) {
+      throw new ForbiddenException();
+    }
+    return true;
+  }
+}
+```
+
+- `JwtAuthGuard` runs first -> loads `user` into the request
+- `AdminOnlyGuard` runs second -> checks `user.isAdmin`
+- GET endpoints are usually **unprotected** - only CUD operations need guards
+
+---
+
 template: title
 
 ## Thank you!
