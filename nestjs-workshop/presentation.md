@@ -275,6 +275,27 @@ A real app has users, orders, authentication, and much more. NestJS organizes co
 
 ---
 
+# main.ts - the entry point
+
+Every NestJS app starts from `main.ts`:
+
+```typescript
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+- `NestFactory.create(AppModule)` - bootstraps the app using the root module
+- `app.listen(3000)` - starts the server on port 3000
+- This is also where you register **global** things (pipes, filters)
+
+---
+
 # What is a Module?
 
 A module groups **related code** together - like a department in a company.
@@ -339,7 +360,7 @@ Request -> Controller -> Service -> Database -> Service -> Controller -> Respons
 
 # Controller
 
-The controller is resposible for handling **HTTP requests**.
+The controller is responsible for handling **HTTP requests**.
 
 ```typescript
 // users.controller.ts
@@ -927,6 +948,20 @@ It provides a REST API that manages:
 All the patterns we covered today are used in production:
 
 > Modules, Controllers, Services, Entities, DTOs, Guards, Exception Filters, Dependency Injection
+
+---
+
+# What you learned today
+
+| Section                  | Topics                                               |
+| ------------------------ | ---------------------------------------------------- |
+| **Web Basics**           | HTTP, REST, JSON, Status Codes                       |
+| **Project Structure**    | Module, Controller, Service, Entity, DTO, Repository |
+| **Dependency Injection** | `@Injectable()`, IoC container                       |
+| **Guards**               | `@UseGuards()`, Authentication vs Authorization      |
+| **Exception Filters**    | Built-in exceptions, custom `@Catch()` filters       |
+| **Live Demo**            | Books + Authors with Many-to-Many                    |
+| **NIddle Codebase**      | Real-world NestJS + TypeORM + JWT                    |
 
 ---
 
