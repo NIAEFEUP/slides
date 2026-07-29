@@ -58,7 +58,7 @@ class: middle
 - [Guards](#guards) - Authentication & authorization
 - [Exception Filters](#exception-filters) - Custom error handling
 - [Live Demo](#live-demo) - Building a simple API from scratch
-- [Niddle Codebase Walkthrough](#niddle-codebase) - Real-world project structure
+- [NIddle Codebase Walkthrough](#niddle-codebase) - Real-world project structure
 
 ---
 
@@ -712,7 +712,7 @@ Guards run **left to right** - the first one to reject stops the chain.
 
 # In practice
 
-Here's a real guard from Niddle:
+Here's a real guard from NIddle:
 
 ```typescript
 @Injectable()
@@ -793,6 +793,140 @@ A filter catches TypeORM's `EntityNotFoundError` and returns a clean response:
 ```
 
 > Filters turn ugly database errors into friendly API responses.
+
+---
+
+name: live-demo
+template: title
+
+# Live Demo
+
+---
+
+# Books + Authors
+
+Let's build a simple API together with two modules.
+
+```typescript
+@Entity()
+export class Author {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column()
+  nationality: string;
+}
+```
+
+```typescript
+@Injectable()
+export class AuthorsService {
+  constructor(
+    @InjectRepository(Author)
+    private authorRepo: Repository<Author>,
+  ) {}
+
+  // CRUD endpoints
+}
+```
+
+---
+
+# Books module
+
+```typescript
+@Entity()
+export class Book {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  title: string;
+
+  @Column()
+  year: number;
+}
+```
+
+```typescript
+@Injectable()
+export class BooksService {
+  constructor(
+    @InjectRepository(Book)
+    private bookRepo: Repository<Book>,
+  ) {}
+
+  // same CRUD pattern as AuthorsService
+}
+```
+
+---
+
+# Many-to-Many relationship
+
+Now connect them: a book can have **multiple authors**, an author can write **multiple books**.
+
+```typescript
+@Entity()
+export class Book {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  title: string;
+
+  @Column()
+  year: number;
+
+  @ManyToMany(() => Author)
+  @JoinTable()
+  authors: Author[];
+}
+```
+
+The `@JoinTable()` tells TypeORM to create an intermediate table.
+
+---
+
+name: niddle-codebase
+template: title
+
+# NIddle Codebase Walkthrough
+
+---
+
+# What is NIddle?
+
+**NIddle** is the backend for the **UNI** app.
+
+It provides a REST API that manages:
+
+- **Faculties** - FEUP, FEP, FLUP, etc.
+- **Courses** - LEIC, MESW, etc.
+- **Associations** - student groups like NIAEFEUP
+- **Events** - talks, workshops, parties
+- **Services** - cafeterias, stationery shops with schedules
+- **Users** - admins and association members
+
+---
+
+# Tech Stack
+
+| Layer      | Technology            |
+| ---------- | --------------------- |
+| Framework  | NestJS                |
+| Database   | PostgreSQL (TypeORM)  |
+| Auth       | JWT + Passport        |
+| API Docs   | Swagger (`/api/docs`) |
+| Validation | class-validator       |
+| Testing    | Jest + Supertest      |
+
+All the patterns we covered today are used in production:
+
+> Modules, Controllers, Services, Entities, DTOs, Guards, Exception Filters, Dependency Injection
 
 ---
 
