@@ -733,6 +733,69 @@ export class AdminOnlyGuard implements CanActivate {
 
 ---
 
+name: exception-filters
+template: title
+
+# Exception Filters
+
+---
+
+# Built-in Exceptions
+
+NestJS gives you ready-made exception classes that return proper HTTP responses:
+
+```typescript
+throw new NotFoundException(); // 404
+throw new BadRequestException(); // 400
+throw new UnauthorizedException(); // 401
+throw new ForbiddenException(); // 403
+```
+
+Just throw them and NestJS handles the rest - status codes, JSON responses, everything.
+
+---
+
+# Exception Filters
+
+When built-in responses aren't enough, create a **custom filter**:
+
+```typescript
+@Catch(EntityNotFoundError)
+export class EntityNotFoundFilter implements ExceptionFilter {
+  catch(exception, host) {
+    const response = host.switchToHttp().getResponse();
+    response.status(404).json({
+      statusCode: 404,
+      message: "Resource not found",
+    });
+  }
+}
+```
+
+Register it globally in `main.ts`:
+
+```typescript
+app.useGlobalFilters(new EntityNotFoundFilter());
+```
+
+---
+
+# In practice
+
+A filter catches TypeORM's `EntityNotFoundError` and returns a clean response:
+
+```txt
+// Without filter (raw TypeORM error):
+"Could not find any entity of type \"User\" matching: { \"id\": 1 }"
+
+// With filter:
+{ "statusCode": 404, "message": "User with id 1 not found" }
+```
+
+> Filters turn ugly database errors into friendly API responses.
+
+---
+
 template: title
 
 ## Thank you!
