@@ -29,7 +29,7 @@ class: center, middle, inverse
 #### This presentation is available online from the link below
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 4rem 0rem;">
-  <a href="https://slides.niaefeup.pt/slides/nestjs-workshop/" style="color: white; font-weight:bold; font-size: 1.5rem; text-align:center;">https://slides.niaefeup.pt/nestjs-workshop/</a>
+  <a href="https://slides.niaefeup.pt/nestjs-workshop/" style="color: white; font-weight:bold; font-size: 1.5rem; text-align:center;">https://slides.niaefeup.pt/nestjs-workshop/</a>
 </div>
 
 #### NestJS's Documentation
