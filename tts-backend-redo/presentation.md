@@ -57,7 +57,7 @@ What success looks like by end of January:
 
 - **Runtime:** Bun
 - **Framework:** Elysia
-- **ORM:** Prisma 8
+- **ORM:** Prisma 8 (contract-first)
 - **Database:** PostgreSQL
 
 
@@ -170,7 +170,7 @@ Each layer has one job. Boundaries are enforced by ESLint.
 
 # Database Design
 
-One table for all exchanges:
+One unified schema for all exchange types:
 
 ```text
 exchange_request            (kind, status)
@@ -181,14 +181,15 @@ exchange_event              (audit log)
 exchange_period             (when exchanges are open)
 ```
 
-**Before:** 4 fragmented table pairs
+- **Before:** 4 fragmented table pairs (direct, marketplace, urgent, enrollment)
+- **After:** 3 normalized core tables + audit trail & tokens
 
-**After:** 3 normalized tables + audit + tokens
+> Replaces separate exchange workflows with a single unified data model.
 
 ---
 
 template: title
 
-# Next Steps
+# Questions?
 
-## Questions?
+## TTS Backend Redo Proposal
