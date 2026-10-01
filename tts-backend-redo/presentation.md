@@ -188,6 +188,14 @@ exchange_period             (when exchanges are open)
 
 ---
 
+# Database: Entity Relationships
+
+<div style="text-align: center; margin-top: 0.8em;">
+  <img src="assets/db-schema.svg" style="max-height: 430px; width: auto; max-width: 100%; object-fit: contain;" />
+</div>
+
+---
+
 template: title
 
 # Questions?
