@@ -27,6 +27,7 @@ h6 {
   margin-left: 0;
 }
 
+code,
 .remark-code,
 .remark-inline-code {
   font-family: "Ubuntu Mono";
@@ -49,12 +50,14 @@ ul {
   margin-top: 1em;
 }
 
+code,
 .remark-code,
 .remark-inline-code {
   font-family: "Ubuntu Mono";
   background-color: #282b2e !important;
   color: white;
-  padding: 0.1em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
 }
 
 blockquote {
@@ -122,11 +125,31 @@ tr:nth-child(even) {
 .horizontal {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  align-items: center;
+  gap: 1.5em;
 }
 
 .horizontal > * {
   flex: 1;
+}
+
+.remark-slide-content .horizontal li {
+  font-size: 0.82em;
+  line-height: 1.35;
+  margin-bottom: 0.35em;
+}
+
+.remark-slide-content .horizontal ol,
+.remark-slide-content .horizontal ul {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  padding-left: 1.2em;
+}
+
+.remark-slide-content .horizontal p {
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  margin-bottom: 0.3em;
 }
 
 .remark-slide-content {

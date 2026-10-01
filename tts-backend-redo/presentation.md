@@ -57,7 +57,7 @@ What success looks like by end of January:
 
 - **Runtime:** Bun
 - **Framework:** Elysia
-- **ORM:** Prisma
+- **ORM:** Prisma 8
 - **Database:** PostgreSQL
 
 
@@ -85,22 +85,37 @@ What success looks like by end of January:
 
 # Architecture
 
-Clean Architecture layers — dependencies point inward:
+.horizontal[
 
-<div style="margin-top: 1em; text-align: center; font-family: 'Ubuntu Mono', monospace;">
-  <div style="background: #13212e; color: white; padding: 0.8em; margin: 0.3em 0;">
-    <strong>domain/</strong> — pure business rules
-  </div>
-  <div style="background: #1e3a52; color: white; padding: 0.8em; margin: 0.3em 0;">
-    <strong>application/</strong> — use cases
-  </div>
-  <div style="background: #2a5270; color: white; padding: 0.8em; margin: 0.3em 0;">
-    <strong>infrastructure/</strong> — Prisma, SIGARRA, email
-  </div>
-  <div style="background: #366a8e; color: white; padding: 0.8em; margin: 0.3em 0;">
-    <strong>interface/</strong> — routes, middleware
-  </div>
+<div style="flex: 1.15;">
+
+<p><strong>Clean Architecture with Elysia:</strong></p>
+
+<ul style="list-style-type: disc;">
+  <li style="margin-bottom: 0.7em;">
+    <strong>interface/</strong>
+    <br><span style="font-size: 0.9em;">Routes, middleware (<code>.derive</code>), Zod validation</span>
+    <br><em style="font-size: 0.85em; color: #55697a;">HTTP only &bull; no DB, no business rules</em>
+  </li>
+  <li style="margin-bottom: 0.7em;">
+    <strong>application/ (use cases)</strong>
+    <br><span style="font-size: 0.9em;">Business rules &amp; orchestration</span>
+    <br><em style="font-size: 0.85em; color: #55697a;">Pure domain logic &bull; no HTTP, no DB</em>
+  </li>
+  <li style="margin-bottom: 0.7em;">
+    <strong>infrastructure/</strong>
+    <br><span style="font-size: 0.9em;">Repositories, Prisma 8 (<code>src/prisma/db.ts</code>), PostgreSQL</span>
+    <br><em style="font-size: 0.85em; color: #55697a;">Persistence only &bull; no HTTP, no business rules</em>
+  </li>
+</ul>
+
 </div>
+
+<div style="flex: 0.85; text-align: center;">
+  <img src="assets/architecture.png" style="max-height: 420px; max-width: 100%; object-fit: contain;" />
+</div>
+
+]
 
 ---
 
@@ -108,15 +123,48 @@ Clean Architecture layers — dependencies point inward:
 
 ```text
 src/
-├── domain/           # entities, value-objects, ports
-├── application/      # use-cases, services
-├── infrastructure/   # database, external APIs
-├── interface/        # routes, middleware, validators
-├── core/             # errors, utils
+├── domain/                  # entities, value-objects, ports
+├── application/             # use-cases, services
+│   └── use-cases/           # business rules & orchestration
+├── infrastructure/          # repositories, Prisma 8, external APIs
+│   ├── repositories/        # exchange.repository.ts
+│   └── prisma/db.ts         # Prisma client instance
+├── interface/               # HTTP entrypoints
+│   ├── routes/              # exchanges.ts
+│   ├── middleware/          # auth & context injection (.derive)
+│   └── validators/          # Zod validation schemas
+├── core/                    # errors, utils
 └── main.ts
 ```
 
 Each layer has one job. Boundaries are enforced by ESLint.
+
+---
+
+# Example: Create Exchange Request
+
+.horizontal[
+
+<div style="flex: 1.25;">
+
+<p><strong>Step-by-step request flow:</strong></p>
+
+<ol>
+  <li><strong>HTTP:</strong> Client sends <code>POST /api/v1/exchanges</code></li>
+  <li><strong>Middleware:</strong> Auth reads JWT, injects user into context</li>
+  <li><strong>Route &amp; Validator:</strong> <code>exchanges.ts</code> receives request; Zod validates payload</li>
+  <li><strong>Use Case:</strong> <code>CreateExchangeUseCase</code> checks validity &amp; overlap</li>
+  <li><strong>Repository:</strong> <code>ExchangeRepository</code> saves exchange</li>
+  <li><strong>Database:</strong> ORM persists record to PostgreSQL</li>
+</ol>
+
+</div>
+
+<div style="flex: 0.75; text-align: center;">
+  <img src="assets/example-exchange.png" style="max-height: 430px; max-width: 100%; object-fit: contain;" />
+</div>
+
+]
 
 ---
 
